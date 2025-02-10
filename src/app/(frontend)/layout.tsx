@@ -19,7 +19,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
-      <body className={`antialiased ${inter.className}`}>
+      <body className={`antialiased ${inter.className} bg-background text-foreground dark:bg-background dark:text-foreground`}>
         <main>{children}</main>
       </body>
     </html>
