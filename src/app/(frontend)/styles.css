@@ -4,19 +4,27 @@
 
 @variant dark (&:is(.dark *));
 
+@theme {
+  --color-background: #FFFFFF;
+  --color-foreground: #2A2A2A;
+  --color-danger: #EF626C;
+  --color-success: #5DA271;
+  --color-warning: #E6AF2E;
+}
+
 @layer base {
   :root {
-    --background: '#FFFFFF';
-    --foreground: '#2A2A2A';
-    --danger: '#EF626C';
-    --success: '#5DA271';
-    --warning: '#E6AF2E';
+    background: var(--color-background);
+    foreground: var(--color-foreground);
+    danger: var(--color-danger);
+    success: var(--color-success);
+    warning: var(--color-warning);
   }
   .dark {
-    --background: '#2A2A2A';
-    --foreground: '#E7ECEF';
-    --danger: '#EF626C';
-    --success: '#5DA271';
-    --warning: '#E6AF2E';
+    background: var(--color-foreground);
+    foreground: var(--color-background);
+    danger: var(--color-danger);
+    success: var(--color-success);
+    warning: var(--color-warning);
   }
 }
