@@ -2,7 +2,7 @@
 
 /* @custom-variant dark (&:where(.dark, .dark *)); */
 
-@variant dark (&:is(.dark *));
+@variant dark ([data-theme='dark'], &:is(.dark *));
 
 @theme {
   --color-background: #FFFFFF;
