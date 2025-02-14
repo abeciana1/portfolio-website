@@ -23,6 +23,10 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+  cors: [
+    'http://localhost:3000',
+    'https://alexbeciana.com'
+  ],
   collections: [
     Users,
     Media,
