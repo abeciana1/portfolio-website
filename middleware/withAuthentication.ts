@@ -1,5 +1,3 @@
-import { NextResponse } from 'next/server';
-
 // Define a generic Handler type that accepts a request and additional arguments
 export type Handler<T = any> = (req: Request, args: T) => Promise<Response>;
 
