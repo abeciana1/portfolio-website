@@ -2,6 +2,7 @@ import React from 'react'
 import './styles.css'
 import { Inter } from 'next/font/google'
 import CombinedProviders from '@/components/providers'
+import NavBar from '@/components/_navigation/NavBar'
 
 const inter = Inter({
   weight: ['100', '300', '400', '500', '600', '700'],
@@ -22,9 +23,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body className={`antialiased ${inter.className} bg-background text-foreground dark:bg-background dark:text-foreground`}>
         <CombinedProviders>
-          <main>
-            {children}
-          </main>
+          <NavBar/>
+          {children}
         </CombinedProviders>
       </body>
     </html>
