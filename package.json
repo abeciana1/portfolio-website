@@ -22,6 +22,7 @@
     "@payloadcms/payload-cloud": "latest",
     "@payloadcms/richtext-lexical": "latest",
     "@tailwindcss/postcss": "^4.0.5",
+    "@tanstack/react-query": "^5.66.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
     "next": "15.1.5",
