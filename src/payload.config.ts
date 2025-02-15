@@ -27,6 +27,10 @@ export default buildConfig({
     'http://localhost:3000',
     'https://alexbeciana.com'
   ],
+  csrf: [
+    'http://localhost:3000',
+    'https://alexbeciana.com'
+  ],
   collections: [
     Users,
     Media,
