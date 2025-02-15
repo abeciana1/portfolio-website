@@ -8,7 +8,7 @@ const CombinedProviders: React.FC<WrapperI> = ({
   return (
     <>
       <ThemeProvider>
-          {children}
+        {children}
       </ThemeProvider>
     </>
   )
