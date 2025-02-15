@@ -5,7 +5,9 @@ const axiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
     'Authorization': `Token ${process.env.AUTH_KEY}`,
+    'x-internal-api-key': process.env.AUTH_KEY as string
   }
+
 })
 
 export default axiosInstance
