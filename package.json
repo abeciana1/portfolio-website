@@ -19,7 +19,9 @@
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
     "component": "cypress open --component",
     "component:headless": "cypress run --component",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "cy:run": "cypress run",
+    "merge:coverage": "nyc merge ./coverage ./coverage/merged-coverage.json"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "latest",
