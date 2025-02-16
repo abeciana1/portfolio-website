@@ -1,9 +1,8 @@
-// Define a generic Handler type that accepts a request and additional arguments
+ // Define a generic Handler type that accepts a request and additional arguments
 export type Handler<T = any> = (req: Request, args: T) => Promise<Response>;
 
 const withAuthentication = <T = any>(handler: Handler<T>): Handler<T> => {
   return async (req: Request, args: T): Promise<Response> => {
-    console.log('no need for api service????')
     const internalApiKey = process.env.AUTH_KEY;
     const requestApiKey = req.headers.get('x-internal-api-key');
 
