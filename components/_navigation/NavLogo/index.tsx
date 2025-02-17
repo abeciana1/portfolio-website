@@ -22,7 +22,7 @@ const NavLogo: React.FC<ImageT> = ({
           width={width}
           height={height}
           data-cy='profile-image'
-          className='scale-x-[-1] translate-y-0.5 w-14 h-14'
+          className='scale-x-[-1] w-14 h-14'
         />
       </Link>
     </div>
