@@ -88,6 +88,10 @@ export interface User {
 export interface Media {
   id: number;
   alt: string;
+  /**
+   * Convert image to webp
+   */
+  convertWebp?: boolean | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -110,6 +114,7 @@ export interface NavigationMenu {
    * title for the navigation menu (i.e. Main Menu)
    */
   title: string;
+  logo?: (number | null) | Media;
   links: (number | NavLink)[];
   updatedAt: string;
   createdAt: string;
@@ -214,6 +219,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
+  convertWebp?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -232,6 +238,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface NavigationMenuSelect<T extends boolean = true> {
   title?: T;
+  logo?: T;
   links?: T;
   updatedAt?: T;
   createdAt?: T;
