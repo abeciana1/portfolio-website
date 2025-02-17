@@ -34,7 +34,7 @@ const NavBar = () => {
     height
   } = logo
   return (
-    <nav>
+    <nav className='relative'>
       <NavLogo
         src={webpUrl}
         alt={alt}
