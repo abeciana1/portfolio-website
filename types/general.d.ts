@@ -1,3 +1,3 @@
-export type WrapperT = {
+export interface WrapperI {
   children: React.ReactNode;
 }

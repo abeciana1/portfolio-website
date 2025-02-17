@@ -1,10 +1,10 @@
 'use client'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { WrapperT } from '@/types/general'
+import { WrapperI } from '@/types/general'
 
 const queryClient = new QueryClient();
 
-const CombinedProviders: React.FC<WrapperT> = ({
+const CombinedProviders: React.FC<WrapperI> = ({
   children
 }) => {
   return (
