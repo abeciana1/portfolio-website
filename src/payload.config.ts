@@ -52,7 +52,15 @@ export default buildConfig({
     payloadCloudPlugin(),
     s3Storage({
       collections: {
-        media: true,
+        media: {
+          disableLocalStorage: true,
+          generateFileURL: ({ filename }) => {
+            if (filename) {
+              return `${process.env.S3_ENDPOINT}/${process.env.BUCKET_NAME}/${filename}`
+            }
+            return ''
+          },
+        }
       },
       bucket: process?.env?.BUCKET_NAME as string,
       config: {
@@ -61,6 +69,8 @@ export default buildConfig({
           secretAccessKey: process?.env?.S3_SECRET_ACCESS_KEY as string,
         },
         region: process?.env?.S3_REGION as string,
+        endpoint: process?.env?.S3_ENDPOINT as string,
+        forcePathStyle: true,
       }
     })
   ],
