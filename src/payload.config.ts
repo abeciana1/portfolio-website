@@ -66,7 +66,6 @@ export default buildConfig({
         media: {
           disableLocalStorage: true,
           generateFileURL: (args) => {
-            console.log('args', args)
             const { filename } = args
             if (filename) {
               return `${process.env.S3_ENDPOINT}/${process.env.BUCKET_NAME}/${filename}`
