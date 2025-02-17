@@ -22,6 +22,15 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      url: process.env.NODE_ENV === 'production' ? 'https://alexbeciana.com' : 'http://localhost:3000',
+      collections: [
+        'users',
+        'media',
+        'navigation-menu',
+        'nav-links'
+      ],
+    }
   },
   cors: [
     'http://localhost:3000',
@@ -54,7 +63,9 @@ export default buildConfig({
       collections: {
         media: {
           disableLocalStorage: true,
-          generateFileURL: ({ filename }) => {
+          generateFileURL: (args) => {
+            console.log('args', args)
+            const { filename } = args
             if (filename) {
               return `${process.env.S3_ENDPOINT}/${process.env.BUCKET_NAME}/${filename}`
             }
