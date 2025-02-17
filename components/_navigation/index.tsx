@@ -1,5 +1,7 @@
-import NavBar from "./NavBar";
+import NavBar from "@/components/_navigation/NavBar";
+import NavLogo from '@/components/_navigation/NavLogo'
 
 export {
-  NavBar
+  NavBar,
+  NavLogo
 }
