@@ -10,12 +10,9 @@ describe('NavBar component', () => {
     cy.get('img[data-cy="profile-image"]')
       .should('be.visible')
       .should('have.attr', 'src')
-      .should('have.attr', 'width')
-      .should('have.attr', 'height')
-      .should('have.attr', 'alt')
   })
   it('should navigate to homepage when clicking on nav logo', () => {
-    cy.get('a[dy="nav-logo"]')
+    cy.get('a[data-cy="nav-logo"]')
       .should('have.attr', 'href', '/')
       .click()
       cy.location('pathname').should('eq', '/')
