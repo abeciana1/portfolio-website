@@ -18,6 +18,11 @@ const NavigationMenu: CollectionConfig = {
       required: true
     },
     {
+      name: 'logo',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
       name: 'links',
       type: 'relationship',
       relationTo: 'nav-links' as CollectionSlug,
