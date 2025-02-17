@@ -95,6 +95,37 @@ export const Media: CollectionConfig = {
           }
         }
       }
+    ],
+    afterDelete: [
+      async ({ doc }) => {
+        if (doc?.filename) {
+          const s3 = new S3({
+            endpoint: process?.env?.S3_ENDPOINT,
+            region: process.env.S3_REGION,
+            credentials: {
+              accessKeyId: process.env.S3_ACCESS_KEY_ID as string,
+              secretAccessKey: process.env.S3_SECRET_ACCESS_KEY as string,
+            },
+            s3ForcePathStyle: true,
+          });
+          const webpFilename = doc.filename.replace(/\.[^/.]+$/, '.webp');
+          try {
+            await s3
+              .deleteObject({
+                Bucket: 'images',
+                Key: webpFilename,
+              })
+              .promise();
+            console.log(`Deleted WebP image ${webpFilename} from S3.`);
+          } catch (error: any) {
+            if (error.code === 'NotFound') {
+              console.log(`WebP image ${webpFilename} not found on S3, nothing to delete.`);
+            } else {
+              console.error(`Error deleting WebP image ${webpFilename}:`, error);
+            }
+          }
+        }
+      }
     ]
   },
   access: {
