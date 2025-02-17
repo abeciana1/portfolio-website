@@ -19,7 +19,6 @@ const fetchNavigationContent = async (queryClient: QueryClient) => {
 const NavBar = () => {
   const queryClient = new QueryClient()
   const navContentData = use(fetchNavigationContent(queryClient))
-  console.log('navContentData', navContentData)
   const {
     logo,
     links,
@@ -34,7 +33,7 @@ const NavBar = () => {
     height
   } = logo
   return (
-    <nav className='relative'>
+    <nav className='relative px-5 sm:px-10 py-4'>
       <NavLogo
         src={webpUrl}
         alt={alt}
