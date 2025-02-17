@@ -11,4 +11,11 @@ describe('NavLogo', () => {
     expect(linkEl).toBeInTheDocument()
     expect(linkEl).toHaveAttribute('href', '/')
   })
+  test('should render image', () => {
+    const imgEl = screen.getByRole('img')
+    expect(imgEl).toBeInTheDocument()
+    expect(imgEl).toHaveAttribute('alt', 'Logo')
+    expect(imgEl).toHaveAttribute('width', '100')
+    expect(imgEl).toHaveAttribute('height', '100')
+  })
 })
