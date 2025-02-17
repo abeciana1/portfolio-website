@@ -2,7 +2,7 @@ import {
   type CollectionConfig
 } from 'payload'
 import sharp, { type SharpOptions } from 'sharp';
-import { S3 } from 'aws-sdk';
+import * as AWS from 'aws-sdk';
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -18,7 +18,7 @@ export const Media: CollectionConfig = {
       async ({ doc }) => {
         if (doc.convertWebp) {
           try {
-            const s3 = new S3({
+            const s3 = new AWS.S3({
               endpoint: process.env.S3_ENDPOINT,
               region: process.env.S3_REGION,
               credentials: {
@@ -65,7 +65,7 @@ export const Media: CollectionConfig = {
       async ({ doc }) => {
         const bucket = 'images'
         if (doc.filename) {
-          const s3 = new S3({
+          const s3 = new AWS.S3({
             endpoint: process.env.S3_ENDPOINT,
             region: process.env.S3_REGION,
             credentials: {
@@ -99,7 +99,7 @@ export const Media: CollectionConfig = {
     afterDelete: [
       async ({ doc }) => {
         if (doc?.filename) {
-          const s3 = new S3({
+          const s3 = new AWS.S3({
             endpoint: process?.env?.S3_ENDPOINT,
             region: process.env.S3_REGION,
             credentials: {
