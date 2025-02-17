@@ -9,19 +9,23 @@ const NavLogo: React.FC<ImageT> = ({
   height,
 }) => {
   return (
-    <Link
-      data-cy='nav-logo'
-      href='/'
-      aria-label='Go to homepage'
-    >
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        data-cy='profile-image'
-      />
-    </Link>
+    <div className='border-solid border-[1px] border-zinc-200 rounded-full max-w-14'>
+      <Link
+        data-cy='nav-logo'
+        href='/'
+        aria-label='Go to homepage'
+        className=''
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          data-cy='profile-image'
+          className='scale-x-[-1] translate-y-0.5 w-14 h-14'
+        />
+      </Link>
+    </div>
   )
 }
 
