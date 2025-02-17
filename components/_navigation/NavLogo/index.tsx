@@ -10,6 +10,7 @@ const NavLogo: React.FC<ImageT> = ({
 }) => {
   return (
     <Link
+      data-cy='nav-logo'
       href='/'
       aria-label='Go to homepage'
     >
@@ -18,6 +19,7 @@ const NavLogo: React.FC<ImageT> = ({
         alt={alt}
         width={width}
         height={height}
+        data-cy='profile-image'
       />
     </Link>
   )
