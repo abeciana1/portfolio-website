@@ -28,6 +28,12 @@ const NavigationMenu: CollectionConfig = {
       relationTo: 'nav-links' as CollectionSlug,
       hasMany: true,
       required: true
+    },
+    {
+      name: 'socialLinks',
+      type: 'relationship',
+      relationTo:'social-links' as CollectionSlug,
+      hasMany: true,
     }
   ]
 }
