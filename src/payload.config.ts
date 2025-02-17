@@ -12,6 +12,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import NavigationMenu from './collections/navigation'
 import NavLinks from './collections/nav-links'
+import SocialLinks from './collections/social-links'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -44,7 +45,8 @@ export default buildConfig({
     Users,
     Media,
     NavigationMenu,
-    NavLinks
+    NavLinks,
+    SocialLinks
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
