@@ -21,7 +21,8 @@
     "component:headless": "cypress run --component",
     "test:coverage": "jest --coverage",
     "cy:run": "cypress run",
-    "merge:coverage": "nyc merge ./coverage ./coverage/merged-coverage.json"
+    "merge:coverage": "nyc merge ./coverage ./coverage/merged-coverage.json",
+    "test:w": "jest --watch"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "latest",
