@@ -1,8 +1,15 @@
-import type { CollectionConfig } from 'payload'
+import {
+  type CollectionConfig
+} from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',
-  upload: true,
+  upload: {
+    displayPreview: true,
+    adminThumbnail: ({ doc }) => {
+      return `${process.env.S3_ENDPOINT}/${process.env.BUCKET_NAME}/${doc.filename}`
+    }
+  },
   access: {
     read: () => true,
   },
