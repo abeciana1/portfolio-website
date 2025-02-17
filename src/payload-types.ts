@@ -15,6 +15,7 @@ export interface Config {
     media: Media;
     'navigation-menu': NavigationMenu;
     'nav-links': NavLink;
+    'social-links': SocialLink;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -25,6 +26,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     'navigation-menu': NavigationMenuSelect<false> | NavigationMenuSelect<true>;
     'nav-links': NavLinksSelect<false> | NavLinksSelect<true>;
+    'social-links': SocialLinksSelect<false> | SocialLinksSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -116,6 +118,7 @@ export interface NavigationMenu {
   title: string;
   logo?: (number | null) | Media;
   links: (number | NavLink)[];
+  socialLinks?: (number | SocialLink)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -124,6 +127,17 @@ export interface NavigationMenu {
  * via the `definition` "nav-links".
  */
 export interface NavLink {
+  id: number;
+  label?: string | null;
+  link?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "social-links".
+ */
+export interface SocialLink {
   id: number;
   label?: string | null;
   link?: string | null;
@@ -152,6 +166,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'nav-links';
         value: number | NavLink;
+      } | null)
+    | ({
+        relationTo: 'social-links';
+        value: number | SocialLink;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -240,6 +258,7 @@ export interface NavigationMenuSelect<T extends boolean = true> {
   title?: T;
   logo?: T;
   links?: T;
+  socialLinks?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -248,6 +267,16 @@ export interface NavigationMenuSelect<T extends boolean = true> {
  * via the `definition` "nav-links_select".
  */
 export interface NavLinksSelect<T extends boolean = true> {
+  label?: T;
+  link?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "social-links_select".
+ */
+export interface SocialLinksSelect<T extends boolean = true> {
   label?: T;
   link?: T;
   updatedAt?: T;
