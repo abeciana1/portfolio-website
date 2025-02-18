@@ -128,8 +128,8 @@ export interface NavigationMenu {
  */
 export interface NavLink {
   id: number;
-  label?: string | null;
-  link?: string | null;
+  label: string;
+  link: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -139,8 +139,8 @@ export interface NavLink {
  */
 export interface SocialLink {
   id: number;
-  label?: string | null;
-  link?: string | null;
+  label: string;
+  link: string;
   updatedAt: string;
   createdAt: string;
 }
