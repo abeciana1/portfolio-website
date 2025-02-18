@@ -8,11 +8,13 @@ const NavLinks: CollectionConfig = {
   fields: [
     {
       name: 'label',
-      type: 'text'
+      type: 'text',
+      required: true,
     },
     {
       name: 'link',
-      type: 'text'
+      type: 'text',
+      required: true,
     }
   ]
 }
