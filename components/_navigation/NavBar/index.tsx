@@ -30,7 +30,6 @@ const NavBar = () => {
     links,
     socialLinks
   } = navContentData?.docs[0] as NavBarContentI
-  console.log('socialLinks', socialLinks)
 
   const {
     webpUrl,
