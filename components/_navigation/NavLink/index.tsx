@@ -4,7 +4,7 @@ import { type NavLink as NavLinkI } from '@/src/payload-types'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-type NavLinkType = Pick<NavLinkI, 'link' | 'label'>
+export type NavLinkType = Pick<NavLinkI, 'link' | 'label'>
 
 const NavLink: React.FC<NavLinkType> = ({ label, link }) => {
   const pathname = usePathname()
@@ -12,8 +12,9 @@ const NavLink: React.FC<NavLinkType> = ({ label, link }) => {
   return (
     <li>
       <Link
+        aria-label={label}
         href={link as string}
-        className={clsx('text-base', {
+        className={clsx('text-lg', {
           ['text-foreground']: isActive,
           ['text-foreground opacity-70']: !isActive,
         })}
