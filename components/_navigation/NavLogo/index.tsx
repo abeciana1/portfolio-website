@@ -9,7 +9,7 @@ const NavLogo: React.FC<ImageT> = ({
   height,
 }) => {
   return (
-    <div className='border-solid border-[1px] border-zinc-200 rounded-full max-w-14'>
+    <div className='relative border-solid border-[1px] border-zinc-200 rounded-full max-w-14'>
       <Link
         data-cy='nav-logo'
         href='/'
@@ -22,7 +22,7 @@ const NavLogo: React.FC<ImageT> = ({
           width={width}
           height={height}
           data-cy='profile-image'
-          className='scale-x-[-1] w-14 h-14'
+          className='mx-auto scale-x-[-1] w-14 h-14'
         />
       </Link>
     </div>
