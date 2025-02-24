@@ -13,7 +13,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
   const [isOpen, setOpen] = useState(false)
   return (
     <>
-      <div className='absolute right-0 top-4'>
+      <div className='absolute right-2 top-4'>
         <Hamburger
           toggle={setOpen}
           toggled={isOpen}
@@ -22,7 +22,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
       </div>
       {isOpen &&
         <div
-          className='bg-background absolute top-24'
+          className='bg-background relative flex flex-col items-center top-24'
         >
           {links && (links?.length > 0) &&
             <ul
@@ -54,6 +54,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
                       key={index}
                       link={link.link as string}
                       label={link.label as string}
+                      size={40}
                     />
                   </>
                 )
