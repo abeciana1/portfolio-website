@@ -7,11 +7,15 @@ import {
   FaLinkedin
 } from "react-icons/fa";
 
-const SocialLink: React.FC<NavLinkType> = ({
+interface SocialLinkI extends NavLinkType {
+  size?: number; // Icon size in pixels (default 25)
+}
+
+const SocialLink: React.FC<SocialLinkI> = ({
   link,
-  label
+  label,
+  size = 25
 }) => {
-  const size = 25
   return (
     <Link
       href={link}
