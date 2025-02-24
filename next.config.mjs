@@ -9,7 +9,13 @@ const nextConfig = {
         hostname: 'ab-ph-us-west.s3.us-west-1.amazonaws.com'
       }
     ]
-  }
+  },
+  resolve: {
+    fallback: {
+      "fs": false
+    }
+  },
+  reactStrictMode: false
 }
 
 export default withPayload(nextConfig)
