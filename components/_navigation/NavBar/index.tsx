@@ -5,7 +5,8 @@ import { NavLink as NavLinkI } from '@/src/payload-types'
 import {
   NavLogo,
   NavLink,
-  SocialLink
+  SocialLink,
+  MobileMenu
 } from '@/components/_navigation'
 import { NavBarContentI } from '@/types/navigation'
 
@@ -20,11 +21,12 @@ const fetchNavigationContent = async (queryClient: QueryClient) => {
   })
 }
 
-type NavLinkType = Pick<NavLinkI, 'id' | 'link' | 'label'>
+export type NavLinkType = Pick<NavLinkI, 'id' | 'link' | 'label'>
 
-const NavBar = () => {
+const NavBar = async () => {
   const queryClient = new QueryClient()
-  const navContentData = use(fetchNavigationContent(queryClient))
+  const navContentData = await fetchNavigationContent(queryClient)
+  console.log('navContentData', navContentData)
   const {
     logo,
     links,
@@ -77,6 +79,14 @@ const NavBar = () => {
           })}
         </ul>
       }
+      <div
+        className='block md:hidden'
+      >
+        <MobileMenu
+          links={links}
+          socialLinks={socialLinks}
+        />
+      </div>
     </nav>
   )
 }
