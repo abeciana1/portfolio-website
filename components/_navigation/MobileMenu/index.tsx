@@ -1,0 +1,69 @@
+'use client'
+import { useState } from 'react'
+import Hamburger from 'hamburger-react'
+import { MobileMenuI } from '@/types/navigation'
+import { NavLinkType } from '@/components/_navigation/NavBar'
+import SocialLink from '@/components/_navigation/SocialLink'
+import NavLink from '@/components/_navigation/NavLink'
+
+const MobileMenu: React.FC<MobileMenuI> = ({
+  links,
+  socialLinks
+}) => {
+  const [isOpen, setOpen] = useState(false)
+  return (
+    <>
+      <div className='absolute right-0 top-4'>
+        <Hamburger
+          toggle={setOpen}
+          toggled={isOpen}
+          direction='right'
+        />
+      </div>
+      {isOpen &&
+        <div
+          className='bg-background absolute top-24'
+        >
+          {links && (links?.length > 0) &&
+            <ul
+              className='flex flex-col items-center gap-4'
+              data-test-id='navLinksList'
+            >
+              {links?.map((link: NavLinkType, index) => {
+                return (
+                  <>
+                    <NavLink
+                      key={index}
+                      link={link.link as string}
+                      label={link.label as string}
+                    />
+                  </>
+                )
+              })}
+            </ul>
+          }
+          {socialLinks && (socialLinks?.length > 0) &&
+            <ul
+              data-test-id='socialLinksList'
+              className='flex items-center mt-8 gap-4'
+            >
+              {socialLinks?.map((link: NavLinkType, index) => {
+                return (
+                  <>
+                    <SocialLink
+                      key={index}
+                      link={link.link as string}
+                      label={link.label as string}
+                    />
+                  </>
+                )
+              })}
+            </ul>
+          }
+        </div>
+      }
+    </>
+  )
+}
+
+export default MobileMenu
