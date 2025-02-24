@@ -7,6 +7,11 @@ import { CMSMediaT } from '@/types/navigation'
 
 type NavLinkType = Pick<NavLinkI, 'id' | 'link' | 'label'>
 
+export interface MobileMenuI {
+  links: NavLinkType[];
+  socialLinks: NavLinkType[];
+}
+
 export interface NavBarContentI extends NavigationMenu {
   logo?: CMSMediaT & Media;
   links: NavLinkType[];
