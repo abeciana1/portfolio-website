@@ -21,9 +21,7 @@ export type NavLinkType = Pick<NavLinkI, 'id' | 'link' | 'label'>
 const NavBar = async () => {
   const queryClient = new QueryClient()
   const navContentData = await fetchNavigationContent(queryClient)
-  console.log('navContentData', navContentData)
   const { logo, links, socialLinks } = navContentData?.docs[0] as NavBarContentI
-
   const { webpUrl, alt, width, height } = logo
   return (
     <nav className="relative px-5 sm:px-10 py-4 flex items-center justify-center md:justify-between max-w-6xl mx-auto">
