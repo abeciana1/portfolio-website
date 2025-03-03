@@ -28,6 +28,8 @@ const DarkModeToggle = () => {
 
   return (
     <button
+      data-testid='dark-mode-toggle'
+      aria-label='Toggle Dark Mode'
       onClick={() => darkModeHandler(theme === 'light' ? 'dark' : 'light')}
       className='border-solid border-[1px] border-zinc-200 rounded-full h-10 w-10'
     >
