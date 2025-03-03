@@ -2,7 +2,7 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
-import nextJest from 'next/jest.js'
+import nextJest from 'next/jest'
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
@@ -12,6 +12,7 @@ const createJestConfig = nextJest({
 import type { Config } from 'jest'
 
 const config: Config = {
+  preset: "ts-jest",
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -22,10 +23,10 @@ const config: Config = {
   },
   transformIgnorePatterns: ['/node_modules/(?!(payload)/)'],
   moduleNameMapper: {
-    '^uuid$': require.resolve('uuid'),
     '^@/(.*)$': '<rootDir>/$1',
     '^@payload-config$': '<rootDir>/src/payload.config.ts',
   },
+  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"]
 }
 
 export default createJestConfig(config)

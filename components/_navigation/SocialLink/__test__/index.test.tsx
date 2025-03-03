@@ -1,6 +1,7 @@
 import SocialLink from '../'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
+import {describe, expect, test} from '@jest/globals';
 
 describe('SocialLink', () => {
   beforeEach(() => {

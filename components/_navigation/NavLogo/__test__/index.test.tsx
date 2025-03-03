@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import NavLogo from '../'
+import {describe, expect, test} from '@jest/globals';
 
 describe('NavLogo', () => {
   beforeEach(() => {
