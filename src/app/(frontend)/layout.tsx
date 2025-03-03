@@ -3,6 +3,7 @@ import './styles.css'
 import { Inter } from 'next/font/google'
 import CombinedProviders from '@/components/providers'
 import NavBar from '@/components/_navigation/NavBar'
+import { cookies } from 'next/headers';
 
 const inter = Inter({
   weight: ['100', '300', '400', '500', '600', '700'],
@@ -17,7 +18,11 @@ export const metadata = {
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')
   const { children } = props
+
+  console.log('theme cookie', theme)
 
   return (
     <html lang="en">
