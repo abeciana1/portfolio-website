@@ -13,7 +13,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
   const [isOpen, setOpen] = useState(false)
   return (
     <>
-      <div className='absolute right-2 top-4'>
+      <div data-testid='mobile-btn' className='absolute right-2 top-4'>
         <Hamburger
           toggle={setOpen}
           toggled={isOpen}
@@ -27,7 +27,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
           {links && (links?.length > 0) &&
             <ul
               className='flex flex-col items-center gap-4'
-              data-test-id='navLinksList'
+              data-testid='navLinksList'
             >
               {links?.map((link: NavLinkType, index) => {
                 return (
@@ -44,7 +44,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
           }
           {socialLinks && (socialLinks?.length > 0) &&
             <ul
-              data-test-id='socialLinksList'
+              data-testid='socialLinksList'
               className='flex items-center mt-8 gap-4'
             >
               {socialLinks?.map((link: NavLinkType, index) => {
