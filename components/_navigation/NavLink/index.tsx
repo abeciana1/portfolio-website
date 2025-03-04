@@ -15,8 +15,8 @@ const NavLink: React.FC<NavLinkType> = ({ label, link }) => {
         aria-label={label}
         href={link as string}
         className={clsx('text-lg', {
-          ['text-foreground']: isActive,
-          ['text-foreground opacity-70']: !isActive,
+          ['text-foreground dark:text-background']: isActive,
+          ['text-foreground dark:text-background opacity-70']: !isActive,
         })}
       >
         {label}
