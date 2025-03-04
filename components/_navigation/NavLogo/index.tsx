@@ -9,7 +9,7 @@ const NavLogo: React.FC<ImageT> = ({
   height,
 }) => {
   return (
-    <div className='absolute md:relative border-solid border-[1px] border-zinc-200 rounded-full max-w-14 left-4 top-4 md:left-0 md:top-0'>
+    <div className='absolute md:relative border-solid border-1 border-zinc-200 dark:border-zinc-500 rounded-full max-w-14 left-4 top-4 md:left-0 md:top-0'>
       <Link
         data-cy='nav-logo'
         href='/'
