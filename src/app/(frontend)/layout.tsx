@@ -3,6 +3,7 @@ import './styles.css'
 import { Inter } from 'next/font/google'
 import CombinedProviders from '@/components/providers'
 import NavBar from '@/components/_navigation/NavBar'
+import Toolbar from '@/components/_navigation/Toolbar'
 import { cookies } from 'next/headers';
 
 const inter = Inter({
@@ -19,17 +20,18 @@ export const metadata = {
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const cookieStore = await cookies();
-  const theme = cookieStore.get('theme')
+  const theme = cookieStore?.get('theme')?.value || 'light';
   const { children } = props
 
   console.log('theme cookie', theme)
 
   return (
-    <html lang="en">
-      <body className={`antialiased ${inter.className} bg-background text-foreground dark:bg-background dark:text-foreground max-w-[1440px] mx-auto`}>
+    <html lang="en" className={theme} data-theme={theme}>
+      <body className={`antialiased ${inter.className} bg-background text-foreground dark:bg-foreground dark:text-background max-w-[1440px] mx-auto`}>
         <CombinedProviders>
           <NavBar/>
           {children}
+          <Toolbar/>
         </CombinedProviders>
       </body>
     </html>
