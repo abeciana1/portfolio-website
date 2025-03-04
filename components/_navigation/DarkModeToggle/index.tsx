@@ -9,35 +9,31 @@ type Theme = 'light' | 'dark'
 const DarkModeToggle = () => {
   const [theme, setTheme] = useState<Theme>('light')
 
-  const darkModeHandler = (theme: Theme) => {
-    setTheme(theme)
-    Cookies.set('theme', theme, { expires: 365 })
-  }
-
-  console.log('Cookies', Cookies)
-
   useEffect(() => {
-    if (Cookies.get('theme') === 'true') {
-      setTheme('dark')
-    } else if (Cookies.get('theme') === 'false') {
-      setTheme('light')
-    } else {
-      setTheme('light')
-    }
-  }, [])
+    const storedTheme = Cookies.get('theme') || 'light';
+    setTheme(storedTheme as Theme);
+    document.documentElement.className = storedTheme;
+  }, []);
+
+  const darkModeHandler = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.documentElement.className = newTheme;
+    Cookies.set('theme', newTheme, { expires: 365 });
+  };
 
   return (
     <button
       data-testid='dark-mode-toggle'
       aria-label='Toggle Dark Mode'
-      onClick={() => darkModeHandler(theme === 'light' ? 'dark' : 'light')}
-      className='border-solid border-[1px] border-zinc-200 rounded-full h-10 w-10'
+      onClick={() => darkModeHandler()}
+      className='transition delay-50 duration-100 ease-in-out hover:bg-zinc-200 rounded-md h-10 w-10 flex justify-center items-center text-foreground'
     >
       {(theme === 'dark') &&
         <Moon size={24} />
       }
       {(theme === 'light') &&
-        <Sun size={24} /> 
+        <Sun size={24} />
       }
     </button>
   )
