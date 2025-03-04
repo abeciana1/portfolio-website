@@ -21,7 +21,7 @@ const SocialLink: React.FC<SocialLinkI> = ({
       href={link}
       aria-label={label}
       target='_blank'
-      className='text-foreground'
+      className='text-foreground dark:text-background'
     >
       {label === 'LinkedIn' &&
         <FaLinkedin size={size} />
