@@ -1,4 +1,5 @@
 import { type Block } from 'payload';
+import { link } from '@/src/fields/link'
 
 export const HeroSectionConfig: Block = {
   slug: 'hero-section',
@@ -27,6 +28,45 @@ export const HeroSectionConfig: Block = {
           type: 'textarea',
         },
       ]
-    }
+    },
+    {
+      type: 'collapsible',
+      label: 'Primary CTA (Optional)',
+      admin: {
+        initCollapsed: true,
+      },
+      fields: [
+        link({
+          required: false,
+          overrides: {
+            name: 'ctaPrimary',
+            label: 'Primary CTA (Optional)',
+          },
+        }),
+      ],
+    },
+    {
+      type: 'collapsible',
+      label: 'Secondary CTA (Optional)',
+      admin: {
+        initCollapsed: true,
+      },
+      fields: [
+        link({
+          required: false,
+          overrides: {
+            name: 'ctaSecondary',
+            label: 'Secondary CTA (Optional)',
+          },
+        }),
+      ],
+    },
+    {
+      name: 'image',
+      label: 'Image',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    },
   ]
 }
