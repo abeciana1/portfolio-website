@@ -71,6 +71,7 @@ export interface Config {
     'navigation-menu': NavigationMenu;
     'nav-links': NavLink;
     'social-links': SocialLink;
+    pages: Page;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -82,6 +83,7 @@ export interface Config {
     'navigation-menu': NavigationMenuSelect<false> | NavigationMenuSelect<true>;
     'nav-links': NavLinksSelect<false> | NavLinksSelect<true>;
     'social-links': SocialLinksSelect<false> | SocialLinksSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -201,6 +203,20 @@ export interface SocialLink {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  /**
+   * Title for the page
+   */
+  title: string;
+  layout?: unknown[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -225,6 +241,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'social-links';
         value: number | SocialLink;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -334,6 +354,16 @@ export interface NavLinksSelect<T extends boolean = true> {
 export interface SocialLinksSelect<T extends boolean = true> {
   label?: T;
   link?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  layout?: T | {};
   updatedAt?: T;
   createdAt?: T;
 }
