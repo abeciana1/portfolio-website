@@ -1,6 +1,5 @@
 import {
-  type CollectionConfig,
-  type CollectionSlug
+  type CollectionConfig
 } from 'payload';
 import { HeroSection } from '@/src/blocks/hero-section'
 
