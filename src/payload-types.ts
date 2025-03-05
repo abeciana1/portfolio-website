@@ -211,7 +211,49 @@ export interface Page {
    * Title for the page
    */
   title: string;
-  layout?: unknown[] | null;
+  layout?:
+    | {
+        title: string;
+        subtitle?: string | null;
+        description?: string | null;
+        ctaPrimary: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | {
+                relationTo: 'pages';
+                value: number | Page;
+              }[]
+            | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        ctaSecondary: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | {
+                relationTo: 'pages';
+                value: number | Page;
+              }[]
+            | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        image: number | Media;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero-section';
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -363,7 +405,40 @@ export interface SocialLinksSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
-  layout?: T | {};
+  layout?:
+    | T
+    | {
+        'hero-section'?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              ctaPrimary?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              ctaSecondary?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              image?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }
