@@ -213,6 +213,7 @@ export interface Page {
   title: string;
   layout?:
     | {
+        sectionId: string;
         title: string;
         subtitle?: string | null;
         description?: string | null;
@@ -248,7 +249,14 @@ export interface Page {
            */
           appearance?: ('default' | 'outline') | null;
         };
+        border?: boolean | null;
+        arrow?: boolean | null;
+        arrowDirection?: ('right' | 'down') | null;
         image: number | Media;
+        /**
+         * Add a gradient aura to the image
+         */
+        imageGradient?: boolean | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'hero-section';
@@ -411,6 +419,7 @@ export interface PagesSelect<T extends boolean = true> {
         'hero-section'?:
           | T
           | {
+              sectionId?: T;
               title?: T;
               subtitle?: T;
               description?: T;
@@ -434,7 +443,11 @@ export interface PagesSelect<T extends boolean = true> {
                     label?: T;
                     appearance?: T;
                   };
+              border?: T;
+              arrow?: T;
+              arrowDirection?: T;
               image?: T;
+              imageGradient?: T;
               id?: T;
               blockName?: T;
             };
