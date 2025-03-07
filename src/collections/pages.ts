@@ -1,7 +1,7 @@
 import {
   type CollectionConfig
 } from 'payload';
-import { HeroSection } from '@/src/blocks/hero-section'
+import { HeroSection } from '@/src/blocks/HeroSection/config'
 
 const Page: CollectionConfig = {
   slug: 'pages',
