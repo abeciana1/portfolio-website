@@ -66,6 +66,7 @@ export interface Config {
   };
   blocks: {
     'hero-section': HeroSection;
+    'skill-block': SkillBlock;
   };
   collections: {
     users: User;
@@ -74,6 +75,7 @@ export interface Config {
     'nav-links': NavLink;
     'social-links': SocialLink;
     pages: Page;
+    'skills-collection': SkillsCollection;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -86,6 +88,7 @@ export interface Config {
     'nav-links': NavLinksSelect<false> | NavLinksSelect<true>;
     'social-links': SocialLinksSelect<false> | SocialLinksSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    'skills-collection': SkillsCollectionSelect<false> | SkillsCollectionSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -248,6 +251,17 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skill-block".
+ */
+export interface SkillBlock {
+  title: string;
+  skillIcon: number | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'skill-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -306,6 +320,29 @@ export interface SocialLink {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills-collection".
+ */
+export interface SkillsCollection {
+  id: number;
+  /**
+   * Title for the skill collection
+   */
+  title: string;
+  /**
+   * Add skills to the collection
+   */
+  skills: {
+    title: string;
+    skillIcon: number | Media;
+    id?: string | null;
+    blockName?: string | null;
+    blockType: 'skill-block';
+  }[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -334,6 +371,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'skills-collection';
+        value: number | SkillsCollection;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -488,6 +529,27 @@ export interface PagesSelect<T extends boolean = true> {
                   };
               image?: T;
               imageGradient?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills-collection_select".
+ */
+export interface SkillsCollectionSelect<T extends boolean = true> {
+  title?: T;
+  skills?:
+    | T
+    | {
+        'skill-block'?:
+          | T
+          | {
+              title?: T;
+              skillIcon?: T;
               id?: T;
               blockName?: T;
             };
