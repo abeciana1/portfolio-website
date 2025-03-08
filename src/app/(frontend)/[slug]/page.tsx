@@ -6,7 +6,6 @@ import {
 import { cache } from 'react'
 import RenderBlocks from '@/src/blocks/RenderBlocks'
 import { notFound } from 'next/navigation';
-
 import buildConfig from '@/src/payload.config'
 
 type Args = {
