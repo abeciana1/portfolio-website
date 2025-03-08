@@ -64,7 +64,9 @@ export interface Config {
   auth: {
     users: UserAuthOperations;
   };
-  blocks: {};
+  blocks: {
+    'hero-section': HeroSection;
+  };
   collections: {
     users: User;
     media: Media;
@@ -122,23 +124,104 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
+ * via the `definition` "hero-section".
  */
-export interface User {
+export interface HeroSection {
+  sectionId: string;
+  title: string;
+  subtitle?: string | null;
+  description?: string | null;
+  callToAction?:
+    | {
+        style?: ('primary' | 'secondary') | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | {
+                relationTo: 'pages';
+                value: number | Page;
+              }[]
+            | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        border?: boolean | null;
+        arrow?: boolean | null;
+        arrowDirection?: ('right' | 'down') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'call-to-action';
+      }[]
+    | null;
+  image: number | Media;
+  /**
+   * Add a gradient aura to the image
+   */
+  imageGradient?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
   id: number;
+  /**
+   * Title for the page
+   */
+  title: string;
+  layout?:
+    | {
+        sectionId: string;
+        title: string;
+        subtitle?: string | null;
+        description?: string | null;
+        callToAction?:
+          | {
+              style?: ('primary' | 'secondary') | null;
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?:
+                  | {
+                      relationTo: 'pages';
+                      value: number | Page;
+                    }[]
+                  | null;
+                url?: string | null;
+                label: string;
+                /**
+                 * Choose how the link should be rendered.
+                 */
+                appearance?: ('default' | 'outline') | null;
+              };
+              border?: boolean | null;
+              arrow?: boolean | null;
+              arrowDirection?: ('right' | 'down') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'call-to-action';
+            }[]
+          | null;
+        image: number | Media;
+        /**
+         * Add a gradient aura to the image
+         */
+        imageGradient?: boolean | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero-section';
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
-  enableAPIKey?: boolean | null;
-  apiKey?: string | null;
-  apiKeyIndex?: string | null;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -162,6 +245,26 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  updatedAt: string;
+  createdAt: string;
+  enableAPIKey?: boolean | null;
+  apiKey?: string | null;
+  apiKeyIndex?: string | null;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -198,70 +301,6 @@ export interface SocialLink {
   id: number;
   label: string;
   link: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: number;
-  /**
-   * Title for the page
-   */
-  title: string;
-  layout?:
-    | {
-        sectionId: string;
-        title: string;
-        subtitle?: string | null;
-        description?: string | null;
-        ctaPrimary: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | {
-                relationTo: 'pages';
-                value: number | Page;
-              }[]
-            | null;
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
-        };
-        ctaSecondary: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | {
-                relationTo: 'pages';
-                value: number | Page;
-              }[]
-            | null;
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
-        };
-        border?: boolean | null;
-        arrow?: boolean | null;
-        arrowDirection?: ('right' | 'down') | null;
-        image: number | Media;
-        /**
-         * Add a gradient aura to the image
-         */
-        imageGradient?: boolean | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero-section';
-      }[]
-    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -423,29 +462,30 @@ export interface PagesSelect<T extends boolean = true> {
               title?: T;
               subtitle?: T;
               description?: T;
-              ctaPrimary?:
+              callToAction?:
                 | T
                 | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    appearance?: T;
+                    'call-to-action'?:
+                      | T
+                      | {
+                          style?: T;
+                          link?:
+                            | T
+                            | {
+                                type?: T;
+                                newTab?: T;
+                                reference?: T;
+                                url?: T;
+                                label?: T;
+                                appearance?: T;
+                              };
+                          border?: T;
+                          arrow?: T;
+                          arrowDirection?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
-              ctaSecondary?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    appearance?: T;
-                  };
-              border?: T;
-              arrow?: T;
-              arrowDirection?: T;
               image?: T;
               imageGradient?: T;
               id?: T;
