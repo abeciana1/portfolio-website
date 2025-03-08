@@ -15,6 +15,9 @@ import NavLinks from './collections/nav-links'
 import SocialLinks from './collections/social-links'
 import Page from './collections/pages'
 
+// * blocks
+import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -35,6 +38,9 @@ export default buildConfig({
       ],
     }
   },
+  blocks: [
+    HeroSectionBlock
+  ],
   cors: [
     'http://localhost:3000',
     'https://alexbeciana.com'
