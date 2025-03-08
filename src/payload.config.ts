@@ -6,6 +6,11 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { s3Storage } from '@payloadcms/storage-s3'
+import { seoPlugin } from '@payloadcms/plugin-seo';
+import { titleToSlug } from '@/utils/helpers'
+
+// * subdirectory hash
+
 
 // * collections
 import { Users } from './collections/Users'
@@ -100,6 +105,17 @@ export default buildConfig({
         endpoint: process?.env?.S3_ENDPOINT as string,
         forcePathStyle: true,
       }
+    }),
+    seoPlugin({
+      collections: [
+        'pages'
+      ],
+      uploadsCollection: 'media',
+      generateTitle: ({ doc }) => `Alex Beciana | ${doc.title}`,
+      generateDescription: ({ doc }) => `${doc.description}`,
+      generateURL: ({ doc }) => `https://alexbeciana.com/${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`,
+      generateImage: ({ doc }) => doc?.featuredImage,
+      tabbedUI: true
     })
   ],
 })
