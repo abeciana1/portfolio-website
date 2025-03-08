@@ -10,11 +10,6 @@ const nextConfig = {
       }
     ]
   },
-  resolve: {
-    fallback: {
-      "fs": false
-    }
-  },
   reactStrictMode: false
 }
 
