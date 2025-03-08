@@ -14,9 +14,12 @@ import NavigationMenu from './collections/navigation'
 import NavLinks from './collections/nav-links'
 import SocialLinks from './collections/social-links'
 import Page from './collections/pages'
+import { SkillCollection } from './collections/skills-collection'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
+import { Skill as SkillBlock } from '@/src/blocks/Skill/config'
+import { CallToAction as CallToActionBlock } from '@/src/blocks/CallToAction/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -34,12 +37,15 @@ export default buildConfig({
         'media',
         'navigation-menu',
         'nav-links',
-        'pages'
+        'pages',
+        'skills-collection',
       ],
     }
   },
   blocks: [
-    HeroSectionBlock
+    HeroSectionBlock,
+    SkillBlock,
+    CallToActionBlock
   ],
   cors: [
     'http://localhost:3000',
@@ -55,7 +61,8 @@ export default buildConfig({
     NavigationMenu,
     NavLinks,
     SocialLinks,
-    Page
+    Page,
+    SkillCollection
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
