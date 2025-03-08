@@ -41,10 +41,8 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
 
   const result = await payload.find({
     collection: 'pages',
-    // draft,
     limit: 1,
     pagination: false,
-    // overrideAccess: draft,
     where: {
       slug: {
         equals: slug,
