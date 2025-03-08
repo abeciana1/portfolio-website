@@ -16,7 +16,6 @@ type Args = {
 
 const Page = async ({ params: paramsPromise }: Args) => {
   const { slug = 'home' } = await paramsPromise
-  const url = '/' + slug
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
     slug,
@@ -36,6 +35,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
 }
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
+  console.log('slug', slug)
 
   const payload = await getPayload({ config: buildConfig })
 
