@@ -1,5 +1,12 @@
-import { type HeroSection } from '@/src/payload-types'
+import {
+  type HeroSection,
+  type SkillBlock
+} from '@/src/payload-types'
 
-export type HeroSectionProps = HeroSection & {
-  disableInnerContainer: boolean;
+type InnerContainer = {
+  disableInnerContainer?: boolean;
 }
+
+export type HeroSectionProps = HeroSection & InnerContainer
+
+export type SkillProps = SkillBlock & InnerContainer
