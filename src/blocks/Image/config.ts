@@ -1,7 +1,8 @@
 import { type Block } from 'payload';
 
 export const Image: Block = {
-  slug: 'image',
+  slug: 'image-block',
+  interfaceName: 'ImageBlock',
   fields: [
     {
       type: 'collapsible',
