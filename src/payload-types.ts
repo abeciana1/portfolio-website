@@ -153,7 +153,6 @@ export interface HeroSection {
            */
           appearance?: ('default' | 'outline') | null;
         };
-        border?: boolean | null;
         arrow?: boolean | null;
         arrowDirection?: ('right' | 'down') | null;
         id?: string | null;
@@ -180,6 +179,7 @@ export interface Page {
    * Title for the page
    */
   title: string;
+  slug?: string | null;
   layout?:
     | {
         sectionId: string;
@@ -205,7 +205,6 @@ export interface Page {
                  */
                 appearance?: ('default' | 'outline') | null;
               };
-              border?: boolean | null;
               arrow?: boolean | null;
               arrowDirection?: ('right' | 'down') | null;
               id?: string | null;
@@ -501,6 +500,7 @@ export interface SocialLinksSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   layout?:
     | T
     | {
@@ -528,7 +528,6 @@ export interface PagesSelect<T extends boolean = true> {
                                 label?: T;
                                 appearance?: T;
                               };
-                          border?: T;
                           arrow?: T;
                           arrowDirection?: T;
                           id?: T;
