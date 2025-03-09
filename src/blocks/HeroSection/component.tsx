@@ -6,7 +6,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   subtitle,
   description,
   image,
-  disableInnerContainer = false
+  disableInnerContainer = false,
+  callToAction
 }) => {
   // console.log('image', image)
   return (
