@@ -160,21 +160,7 @@ export interface HeroSection {
         blockType: 'call-to-action';
       }[]
     | null;
-  media?:
-    | {
-        image: number | Media;
-        /**
-         * Add a gradient aura to the image
-         */
-        gradient?: boolean | null;
-        gradientXFlip?: boolean | null;
-        gradientYFlip?: boolean | null;
-        gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'image';
-      }[]
-    | null;
+  media?: ImageBlock[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero-section';
@@ -222,21 +208,7 @@ export interface Page {
               blockType: 'call-to-action';
             }[]
           | null;
-        media?:
-          | {
-              image: number | Media;
-              /**
-               * Add a gradient aura to the image
-               */
-              gradient?: boolean | null;
-              gradientXFlip?: boolean | null;
-              gradientYFlip?: boolean | null;
-              gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'image';
-            }[]
-          | null;
+        media?: ImageBlock[] | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'hero-section';
@@ -252,6 +224,23 @@ export interface Page {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ImageBlock".
+ */
+export interface ImageBlock {
+  image: number | Media;
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientXFlip?: boolean | null;
+  gradientYFlip?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'image-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -557,17 +546,7 @@ export interface PagesSelect<T extends boolean = true> {
               media?:
                 | T
                 | {
-                    image?:
-                      | T
-                      | {
-                          image?: T;
-                          gradient?: T;
-                          gradientXFlip?: T;
-                          gradientYFlip?: T;
-                          gradientSelect?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
+                    'image-block'?: T | ImageBlockSelect<T>;
                   };
               id?: T;
               blockName?: T;
@@ -582,6 +561,19 @@ export interface PagesSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ImageBlock_select".
+ */
+export interface ImageBlockSelect<T extends boolean = true> {
+  image?: T;
+  gradient?: T;
+  gradientXFlip?: T;
+  gradientYFlip?: T;
+  gradientSelect?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
