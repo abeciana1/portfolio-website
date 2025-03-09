@@ -25,6 +25,7 @@ import { SkillCollection } from './collections/skills-collection'
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
 import { Skill as SkillBlock } from '@/src/blocks/Skill/config'
 import { CallToAction as CallToActionBlock } from '@/src/blocks/CallToAction/config'
+import { Image as ImageBlock } from '@/src/blocks/Image/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -50,7 +51,8 @@ export default buildConfig({
   blocks: [
     HeroSectionBlock,
     SkillBlock,
-    CallToActionBlock
+    CallToActionBlock,
+    ImageBlock
   ],
   cors: [
     'http://localhost:3000',
