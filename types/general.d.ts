@@ -4,13 +4,12 @@ export interface WrapperI {
   children: React.ReactNode;
 }
 
-export type ImageT = {
-  src: string;
+export type ImageT = CMSMediaT & {
   alt: string;
   width: number;
   height: number;
 }
 
-export interface CMSMediaT {
-  webpUrl: string;
+export type CMSMediaT = Media & {
+  webpUrl: string
 }
