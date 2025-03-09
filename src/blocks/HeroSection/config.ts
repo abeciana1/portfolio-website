@@ -8,7 +8,7 @@ export const HeroSection: Block = {
       type: 'collapsible',
       label: 'Hero Section',
       admin: {
-        initCollapsed: true
+        initCollapsed: true,
       },
       fields: [
         {
@@ -39,6 +39,7 @@ export const HeroSection: Block = {
       name: 'callToAction',
       label: 'Call-to-Action',
       type: 'blocks',
+      maxRows: 2,
       blocks: [
         CallToAction
       ],
