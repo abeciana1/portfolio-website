@@ -1,5 +1,6 @@
 import { type Block } from 'payload';
 import { CallToAction } from '@/src/blocks/CallToAction/config'
+import { Image as ImageBlock } from '@/src/blocks/Image/config'
 
 export const HeroSection: Block = {
   slug: 'hero-section',
@@ -46,20 +47,13 @@ export const HeroSection: Block = {
       required: false,
     },
     {
-      name: 'image',
+      name: 'media',
       label: 'Image',
-      type: 'upload',
-      relationTo: 'media',
-      required: true,
-    },
-    {
-      name: 'imageGradient',
-      label: 'Add gradient to image',
-      type: 'checkbox',
-      admin: {
-        description: 'Add a gradient aura to the image'
-      },
-      defaultValue: false,
+      type: 'blocks',
+      maxRows: 1,
+      blocks: [
+        ImageBlock
+      ]
     }
   ]
 }
