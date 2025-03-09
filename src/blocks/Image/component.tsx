@@ -21,27 +21,27 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   } = image
 
   return (
-    <div className='relative'>
-      {gradient && (
-        <div
-          className={`absolute top-0 left-0 w-full h-full`}
-          style={{
-            transform: `scaleX(${gradientXFlip? -1 : 1}) scaleY(${gradientYFlip? -1 : 1})`,
-          }}
-        >
-          {gradientSelect === 'Variant1' && <Variant1 />}
-          {gradientSelect === 'Variant2' && <Variant2 />}
-          {gradientSelect === 'Variant3' && <Variant3 />}
-          {gradientSelect === 'Variant4' && <Variant4 />}
-        </div>
-      )}
-      <Image
-        src={webpUrl}
-        alt={alt}
-        height={height}
-        width={width}
-        className='z-50'
-      />
+    <div className='relative max-w-fit'>
+        <Image
+          src={webpUrl}
+          alt={alt}
+          height={height}
+          width={width}
+          className='relative z-50'
+        />
+        {gradient && (
+          <div
+            className={`absolute -top-32 -left-40 w-full h-full blur-2xl`}
+            style={{
+              transform: `scaleX(${gradientXFlip? -1 : 1}) scaleY(${gradientYFlip? -1 : 1})`,
+            }}
+          >
+            {gradientSelect === 'Variant1' && <Variant1 />}
+            {gradientSelect === 'Variant2' && <Variant2 />}
+            {gradientSelect === 'Variant3' && <Variant3 />}
+            {gradientSelect === 'Variant4' && <Variant4 />}
+          </div>
+        )}
     </div>
   )
 }
