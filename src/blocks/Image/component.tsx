@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { ImageBlock } from '@/src/payload-types'
 import Variant1 from '@/gradients/Variant1'
 import Variant2 from '@/gradients/Variant2'
 import Variant3 from '@/gradients/Variant3'
@@ -15,19 +14,33 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
 }) => {
 
   const {
-    src,
+    webpUrl,
     width,
     height,
     alt,
   } = image
 
   return (
-    <div>
+    <div className='relative'>
+      {gradient && (
+        <div
+          className={`absolute top-0 left-0 w-full h-full`}
+          style={{
+            transform: `scaleX(${gradientXFlip? -1 : 1}) scaleY(${gradientYFlip? -1 : 1})`,
+          }}
+        >
+          {gradientSelect === 'Variant1' && <Variant1 />}
+          {gradientSelect === 'Variant2' && <Variant2 />}
+          {gradientSelect === 'Variant3' && <Variant3 />}
+          {gradientSelect === 'Variant4' && <Variant4 />}
+        </div>
+      )}
       <Image
-        src={src}
+        src={webpUrl}
         alt={alt}
         height={height}
         width={width}
+        className='z-50'
       />
     </div>
   )
