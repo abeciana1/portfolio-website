@@ -37,7 +37,7 @@ const Page: CollectionConfig = {
             {
               name: 'slug',
               type: 'text',
-              label: 'Slug',
+              label: 'Slug'
             },
             {
               name: 'layout',
