@@ -1,15 +1,22 @@
 import { HeroSectionProps } from '@/types/blockTypes'
+import ImageComponent from '@/src/blocks/Image/component'
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   sectionId,
   title,
   subtitle,
   description,
-  image,
   disableInnerContainer = false,
-  callToAction
+  callToAction,
+  media
 }) => {
-  // console.log('image', image)
+  const {
+    gradient,
+    gradientXFlip,
+    gradientYFlip,
+    gradientSelect,
+    image,
+  } = media && media[0]
   return (
     <section aria-label='section' id={sectionId}>
       <div>
@@ -17,8 +24,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <h2>{subtitle}</h2>
         <div>{description}</div>
       </div>
-      <div>
-      </div>
+      <ImageComponent
+        image={image}
+        gradient={gradient}
+        gradientXFlip={gradientXFlip}
+        gradientYFlip={gradientYFlip}
+        gradientSelect={gradientSelect}
+      />
     </section>
   )
 }
