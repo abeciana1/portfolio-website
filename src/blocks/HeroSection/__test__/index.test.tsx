@@ -11,16 +11,26 @@ describe('HeroSection', () => {
         title="Welcome to My Website"
         subtitle="This is a sample website"
         description="This is a description of my website"
-        image={{
-          id: 1,
-          alt: 'Hero Image',
-          convertWebp: true,
-          url: 'http://www.example.com/image.jpg',
-          updatedAt: '2025-01-23',
-          createdAt: '2025-01-23',
-          height: 100,
-          width: 100,
-        }}
+        media={[
+          {
+            image: {
+              id: 1,
+              alt: 'Hero Image',
+              convertWebp: true,
+              url: 'http://www.example.com/image.jpg',
+              webpUrl: 'http://www.example.com/image.jpg',
+              updatedAt: '2025-01-23',
+              createdAt: '2025-01-23',
+              height: 100,
+              width: 100,
+            },
+            blockType: 'image-block',
+            gradient: false,
+            gradientXFlip: false,
+            gradientYFlip: false,
+            gradientSelect: 'Variant1',
+          },
+        ]}
       />,
     )
   })
@@ -36,7 +46,7 @@ describe('HeroSection', () => {
     const img = screen.getByRole('img')
     expect(img).toBeInTheDocument()
     expect(img).toHaveAttribute('alt', 'Hero Image')
-    expect(img).toHaveAttribute('height', 100)
-    expect(img).toHaveAttribute('width', 100)
+    expect(img).toHaveAttribute('height', '100')
+    expect(img).toHaveAttribute('width', '100')
   })
 })
