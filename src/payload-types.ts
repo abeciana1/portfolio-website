@@ -160,11 +160,21 @@ export interface HeroSection {
         blockType: 'call-to-action';
       }[]
     | null;
-  image: number | Media;
-  /**
-   * Add a gradient aura to the image
-   */
-  imageGradient?: boolean | null;
+  media?:
+    | {
+        image: number | Media;
+        /**
+         * Add a gradient aura to the image
+         */
+        gradient?: boolean | null;
+        gradientXFlip?: boolean | null;
+        gradientYFlip?: boolean | null;
+        gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'image';
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero-section';
@@ -212,11 +222,21 @@ export interface Page {
               blockType: 'call-to-action';
             }[]
           | null;
-        image: number | Media;
-        /**
-         * Add a gradient aura to the image
-         */
-        imageGradient?: boolean | null;
+        media?:
+          | {
+              image: number | Media;
+              /**
+               * Add a gradient aura to the image
+               */
+              gradient?: boolean | null;
+              gradientXFlip?: boolean | null;
+              gradientYFlip?: boolean | null;
+              gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'image';
+            }[]
+          | null;
         id?: string | null;
         blockName?: string | null;
         blockType: 'hero-section';
@@ -534,8 +554,21 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                   };
-              image?: T;
-              imageGradient?: T;
+              media?:
+                | T
+                | {
+                    image?:
+                      | T
+                      | {
+                          image?: T;
+                          gradient?: T;
+                          gradientXFlip?: T;
+                          gradientYFlip?: T;
+                          gradientSelect?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
               id?: T;
               blockName?: T;
             };
