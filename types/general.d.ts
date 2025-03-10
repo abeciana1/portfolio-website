@@ -13,3 +13,7 @@ export type ImageT = CMSMediaT & {
 export type CMSMediaT = Media & {
   webpUrl: string
 }
+
+export type HeadingProps = {
+  text: string;
+}
