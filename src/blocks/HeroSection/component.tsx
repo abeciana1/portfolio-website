@@ -1,5 +1,6 @@
 import { HeroSectionProps } from '@/types/blockTypes'
 import ImageComponent from '@/src/blocks/Image/component'
+import { Heading1, Heading2 } from '@/components/_styled/Heading'
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   sectionId,
@@ -20,8 +21,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section aria-label='section' id={sectionId}>
       <div>
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
+        <Heading1 text={title as string} />
+        <Heading2 text={subtitle as string} />
         <div>{description}</div>
       </div>
       <ImageComponent
