@@ -17,3 +17,9 @@ export type CMSMediaT = Media & {
 export type HeadingProps = {
   text: string;
 }
+
+export type GradientProps = {
+  variant?: 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
+  gradientXFlip?: boolean;
+  gradientYFlip?: boolean;
+}
