@@ -34,6 +34,15 @@ export const HeroSection: Block = {
           label: 'Description',
           type: 'textarea',
         },
+        {
+          name: 'enableInnerContainer',
+          label: 'Enable Inner Container',
+          type: 'checkbox',
+          admin: {
+            description: 'Enable the inner container for this section'
+          },
+          defaultValue: false,
+        }
       ]
     },
     {
