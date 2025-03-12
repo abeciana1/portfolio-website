@@ -5,7 +5,7 @@ import {
 import { ImageT } from '@/types/general'
 
 type InnerContainer = {
-  disableInnerContainer?: boolean;
+  enableInnerContainer?: boolean;
 }
 
 export type HeroSectionProps = HeroSection & InnerContainer & {
