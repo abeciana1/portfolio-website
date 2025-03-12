@@ -38,7 +38,7 @@ const Toolbar = () => {
 
   return (
     <MotionConfig transition={transition}>
-      <div className="fixed bottom-8 left-[50%] mx-auto" ref={ref}>
+      <div className="z-50 fixed bottom-8 left-[50%] mx-auto" ref={ref}>
         <div className="h-full w-full max-w-fit rounded-xl border border-zinc-950/10 bg-white">
           <div className="overflow-hidden">
             <AnimatePresence initial={false} mode="sync">
