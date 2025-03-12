@@ -4,3 +4,5 @@ export const titleToSlug = (title: string) => {
   .replace(/[\s_]+/g, '-')
   .toLowerCase(); 
 }
+
+export const innerContainer = 'px-20 my-12'
