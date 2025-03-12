@@ -29,6 +29,7 @@
   --spacing-24: calc(var(--spacing) * 12); /* 96px */
   --spacing-32: calc(var(--spacing) * 16); /* 128px */
   --spacing-40: calc(var(--spacing) * 20); /* 160px */
+  --spacing-44: calc(var(--spacing) * 22); 
   --spacing-48: calc(var(--spacing) * 24); /* 192px */
   --spacing-56: calc(var(--spacing) * 28); /* 224px */
   --spacing-64: calc(var(--spacing) * 32); /* 256px */
