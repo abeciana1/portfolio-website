@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { type ImageT } from '@/types/general'
+import { type NavLogoT } from '@/types/general'
 
-const NavLogo: React.FC<ImageT> = ({
+const NavLogo: React.FC<NavLogoT> = ({
   src,
   alt,
   width,
