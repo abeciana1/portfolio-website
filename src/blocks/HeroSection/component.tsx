@@ -1,16 +1,19 @@
 import { HeroSectionProps } from '@/types/blockTypes'
 import ImageComponent from '@/src/blocks/Image/component'
 import { Heading1, Heading2 } from '@/components/_styled/Heading'
+import clsx from 'clsx'
+import { innerContainer } from '@/utils/helpers'
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   sectionId,
   title,
   subtitle,
   description,
-  disableInnerContainer = false,
+  enableInnerContainer,
   callToAction,
   media
 }) => {
+  console.log('enableInnerContainer', enableInnerContainer)
   const {
     gradient,
     gradientXFlip,
@@ -19,11 +22,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     image,
   } = media && media[0]
   return (
-    <section aria-label='section' id={sectionId}>
-      <div>
+    <section
+      aria-label='section'
+      id={sectionId}
+      className={clsx('relative flex flex-col md:flex-row gap-40 items-center mx-auto max-w-fit', {
+        ['px-20 py-12']: enableInnerContainer
+      })}
+    >
+      <div className='max-w-[560px]'>
         <Heading1 text={title as string} />
         <Heading2 text={subtitle as string} />
-        <div>{description}</div>
+        <div className='leading-loose text-xl font-semibold'>{description}</div>
       </div>
       <ImageComponent
         image={image}
