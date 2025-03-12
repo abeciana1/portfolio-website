@@ -4,6 +4,8 @@ import Variant2 from '@/gradients/Variant2'
 import Variant3 from '@/gradients/Variant3'
 import Variant4 from '@/gradients/Variant4'
 import { ImageBlockProps } from '@/types/blockTypes'
+import clsx from 'clsx'
+import Gradient from '@/components/_styled/Gradient'
 
 const ImageComponent: React.FC<ImageBlockProps> = ({
   image,
@@ -27,11 +29,20 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
           alt={alt}
           height={height}
           width={width}
-          className='relative z-50'
+          className='relative z-50 rounded-md'
         />
-        {gradient && (
+        {gradient &&
+          <Gradient
+            variant={gradientSelect}
+            gradientXFlip={gradientXFlip}
+            gradientYFlip={gradientYFlip}
+            height={height}
+            width={width}
+          />
+        }
+        {/* {gradient && (
           <div
-            className={`absolute -top-32 -left-40 w-full h-full blur-2xl`}
+            className={`absolute -top-32 -left-44 w-full h-full blur-2xl`}
             style={{
               transform: `scaleX(${gradientXFlip? -1 : 1}) scaleY(${gradientYFlip? -1 : 1})`,
             }}
@@ -41,7 +52,7 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
             {gradientSelect === 'Variant3' && <Variant3 />}
             {gradientSelect === 'Variant4' && <Variant4 />}
           </div>
-        )}
+        )} */}
     </div>
   )
 }
