@@ -134,6 +134,10 @@ export interface HeroSection {
   title: string;
   subtitle?: string | null;
   description?: string | null;
+  /**
+   * Enable the inner container for this section
+   */
+  enableInnerContainer?: boolean | null;
   callToAction?:
     | {
         style?: ('primary' | 'secondary') | null;
@@ -182,6 +186,10 @@ export interface Page {
         title: string;
         subtitle?: string | null;
         description?: string | null;
+        /**
+         * Enable the inner container for this section
+         */
+        enableInnerContainer?: boolean | null;
         callToAction?:
           | {
               style?: ('primary' | 'secondary') | null;
@@ -237,6 +245,14 @@ export interface ImageBlock {
   gradient?: boolean | null;
   gradientXFlip?: boolean | null;
   gradientYFlip?: boolean | null;
+  /**
+   * Set a specific width for the image, overriding the aspect ratio
+   */
+  forcedWidth?: number | null;
+  /**
+   * Set a specific height for the image, overriding the aspect ratio
+   */
+  forcedHeight?: number | null;
   gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
@@ -520,6 +536,7 @@ export interface PagesSelect<T extends boolean = true> {
               title?: T;
               subtitle?: T;
               description?: T;
+              enableInnerContainer?: T;
               callToAction?:
                 | T
                 | {
@@ -571,6 +588,8 @@ export interface ImageBlockSelect<T extends boolean = true> {
   gradient?: T;
   gradientXFlip?: T;
   gradientYFlip?: T;
+  forcedWidth?: T;
+  forcedHeight?: T;
   gradientSelect?: T;
   id?: T;
   blockName?: T;
