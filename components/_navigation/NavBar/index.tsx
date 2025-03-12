@@ -24,7 +24,7 @@ const NavBar = async () => {
   const { logo, links, socialLinks } = navContentData?.docs[0] as NavBarContentI
   const { webpUrl, alt, width, height } = logo
   return (
-    <nav className="relative px-5 sm:px-10 my-4 flex items-center justify-center md:justify-between px-auto bg-background text-foreground dark:bg-foreground dark:text-background">
+    <nav className="relative h-12 px-5 sm:px-10 my-4 flex items-center justify-center md:justify-between px-auto bg-background text-foreground dark:bg-foreground dark:text-background">
       <NavLogo src={webpUrl} alt={alt} width={width} height={height} />
       {links && links?.length > 0 && (
         <ul className="hidden md:flex items-center gap-16" data-test-id="navLinksList">
