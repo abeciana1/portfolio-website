@@ -5,4 +5,4 @@ export const titleToSlug = (title: string) => {
   .toLowerCase(); 
 }
 
-export const innerContainer = 'px-20 my-12'
+export const innerContainer = 'lg:px-20 lg:py-12 px-5 py-5'
