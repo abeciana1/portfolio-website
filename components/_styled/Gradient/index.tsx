@@ -87,8 +87,8 @@ const Gradient: React.FC<GradientProps> = ({
     <div className='absolute top-5.5'>
       <div
         style={{
-          height: (height),
-          width: (width),
+          height: height,
+          width: width,
         }}
         className={clsx('absolute z-40 rounded-full blur-3xl',{
           [gradients[variant]["default"]["first"]]: !gradientXFlip && !gradientYFlip,
