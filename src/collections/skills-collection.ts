@@ -21,7 +21,6 @@ export const SkillCollection: CollectionConfig = {
     {
       name: 'skills',
       label: 'Skills',
-      required: true,
       type: 'blocks',
       blocks: [
         Skill

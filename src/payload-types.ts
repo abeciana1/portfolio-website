@@ -363,13 +363,15 @@ export interface SkillsCollection {
   /**
    * Add skills to the collection
    */
-  skills: {
-    title: string;
-    skillIcon: number | Media;
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'skill-block';
-  }[];
+  skills?:
+    | {
+        title: string;
+        skillIcon: number | Media;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'skill-block';
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
