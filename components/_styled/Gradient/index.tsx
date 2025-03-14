@@ -84,7 +84,7 @@ const Gradient: React.FC<GradientProps> = ({
   width = 100,
 }) => {
   return (
-    <div className='absolute top-4'>
+    <div className='absolute top-5.5'>
       <div
         style={{
           height: (height),
