@@ -1,7 +1,8 @@
 import {
-  type CollectionConfig
+  type CollectionConfig,
+  type CollectionSlug
 } from 'payload'
-import { Skill } from '@/src/blocks/Skill/config'
+// import { Skill } from '@/src/blocks/Skill/config'
 
 export const SkillCollection: CollectionConfig = {
   slug: 'skills-collection',
@@ -21,10 +22,9 @@ export const SkillCollection: CollectionConfig = {
     {
       name: 'skills',
       label: 'Skills',
-      type: 'blocks',
-      blocks: [
-        Skill
-      ],
+      type: 'relationship',
+      relationTo: 'skills' as CollectionSlug,
+      hasMany: true,
       admin: {
         description: 'Add skills to the collection',
       }
