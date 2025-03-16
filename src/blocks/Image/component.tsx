@@ -35,19 +35,6 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
             width={width}
           />
         }
-        {/* {gradient && (
-          <div
-            className={`absolute -top-32 -left-44 w-full h-full blur-2xl`}
-            style={{
-              transform: `scaleX(${gradientXFlip? -1 : 1}) scaleY(${gradientYFlip? -1 : 1})`,
-            }}
-          >
-            {gradientSelect === 'Variant1' && <Variant1 />}
-            {gradientSelect === 'Variant2' && <Variant2 />}
-            {gradientSelect === 'Variant3' && <Variant3 />}
-            {gradientSelect === 'Variant4' && <Variant4 />}
-          </div>
-        )} */}
     </div>
   )
 }
