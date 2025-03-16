@@ -1,10 +1,5 @@
 import Image from 'next/image'
-import Variant1 from '@/gradients/Variant1'
-import Variant2 from '@/gradients/Variant2'
-import Variant3 from '@/gradients/Variant3'
-import Variant4 from '@/gradients/Variant4'
 import { ImageBlockProps } from '@/types/blockTypes'
-import clsx from 'clsx'
 import Gradient from '@/components/_styled/Gradient'
 
 const ImageComponent: React.FC<ImageBlockProps> = ({
