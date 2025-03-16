@@ -20,10 +20,10 @@ import NavLinks from './collections/nav-links'
 import SocialLinks from './collections/social-links'
 import Page from './collections/pages'
 import { SkillCollection } from './collections/skills-collection'
+import { Skill } from './collections/skills'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
-import { Skill as SkillBlock } from '@/src/blocks/Skill/config'
 import { CallToAction as CallToActionBlock } from '@/src/blocks/CallToAction/config'
 import { Image as ImageBlock } from '@/src/blocks/Image/config'
 
@@ -45,12 +45,12 @@ export default buildConfig({
         'nav-links',
         'pages',
         'skills-collection',
+        'skills'
       ],
     }
   },
   blocks: [
     HeroSectionBlock,
-    SkillBlock,
     CallToActionBlock,
     ImageBlock
   ],
@@ -69,7 +69,8 @@ export default buildConfig({
     NavLinks,
     SocialLinks,
     Page,
-    SkillCollection
+    SkillCollection,
+    Skill
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
