@@ -21,3 +21,12 @@ export type ImageBlockProps = {
   gradientYFlip?: boolean;
   gradientSelect?: 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
 }
+
+export type InViewBasicProps = {
+  title: string;
+  description: string;
+  hiddenY: number;
+  hiddenBlur: number;
+  visibleY: number;
+  visibleBlur: number;
+}
