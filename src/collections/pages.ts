@@ -1,8 +1,11 @@
 import {
   type CollectionConfig
 } from 'payload';
-import { HeroSection } from '@/src/blocks/HeroSection/config'
 import { titleToSlug } from '@/utils/helpers'
+
+// * blocks
+import { HeroSection } from '@/src/blocks/HeroSection/config'
+import { InViewBasic } from '@/src/blocks/InViewBasic/config'
 
 const Page: CollectionConfig = {
   slug: 'pages',
@@ -44,7 +47,8 @@ const Page: CollectionConfig = {
               type: 'blocks',
               label: 'Layout',
               blocks: [
-                HeroSection
+                HeroSection,
+                InViewBasic
               ]
             }
           ]
