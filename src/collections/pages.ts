@@ -6,6 +6,7 @@ import { titleToSlug } from '@/utils/helpers'
 // * blocks
 import { HeroSection } from '@/src/blocks/HeroSection/config'
 import { InViewBasic } from '@/src/blocks/InViewBasic/config'
+import { SkillsSection } from '@/src/blocks/SkillsSection/config'
 
 const Page: CollectionConfig = {
   slug: 'pages',
@@ -48,7 +49,8 @@ const Page: CollectionConfig = {
               label: 'Layout',
               blocks: [
                 HeroSection,
-                InViewBasic
+                InViewBasic,
+                SkillsSection
               ]
             }
           ]
