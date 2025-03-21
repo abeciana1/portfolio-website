@@ -8,6 +8,12 @@ export const SkillsSection: Block = {
   interfaceName: 'SkillsSection',
   fields: [
     {
+      name: 'sectionId',
+      type: 'text',
+      label: 'Section ID',
+      required: true,
+    },
+    {
       name: 'skillsCollection',
       label: 'Skills Collection',
       type: 'relationship',
