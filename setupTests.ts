@@ -1,2 +1,15 @@
 import '@testing-library/jest-dom'
-// import '@testing-library/jest-dom/extend-expect'
+
+
+class IntersectionObserver {
+  constructor(callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {}
+
+  observe() {}
+
+  unobserve() {}
+
+  disconnect() {}
+}
+
+// Assign the mock to the global object
+(global as any).IntersectionObserver = IntersectionObserver;
