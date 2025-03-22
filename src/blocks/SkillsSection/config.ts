@@ -17,7 +17,8 @@ export const SkillsSection: Block = {
       name: 'skillsCollection',
       label: 'Skills Collection',
       type: 'relationship',
-      relationTo: 'skills' as CollectionSlug
+      relationTo: 'skills' as CollectionSlug,
+      required: true
     }
   ]
 }
