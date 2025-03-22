@@ -66,7 +66,6 @@ export interface Config {
   };
   blocks: {
     'hero-section': HeroSection;
-    'skill-block': SkillBlock;
   };
   collections: {
     users: User;
@@ -76,6 +75,7 @@ export interface Config {
     'social-links': SocialLink;
     pages: Page;
     'skills-collection': SkillsCollection;
+    skills: Skill;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -89,6 +89,7 @@ export interface Config {
     'social-links': SocialLinksSelect<false> | SocialLinksSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     'skills-collection': SkillsCollectionSelect<false> | SkillsCollectionSelect<true>;
+    skills: SkillsSelect<false> | SkillsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -181,46 +182,50 @@ export interface Page {
   title: string;
   slug?: string | null;
   layout?:
-    | {
-        sectionId: string;
-        title: string;
-        subtitle?: string | null;
-        description?: string | null;
-        /**
-         * Enable the inner container for this section
-         */
-        enableInnerContainer?: boolean | null;
-        callToAction?:
-          | {
-              style?: ('primary' | 'secondary') | null;
-              link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?:
-                  | {
-                      relationTo: 'pages';
-                      value: number | Page;
-                    }[]
-                  | null;
-                url?: string | null;
-                label: string;
-                /**
-                 * Choose how the link should be rendered.
-                 */
-                appearance?: ('default' | 'outline') | null;
-              };
-              arrow?: boolean | null;
-              arrowDirection?: ('right' | 'down') | null;
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'call-to-action';
-            }[]
-          | null;
-        media?: ImageBlock[] | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero-section';
-      }[]
+    | (
+        | {
+            sectionId: string;
+            title: string;
+            subtitle?: string | null;
+            description?: string | null;
+            /**
+             * Enable the inner container for this section
+             */
+            enableInnerContainer?: boolean | null;
+            callToAction?:
+              | {
+                  style?: ('primary' | 'secondary') | null;
+                  link: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | {
+                          relationTo: 'pages';
+                          value: number | Page;
+                        }[]
+                      | null;
+                    url?: string | null;
+                    label: string;
+                    /**
+                     * Choose how the link should be rendered.
+                     */
+                    appearance?: ('default' | 'outline') | null;
+                  };
+                  arrow?: boolean | null;
+                  arrowDirection?: ('right' | 'down') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'call-to-action';
+                }[]
+              | null;
+            media?: ImageBlock[] | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero-section';
+          }
+        | InViewBasic
+        | SkillsSection
+      )[]
     | null;
   meta?: {
     title?: string | null;
@@ -283,14 +288,46 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "skill-block".
+ * via the `definition` "InViewBasic".
  */
-export interface SkillBlock {
+export interface InViewBasic {
   title: string;
-  skillIcon: number | Media;
+  description: string;
+  /**
+   * Hidden on y-axis (in pixels)
+   */
+  hiddenY?: number | null;
+  hiddenBlur?: number | null;
+  /**
+   * Visible on y-axis (in pixels)
+   */
+  visibleY?: number | null;
+  visibleBlur?: number | null;
   id?: string | null;
   blockName?: string | null;
-  blockType: 'skill-block';
+  blockType: 'in-view-basic';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SkillsSection".
+ */
+export interface SkillsSection {
+  sectionId: string;
+  skillsCollection: number | Skill;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'skills-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills".
+ */
+export interface Skill {
+  id: number;
+  title: string;
+  skillIcon: number | Media;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -363,15 +400,7 @@ export interface SkillsCollection {
   /**
    * Add skills to the collection
    */
-  skills?:
-    | {
-        title: string;
-        skillIcon: number | Media;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'skill-block';
-      }[]
-    | null;
+  skills?: (number | Skill)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -409,6 +438,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'skills-collection';
         value: number | SkillsCollection;
+      } | null)
+    | ({
+        relationTo: 'skills';
+        value: number | Skill;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -570,6 +603,8 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'in-view-basic'?: T | InViewBasicSelect<T>;
+        'skills-section'?: T | SkillsSectionSelect<T>;
       };
   meta?:
     | T
@@ -598,22 +633,45 @@ export interface ImageBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InViewBasic_select".
+ */
+export interface InViewBasicSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  hiddenY?: T;
+  hiddenBlur?: T;
+  visibleY?: T;
+  visibleBlur?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "SkillsSection_select".
+ */
+export interface SkillsSectionSelect<T extends boolean = true> {
+  sectionId?: T;
+  skillsCollection?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "skills-collection_select".
  */
 export interface SkillsCollectionSelect<T extends boolean = true> {
   title?: T;
-  skills?:
-    | T
-    | {
-        'skill-block'?:
-          | T
-          | {
-              title?: T;
-              skillIcon?: T;
-              id?: T;
-              blockName?: T;
-            };
-      };
+  skills?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills_select".
+ */
+export interface SkillsSelect<T extends boolean = true> {
+  title?: T;
+  skillIcon?: T;
   updatedAt?: T;
   createdAt?: T;
 }
