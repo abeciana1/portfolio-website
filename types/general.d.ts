@@ -29,6 +29,4 @@ export type GradientProps = {
   variant?: 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
   gradientXFlip?: boolean;
   gradientYFlip?: boolean;
-  height: number;
-  width: number;
 }
