@@ -62,7 +62,8 @@ export const HeroSection: Block = {
       maxRows: 1,
       blocks: [
         ImageBlock
-      ]
+      ],
+      required: true,
     }
   ]
 }
