@@ -165,7 +165,7 @@ export interface HeroSection {
         blockType: 'call-to-action';
       }[]
     | null;
-  media?: ImageBlock[] | null;
+  media: ImageBlock[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero-section';
@@ -218,7 +218,7 @@ export interface Page {
                   blockType: 'call-to-action';
                 }[]
               | null;
-            media?: ImageBlock[] | null;
+            media: ImageBlock[];
             id?: string | null;
             blockName?: string | null;
             blockType: 'hero-section';
