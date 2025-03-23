@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import { ImageBlockProps } from '@/types/blockTypes'
 import Gradient from '@/components/_styled/Gradient'
+import { ImageBlock } from '@/src/payload-types'
+import { type ImageBlockProps, type GradientOptions } from '@/types/blockTypes'
 
 const ImageComponent: React.FC<ImageBlockProps> = ({
   image,
@@ -22,15 +23,15 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
         <Image
           src={webpUrl}
           alt={alt}
-          height={height}
-          width={width}
+          height={height as number}
+          width={width as number}
           className='relative z-50 rounded-md'
         />
         {gradient &&
           <Gradient
-            variant={gradientSelect}
-            gradientXFlip={gradientXFlip}
-            gradientYFlip={gradientYFlip}
+            variant={gradientSelect as GradientOptions}
+            gradientXFlip={gradientXFlip as boolean}
+            gradientYFlip={gradientYFlip as boolean}
           />
         }
     </div>
