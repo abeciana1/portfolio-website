@@ -25,3 +25,10 @@ export type InViewBasicProps = {
   visibleBlur: number;
   enableInnerContainer: boolean;
 }
+
+export type CodeMockupSectionProps = {
+  sectionId: string;
+  children: React.ReactNode;
+  enableSection: boolean;
+  background: string;
+}
