@@ -8,7 +8,21 @@ import InViewBasic from '@/src/blocks/InViewBasic/component'
 import SkillsSection from '@/src/blocks/SkillsSection/component'
 import CodeMockupSection from '@/src/blocks/CodeMockupSection/component'
 
-const blockComponents: unknown = {
+// * component types
+import {
+  type HeroSectionProps,
+  type InViewBasicProps,
+  type CodeMockupSectionProps
+} from '@/types/blockTypes'
+
+type BlockComponentsMap = {
+  'hero-section': React.FC<HeroSectionProps>;
+  'in-view-basic': React.FC<InViewBasicProps>;
+  'skills-section': React.FC<any>;
+  'code-mockup-section': React.FC<CodeMockupSectionProps>;
+};
+
+const blockComponents: BlockComponentsMap = {
   'hero-section': HeroSection,
   'in-view-basic': InViewBasic,
   'skills-section': SkillsSection,
