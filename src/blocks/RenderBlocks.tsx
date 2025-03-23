@@ -6,11 +6,13 @@ import { transformBlockMedia } from '@/utils/transformImage'
 import HeroSection from '@/src/blocks/HeroSection/component'
 import InViewBasic from '@/src/blocks/InViewBasic/component'
 import SkillsSection from '@/src/blocks/SkillsSection/component'
+import CodeMockupSection from '@/src/blocks/CodeMockupSection/component'
 
 const blockComponents = {
   'hero-section': HeroSection,
   'in-view-basic': InViewBasic,
   'skills-section': SkillsSection,
+  'code-mockup-section': CodeMockupSection
 }
 
 const RenderBlocks: React.FC<{
