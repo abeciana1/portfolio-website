@@ -30,7 +30,7 @@ export type CodeMockupSectionProps = {
   sectionId: string;
   children: React.ReactNode;
   enableSection: boolean;
-  background: string;
+  background: 'black' | 'gray';
 }
 
 export type CodeMockupLineProps = {
