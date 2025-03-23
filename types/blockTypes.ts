@@ -32,3 +32,9 @@ export type CodeMockupSectionProps = {
   enableSection: boolean;
   background: string;
 }
+
+export type CodeMockupLineProps = {
+  text: string;
+  prefix: string;
+  textColor: 'white' | 'black' | 'success' | 'warning'
+}
