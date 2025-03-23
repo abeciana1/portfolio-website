@@ -2,7 +2,7 @@ import { HeroSectionProps } from '@/types/blockTypes'
 import ImageComponent from '@/src/blocks/Image/component'
 import { Heading1, Heading2 } from '@/components/_styled/Heading'
 import clsx from 'clsx'
-import { innerContainer } from '@/utils/helpers'
+import { innerContainer, limitContainer } from '@/utils/helpers'
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   sectionId,
@@ -25,8 +25,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     <section
       aria-label='section'
       id={sectionId}
-      className={clsx('relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto max-w-fit', {
-        [innerContainer]: enableInnerContainer
+      className={clsx('relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto', {
+        [innerContainer]: enableInnerContainer,
+        [limitContainer]: !enableInnerContainer
       })}
     >
       <div className='lg:max-w-[500px] md:max-w-[400px]'>
