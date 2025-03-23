@@ -38,3 +38,10 @@ export type CodeMockupLineProps = {
   prefix: string;
   textColor: 'white' | 'black' | 'success' | 'warning'
 }
+
+export type TwoColumnGridProps = {
+  sectionId: string;
+  column1: React.ReactNode [];
+  column2: React.ReactNode [];
+  reverseOrder: boolean;
+}
