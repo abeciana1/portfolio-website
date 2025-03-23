@@ -1,27 +1,37 @@
-import {
-  type HeroSection,
-  type SkillBlock
-} from '@/src/payload-types'
-import { ImageT } from '@/types/general'
+import { type HeroSection, type ImageBlock } from '@/src/payload-types'
+import { type CMSMediaT } from '@/types/general'
 
-type InnerContainer = {
-  enableInnerContainer?: boolean;
+/**
+ * Define the allowed gradient options.
+ */
+export type GradientOptions = 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
+
+/**
+ * For the HeroSection component, we want to ensure:
+ * - media is an array of ImageBlockProps (our UI-specific type)
+ * - enableInnerContainer is a boolean (not optional/null)
+ */
+export type HeroSectionProps = Omit<HeroSection, 'media' | 'enableInnerContainer'> & {
+  media: ImageBlockProps[];
+  enableInnerContainer: boolean;
 }
 
-export type HeroSectionProps = HeroSection & InnerContainer & {
-  media: ImageBlockProps[]
-}
-
-export type SkillProps = SkillBlock & InnerContainer
-
+/**
+ * The ImageBlockProps for the image component.
+ * Instead of using (Media & CMSMediaT) we simply use CMSMediaT,
+ * because CMSMediaT already is defined as Media plus a webpUrl field.
+ */
 export type ImageBlockProps = {
-  image: ImageT;
+  image: CMSMediaT;
   gradient?: boolean;
   gradientXFlip?: boolean;
   gradientYFlip?: boolean;
-  gradientSelect?: 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
+  gradientSelect?: GradientOptions;
 }
 
+/**
+ * For your InViewBasic component, the props are defined directly.
+ */
 export type InViewBasicProps = {
   title: string;
   description: string;
@@ -29,4 +39,5 @@ export type InViewBasicProps = {
   hiddenBlur: number;
   visibleY: number;
   visibleBlur: number;
+  enableInnerContainer: boolean;
 }

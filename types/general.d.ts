@@ -1,32 +1,18 @@
 import { type Media } from '@/src/payload-types'
 
-export interface WrapperI {
-  children: React.ReactNode;
-}
-
-export type NavLogoT = {
-  src: string;
-  alt: string;
-  width: number;
-  height: number;
-}
-
-export type ImageT = CMSMediaT & {
-  alt: string;
-  width: number;
-  height: number;
-}
-
+/**
+ * Your CMS media type – adds the custom webpUrl field
+ */
 export type CMSMediaT = Media & {
   webpUrl: string
 }
 
-export type HeadingProps = {
-  text: string;
-}
-
-export type GradientProps = {
-  variant?: 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
-  gradientXFlip?: boolean;
-  gradientYFlip?: boolean;
+/**
+ * If you need a type that also guarantees these UI-specific fields, you can define one.
+ * (Often CMSMediaT is enough if you always add webpUrl, and your CMS already provides alt, width, etc.)
+ */
+export type ImageT = CMSMediaT & {
+  alt: string
+  width: number
+  height: number
 }
