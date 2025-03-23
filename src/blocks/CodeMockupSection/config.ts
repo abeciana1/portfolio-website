@@ -12,6 +12,20 @@ export const CodeMockupSectionBlock: Block = {
       required: true,
     },
     {
+      name: 'enableSection',
+      type: 'checkbox',
+      label: 'Enable Section',
+    },
+    {
+      name: 'background',
+      type: 'select',
+      label: 'Background Color',
+      options: [
+        { label: 'Black', value: 'black' },
+        { label: 'Gray', value: 'gray' },
+      ]
+    },
+    {
       name: 'code',
       label: 'Code',
       type: 'blocks',
