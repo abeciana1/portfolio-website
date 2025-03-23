@@ -8,7 +8,7 @@ import InViewBasic from '@/src/blocks/InViewBasic/component'
 import SkillsSection from '@/src/blocks/SkillsSection/component'
 import CodeMockupSection from '@/src/blocks/CodeMockupSection/component'
 
-const blockComponents = {
+const blockComponents: unknown = {
   'hero-section': HeroSection,
   'in-view-basic': InViewBasic,
   'skills-section': SkillsSection,
