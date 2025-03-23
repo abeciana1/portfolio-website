@@ -8,7 +8,6 @@ export const CodeMockupLinkBlock: Block = {
       name: 'prefix',
       type: 'text',
       label: 'Prefix',
-      required: true,
       maxLength: 1
     },
     {
