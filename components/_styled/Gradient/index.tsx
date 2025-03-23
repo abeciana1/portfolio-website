@@ -79,16 +79,14 @@ const gradients = {
 const Gradient: React.FC<GradientProps> = ({
   variant = 'Variant1',
   gradientXFlip,
-  gradientYFlip,
-  height = 100,
-  width = 100,
+  gradientYFlip
 }) => {
   return (
-    <div className='absolute top-5.5'>
+    <div className='absolute top-5.5 left-0 w-full h-full'>
       <div
         style={{
-          height: height,
-          width: width,
+          height: '100%',
+          width: '100%'
         }}
         className={clsx('absolute z-40 rounded-full blur-3xl',{
           [gradients[variant]["default"]["first"]]: !gradientXFlip && !gradientYFlip,
@@ -99,8 +97,8 @@ const Gradient: React.FC<GradientProps> = ({
       />
       <div
         style={{
-          height: height * 0.75,
-          width: width * 0.75,
+          height: '100%',
+          width: '100%'
         }}
         className={clsx('absolute z-30 rounded-full blur-2xl',{
           [gradients[variant]["default"]["second"]]: !gradientXFlip && !gradientYFlip,
