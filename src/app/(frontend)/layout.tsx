@@ -27,7 +27,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en" className={theme} data-theme={theme}>
-      <body className={`antialiased ${inter.className} bg-background text-foreground dark:bg-foreground dark:text-background max-w-[1440px] mx-auto`}>
+      <body className={`antialiased ${inter.className} bg-background text-foreground dark:bg-foreground dark:text-background max-w-[1440px] mx-auto overflow-hidden`}>
         <CombinedProviders>
           <NavBar/>
           {children}
