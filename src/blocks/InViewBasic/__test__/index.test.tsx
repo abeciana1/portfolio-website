@@ -6,6 +6,7 @@ describe('InViewBasic', () => {
   beforeEach(() => {
     render(
       <InViewBasic
+        enableInnerContainer={false}
         title='InViewBasic'
         description='This is an InViewBasic block'
         hiddenY={0}
