@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { CodeMockupSectionProps } from '@/types/blockTypes'
+import { type CodeMockupSectionProps } from '@/types/blockTypes'
 
 const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
 sectionId,
