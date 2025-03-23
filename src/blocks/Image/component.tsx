@@ -12,13 +12,13 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
 
   const {
     webpUrl,
+    alt,
     width,
     height,
-    alt,
   } = image
 
   return (
-    <div className='relative max-w-fit'>
+    <div className='relative '>
         <Image
           src={webpUrl}
           alt={alt}
@@ -31,8 +31,6 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
             variant={gradientSelect}
             gradientXFlip={gradientXFlip}
             gradientYFlip={gradientYFlip}
-            height={height}
-            width={width}
           />
         }
     </div>
