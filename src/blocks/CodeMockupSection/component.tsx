@@ -2,13 +2,13 @@ import clsx from 'clsx'
 import { type CodeMockupSectionProps } from '@/types/blockTypes'
 
 const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
-sectionId,
+  sectionId,
   children,
   enableSection,
   background
 }) => {
   return (
-    <section id={sectionId} tabIndex={0} className="my-10 relative">
+    <section data-testid={sectionId} id={sectionId} tabIndex={0} className="my-10 relative">
         <div className={clsx("mx-auto",{
             ["mockup-code-section"]: enableSection,
             ["bg-black text-white"]: background === "black",
