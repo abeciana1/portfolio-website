@@ -1,6 +1,6 @@
 import { type Block } from 'payload';
 
-export const CodeMockupSection: Block = {
+export const CodeMockupSectionBlock: Block = {
   slug: 'code-mockup-section',
   interfaceName: 'CodeMockupSectionBlock',
   fields: [
