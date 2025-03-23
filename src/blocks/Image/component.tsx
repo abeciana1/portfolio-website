@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Gradient from '@/components/_styled/Gradient'
-import { ImageBlock } from '@/src/payload-types'
 import { type ImageBlockProps, type GradientOptions } from '@/types/blockTypes'
 
 const ImageComponent: React.FC<ImageBlockProps> = ({
