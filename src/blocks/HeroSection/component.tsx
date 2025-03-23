@@ -1,8 +1,8 @@
-import { HeroSectionProps } from '@/types/blockTypes'
 import ImageComponent from '@/src/blocks/Image/component'
 import { Heading1, Heading2 } from '@/components/_styled/Heading'
 import clsx from 'clsx'
 import { innerContainer, limitContainer } from '@/utils/helpers'
+import { type HeroSectionProps } from '@/types/blockTypes'
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   sectionId,
@@ -11,9 +11,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   description,
   enableInnerContainer,
   callToAction,
-  media
+  media = []
 }) => {
-  console.log('enableInnerContainer', enableInnerContainer)
+
   const {
     gradient,
     gradientXFlip,
@@ -37,9 +37,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
       <ImageComponent
         image={image}
-        gradient={gradient}
-        gradientXFlip={gradientXFlip}
-        gradientYFlip={gradientYFlip}
+        gradient={gradient as boolean}
+        gradientXFlip={gradientXFlip as boolean}
+        gradientYFlip={gradientYFlip as boolean}
         gradientSelect={gradientSelect}
       />
     </section>
