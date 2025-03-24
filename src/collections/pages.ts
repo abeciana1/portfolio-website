@@ -7,6 +7,7 @@ import { titleToSlug } from '@/utils/helpers'
 import { HeroSection } from '@/src/blocks/HeroSection/config'
 import { InViewBasic } from '@/src/blocks/InViewBasic/config'
 import { SkillsSection } from '@/src/blocks/SkillsSection/config'
+import { TwoColumnGrid } from '@/src/blocks/TwoColumnGrid/config'
 
 const Page: CollectionConfig = {
   slug: 'pages',
@@ -50,7 +51,8 @@ const Page: CollectionConfig = {
               blocks: [
                 HeroSection,
                 InViewBasic,
-                SkillsSection
+                SkillsSection,
+                TwoColumnGrid
               ]
             }
           ]
