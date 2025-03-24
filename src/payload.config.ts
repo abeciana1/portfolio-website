@@ -26,6 +26,8 @@ import { Skill } from './collections/skills'
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
 import { CallToAction as CallToActionBlock } from '@/src/blocks/CallToAction/config'
 import { Image as ImageBlock } from '@/src/blocks/Image/config'
+import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
+import { CodeMockupSectionBlock } from '@/src/blocks/CodeMockupSection/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -52,7 +54,9 @@ export default buildConfig({
   blocks: [
     HeroSectionBlock,
     CallToActionBlock,
-    ImageBlock
+    ImageBlock,
+    RichTextBlock,
+    CodeMockupSectionBlock
   ],
   cors: [
     'http://localhost:3000',
