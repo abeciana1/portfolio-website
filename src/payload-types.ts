@@ -66,6 +66,8 @@ export interface Config {
   };
   blocks: {
     'hero-section': HeroSection;
+    'rich-text-block': RichTextBlock;
+    'code-mockup-section': CodeMockupSectionBlock;
   };
   collections: {
     users: User;
@@ -225,6 +227,7 @@ export interface Page {
           }
         | InViewBasic
         | SkillsSection
+        | TwoColumnGridBlock
       )[]
     | null;
   meta?: {
@@ -328,6 +331,71 @@ export interface Skill {
   skillIcon: number | Media;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TwoColumnGridBlock".
+ */
+export interface TwoColumnGridBlock {
+  sectionId: string;
+  column1?: (CodeMockupSectionBlock | RichTextBlock)[] | null;
+  column2?: (CodeMockupSectionBlock | RichTextBlock)[] | null;
+  /**
+   * Reverses the order of the columns
+   */
+  reverseOrder?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'two-column-grid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeMockupSectionBlock".
+ */
+export interface CodeMockupSectionBlock {
+  sectionId: string;
+  enableSection?: boolean | null;
+  background?: ('black' | 'gray') | null;
+  code?: CodeMockupLinkBlock[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'code-mockup-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeMockupLinkBlock".
+ */
+export interface CodeMockupLinkBlock {
+  prefix?: string | null;
+  text: string;
+  textColor: 'white' | 'black' | 'success' | 'warning';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'code-mockup-link';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlock".
+ */
+export interface RichTextBlock {
+  richTextContent: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'rich-text-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -605,6 +673,7 @@ export interface PagesSelect<T extends boolean = true> {
             };
         'in-view-basic'?: T | InViewBasicSelect<T>;
         'skills-section'?: T | SkillsSectionSelect<T>;
+        'two-column-grid'?: T | TwoColumnGridBlockSelect<T>;
       };
   meta?:
     | T
@@ -652,6 +721,64 @@ export interface InViewBasicSelect<T extends boolean = true> {
 export interface SkillsSectionSelect<T extends boolean = true> {
   sectionId?: T;
   skillsCollection?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TwoColumnGridBlock_select".
+ */
+export interface TwoColumnGridBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  column1?:
+    | T
+    | {
+        'code-mockup-section'?: T | CodeMockupSectionBlockSelect<T>;
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+      };
+  column2?:
+    | T
+    | {
+        'code-mockup-section'?: T | CodeMockupSectionBlockSelect<T>;
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+      };
+  reverseOrder?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeMockupSectionBlock_select".
+ */
+export interface CodeMockupSectionBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  enableSection?: T;
+  background?: T;
+  code?:
+    | T
+    | {
+        'code-mockup-link'?: T | CodeMockupLinkBlockSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeMockupLinkBlock_select".
+ */
+export interface CodeMockupLinkBlockSelect<T extends boolean = true> {
+  prefix?: T;
+  text?: T;
+  textColor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlock_select".
+ */
+export interface RichTextBlockSelect<T extends boolean = true> {
+  richTextContent?: T;
   id?: T;
   blockName?: T;
 }
