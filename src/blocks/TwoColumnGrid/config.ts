@@ -1,8 +1,10 @@
 import { type Block } from 'payload';
 import { CodeMockupSectionBlock } from '@/src/blocks/CodeMockupSection/config'
+import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 
 const allowableBlocks = [
-  CodeMockupSectionBlock
+  CodeMockupSectionBlock,
+  RichTextBlock
 ]
 
 export const TwoColumnGrid: Block = {
