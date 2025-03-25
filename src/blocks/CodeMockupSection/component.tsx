@@ -12,7 +12,7 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
       data-testid={sectionId}
       id={sectionId}
       tabIndex={0}
-      className="my-12 relative"
+      className="py-12 relative"
     >
         <div className={clsx("mx-auto",{
             ["mockup-code-section"]: enableSection,
