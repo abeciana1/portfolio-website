@@ -378,7 +378,7 @@ export interface CodeMockupLinkBlock {
  * via the `definition` "RichTextBlock".
  */
 export interface RichTextBlock {
-  richTextContent: {
+  content: {
     root: {
       type: string;
       children: {
@@ -778,7 +778,7 @@ export interface CodeMockupLinkBlockSelect<T extends boolean = true> {
  * via the `definition` "RichTextBlock_select".
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
-  richTextContent?: T;
+  content?: T;
   id?: T;
   blockName?: T;
 }
