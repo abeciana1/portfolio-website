@@ -393,6 +393,7 @@ export interface RichTextBlock {
     };
     [k: string]: unknown;
   };
+  content_html?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'rich-text-block';
@@ -779,6 +780,7 @@ export interface CodeMockupLinkBlockSelect<T extends boolean = true> {
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
   content?: T;
+  content_html?: T;
   id?: T;
   blockName?: T;
 }
