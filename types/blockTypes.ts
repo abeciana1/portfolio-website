@@ -1,5 +1,6 @@
-import { type HeroSection, type ImageBlock } from '@/src/payload-types'
+import { type HeroSection } from '@/src/payload-types'
 import { type CMSMediaT } from '@/types/general'
+import { type BlockComponentsMap } from '@/src/blocks/RenderBlocks'
 
 export type GradientOptions = 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
 
@@ -41,7 +42,7 @@ export type CodeMockupLineProps = {
 
 export type TwoColumnGridProps = {
   sectionId: string;
-  column1: React.ReactNode [];
-  column2: React.ReactNode [];
+  column1: BlockComponentsMap[];
+  column2: BlockComponentsMap[];
   reverseOrder: boolean;
 }
