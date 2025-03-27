@@ -9,3 +9,7 @@ export type ImageT = CMSMediaT & {
   width: number
   height: number
 }
+
+export type HeadingProps = {
+  text: string;
+}
