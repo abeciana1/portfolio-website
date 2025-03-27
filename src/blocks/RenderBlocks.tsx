@@ -9,13 +9,15 @@ import InViewBasic from '@/src/blocks/InViewBasic/component'
 import SkillsSection from '@/src/blocks/SkillsSection/component'
 import CodeMockupSection from '@/src/blocks/CodeMockupSection/component'
 import TwoColumnGrid from '@/src/blocks/TwoColumnGrid/component'
+import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 
 // * component types
 import {
   type HeroSectionProps,
   type InViewBasicProps,
   type CodeMockupSectionProps,
-  type TwoColumnGridProps
+  type TwoColumnGridProps,
+  type RichTextEditorProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -24,6 +26,7 @@ export type BlockComponentsMap = {
   'skills-section': React.FC<any>;
   'code-mockup-section': React.FC<CodeMockupSectionProps>;
   'two-column-grid': React.FC<TwoColumnGridProps>;
+  'rich-text-block': React.FC<RichTextEditorProps>;
 };
 
 const blockComponents: BlockComponentsMap = {
@@ -32,6 +35,7 @@ const blockComponents: BlockComponentsMap = {
   'skills-section': SkillsSection,
   'code-mockup-section': CodeMockupSection,
   'two-column-grid': TwoColumnGrid,
+  'rich-text-block': RichTextEditor,
 }
 
 const RenderBlocks: React.FC<{
