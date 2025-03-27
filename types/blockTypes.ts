@@ -46,3 +46,7 @@ export type TwoColumnGridProps = {
   column2: BlockComponentsMap[];
   reverseOrder: boolean;
 }
+
+export type RichTextEditorProps = {
+  content_html: string;
+}
