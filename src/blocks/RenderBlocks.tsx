@@ -7,26 +7,30 @@ import HeroSection from '@/src/blocks/HeroSection/component'
 import InViewBasic from '@/src/blocks/InViewBasic/component'
 import SkillsSection from '@/src/blocks/SkillsSection/component'
 import CodeMockupSection from '@/src/blocks/CodeMockupSection/component'
+import TwoColumnGrid from '@/src/blocks/TwoColumnGrid/component'
 
 // * component types
 import {
   type HeroSectionProps,
   type InViewBasicProps,
-  type CodeMockupSectionProps
+  type CodeMockupSectionProps,
+  type TwoColumnGridProps
 } from '@/types/blockTypes'
 
-type BlockComponentsMap = {
+export type BlockComponentsMap = {
   'hero-section': React.FC<HeroSectionProps>;
   'in-view-basic': React.FC<InViewBasicProps>;
   'skills-section': React.FC<any>;
   'code-mockup-section': React.FC<CodeMockupSectionProps>;
+  'two-column-grid': React.FC<TwoColumnGridProps>;
 };
 
 const blockComponents: BlockComponentsMap = {
   'hero-section': HeroSection,
   'in-view-basic': InViewBasic,
   'skills-section': SkillsSection,
-  'code-mockup-section': CodeMockupSection
+  'code-mockup-section': CodeMockupSection,
+  'two-column-grid': TwoColumnGrid,
 }
 
 const RenderBlocks: React.FC<{
