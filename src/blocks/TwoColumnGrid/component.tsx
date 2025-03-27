@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { type TwoColumnGridProps } from '@/types/blockTypes'
+import RenderBlocks from '@/src/blocks/RenderBlocks'
 
 const TwoColumnGrid: React.FC<TwoColumnGridProps> = ({
   sectionId,
@@ -12,7 +14,10 @@ const TwoColumnGrid: React.FC<TwoColumnGridProps> = ({
       id={sectionId}
       className="grid grid-cols-1 md:grid-cols-2 gap-10"
     >
-      {reverseOrder ? [...column2,...column1] : [...column1,...column2]}
+      {reverseOrder ?
+        <RenderBlocks blocks={[...column2,...column1] as any} /> :
+        <RenderBlocks blocks={[...column1,...column2] as any} />  // Reverse order of columns if enabled.  // Render blocks in the order provided in the array.  // The order of the columns can be reversed by enabling the reverseOrder prop.  // Note: This will not work correctly with blocks that require specific order (like hero-section or in-view-basic).  // For those blocks, you should manually handle the reordering in your RenderBlocks component.  // Alternatively
+      }
     </section>
   )
 }
