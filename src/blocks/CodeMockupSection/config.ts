@@ -17,6 +17,11 @@ export const CodeMockupSectionBlock: Block = {
       label: 'Enable Section',
     },
     {
+      name: 'useRandomData',
+      type: 'checkbox',
+      label: 'Use Random Data',
+    },
+    {
       name: 'background',
       type: 'select',
       label: 'Background Color',
