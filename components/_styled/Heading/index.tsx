@@ -1,4 +1,4 @@
-import { HeadingProps } from '@/types/general'
+import { type HeadingProps } from '@/types/general'
 
 export const Heading1: React.FC<HeadingProps> = ({ text }) => {
   return (
