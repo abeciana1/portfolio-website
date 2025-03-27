@@ -1,7 +1,14 @@
+import { type RichTextEditorProps } from '@/types/blockTypes'
+import DOMPurify from "isomorphic-dompurify";
 
-const RichTextEditor = () => {
+const RichTextEditor: React.FC<RichTextEditorProps> = ({
+  content_html
+}) => {
+  const sanitizedContent = DOMPurify.sanitize(content_html);
   return (
-    <></>
+    <>
+      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+    </>
   )
 }
 
