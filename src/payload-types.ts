@@ -355,6 +355,7 @@ export interface TwoColumnGridBlock {
 export interface CodeMockupSectionBlock {
   sectionId: string;
   enableSection?: boolean | null;
+  useRandomData?: boolean | null;
   background?: ('black' | 'gray') | null;
   code?: CodeMockupLinkBlock[] | null;
   id?: string | null;
@@ -754,6 +755,7 @@ export interface TwoColumnGridBlockSelect<T extends boolean = true> {
 export interface CodeMockupSectionBlockSelect<T extends boolean = true> {
   sectionId?: T;
   enableSection?: T;
+  useRandomData?: T;
   background?: T;
   code?:
     | T
