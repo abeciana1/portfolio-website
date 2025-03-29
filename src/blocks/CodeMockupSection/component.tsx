@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { type CodeMockupSectionProps } from '@/types/blockTypes'
 import jokes from '@/data/jokes.json'
 import CodeMockupLine from '@/src/blocks/CodeMockupLine/component'
+import '@/styles/code-highlight.css'
 
 const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
   sectionId,
@@ -22,8 +23,8 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
     >
         <div className={clsx("mx-auto",{
             ["mockup-code-section"]: enableSection,
-            ["bg-black text-white"]: background === "black",
-            ["bg-gray-200 text-black"]: background === "gray"
+            ["bg-foreground text-white"]: background === "black",
+            ["bg-gray-200 text-foreground"]: background === "gray"
         })}>
           {useRandomData &&
             <>
