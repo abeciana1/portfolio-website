@@ -1,12 +1,18 @@
 import clsx from 'clsx'
 import { type CodeMockupSectionProps } from '@/types/blockTypes'
+import jokes from '@/data/jokes.json'
+import CodeMockupLine from '@/src/blocks/CodeMockupLine/component'
 
 const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
   sectionId,
   children,
   enableSection,
-  background
+  background,
+  useRandomData
 }) => {
+  const joke = jokes[Math.floor(Math.random()*jokes.length)]
+
+
   return (
     <section
       data-testid={sectionId}
@@ -19,7 +25,21 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
             ["bg-black text-white"]: background === "black",
             ["bg-gray-200 text-black"]: background === "gray"
         })}>
-            {children}
+          {useRandomData &&
+            <>
+              <CodeMockupLine
+                prefix="$"
+                textColor="warning"
+                text={joke?.question}
+              />
+              <CodeMockupLine
+                prefix=">"
+                textColor="success"
+                text={joke?.punchline}
+              />
+            </>
+          }
+          {!useRandomData && children}
         </div>
     </section>
   )
