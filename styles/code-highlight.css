@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 .mockup-code, .mockup-code-section {
   min-width: 18rem;
   @apply py-5; 
