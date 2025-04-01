@@ -338,6 +338,7 @@ export interface Skill {
  */
 export interface TwoColumnGridBlock {
   sectionId: string;
+  vertAlignment?: ('top' | 'middle' | 'bottom') | null;
   column1?: (CodeMockupSectionBlock | RichTextBlock)[] | null;
   column2?: (CodeMockupSectionBlock | RichTextBlock)[] | null;
   /**
@@ -732,6 +733,7 @@ export interface SkillsSectionSelect<T extends boolean = true> {
  */
 export interface TwoColumnGridBlockSelect<T extends boolean = true> {
   sectionId?: T;
+  vertAlignment?: T;
   column1?:
     | T
     | {
