@@ -46,6 +46,7 @@ export type TwoColumnGridProps = {
   column1: BlockComponentsMap[];
   column2: BlockComponentsMap[];
   reverseOrder: boolean;
+  vertAlignment: 'top' | 'middle' | 'bottom';
 }
 
 export type RichTextEditorProps = {
