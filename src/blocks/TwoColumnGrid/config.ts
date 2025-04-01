@@ -18,6 +18,16 @@ export const TwoColumnGrid: Block = {
       required: true,
     },
     {
+      name: 'vertAlignment',
+      type: 'select',
+      label: 'Vertical Alignment',
+      options: [
+        { label: 'Top', value: 'top' },
+        { label: 'Middle', value:'middle' },
+        { label: 'Bottom', value: 'bottom' },
+      ]
+    },
+    {
       name: 'column1',
       type: 'blocks',
       label: 'Column 1',
