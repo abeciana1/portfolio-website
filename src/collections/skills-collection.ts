@@ -2,7 +2,6 @@ import {
   type CollectionConfig,
   type CollectionSlug
 } from 'payload'
-// import { Skill } from '@/src/blocks/Skill/config'
 
 export const SkillCollection: CollectionConfig = {
   slug: 'skills-collection',
