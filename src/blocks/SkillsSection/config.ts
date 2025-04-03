@@ -14,6 +14,12 @@ export const SkillsSection: Block = {
       required: true,
     },
     {
+      name: 'heading',
+      type: 'text',
+      label: 'Heading',
+      required: true,
+    },
+    {
       name: 'skillsCollection',
       label: 'Skills Collection',
       type: 'relationship',
