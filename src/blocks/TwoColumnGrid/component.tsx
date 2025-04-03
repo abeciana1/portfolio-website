@@ -2,18 +2,24 @@
 import { type TwoColumnGridProps } from '@/types/blockTypes'
 import RenderBlocks from '@/src/blocks/RenderBlocks'
 import '@/styles/html-styles.css'
+import clsx from 'clsx'
 
 const TwoColumnGrid: React.FC<TwoColumnGridProps> = ({
   sectionId,
   column1,
   column2,
   reverseOrder,
+  vertAlignment = 'middle'
 }) => {
   return (
     <section
       data-testid={sectionId}
       id={sectionId}
-      className="relative xl:gap-40 items-center mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:px-20 lg:py-24 px-5 py-10"
+      className={clsx("relative xl:gap-40 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:px-20 lg:py-24 px-5 py-10", {
+        ['items-center']: vertAlignment === 'middle',
+        ['items-start']: vertAlignment === 'top',
+        ['items-end']: vertAlignment === 'bottom',
+      })}
     >
       {reverseOrder ?
         <RenderBlocks blocks={[...column2,...column1] as any} /> :
