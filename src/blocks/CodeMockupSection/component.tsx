@@ -1,19 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import clsx from 'clsx'
 import { type CodeMockupSectionProps } from '@/types/blockTypes'
 import jokes from '@/data/jokes.json'
 import CodeMockupLine from '@/src/blocks/CodeMockupLine/component'
 import '@/styles/code-highlight.css'
+import RenderBlocks from '@/src/blocks/RenderBlocks'
 
 const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
   sectionId,
-  children,
+  code,
   enableSection,
   background,
   useRandomData
 }) => {
   const joke = jokes[Math.floor(Math.random()*jokes.length)]
-
-
   return (
     <section
       data-testid={sectionId}
@@ -40,7 +40,7 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
               />
             </>
           }
-          {!useRandomData && children}
+          {!useRandomData && <RenderBlocks blocks={[...code] as any} />}
         </div>
     </section>
   )
