@@ -20,6 +20,9 @@ export const CodeMockupSectionBlock: Block = {
       name: 'useRandomData',
       type: 'checkbox',
       label: 'Use Random Data',
+      admin: {
+        description: 'This is used for developer jokes.'
+      }
     },
     {
       name: 'background',
