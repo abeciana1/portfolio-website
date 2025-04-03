@@ -29,7 +29,7 @@ export type InViewBasicProps = {
 
 export type CodeMockupSectionProps = {
   sectionId: string;
-  children: React.ReactNode;
+  code: BlockComponentsMap[];
   enableSection: boolean;
   background: 'black' | 'gray';
   useRandomData: boolean;
