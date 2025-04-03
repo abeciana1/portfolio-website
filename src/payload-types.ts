@@ -316,10 +316,28 @@ export interface InViewBasic {
  */
 export interface SkillsSection {
   sectionId: string;
-  skillsCollection: number | Skill;
+  heading: string;
+  skillsCollection: number | SkillsCollection;
   id?: string | null;
   blockName?: string | null;
   blockType: 'skills-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skills-collection".
+ */
+export interface SkillsCollection {
+  id: number;
+  /**
+   * Title for the skill collection
+   */
+  title: string;
+  /**
+   * Add skills to the collection
+   */
+  skills?: (number | Skill)[] | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -458,23 +476,6 @@ export interface SocialLink {
   id: number;
   label: string;
   link: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "skills-collection".
- */
-export interface SkillsCollection {
-  id: number;
-  /**
-   * Title for the skill collection
-   */
-  title: string;
-  /**
-   * Add skills to the collection
-   */
-  skills?: (number | Skill)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -726,6 +727,7 @@ export interface InViewBasicSelect<T extends boolean = true> {
  */
 export interface SkillsSectionSelect<T extends boolean = true> {
   sectionId?: T;
+  heading?: T;
   skillsCollection?: T;
   id?: T;
   blockName?: T;
