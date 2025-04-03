@@ -23,3 +23,7 @@ h5 {
 h6 {
   @apply text-xl font-semibold;
 }
+
+p {
+  @apply text-xl leading-12;
+}
