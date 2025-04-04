@@ -12,7 +12,10 @@ const InViewEmbed: React.FC<InViewEmbedProps> = ({
   visibleBlur,
 }) => {
   return (
-    <section id={sectionId}>
+    <section
+      className='py-5 px-5 md:px-10 lg:py-24'
+      id={sectionId}
+    >
       <InView
           variants={{
             hidden: { opacity: 0, y: hiddenY, filter: `blur(${hiddenBlur}px)` },
