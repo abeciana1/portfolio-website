@@ -3,10 +3,12 @@ import {
 } from 'payload';
 import { CodeMockupSectionBlock } from '@/src/blocks/CodeMockupSection/config'
 import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
+import { TwoColumnGrid } from '@/src/blocks/TwoColumnGrid/config'
 
 const allowableBlocks = [
   CodeMockupSectionBlock,
-  RichTextBlock
+  RichTextBlock,
+  TwoColumnGrid
 ]
 
 export const InViewEmbedBlock: Block = {
