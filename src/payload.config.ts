@@ -28,6 +28,9 @@ import { CallToAction as CallToActionBlock } from '@/src/blocks/CallToAction/con
 import { Image as ImageBlock } from '@/src/blocks/Image/config'
 import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 import { CodeMockupSectionBlock } from '@/src/blocks/CodeMockupSection/config'
+import { InViewBasic as InViewBasicBlock } from '@/src/blocks/InViewBasic/config'
+import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
+
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -56,7 +59,9 @@ export default buildConfig({
     CallToActionBlock,
     ImageBlock,
     RichTextBlock,
-    CodeMockupSectionBlock
+    CodeMockupSectionBlock,
+    InViewBasicBlock,
+    InViewEmbedBlock
   ],
   cors: [
     'http://localhost:3000',
