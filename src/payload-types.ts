@@ -68,6 +68,8 @@ export interface Config {
     'hero-section': HeroSection;
     'rich-text-block': RichTextBlock;
     'code-mockup-section': CodeMockupSectionBlock;
+    'in-view-basic': InViewBasic;
+    'in-view-embed': InViewEmbedBlock;
   };
   collections: {
     users: User;
@@ -228,6 +230,7 @@ export interface Page {
         | InViewBasic
         | SkillsSection
         | TwoColumnGridBlock
+        | InViewEmbedBlock
       )[]
     | null;
   meta?: {
@@ -420,6 +423,27 @@ export interface RichTextBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'rich-text-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InViewEmbedBlock".
+ */
+export interface InViewEmbedBlock {
+  sectionId: string;
+  /**
+   * Hidden on y-axis (in pixels)
+   */
+  hiddenY?: number | null;
+  hiddenBlur?: number | null;
+  /**
+   * Visible on y-axis (in pixels)
+   */
+  visibleY?: number | null;
+  visibleBlur?: number | null;
+  embedBlocks?: (CodeMockupSectionBlock | RichTextBlock | TwoColumnGridBlock)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'in-view-embed';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -681,6 +705,7 @@ export interface PagesSelect<T extends boolean = true> {
         'in-view-basic'?: T | InViewBasicSelect<T>;
         'skills-section'?: T | SkillsSectionSelect<T>;
         'two-column-grid'?: T | TwoColumnGridBlockSelect<T>;
+        'in-view-embed'?: T | InViewEmbedBlockSelect<T>;
       };
   meta?:
     | T
@@ -790,6 +815,26 @@ export interface CodeMockupLinkBlockSelect<T extends boolean = true> {
 export interface RichTextBlockSelect<T extends boolean = true> {
   content?: T;
   content_html?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InViewEmbedBlock_select".
+ */
+export interface InViewEmbedBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  hiddenY?: T;
+  hiddenBlur?: T;
+  visibleY?: T;
+  visibleBlur?: T;
+  embedBlocks?:
+    | T
+    | {
+        'code-mockup-section'?: T | CodeMockupSectionBlockSelect<T>;
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+        'two-column-grid'?: T | TwoColumnGridBlockSelect<T>;
+      };
   id?: T;
   blockName?: T;
 }
