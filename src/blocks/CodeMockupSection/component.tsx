@@ -40,7 +40,7 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
               />
             </>
           }
-          {!useRandomData && <RenderBlocks blocks={[...code] as any} />}
+          {(!useRandomData && code) && <RenderBlocks blocks={[...code] as any} />}
         </div>
     </section>
   )
