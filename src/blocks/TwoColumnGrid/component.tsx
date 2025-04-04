@@ -15,7 +15,7 @@ const TwoColumnGrid: React.FC<TwoColumnGridProps> = ({
     <section
       data-testid={sectionId}
       id={sectionId}
-      className={clsx("relative xl:gap-40 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:px-20 lg:py-24 px-5 py-10", {
+      className={clsx("relative xl:gap-40 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:px-10 lg:py-24 px-5 py-10 place-content-between", {
         ['items-center']: vertAlignment === 'middle',
         ['items-start']: vertAlignment === 'top',
         ['items-end']: vertAlignment === 'bottom',
