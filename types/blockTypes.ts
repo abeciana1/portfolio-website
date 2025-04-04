@@ -61,3 +61,12 @@ export type SkillsSectionProps = {
   heading: string;
   skillsCollection: SkillsCollection;
 }
+
+export type InViewEmbedProps = {
+  sectionId: string;
+  embedBlocks: BlockComponentsMap[];
+  hiddenY: number;
+  hiddenBlur: number;
+  visibleY: number;
+  visibleBlur: number;
+}
