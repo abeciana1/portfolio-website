@@ -1,4 +1,7 @@
-import { type HeroSection } from '@/src/payload-types'
+import {
+  type HeroSection,
+  type SkillsCollection
+} from '@/src/payload-types'
 import { type CMSMediaT } from '@/types/general'
 import { type BlockComponentsMap } from '@/src/blocks/RenderBlocks'
 
@@ -51,4 +54,10 @@ export type TwoColumnGridProps = {
 
 export type RichTextEditorProps = {
   content_html: string;
+}
+
+export type SkillsSectionProps = {
+  sectionId: string;
+  heading: string;
+  skillsCollection: SkillsCollection;
 }
