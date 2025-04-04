@@ -8,6 +8,7 @@ import { HeroSection } from '@/src/blocks/HeroSection/config'
 import { InViewBasic } from '@/src/blocks/InViewBasic/config'
 import { SkillsSection } from '@/src/blocks/SkillsSection/config'
 import { TwoColumnGrid } from '@/src/blocks/TwoColumnGrid/config'
+import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
 
 const Page: CollectionConfig = {
   slug: 'pages',
@@ -52,7 +53,8 @@ const Page: CollectionConfig = {
                 HeroSection,
                 InViewBasic,
                 SkillsSection,
-                TwoColumnGrid
+                TwoColumnGrid,
+                InViewEmbedBlock
               ]
             }
           ]
