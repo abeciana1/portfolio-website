@@ -13,7 +13,7 @@ const InViewEmbed: React.FC<InViewEmbedProps> = ({
 }) => {
   return (
     <section
-      className='py-5 px-5 md:px-10 lg:py-24'
+      className='py-5 lg:py-24'
       id={sectionId}
     >
       <InView
