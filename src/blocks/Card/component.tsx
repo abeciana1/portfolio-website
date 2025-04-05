@@ -9,7 +9,7 @@ const Card: React.FC<CardBlockProps> = ({
 }) => {
   return (
     <div
-      className='lg:max-w-2xl mx-auto'
+      className='px-5 md:max-w-2xl mx-auto'
     >
       <div className='pb-6'>
         <Pill text={pill} />
