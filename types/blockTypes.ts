@@ -1,6 +1,5 @@
 import {
-  type HeroSection,
-  type SkillsCollection
+  type HeroSection
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
