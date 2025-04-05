@@ -10,6 +10,7 @@
   --color-danger: #EF626C;
   --color-success: #5DA271;
   --color-warning: #E6AF2E;
+  --color-pillGrey: #F5F5F5;
 
   --spacing: 0.5rem; /* 8px */
 
@@ -42,6 +43,7 @@
     danger: var(--color-danger);
     success: var(--color-success);
     warning: var(--color-warning);
+    pillGrey: var(--color-pillGrey);
   }
   .dark {
     background: var(--color-foreground);
@@ -49,5 +51,6 @@
     danger: var(--color-danger);
     success: var(--color-success);
     warning: var(--color-warning);
+    pillGrey: var(--color-pillGrey);
   }
 }
