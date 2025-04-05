@@ -69,6 +69,7 @@ export type SkillsSectionProps = {
   sectionId: string;
   heading: string;
   skillsCollection: {
+    id: number;
     skills: SkillProps[];
   };
 }
