@@ -10,6 +10,12 @@ import { type BlockComponentsMap } from '@/src/blocks/RenderBlocks'
 
 export type GradientOptions = 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
 
+export type GradientProps = {
+  gradientXFlip?: boolean;
+  gradientYFlip?: boolean;
+  variant?: GradientOptions;
+}
+
 export type HeroSectionProps = Omit<HeroSection, 'media' | 'enableInnerContainer'> & {
   media: ImageBlockProps[];
   enableInnerContainer: boolean;
