@@ -382,7 +382,6 @@ export interface CodeMockupSectionBlock {
    * This is used for developer jokes.
    */
   useRandomData?: boolean | null;
-  background?: ('black' | 'gray') | null;
   code?: CodeMockupLinkBlock[] | null;
   id?: string | null;
   blockName?: string | null;
@@ -801,7 +800,6 @@ export interface CodeMockupSectionBlockSelect<T extends boolean = true> {
   sectionId?: T;
   enableSection?: T;
   useRandomData?: T;
-  background?: T;
   code?:
     | T
     | {
