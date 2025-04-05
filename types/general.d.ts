@@ -13,3 +13,8 @@ export type ImageT = CMSMediaT & {
 export type HeadingProps = {
   text: string;
 }
+
+export type SkillProps = {
+  title: string;
+  skillIcon: CMSMediaT;
+}
