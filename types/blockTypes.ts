@@ -82,3 +82,8 @@ export type InViewEmbedProps = {
   visibleY: number;
   visibleBlur: number;
 }
+
+export type CardBlockProps = {
+  pill: string;
+  embedBlocks: BlockComponentsMap[];
+}
