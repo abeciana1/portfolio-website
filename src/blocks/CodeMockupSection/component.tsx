@@ -10,7 +10,6 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
   sectionId,
   code,
   enableSection,
-  background,
   useRandomData
 }) => {
   const joke = jokes[Math.floor(Math.random()*jokes.length)]
@@ -21,10 +20,8 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
       tabIndex={0}
       className="relative"
     >
-        <div className={clsx("mx-auto dark:border-2 dark:border-background",{
+        <div className={clsx("mx-auto dark:border-2 bg-foreground text-background dark:border-background",{
             ["mockup-code-section"]: enableSection,
-            ["bg-foreground text-background"]: background === "black",
-            ["bg-gray-200 text-foreground"]: background === "gray"
         })}>
           {useRandomData &&
             <>
