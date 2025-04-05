@@ -231,6 +231,7 @@ export interface Page {
         | SkillsSection
         | TwoColumnGridBlock
         | InViewEmbedBlock
+        | CardBlock
       )[]
     | null;
   meta?: {
@@ -717,6 +718,7 @@ export interface PagesSelect<T extends boolean = true> {
         'skills-section'?: T | SkillsSectionSelect<T>;
         'two-column-grid'?: T | TwoColumnGridBlockSelect<T>;
         'in-view-embed'?: T | InViewEmbedBlockSelect<T>;
+        card?: T | CardBlockSelect<T>;
       };
   meta?:
     | T
