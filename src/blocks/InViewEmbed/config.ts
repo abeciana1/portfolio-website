@@ -4,11 +4,13 @@ import {
 import { CodeMockupSectionBlock } from '@/src/blocks/CodeMockupSection/config'
 import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 import { TwoColumnGrid } from '@/src/blocks/TwoColumnGrid/config'
+import { CardBlock } from '@/src/blocks/Card/config'
 
 const allowableBlocks = [
   CodeMockupSectionBlock,
   RichTextBlock,
-  TwoColumnGrid
+  TwoColumnGrid,
+  CardBlock
 ]
 
 export const InViewEmbedBlock: Block = {
