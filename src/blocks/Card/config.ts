@@ -16,6 +16,11 @@ export const CardBlock: Block = {
   interfaceName: 'CardBlock',
   fields: [
     {
+      name: 'pill',
+      type: 'text',
+      label: 'Pill',
+    },
+    {
       name: 'embedBlocks',
       type: 'blocks',
       label: 'Embed Blocks',
