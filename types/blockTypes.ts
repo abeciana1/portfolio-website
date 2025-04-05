@@ -42,7 +42,6 @@ export type CodeMockupSectionProps = {
   sectionId: string;
   code: BlockComponentsMap[];
   enableSection: boolean;
-  background: 'black' | 'gray';
   useRandomData: boolean;
 }
 
