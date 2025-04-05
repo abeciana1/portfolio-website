@@ -1,4 +1,4 @@
-import { type GradientProps } from '@/types/general'
+import { type GradientProps } from '@/types/blockTypes'
 import clsx from 'clsx'
 
 const gradients = {
