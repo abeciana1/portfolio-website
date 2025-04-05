@@ -440,10 +440,21 @@ export interface InViewEmbedBlock {
    */
   visibleY?: number | null;
   visibleBlur?: number | null;
-  embedBlocks?: (CodeMockupSectionBlock | RichTextBlock | TwoColumnGridBlock)[] | null;
+  embedBlocks?: (CodeMockupSectionBlock | RichTextBlock | TwoColumnGridBlock | CardBlock)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'in-view-embed';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CardBlock".
+ */
+export interface CardBlock {
+  pill?: string | null;
+  embedBlocks?: (CodeMockupSectionBlock | RichTextBlock | TwoColumnGridBlock)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'card';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -828,6 +839,23 @@ export interface InViewEmbedBlockSelect<T extends boolean = true> {
   hiddenBlur?: T;
   visibleY?: T;
   visibleBlur?: T;
+  embedBlocks?:
+    | T
+    | {
+        'code-mockup-section'?: T | CodeMockupSectionBlockSelect<T>;
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+        'two-column-grid'?: T | TwoColumnGridBlockSelect<T>;
+        card?: T | CardBlockSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CardBlock_select".
+ */
+export interface CardBlockSelect<T extends boolean = true> {
+  pill?: T;
   embedBlocks?:
     | T
     | {
