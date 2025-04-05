@@ -2,7 +2,10 @@ import {
   type HeroSection,
   type SkillsCollection
 } from '@/src/payload-types'
-import { type CMSMediaT } from '@/types/general'
+import {
+  type CMSMediaT,
+  type SkillProps
+} from '@/types/general'
 import { type BlockComponentsMap } from '@/src/blocks/RenderBlocks'
 
 export type GradientOptions = 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
@@ -59,7 +62,9 @@ export type RichTextEditorProps = {
 export type SkillsSectionProps = {
   sectionId: string;
   heading: string;
-  skillsCollection: SkillsCollection;
+  skillsCollection: {
+    skills: SkillProps[];
+  };
 }
 
 export type InViewEmbedProps = {
