@@ -8,8 +8,12 @@ const Card: React.FC<CardBlockProps> = ({
   embedBlocks,
 }) => {
   return (
-    <div>
-      <Pill text={pill} />
+    <div
+      className='lg:max-w-2xl mx-auto'
+    >
+      <div className='pb-6'>
+        <Pill text={pill} />
+      </div>
       <RenderBlocks blocks={[...embedBlocks] as any} />
     </div>
   )
