@@ -7,7 +7,7 @@
 }
 
 .mockup-code, .mockup-code-section pre {
-  @apply pl-5;
+  @apply px-5;
 }
 
 .mockup-code, .mockup-code-section pre:before {
