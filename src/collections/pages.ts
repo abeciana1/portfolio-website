@@ -9,6 +9,7 @@ import { InViewBasic } from '@/src/blocks/InViewBasic/config'
 import { SkillsSection } from '@/src/blocks/SkillsSection/config'
 import { TwoColumnGrid } from '@/src/blocks/TwoColumnGrid/config'
 import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
+import { CardBlock } from '@/src/blocks/Card/config'
 
 const Page: CollectionConfig = {
   slug: 'pages',
@@ -54,7 +55,8 @@ const Page: CollectionConfig = {
                 InViewBasic,
                 SkillsSection,
                 TwoColumnGrid,
-                InViewEmbedBlock
+                InViewEmbedBlock,
+                CardBlock
               ]
             }
           ]
