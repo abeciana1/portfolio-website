@@ -34,7 +34,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
       className={`${sectionContainer}`}
     >
       <Heading1 text={heading} />
-      <section className='py-5'>
+      <section className='py-5 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-10'>
         {skillsContent?.skills && skillsContent?.skills
         .filter((skill): skill is SkillType => typeof skill !== 'number')
         .map((skill: SkillType) => (
