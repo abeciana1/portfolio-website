@@ -11,15 +11,22 @@ const Skill: React.FC<SkillProps> = ({
     webpUrl,
   } = skillIcon
   return (
-    <div className='relative'>
-        <Image
-          src={webpUrl}
-          alt={alt}
-          height={50}
-          width={50}
-        />
-        <div>{title}</div>
-    </div>
+    <div>
+      <div className="h-12 w-12 mx-auto">
+          <Image
+              width={50}
+              height={50}
+              src={webpUrl}
+              alt={`Alex Beciana | Skill - ${alt}`}
+              className="mx-auto dark:bg-background p-0.5"
+          />
+      </div>
+      <div
+        className="mt-4 text-center"
+      >
+        {title}
+      </div>
+  </div>
   )
 }
 
