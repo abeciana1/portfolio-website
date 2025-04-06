@@ -1,4 +1,7 @@
-import { type Media } from '@/src/payload-types'
+import {
+  type Media,
+  type Skill
+} from '@/src/payload-types'
 
 export type CMSMediaT = Media & {
   webpUrl: string
