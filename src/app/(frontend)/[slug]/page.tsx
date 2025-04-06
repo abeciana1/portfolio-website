@@ -22,8 +22,6 @@ const Page = async ({ params: paramsPromise }: Args) => {
     slug,
   })
 
-  console.log('page', page)
-
   if (!page) {
     return notFound()
   }
