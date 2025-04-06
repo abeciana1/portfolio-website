@@ -1,5 +1,6 @@
 import {
-  type HeroSection
+  type HeroSection,
+  type Skill
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -68,7 +69,7 @@ export type SkillsSectionProps = {
   heading: string;
   skillsCollection: {
     id: number;
-    skills: SkillProps[];
+    skills: Skill[];
   };
 }
 
