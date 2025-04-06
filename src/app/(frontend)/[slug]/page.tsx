@@ -1,4 +1,4 @@
-// import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import {
   getPayload,
   type RequiredDataFromCollectionSlug
@@ -7,6 +7,7 @@ import { cache } from 'react'
 import RenderBlocks from '@/src/blocks/RenderBlocks'
 import { notFound } from 'next/navigation';
 import buildConfig from '@/src/payload.config'
+import { generateMeta } from '@/utils/generateMeta'
 
 type Args = {
   params: Promise<{
@@ -37,8 +38,6 @@ const Page = async ({ params: paramsPromise }: Args) => {
 }
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
-  console.log('slug', slug)
-
   const payload = await getPayload({ config: buildConfig })
 
   const result = await payload.find({
@@ -55,13 +54,13 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
   return result.docs?.[0] || null
 })
 
-// export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-//   const { slug = 'home' } = await paramsPromise
-//   const page = await queryPageBySlug({
-//     slug,
-//   })
+export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
+  const { slug = 'home' } = await paramsPromise
+  const page = await queryPageBySlug({
+    slug,
+  })
 
-//   return generateMeta({ doc: page })
-// }
+  return generateMeta({ doc: page })
+}
 
 export default Page
