@@ -5,7 +5,6 @@ const Skill: React.FC<SkillProps> = ({
   title,
   skillIcon,
 }) => {
-  console.log('title', title)
   const {
     alt,
     webpUrl,
