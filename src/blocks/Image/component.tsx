@@ -18,7 +18,7 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   } = image
 
   return (
-    <div className='relative '>
+    <div className='relative'>
         <Image
           src={webpUrl}
           alt={alt}
