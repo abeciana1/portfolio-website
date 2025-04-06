@@ -22,9 +22,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const cookieStore = await cookies();
   const theme = cookieStore?.get('theme')?.value || 'light';
   const { children } = props
-
-  console.log('theme cookie', theme)
-
   return (
     <html lang="en" className={theme} data-theme={theme}>
       <body className={`antialiased ${inter.className} bg-background text-foreground dark:bg-foreground dark:text-background max-w-[1440px] mx-auto overflow-x-hidden`}>
