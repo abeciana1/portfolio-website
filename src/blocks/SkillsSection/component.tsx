@@ -3,6 +3,9 @@ import { Heading1 } from '@/components/_styled/Heading'
 import { sectionContainer } from '@/utils/helpers'
 import { payload } from '@/src/payload'
 import { QueryClient } from '@tanstack/react-query'
+import Skill from '@/components/_styled/Skill'
+import { type Skill as SkillType } from '@/src/payload-types'
+import { CMSMediaT } from '@/types/general'
 
 const fetchSkillsList = async (queryClient: QueryClient, collectionId: number) => {
   return await queryClient.ensureQueryData({
@@ -25,14 +28,23 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
 }) => {
   const queryClient = new QueryClient()
   const skillsContent = await fetchSkillsList(queryClient, skillsCollection?.id)
-  console.log('skillsContent', skillsContent)
   return (
     <section
       id={sectionId}
       className={`${sectionContainer}`}
     >
       <Heading1 text={heading} />
-      <section className='py-5'></section>
+      <section className='py-5'>
+        {skillsContent?.skills && skillsContent?.skills
+        .filter((skill): skill is SkillType => typeof skill !== 'number')
+        .map((skill: SkillType) => (
+          <Skill
+            key={skill?.id}
+            title={skill?.title}
+            skillIcon={skill.skillIcon as CMSMediaT}
+          />
+        ))}
+      </section>
     </section>
   )
 }
