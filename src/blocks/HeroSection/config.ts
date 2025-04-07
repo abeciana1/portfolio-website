@@ -35,6 +35,11 @@ export const HeroSection: Block = {
           type: 'textarea',
         },
         {
+          name: 'secondaryBlurb',
+          label: 'Secondary Blurb',
+          type: 'textarea'
+        },
+        {
           name: 'enableInnerContainer',
           label: 'Enable Inner Container',
           type: 'checkbox',
