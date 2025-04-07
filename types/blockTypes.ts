@@ -4,7 +4,6 @@ import {
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
-  type SkillProps
 } from '@/types/general'
 import { type BlockComponentsMap } from '@/src/blocks/RenderBlocks'
 
