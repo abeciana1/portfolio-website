@@ -1,4 +1,7 @@
-import { type SkillsSectionProps } from '@/types/blockTypes'
+import {
+  type SkillsSectionProps,
+  type GradientOptions
+} from '@/types/blockTypes'
 import { Heading1 } from '@/components/_styled/Heading'
 import { sectionContainer } from '@/utils/helpers'
 import { payload } from '@/src/payload'
@@ -6,6 +9,7 @@ import { QueryClient } from '@tanstack/react-query'
 import Skill from '@/components/_styled/Skill'
 import { type Skill as SkillType } from '@/src/payload-types'
 import { CMSMediaT } from '@/types/general'
+import Gradient from '@/components/_styled/Gradient'
 
 const fetchSkillsList = async (queryClient: QueryClient, collectionId: number) => {
   return await queryClient.ensureQueryData({
@@ -24,7 +28,9 @@ const fetchSkillsList = async (queryClient: QueryClient, collectionId: number) =
 const SkillsSection: React.FC<SkillsSectionProps> = async ({
   sectionId,
   heading,
-  skillsCollection
+  skillsCollection,
+  gradient,
+  gradientSelect
 }) => {
   const queryClient = new QueryClient()
   const skillsContent = await fetchSkillsList(queryClient, skillsCollection?.id)
@@ -33,6 +39,13 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
       id={sectionId}
       className={`${sectionContainer}`}
     >
+      {(gradient && gradientSelect) &&
+        <div className=''>
+          <Gradient
+            variant={gradientSelect as GradientOptions}
+          />
+        </div>
+      }
       <Heading1 text={heading} />
       <section className='py-5 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-10'>
         {skillsContent?.skills && skillsContent?.skills
