@@ -37,12 +37,14 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
   return (
     <section
       id={sectionId}
-      className={`${sectionContainer}`}
+      className={`relative ${sectionContainer}`}
     >
       {(gradient && gradientSelect) &&
-        <div className=''>
+        <div className='max-w-48 max-h-20'>
           <Gradient
             variant={gradientSelect as GradientOptions}
+            forcedWidth='20rem'
+            forcedHeight='2rem' 
           />
         </div>
       }
