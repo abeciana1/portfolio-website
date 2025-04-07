@@ -36,34 +36,6 @@ export const SkillsSection: Block = {
       defaultValue: false,
     },
     {
-      name: 'gradientXFlip',
-      label: 'Flip gradient along X-axis',
-      type: 'checkbox',
-      defaultValue: false
-    },
-    {
-      name: 'gradientYFlip',
-      label: 'Flip gradient along X-axis',
-      type: 'checkbox',
-      defaultValue: false
-    },
-    {
-      name: 'forcedWidth',
-      type: 'number',
-      label: 'Force image width (in pixels)',
-      admin: {
-        description: 'Set a specific width for the image, overriding the aspect ratio'
-      }
-    },
-    {
-      name: 'forcedHeight',
-      type: 'number',
-      label: 'Force image height (in pixels)',
-      admin: {
-        description: 'Set a specific height for the image, overriding the aspect ratio'
-      }
-    },
-    {
       name: 'gradientSelect',
       label: 'Gradient variant select',
       type: 'select',
