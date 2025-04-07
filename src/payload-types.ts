@@ -324,6 +324,22 @@ export interface SkillsSection {
   sectionId: string;
   heading: string;
   skillsCollection: number | SkillsCollection;
+  image: number | Media;
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientXFlip?: boolean | null;
+  gradientYFlip?: boolean | null;
+  /**
+   * Set a specific width for the image, overriding the aspect ratio
+   */
+  forcedWidth?: number | null;
+  /**
+   * Set a specific height for the image, overriding the aspect ratio
+   */
+  forcedHeight?: number | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'skills-section';
@@ -769,6 +785,13 @@ export interface SkillsSectionSelect<T extends boolean = true> {
   sectionId?: T;
   heading?: T;
   skillsCollection?: T;
+  image?: T;
+  gradient?: T;
+  gradientXFlip?: T;
+  gradientYFlip?: T;
+  forcedWidth?: T;
+  forcedHeight?: T;
+  gradientSelect?: T;
   id?: T;
   blockName?: T;
 }
