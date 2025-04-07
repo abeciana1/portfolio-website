@@ -139,6 +139,7 @@ export interface HeroSection {
   title: string;
   subtitle?: string | null;
   description?: string | null;
+  secondaryBlurb?: string | null;
   /**
    * Enable the inner container for this section
    */
@@ -192,6 +193,7 @@ export interface Page {
             title: string;
             subtitle?: string | null;
             description?: string | null;
+            secondaryBlurb?: string | null;
             /**
              * Enable the inner container for this section
              */
@@ -681,6 +683,7 @@ export interface PagesSelect<T extends boolean = true> {
               title?: T;
               subtitle?: T;
               description?: T;
+              secondaryBlurb?: T;
               enableInnerContainer?: T;
               callToAction?:
                 | T
