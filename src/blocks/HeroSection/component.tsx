@@ -30,10 +30,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         [limitContainer]: !enableInnerContainer
       })}
     >
-      <div className='lg:max-w-[500px] md:max-w-[400px]'>
+      <div className='lg:max-w-[550px] md:max-w-[400px] space-y-6'>
         <Heading1 text={title as string} />
         <Heading2 text={subtitle as string} />
-        <div className='leading-loose text-xl font-semibold'>{description}</div>
+        <div className='leading-10 text-3xl font-semibold'>{description}</div>
       </div>
       <ImageComponent
         image={image}
