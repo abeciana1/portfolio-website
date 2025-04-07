@@ -10,6 +10,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   subtitle,
   description,
   enableInnerContainer,
+  secondaryBlurb,
   callToAction,
   media = []
 }) => {
@@ -34,6 +35,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <Heading1 text={title as string} />
         <Heading2 text={subtitle as string} />
         <div className='leading-10 text-3xl font-semibold'>{description}</div>
+        {secondaryBlurb && <div className='text-xl text-darkGrey font-semibold'>{secondaryBlurb}</div>}
       </div>
       <ImageComponent
         image={image}
