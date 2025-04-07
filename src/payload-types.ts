@@ -324,7 +324,6 @@ export interface SkillsSection {
   sectionId: string;
   heading: string;
   skillsCollection: number | SkillsCollection;
-  image: number | Media;
   /**
    * Add a gradient aura to the image
    */
@@ -785,7 +784,6 @@ export interface SkillsSectionSelect<T extends boolean = true> {
   sectionId?: T;
   heading?: T;
   skillsCollection?: T;
-  image?: T;
   gradient?: T;
   gradientXFlip?: T;
   gradientYFlip?: T;
