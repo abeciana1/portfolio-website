@@ -67,6 +67,8 @@ export type RichTextEditorProps = {
 export type SkillsSectionProps = {
   sectionId: string;
   heading: string;
+  gradient: boolean;
+  gradientSelect?: GradientOptions;
   skillsCollection: {
     id: number;
     skills: Skill[];
