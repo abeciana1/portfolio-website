@@ -35,32 +35,41 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
   const queryClient = new QueryClient()
   const skillsContent = await fetchSkillsList(queryClient, skillsCollection?.id)
   return (
-    <section
-      id={sectionId}
-      className={`relative ${sectionContainer}`}
-    >
-      {(gradient && gradientSelect) &&
-        <div className='max-w-48 max-h-20'>
-          <Gradient
-            variant={gradientSelect as GradientOptions}
-            forcedWidth='20rem'
-            forcedHeight='2rem' 
-          />
+    <>
+      <section
+        id={sectionId}
+        className={`relative w-full ${sectionContainer}`}
+      >
+        <Heading1 text={heading} />
+        <div className="z-50 relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6 max-w-fit mx-auto mt-6">
+          {(gradient && gradientSelect) &&
+            <div className='-z-10 absolute top-0 left-5 sm:top-2 md:-top-5 sm:left-10 md:left-20 rounded-full h-56 w-56 sm:h-[25rem] sm:w-[30rem] md:h-[20rem] md:w-[40rem] overflow-hidden blur-3xl'>
+              <Gradient
+                variant={gradientSelect as GradientOptions}
+              />
+            </div>
+          }
+          {skillsContent?.skills && skillsContent?.skills
+          .filter((skill): skill is SkillType => typeof skill !== 'number')
+          .map((skill: SkillType) => (
+            <Skill
+              key={skill?.id}
+              title={skill?.title}
+              skillIcon={skill.skillIcon as CMSMediaT}
+            />
+          ))}
+          {(gradient && gradientSelect) &&
+            <div className="-z-10 absolute bottom-0 right-5 sm:bottom-2 md:bottom-32 sm:right-10 md:right-20 rounded-full h-56 w-56 sm:h-[25rem] sm:w-[35rem] md:h-[20rem] md:w-[40rem] overflow-hidden blur-3xl">
+              <Gradient 
+                variant={gradientSelect as GradientOptions}
+                gradientXFlip={false} 
+                gradientYFlip={true} 
+              />
+            </div>
+          }
         </div>
-      }
-      <Heading1 text={heading} />
-      <section className='py-5 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-10'>
-        {skillsContent?.skills && skillsContent?.skills
-        .filter((skill): skill is SkillType => typeof skill !== 'number')
-        .map((skill: SkillType) => (
-          <Skill
-            key={skill?.id}
-            title={skill?.title}
-            skillIcon={skill.skillIcon as CMSMediaT}
-          />
-        ))}
       </section>
-    </section>
+    </>
   )
 }
 
