@@ -29,7 +29,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
   const { layout } = page
 
   return (
-    <main>
+    <main className='relative'>
       <RenderBlocks blocks={layout} />
     </main>
   )
