@@ -13,8 +13,10 @@ export type GradientProps = {
   gradientXFlip?: boolean;
   gradientYFlip?: boolean;
   variant?: GradientOptions;
-  forcedWidth?: string;
-  forcedHeight?: string;
+  forcedFirstWidth?: number;
+  forcedFirstHeight?: number;
+  forcedSecondWidth?: number;
+  forcedSecondHeight?: number;
 }
 
 export type HeroSectionProps = Omit<HeroSection, 'media' | 'enableInnerContainer'> & {
