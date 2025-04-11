@@ -92,3 +92,14 @@ export type CardBlockProps = {
   pill: string;
   embedBlocks: BlockComponentsMap[];
 }
+
+export type CallToActionProps = {
+  style: 'primary' | 'secondary';
+  arrow: boolean;
+  arrowDirection: 'right' | 'down'
+  link: {
+    type: 'reference' | 'custom';
+    newTab: boolean;
+    url: string;
+  }
+}
