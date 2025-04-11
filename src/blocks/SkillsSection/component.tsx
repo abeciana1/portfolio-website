@@ -10,6 +10,7 @@ import Skill from '@/components/_styled/Skill'
 import { type Skill as SkillType } from '@/src/payload-types'
 import { CMSMediaT } from '@/types/general'
 import Gradient from '@/components/_styled/Gradient'
+import Pill from '@/components/_styled/Pill'
 
 const fetchSkillsList = async (queryClient: QueryClient, collectionId: number) => {
   return await queryClient.ensureQueryData({
@@ -26,6 +27,8 @@ const fetchSkillsList = async (queryClient: QueryClient, collectionId: number) =
 }
 
 const SkillsSection: React.FC<SkillsSectionProps> = async ({
+  pill,
+  description,
   sectionId,
   heading,
   skillsCollection,
@@ -40,11 +43,15 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
         id={sectionId}
         className={`relative w-full ${sectionContainer}`}
       >
-        <div className='relative z-[9999] text-center'>
+        <div className='relative flex flex-col gap-6 z-[9999] text-center md:max-w-2xl mx-auto'>
+          <Pill text={pill} />
           <Heading1 text={heading} />
+          <div className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
+            {description}
+          </div>
         </div>
         {(gradient && gradientSelect) &&
-          <div className='z-0 absolute top-10 left-5 rounded-full h-56 w-56 sm:h-[25rem] sm:w-[30rem] md:h-[20rem] md:w-[50rem] overflow-hidden blur-3xl opacity-50'>
+          <div className='z-0 absolute top-44 left-0 md:left-8 rounded-full h-56 sm:h-[25rem] md:h-[20rem] w-[50rem] overflow-hidden blur-3xl sm:opacity-70'>
             <Gradient
               variant={gradientSelect as GradientOptions}
             />
