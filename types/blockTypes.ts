@@ -67,6 +67,8 @@ export type RichTextEditorProps = {
 }
 
 export type SkillsSectionProps = {
+  pill: string;
+  description: string;
   sectionId: string;
   heading: string;
   gradient: boolean;
