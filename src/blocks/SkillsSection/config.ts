@@ -2,6 +2,7 @@ import {
   type Block,
   type CollectionSlug
 } from 'payload';
+import { CallToAction } from '@/src/blocks/CallToAction/config'
 
 export const SkillsSection: Block = {
   slug: 'skills-section',
@@ -14,10 +15,30 @@ export const SkillsSection: Block = {
       required: true,
     },
     {
+      name: 'pill',
+      type: 'text',
+      label: 'Pill',
+    },
+    {
       name: 'heading',
       type: 'text',
       label: 'Heading',
       required: true,
+    },
+    {
+      name: 'description',
+      type: 'text',
+      label: 'Description'
+    },
+    {
+      name: 'callToAction',
+      label: 'Call-to-Action',
+      type: 'blocks',
+      maxRows: 2,
+      blocks: [
+        CallToAction
+      ],
+      required: false,
     },
     {
       name: 'skillsCollection',
