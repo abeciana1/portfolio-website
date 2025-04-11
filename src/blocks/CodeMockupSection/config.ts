@@ -6,12 +6,6 @@ export const CodeMockupSectionBlock: Block = {
   interfaceName: 'CodeMockupSectionBlock',
   fields: [
     {
-      name: 'sectionId',
-      type: 'text',
-      label: 'Section ID',
-      required: true,
-    },
-    {
       name: 'enableSection',
       type: 'checkbox',
       label: 'Enable Section',

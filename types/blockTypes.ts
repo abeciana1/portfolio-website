@@ -43,7 +43,6 @@ export type InViewBasicProps = {
 }
 
 export type CodeMockupSectionProps = {
-  sectionId: string;
   code: BlockComponentsMap[];
   enableSection: boolean;
   useRandomData: boolean;

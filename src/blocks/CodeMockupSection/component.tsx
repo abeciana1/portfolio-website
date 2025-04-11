@@ -7,7 +7,6 @@ import '@/styles/code-highlight.css'
 import RenderBlocks from '@/src/blocks/RenderBlocks'
 
 const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
-  sectionId,
   code,
   enableSection,
   useRandomData
@@ -15,8 +14,6 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
   const joke = jokes[Math.floor(Math.random()*jokes.length)]
   return (
     <section
-      data-testid={sectionId}
-      id={sectionId}
       tabIndex={0}
       className="relative"
     >
