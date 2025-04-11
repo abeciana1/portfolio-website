@@ -322,7 +322,35 @@ export interface InViewBasic {
  */
 export interface SkillsSection {
   sectionId: string;
+  pill?: string | null;
   heading: string;
+  description?: string | null;
+  callToAction?:
+    | {
+        style?: ('primary' | 'secondary') | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | {
+                relationTo: 'pages';
+                value: number | Page;
+              }[]
+            | null;
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        arrow?: boolean | null;
+        arrowDirection?: ('right' | 'down') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'call-to-action';
+      }[]
+    | null;
   skillsCollection: number | SkillsCollection;
   /**
    * Add a gradient aura to the image
@@ -771,7 +799,32 @@ export interface InViewBasicSelect<T extends boolean = true> {
  */
 export interface SkillsSectionSelect<T extends boolean = true> {
   sectionId?: T;
+  pill?: T;
   heading?: T;
+  description?: T;
+  callToAction?:
+    | T
+    | {
+        'call-to-action'?:
+          | T
+          | {
+              style?: T;
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              arrow?: T;
+              arrowDirection?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   skillsCollection?: T;
   gradient?: T;
   gradientSelect?: T;
