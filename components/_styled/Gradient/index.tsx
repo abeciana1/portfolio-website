@@ -92,7 +92,7 @@ const Gradient: React.FC<GradientProps> = ({
           height: '100%',
           width: '100%'
         }}
-        className={clsx('absolute z-40 rounded-full blur-3xl',{
+        className={clsx('absolute z-20 rounded-full blur-3xl',{
           [gradients[variant]["default"]["first"]]: !gradientXFlip && !gradientYFlip,
           [gradients[variant]["xFlip"]["first"]]: gradientXFlip && !gradientYFlip,
           [gradients[variant]["yFlip"]["first"]]: !gradientXFlip && gradientYFlip,
@@ -104,7 +104,7 @@ const Gradient: React.FC<GradientProps> = ({
           height: '100%',
           width: '100%'
         }}
-        className={clsx('absolute z-30 rounded-full blur-2xl',{
+        className={clsx('absolute z-10 rounded-full blur-2xl',{
           [gradients[variant]["default"]["second"]]: !gradientXFlip && !gradientYFlip,
           [gradients[variant]["xFlip"]["second"]]: gradientXFlip && !gradientYFlip,
           [gradients[variant]["yFlip"]["second"]]: !gradientXFlip && gradientYFlip,
