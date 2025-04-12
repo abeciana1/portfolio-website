@@ -93,6 +93,12 @@ export type CardBlockProps = {
   embedBlocks: BlockComponentsMap[];
 }
 
+type CallToActionReference = {
+  value: {
+    slug: string
+  }
+}
+
 export type CallToActionProps = {
   style: 'primary' | 'secondary' | 'tertiary';
   arrow: boolean;
@@ -101,5 +107,6 @@ export type CallToActionProps = {
     type: 'reference' | 'custom';
     newTab: boolean;
     url: string;
+    reference: CallToActionReference[];
   }
 }
