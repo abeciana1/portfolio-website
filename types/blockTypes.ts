@@ -108,5 +108,6 @@ export type CallToActionProps = {
     newTab: boolean;
     url: string;
     reference: CallToActionReference[];
+    label: string;
   }
 }
