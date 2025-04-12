@@ -77,6 +77,7 @@ export type SkillsSectionProps = {
     id: number;
     skills: Skill[];
   };
+  callToAction: CallToActionProps[];
 }
 
 export type InViewEmbedProps = {
