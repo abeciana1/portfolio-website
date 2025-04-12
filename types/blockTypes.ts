@@ -101,7 +101,7 @@ type CallToActionReference = {
 
 export type ArrowDirection = 'right' | 'down'
 
-export type CTAStyle = 'primary' | 'secondary' | 'tertiary'
+export type CTAStyle = 'primary' | 'secondary' | 'tertiary' | 'noBackground'
 
 export type CTALink = {
   type: 'reference' | 'custom';
