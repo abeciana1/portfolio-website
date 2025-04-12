@@ -1,6 +1,9 @@
 import {
   type SkillsSectionProps,
-  type GradientOptions
+  type GradientOptions,
+  type ArrowDirection,
+  type CTAStyle,
+  type CTALink
 } from '@/types/blockTypes'
 import { Heading1 } from '@/components/_styled/Heading'
 import { sectionContainer } from '@/utils/helpers'
@@ -11,6 +14,8 @@ import { type Skill as SkillType } from '@/src/payload-types'
 import { CMSMediaT } from '@/types/general'
 import Gradient from '@/components/_styled/Gradient'
 import Pill from '@/components/_styled/Pill'
+import CallToAction from '@/src/blocks/CallToAction/component'
+import ButtonGroup from '@/components/_styled/ButtonGroup'
 
 const fetchSkillsList = async (queryClient: QueryClient, collectionId: number) => {
   return await queryClient.ensureQueryData({
@@ -33,7 +38,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
   heading,
   skillsCollection,
   gradient,
-  gradientSelect
+  gradientSelect,
+  callToAction
 }) => {
   const queryClient = new QueryClient()
   const skillsContent = await fetchSkillsList(queryClient, skillsCollection?.id)
@@ -49,9 +55,24 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
           <div className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
             {description}
           </div>
+          {(callToAction && callToAction?.length > 0) &&
+            <ButtonGroup>
+              {callToAction?.map((callToAction, index) => {
+                return (
+                  <CallToAction
+                    key={index}
+                    style={callToAction.style as CTAStyle}
+                    arrow={callToAction.arrow as boolean}
+                    arrowDirection={callToAction.arrowDirection as ArrowDirection}
+                    link={callToAction.link as CTALink}
+                  />
+                )
+              })}
+            </ButtonGroup>
+          }
         </div>
         {(gradient && gradientSelect) &&
-          <div className='z-0 absolute top-44 left-0 md:left-8 rounded-full h-56 sm:h-[25rem] md:h-[20rem] w-[50rem] overflow-hidden blur-3xl sm:opacity-70'>
+          <div className='z-0 absolute top-20 left-0 md:left-8 rounded-full h-56 sm:h-[25rem] md:h-[30rem] w-[50rem] overflow-hidden blur-3xl sm:opacity-70'>
             <Gradient
               variant={gradientSelect as GradientOptions}
             />
