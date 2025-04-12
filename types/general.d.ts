@@ -21,3 +21,7 @@ export type SkillProps = {
   title: string;
   skillIcon: CMSMediaT;
 }
+
+export type ButtonGroupProps = {
+  children: React.ReactNode[]
+}
