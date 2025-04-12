@@ -158,10 +158,6 @@ export interface HeroSection {
             | null;
           url?: string | null;
           label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
         };
         arrow?: boolean | null;
         arrowDirection?: ('right' | 'down') | null;
@@ -212,10 +208,6 @@ export interface Page {
                       | null;
                     url?: string | null;
                     label: string;
-                    /**
-                     * Choose how the link should be rendered.
-                     */
-                    appearance?: ('default' | 'outline') | null;
                   };
                   arrow?: boolean | null;
                   arrowDirection?: ('right' | 'down') | null;
@@ -339,10 +331,6 @@ export interface SkillsSection {
             | null;
           url?: string | null;
           label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
         };
         arrow?: boolean | null;
         arrowDirection?: ('right' | 'down') | null;
@@ -732,7 +720,6 @@ export interface PagesSelect<T extends boolean = true> {
                                 reference?: T;
                                 url?: T;
                                 label?: T;
-                                appearance?: T;
                               };
                           arrow?: T;
                           arrowDirection?: T;
@@ -817,7 +804,6 @@ export interface SkillsSectionSelect<T extends boolean = true> {
                     reference?: T;
                     url?: T;
                     label?: T;
-                    appearance?: T;
                   };
               arrow?: T;
               arrowDirection?: T;
