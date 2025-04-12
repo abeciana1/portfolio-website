@@ -11,7 +11,8 @@ export const CallToAction: Block = {
       options: [
         {label: 'Primary', value: 'primary'},
         {label: 'Secondary', value: 'secondary'},
-        {label: 'Tertiary', value: 'tertiary'}
+        {label: 'Tertiary', value: 'tertiary'},
+        {label: 'No background', value: 'noBackground'}
       ],
       hooks: {
         beforeChange: [
