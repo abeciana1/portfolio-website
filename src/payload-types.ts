@@ -146,7 +146,7 @@ export interface HeroSection {
   enableInnerContainer?: boolean | null;
   callToAction?:
     | {
-        style?: ('primary' | 'secondary' | 'tertiary') | null;
+        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
         link: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
@@ -196,7 +196,7 @@ export interface Page {
             enableInnerContainer?: boolean | null;
             callToAction?:
               | {
-                  style?: ('primary' | 'secondary' | 'tertiary') | null;
+                  style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
                   link: {
                     type?: ('reference' | 'custom') | null;
                     newTab?: boolean | null;
@@ -319,7 +319,7 @@ export interface SkillsSection {
   description?: string | null;
   callToAction?:
     | {
-        style?: ('primary' | 'secondary' | 'tertiary') | null;
+        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
         link: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
