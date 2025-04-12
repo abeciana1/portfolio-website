@@ -30,7 +30,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
     <Link
       target={newTab ? "_blank" : "_parent"}
       href={`/${pageUrl}`}
-      className={clsx('rounded-md text-lg py-1 px-2', {
+      className={clsx('rounded-md text-lg py-1 px-2 no-underline', {
         ['flex items-center justify-between']: arrow && arrowDirection,
         [variants[style]]: style
       })}
