@@ -94,7 +94,7 @@ export type CardBlockProps = {
 }
 
 export type CallToActionProps = {
-  style: 'primary' | 'secondary';
+  style: 'primary' | 'secondary' | 'tertiary';
   arrow: boolean;
   arrowDirection: 'right' | 'down'
   link: {

@@ -10,7 +10,8 @@ export const CallToAction: Block = {
       type: 'select',
       options: [
         {label: 'Primary', value: 'primary'},
-        {label: 'Secondary', value: 'secondary'}
+        {label: 'Secondary', value: 'secondary'},
+        {label: 'Tertiary', value: 'tertiary'}
       ],
       hooks: {
         beforeChange: [
