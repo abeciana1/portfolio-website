@@ -99,15 +99,21 @@ type CallToActionReference = {
   }
 }
 
+export type ArrowDirection = 'right' | 'down'
+
+export type CTAStyle = 'primary' | 'secondary' | 'tertiary'
+
+export type CTALink = {
+  type: 'reference' | 'custom';
+  newTab: boolean;
+  url: string;
+  reference: CallToActionReference[];
+  label: string;
+}
+
 export type CallToActionProps = {
-  style: 'primary' | 'secondary' | 'tertiary';
+  style: CTAStyle;
   arrow: boolean;
-  arrowDirection: 'right' | 'down'
-  link: {
-    type: 'reference' | 'custom';
-    newTab: boolean;
-    url: string;
-    reference: CallToActionReference[];
-    label: string;
-  }
+  arrowDirection: ArrowDirection
+  link: CTALink;
 }
