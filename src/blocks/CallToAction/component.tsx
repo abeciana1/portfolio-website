@@ -30,16 +30,16 @@ const CallToAction: React.FC<CallToActionProps> = ({
     <Link
       target={newTab ? "_blank" : "_parent"}
       href={`/${pageUrl}`}
-      className={clsx('rounded-md text-lg py-1 px-2 no-underline', {
-        ['flex items-center justify-between']: arrow && arrowDirection,
+      className={clsx('flex items-center rounded-md text-lg font-medium py-1 px-6 no-underline', {
+        ['gap-3 justify-between pl-7']: arrow && arrowDirection,
         [variants[style]]: style
       })}
     >
       { label }
       {(arrow && arrowDirection) &&
         <>
-          {arrowDirection === 'right' && <ArrowRight size={25} />}
-          {arrowDirection === 'down' && <ArrowDown size={25} />}
+          {arrowDirection === 'right' && <ArrowRight className='text-inherit' size={25} />}
+          {arrowDirection === 'down' && <ArrowDown className='text-inherit' size={25} />}
         </>
       }
     </Link>
