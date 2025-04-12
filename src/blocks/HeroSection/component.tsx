@@ -2,7 +2,14 @@ import ImageComponent from '@/src/blocks/Image/component'
 import { Heading1, Heading2 } from '@/components/_styled/Heading'
 import clsx from 'clsx'
 import { innerContainer, limitContainer } from '@/utils/helpers'
-import { type HeroSectionProps } from '@/types/blockTypes'
+import {
+  type HeroSectionProps,
+  type ArrowDirection,
+  type CTAStyle,
+  type CTALink
+} from '@/types/blockTypes'
+import CallToAction from '@/src/blocks/CallToAction/component'
+import ButtonGroup from '@/components/_styled/ButtonGroup'
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   sectionId,
@@ -36,6 +43,21 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <Heading2 text={subtitle as string} />
         <div className='leading-10 text-3xl font-semibold'>{description}</div>
         {secondaryBlurb && <div className='text-xl text-darkGrey font-semibold'>{secondaryBlurb}</div>}
+        {(callToAction && callToAction?.length > 0) &&
+          <ButtonGroup>
+            {callToAction?.map((callToAction, index) => {
+              return (
+                <CallToAction
+                  key={index}
+                  style={callToAction.style as CTAStyle}
+                  arrow={callToAction.arrow as boolean}
+                  arrowDirection={callToAction.arrowDirection as ArrowDirection}
+                  link={callToAction.link as CTALink}
+                />
+              )
+            })}
+          </ButtonGroup>
+        }
       </div>
       <ImageComponent
         image={image}
