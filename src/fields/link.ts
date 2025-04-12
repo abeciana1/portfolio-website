@@ -121,23 +121,5 @@ export const link: LinkType = ({ required, appearances, disableLabel = false, ov
     linkResult.fields = [...linkResult.fields, ...linkTypes]
   }
 
-  if (appearances !== false) {
-    let appearanceOptionsToUse = [appearanceOptions.default, appearanceOptions.outline]
-
-    if (appearances) {
-      appearanceOptionsToUse = appearances.map((appearance) => appearanceOptions[appearance])
-    }
-
-    linkResult.fields.push({
-      name: 'appearance',
-      type: 'select',
-      admin: {
-        description: 'Choose how the link should be rendered.',
-      },
-      defaultValue: 'default',
-      options: appearanceOptionsToUse,
-    })
-  }
-
   return deepMerge(linkResult, overrides)
 }
