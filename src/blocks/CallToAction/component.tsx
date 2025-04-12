@@ -25,13 +25,13 @@ const CallToAction: React.FC<CallToActionProps> = ({
     label
   } = link
 
-  const pageUrl = type === 'reference' ? (reference[0]?.value?.slug === 'home' ? '/' : reference[0]?.value?.slug) : url
+  const pageUrl = type === 'reference' ? (reference[0]?.value?.slug === 'home' ? '' : reference[0]?.value?.slug) : url
 
   return (
     <Link
       target={newTab ? "_blank" : "_parent"}
       href={`/${pageUrl}`}
-      className={clsx('flex items-center rounded-md text-lg font-medium py-1 px-6 no-underline', {
+      className={clsx('flex items-center rounded-md text-lg font-medium py-2 px-6 no-underline', {
         ['gap-3 justify-between pl-7']: arrow && arrowDirection,
         [variants[style]]: style
       })}
