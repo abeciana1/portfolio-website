@@ -6,6 +6,7 @@ describe('HeroSection', () => {
   beforeEach(() => {
     render(
       <HeroSection
+        enableInnerContainer={false}
         blockType="hero-section"
         sectionId="hero-section"
         title="Welcome to My Website"
@@ -24,7 +25,6 @@ describe('HeroSection', () => {
               height: 100,
               width: 100,
             },
-            blockType: 'image-block',
             gradient: false,
             gradientXFlip: false,
             gradientYFlip: false,
