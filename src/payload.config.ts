@@ -42,7 +42,10 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     livePreview: {
-      url: process.env.NODE_ENV === 'production' ? 'https://alexbeciana.com' : 'http://localhost:3000',
+      url: (data) => {
+        const pageUrl = data.data?.slug === 'home' ? '' : data.data?.slug
+        return process.env.NODE_ENV === 'production' ? `https://alexbeciana.com/${pageUrl}` : `http://localhost:3000/${pageUrl}`
+      },
       collections: [
         'users',
         'media',
