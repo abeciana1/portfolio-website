@@ -507,7 +507,7 @@ export interface JobBlock {
   currentPosition?: boolean | null;
   endDate?: string | null;
   location: string;
-  positionType?: ('Contract' | 'Full-Time' | 'Entrepreneur') | null;
+  positionType: 'Contract' | 'Full-Time' | 'Entrepreneur';
   companyDescription: string;
   companyWebsite: string;
   duties: RichTextBlock[];
