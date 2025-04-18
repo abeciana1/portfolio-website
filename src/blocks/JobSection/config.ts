@@ -6,6 +6,12 @@ export const JobSection: Block = {
   interfaceName: 'JobSectionBlock',
   fields: [
     {
+      name: 'title',
+      label: 'Title',
+      type: 'text',
+      required: true
+    },
+    {
       name: 'jobs',
       label: 'jobs',
       type: 'blocks',
