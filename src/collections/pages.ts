@@ -10,6 +10,7 @@ import { SkillsSection } from '@/src/blocks/SkillsSection/config'
 import { TwoColumnGrid } from '@/src/blocks/TwoColumnGrid/config'
 import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
 import { CardBlock } from '@/src/blocks/Card/config'
+import { JobSection } from '@/src/blocks/JobSection/config'
 
 const Page: CollectionConfig = {
   slug: 'pages',
@@ -56,7 +57,8 @@ const Page: CollectionConfig = {
                 SkillsSection,
                 TwoColumnGrid,
                 InViewEmbedBlock,
-                CardBlock
+                CardBlock,
+                JobSection
               ]
             }
           ]
