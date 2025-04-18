@@ -1,6 +1,7 @@
 import { type JobSectionProps } from '@/types/blockTypes'
 
 const JobSection: React.FC<JobSectionProps> = ({
+  title,
   jobs,
   gradient,
   gradientSelect
