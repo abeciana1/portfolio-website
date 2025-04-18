@@ -121,6 +121,7 @@ export type CallToActionProps = {
 }
 
 export type JobSectionProps = Pick<JobSectionBlock, 'jobs'> & {
+  title: string;
   gradient: boolean;
   gradientSelect?: GradientOptions;
 }
