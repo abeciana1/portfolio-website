@@ -1,7 +1,8 @@
 import {
   type HeroSection,
   type Skill,
-  type JobSectionBlock
+  type JobSectionBlock,
+  type JobBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -123,4 +124,20 @@ export type CallToActionProps = {
 export type JobSectionProps = Pick<JobSectionBlock, 'jobs' | 'title'> & {
   gradient: boolean;
   gradientSelect?: GradientOptions;
+}
+
+export type JobProps = Pick<JobBlock,
+  'companyName' |
+  'jobRole' |
+  'companyDescription' |
+  'companyWebsite' |
+  'startDate' |
+  'endDate' |
+  'location' |
+  'positionType' |
+  'currentPosition'
+  > & {
+  companyLogo: ImageBlockProps[];
+  skills: Skill[];
+  duties: RichTextEditorProps[];
 }
