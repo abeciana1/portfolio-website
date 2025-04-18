@@ -3,6 +3,7 @@ import { Heading1 } from '@/components/_styled/Heading'
 import Pill from '@/components/_styled/Pill'
 
 const JobSection: React.FC<JobSectionProps> = ({
+  sectionId,
   title,
   jobs,
   gradient,
