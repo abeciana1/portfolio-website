@@ -68,7 +68,8 @@ export const Job: Block = {
         { label: 'Contract', value: 'Contract' },
         { label: 'Full-Time', value: 'Full-Time' },
         { label: 'Entrepreneur', value: 'Entrepreneur' }
-      ]
+      ],
+      required: true
     },
     {
       name: 'companyDescription',
