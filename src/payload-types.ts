@@ -484,6 +484,7 @@ export interface CardBlock {
  * via the `definition` "JobSectionBlock".
  */
 export interface JobSectionBlock {
+  sectionId: string;
   title: string;
   jobs?: JobBlock[] | null;
   /**
@@ -957,6 +958,7 @@ export interface CardBlockSelect<T extends boolean = true> {
  * via the `definition` "JobSectionBlock_select".
  */
 export interface JobSectionBlockSelect<T extends boolean = true> {
+  sectionId?: T;
   title?: T;
   jobs?:
     | T
