@@ -1,6 +1,7 @@
 import {
   type HeroSection,
-  type Skill
+  type Skill,
+  type JobSectionBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -117,4 +118,9 @@ export type CallToActionProps = {
   arrow: boolean;
   arrowDirection: ArrowDirection
   link: CTALink;
+}
+
+export type JobSectionProps = Pick<JobSectionBlock, 'jobs'> & {
+  gradient: boolean;
+  gradientSelect?: GradientOptions;
 }
