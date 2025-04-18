@@ -484,6 +484,7 @@ export interface CardBlock {
  * via the `definition` "JobSectionBlock".
  */
 export interface JobSectionBlock {
+  title: string;
   jobs?: JobBlock[] | null;
   /**
    * Add a gradient aura to the image
@@ -956,6 +957,7 @@ export interface CardBlockSelect<T extends boolean = true> {
  * via the `definition` "JobSectionBlock_select".
  */
 export interface JobSectionBlockSelect<T extends boolean = true> {
+  title?: T;
   jobs?:
     | T
     | {
