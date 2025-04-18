@@ -91,6 +91,13 @@ export const Job: Block = {
         RichTextBlock
       ],
       required: true
+    },
+    {
+      name: 'skills',
+      label: 'Job skills',
+      type: 'relationship',
+      relationTo: 'skills',
+      hasMany: true
     }
   ]
 }
