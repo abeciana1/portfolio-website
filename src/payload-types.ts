@@ -226,6 +226,7 @@ export interface Page {
         | TwoColumnGridBlock
         | InViewEmbedBlock
         | CardBlock
+        | JobSectionBlock
       )[]
     | null;
   meta?: {
@@ -477,6 +478,37 @@ export interface CardBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'card';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "JobSectionBlock".
+ */
+export interface JobSectionBlock {
+  jobs?: JobBlock[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'job-section-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "JobBlock".
+ */
+export interface JobBlock {
+  companyLogo: ImageBlock[];
+  companyName: string;
+  jobRole: string;
+  startDate: string;
+  currentPosition?: boolean | null;
+  endDate?: string | null;
+  location: string;
+  positionType?: ('Contract' | 'Full-Time' | 'Entrepreneur') | null;
+  companyDescription: string;
+  companyWebsite: string;
+  duties: RichTextBlock[];
+  skills?: (number | Skill)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'job-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -740,6 +772,7 @@ export interface PagesSelect<T extends boolean = true> {
         'two-column-grid'?: T | TwoColumnGridBlockSelect<T>;
         'in-view-embed'?: T | InViewEmbedBlockSelect<T>;
         card?: T | CardBlockSelect<T>;
+        'job-section-block'?: T | JobSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -910,6 +943,47 @@ export interface CardBlockSelect<T extends boolean = true> {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
         'two-column-grid'?: T | TwoColumnGridBlockSelect<T>;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "JobSectionBlock_select".
+ */
+export interface JobSectionBlockSelect<T extends boolean = true> {
+  jobs?:
+    | T
+    | {
+        'job-block'?: T | JobBlockSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "JobBlock_select".
+ */
+export interface JobBlockSelect<T extends boolean = true> {
+  companyLogo?:
+    | T
+    | {
+        'image-block'?: T | ImageBlockSelect<T>;
+      };
+  companyName?: T;
+  jobRole?: T;
+  startDate?: T;
+  currentPosition?: T;
+  endDate?: T;
+  location?: T;
+  positionType?: T;
+  companyDescription?: T;
+  companyWebsite?: T;
+  duties?:
+    | T
+    | {
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+      };
+  skills?: T;
   id?: T;
   blockName?: T;
 }
