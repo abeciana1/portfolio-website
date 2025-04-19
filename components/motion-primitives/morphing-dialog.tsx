@@ -72,14 +72,15 @@ function MorphingDialogProvider({
 }
 
 export type MorphingDialogProps = {
+  testId: string;
   children: React.ReactNode;
   transition?: Transition;
 };
 
-function MorphingDialog({ children, transition }: MorphingDialogProps) {
+function MorphingDialog({ testId, children, transition }: MorphingDialogProps) {
   return (
     <MorphingDialogProvider>
-      <MotionConfig transition={transition}>{children}</MotionConfig>
+      <MotionConfig data-testid={testId} transition={transition}>{children}</MotionConfig>
     </MorphingDialogProvider>
   );
 }
