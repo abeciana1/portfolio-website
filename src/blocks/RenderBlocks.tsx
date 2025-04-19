@@ -13,6 +13,7 @@ import TwoColumnGrid from '@/src/blocks/TwoColumnGrid/component'
 import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 import InViewEmbed from '@/src/blocks/InViewEmbed/component'
 import Card from '@/src/blocks/Card/component'
+import JobSection from '@/src/blocks/JobSection/component'
 
 // * component types
 import {
@@ -23,7 +24,8 @@ import {
   type RichTextEditorProps,
   type CodeMockupLineProps,
   type InViewEmbedProps,
-  type CardBlockProps
+  type CardBlockProps,
+  type JobSectionProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -36,6 +38,7 @@ export type BlockComponentsMap = {
   'code-mockup-link': React.FC<CodeMockupLineProps>;
   'in-view-embed': React.FC<InViewEmbedProps>;
   'card': React.FC<CardBlockProps>;
+  'job-section-block': React.FC<JobSectionProps>
 };
 
 const blockComponents: BlockComponentsMap = {
@@ -47,7 +50,8 @@ const blockComponents: BlockComponentsMap = {
   'rich-text-block': RichTextEditor,
   'code-mockup-link': CodeMockupLine,
   'in-view-embed': InViewEmbed,
-  'card': Card
+  'card': Card,
+  'job-section-block': JobSection
 }
 
 const RenderBlocks: React.FC<{
