@@ -32,7 +32,13 @@ export const Job: Block = {
       name: 'startDate',
       label: 'Start date',
       type: 'date',
-      required: true
+      required: true,
+      admin: {
+        date: {
+          pickerAppearance: 'monthOnly',
+          displayFormat: 'MMMM yyyy'
+        }
+      }
     },
     {
       name: 'currentPosition',
@@ -51,6 +57,10 @@ export const Job: Block = {
           } else {
             return true
           }
+        },
+        date: {
+          pickerAppearance: 'monthOnly',
+          displayFormat: 'MMMM yyyy'
         }
       }
     },
