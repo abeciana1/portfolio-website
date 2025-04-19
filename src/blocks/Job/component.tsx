@@ -9,6 +9,7 @@ import {
   MorphingDialogClose,
   MorphingDialogContainer,
 } from '@/components/motion-primitives/morphing-dialog';
+import { ScrollArea } from '@/components/_core/ScrollArea'
 
 const Job: React.FC<JobProps> = ({
   companyName,
