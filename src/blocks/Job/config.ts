@@ -51,11 +51,11 @@ export const Job: Block = {
       type: 'date',
       required: true,
       admin: {
-        condition: (data) => {
-          if (!data.currentPosition) {
-            return false
-          } else {
+        condition: (data, siblingData) => {
+          if (!siblingData.currentPosition) {
             return true
+          } else {
+            return false
           }
         },
         date: {
