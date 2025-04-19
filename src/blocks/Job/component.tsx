@@ -1,4 +1,14 @@
 import { type JobProps } from '@/types/blockTypes'
+import {
+  MorphingDialog,
+  MorphingDialogTrigger,
+  MorphingDialogContent,
+  MorphingDialogTitle,
+  MorphingDialogImage,
+  MorphingDialogSubtitle,
+  MorphingDialogClose,
+  MorphingDialogContainer,
+} from '@/components/motion-primitives/morphing-dialog';
 
 const Job: React.FC<JobProps> = ({
   companyName,
@@ -15,7 +25,9 @@ const Job: React.FC<JobProps> = ({
   duties
 }) => {
   return (
-    <></>
+    <div data-testid='job'>
+
+    </div>
   )
 }
 
