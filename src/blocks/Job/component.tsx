@@ -37,7 +37,7 @@ const Job: React.FC<JobProps> = ({
       }}
     >
       <MorphingDialogTrigger
-        className='mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4'
+        className='w-full max-w-2xl mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4'
       >
         <div className='flex space-x-6 items-center'>
           <MorphingDialogImage
