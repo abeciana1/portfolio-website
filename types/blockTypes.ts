@@ -121,7 +121,8 @@ export type CallToActionProps = {
   link: CTALink;
 }
 
-export type JobSectionProps = Pick<JobSectionBlock, 'jobs' | 'title' | 'sectionId' > & {
+export type JobSectionProps = Pick<JobSectionBlock, 'title' | 'sectionId' > & {
+  jobs: JobProps[];
   gradient: boolean;
   gradientSelect?: GradientOptions;
 }
@@ -135,7 +136,8 @@ export type JobProps = Pick<JobBlock,
   'endDate' |
   'location' |
   'positionType' |
-  'currentPosition'
+  'currentPosition' |
+  'id'
   > & {
   companyLogo: ImageBlockProps[];
   skills: Skill[];
