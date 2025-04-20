@@ -70,6 +70,7 @@ export interface Config {
     'code-mockup-section': CodeMockupSectionBlock;
     'in-view-basic': InViewBasic;
     'in-view-embed': InViewEmbedBlock;
+    'job-section-block': JobSectionBlock;
   };
   collections: {
     users: User;
