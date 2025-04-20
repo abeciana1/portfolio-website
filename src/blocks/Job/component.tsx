@@ -56,7 +56,7 @@ const Job: React.FC<JobProps> = ({
                 <span data-testid='position'>{positionType}</span>
               </div>
               <div className='flex justify-start'>
-                <span>{`${format(new Date(startDate), 'MM yyyy')} — ${currentPosition ? 'Present' : format(new Date(endDate as string), 'MM yyyy')}`}</span>
+                <span>{`${format(new Date(startDate), 'MMM yyyy')} — ${currentPosition ? 'Present' : format(new Date(endDate as string), 'MMM yyyy')}`}</span>
               </div>
             </MorphingDialogTitle>
             <MorphingDialogSubtitle
