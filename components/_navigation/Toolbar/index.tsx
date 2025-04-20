@@ -38,7 +38,7 @@ const Toolbar = () => {
 
   return (
     <MotionConfig transition={transition}>
-      <div className="z-[9999] fixed w-full bottom-8" ref={ref}>
+      <div className="z-50 fixed w-full bottom-8" ref={ref}>
         <div className='w-full relative flex justify-center'>
           <div className="h-full w-full max-w-fit rounded-xl border border-zinc-950/10 bg-white">
             <div className="overflow-hidden">
