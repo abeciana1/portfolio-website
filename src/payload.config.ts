@@ -30,6 +30,8 @@ import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 import { CodeMockupSectionBlock } from '@/src/blocks/CodeMockupSection/config'
 import { InViewBasic as InViewBasicBlock } from '@/src/blocks/InViewBasic/config'
 import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
+import { JobSection as JobSectionBlock } from '@/src/blocks/JobSection/config'
+import { CardBlock } from '@/src/blocks/Card/config'
 
 
 const filename = fileURLToPath(import.meta.url)
@@ -64,7 +66,9 @@ export default buildConfig({
     RichTextBlock,
     CodeMockupSectionBlock,
     InViewBasicBlock,
-    InViewEmbedBlock
+    InViewEmbedBlock,
+    JobSectionBlock,
+    CardBlock
   ],
   cors: [
     'http://localhost:3000',
