@@ -11,6 +11,7 @@ import {
 } from '@/components/motion-primitives/morphing-dialog';
 import { ScrollArea } from '@/components/_core/ScrollArea'
 import { format } from 'date-fns'
+import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 
 const Job: React.FC<JobProps> = ({
   companyName,
@@ -79,19 +80,19 @@ const Job: React.FC<JobProps> = ({
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
         <MorphingDialogContent
-          className='relative h-auto w-[500px] border border-gray-100 bg-white rounded-lg'
+          className='relative h-auto w-[500px] border-2 border-darkGrey dark:border-pillGrey bg-background rounded-lg'
         >
           <ScrollArea className='h-[90vh]' type='scroll'>
-            <div className='relative p-6'>
-              <div className='flex justify-center py-10'>
+            <div className='relative p-6 space-y-6'>
+              <div className='flex justify-center'>
                 <MorphingDialogImage
                   src={webpUrl}
                   alt={`Company logo - ${companyName}`}
-                  className='h-fit w-fit max-h-10 max-w-20 object-cover object-top'
+                  className='h-auto w-auto max-h-16 object-cover object-top'
                 />
               </div>
               <div>
-                <div className='flex flex-col sm:flex-row justify-between text-foreground dark:text-background font-medium text-md'>
+                <div className='flex justify-between text-foreground dark:text-background font-medium text-md'>
                   <MorphingDialogTitle>
                     <div className='flex flex-col sm:flex-row sm:gap-2 text-left'>
                       <span data-testid='job-role'>{jobRole}</span>
@@ -106,7 +107,7 @@ const Job: React.FC<JobProps> = ({
                 <MorphingDialogSubtitle
                   className='flex justify-between text-darkGrey dark:text-pillGrey text-md'
                 >
-                  <div className='flex flex-col sm:flex-row justify-between w-full sm:gap-2 text-left'>
+                  <div className='flex flex-row justify-between w-full sm:gap-2 text-left'>
                     <span
                       data-testid='company-name'
                       
@@ -117,8 +118,15 @@ const Job: React.FC<JobProps> = ({
                   </div>
                 </MorphingDialogSubtitle>
               </div>
-              <div>
+              <div className='space-y-3'>
                 <div className='text-xl text-foreground dark:text-background'>Company description</div>
+                <div>{companyDescription}</div>
+              </div>
+              <div className='space-y-3'>
+                <div className='text-xl text-foreground dark:text-background'>Responsibilities</div>
+                <div className='px-3'>
+                  <RichTextEditor content_html={duties[0].content_html} />
+                </div>
               </div>
             </div>
           </ScrollArea>
