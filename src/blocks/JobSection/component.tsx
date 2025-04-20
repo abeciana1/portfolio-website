@@ -1,6 +1,5 @@
 import {
   type JobSectionProps,
-  type ImageBlockProps,
   type JobProps
 } from '@/types/blockTypes'
 import { Heading1 } from '@/components/_styled/Heading'
