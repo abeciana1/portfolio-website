@@ -14,7 +14,7 @@ const JobSection: React.FC<JobSectionProps> = ({
   gradientSelect
 }) => {
   return (
-    <section id={sectionId} className='flex flex-col space-y-6'>
+    <section id={sectionId} className='flex flex-col space-y-6  justify-center items-center'>
       <Pill text='Experience' />
       <Heading1 text={title} />
       {/* <div className='flex flex-col space-y-6'>
