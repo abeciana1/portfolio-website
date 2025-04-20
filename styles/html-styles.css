@@ -27,3 +27,7 @@ h6 {
 p {
   @apply text-xl leading-12;
 }
+
+ul {
+  @apply list-outside list-disc;
+}
