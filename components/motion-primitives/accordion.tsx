@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import {
   motion,
@@ -7,7 +8,7 @@ import {
   Variant,
   MotionConfig,
 } from 'motion/react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/classnameMerge';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export type AccordionContextType = {
@@ -115,7 +116,7 @@ function AccordionItem({ value, children, className }: AccordionItemProps) {
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child, {
-            ...child.props,
+            ...child.props as any,
             value,
             expanded: isExpanded,
           });
