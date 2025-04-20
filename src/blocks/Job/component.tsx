@@ -10,6 +10,7 @@ import {
   MorphingDialogContainer,
 } from '@/components/motion-primitives/morphing-dialog';
 import { ScrollArea } from '@/components/_core/ScrollArea'
+import { format } from 'date-fns'
 
 const Job: React.FC<JobProps> = ({
   companyName,
@@ -37,7 +38,7 @@ const Job: React.FC<JobProps> = ({
       }}
     >
       <MorphingDialogTrigger
-        className='w-full max-w-2xl mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4'
+        className='relative w-full max-w-2xl mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4 md:h-20'
       >
         <div className='flex space-x-6 items-center'>
           <MorphingDialogImage
@@ -45,24 +46,29 @@ const Job: React.FC<JobProps> = ({
             alt={`Company logo - ${companyName}`}
             className='h-fit w-fit max-h-10 max-w-20 object-cover object-top'
           />
-          <div className='flex flex-col'>
+          <div className='flex flex-col w-full'>
             <MorphingDialogTitle
-              className='flex justify-between text-foreground dark:text-background font-medium text-md'
+              className='flex flex-col sm:flex-row justify-between text-foreground dark:text-background font-medium text-md'
             >
-              <div>
+              <div className='flex flex-col sm:flex-row sm:gap-2 text-left'>
                 <span data-testid='job-role'>{jobRole}</span>
-                <span>·</span>
-                <span data-testid='company-name'>{companyName}</span>
+                <span className='font-bold hidden sm:block'>·</span>
+                <span data-testid='position'>{positionType}</span>
               </div>
-              <div>
-                <span>{`${startDate} — ${currentPosition ? 'Present' : endDate}`}</span>
+              <div className='flex justify-start'>
+                <span>{`${format(new Date(startDate), 'MM yyyy')} — ${currentPosition ? 'Present' : format(new Date(endDate as string), 'MM yyyy')}`}</span>
               </div>
             </MorphingDialogTitle>
             <MorphingDialogSubtitle
               className='flex justify-between text-darkGrey dark:text-pillGrey text-md'
             >
-              <div>
-                <span data-testid='position'>{positionType}</span>
+              <div className='flex flex-col sm:flex-row justify-between w-full sm:gap-2 text-left'>
+                <span
+                  data-testid='company-name'
+                  
+                >
+                  {companyName}
+                </span>
                 <span>{location}</span>
               </div>
             </MorphingDialogSubtitle>
