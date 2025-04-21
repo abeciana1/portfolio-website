@@ -50,7 +50,9 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
         className={`relative w-full ${sectionContainer}`}
       >
         <div className='relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto'>
-          <Pill text={pill} />
+          <div className='flex justify-center'>
+            <Pill text={pill} />
+          </div>
           <Heading1 text={heading} />
           <div className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
             {description}
