@@ -12,6 +12,14 @@ import {
 import { ScrollArea } from '@/components/_core/ScrollArea'
 import { format } from 'date-fns'
 import RichTextEditor from '@/src/blocks/RichTextEditor/component'
+import { ChevronUp } from 'lucide-react';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from '@/components/motion-primitives/accordion'
+import Pill from '@/components/_styled/Pill'
 
 const Job: React.FC<JobProps> = ({
   companyName,
@@ -110,7 +118,6 @@ const Job: React.FC<JobProps> = ({
                   <div className='flex flex-row justify-between w-full sm:gap-2 text-left'>
                     <span
                       data-testid='company-name'
-                      
                     >
                       {companyName}
                     </span>
@@ -122,6 +129,31 @@ const Job: React.FC<JobProps> = ({
                 <div className='text-xl text-foreground dark:text-background'>Company description</div>
                 <div>{companyDescription}</div>
               </div>
+              {(skills && skills?.length > 0) &&
+                <Accordion
+                  className='flex w-full flex-col'
+                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                >
+                  <AccordionItem value="skills" className='space-y-3'>
+                    <AccordionTrigger className='w-full text-left text-foreground'>
+                      <div className='flex items-center justify-between'>
+                        <div className='text-xl'>Technologies used</div>
+                        <ChevronUp className='h-6 w-6 text-foreground transition-transform duration-200 group-data-expanded:-rotate-180 ' />
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className='flex flex-wrap gap-3'>
+                      {skills?.map((skill) => {
+                        return (
+                          <Pill
+                            key={`${skill.title}-${skill.id}`}
+                            text={skill.title}
+                          />
+                        )
+                      })}
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              }
               <div className='space-y-3'>
                 <div className='text-xl text-foreground dark:text-background'>Responsibilities</div>
                 <div className='px-3'>
@@ -130,6 +162,7 @@ const Job: React.FC<JobProps> = ({
               </div>
             </div>
           </ScrollArea>
+          <MorphingDialogClose className='text-foreground' />
         </MorphingDialogContent>
       </MorphingDialogContainer>
     </MorphingDialog>
