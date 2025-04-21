@@ -11,7 +11,9 @@ const Card: React.FC<CardBlockProps> = ({
     <div
       className='px-5 md:max-w-2xl mx-auto space-y-6'
     >
-      <Pill text={pill} />
+      <div className='flex justify-center'>
+        <Pill text={pill} />
+      </div>
       <RenderBlocks blocks={[...embedBlocks] as any} />
     </div>
   )
