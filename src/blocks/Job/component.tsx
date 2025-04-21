@@ -20,6 +20,7 @@ import {
   AccordionContent
 } from '@/components/motion-primitives/accordion'
 import Pill from '@/components/_styled/Pill'
+import Link from 'next/link'
 
 const Job: React.FC<JobProps> = ({
   companyName,
@@ -126,8 +127,20 @@ const Job: React.FC<JobProps> = ({
                 </MorphingDialogSubtitle>
               </div>
               <div className='space-y-3'>
-                <div className='text-xl text-foreground dark:text-background'>Company description</div>
-                <div>{companyDescription}</div>
+                <div className='flex gap-2 items-center'>
+                  <div className='text-xl text-foreground'>Company description</div>
+                  <span className='font-bold'>·</span>
+                  <Link
+                    href={companyWebsite}
+                    target='_blank'
+                    className='text-xl text-blue-500'
+                  >
+                    Website
+                  </Link>
+                </div>
+                <div>
+                  <div>{companyDescription}</div>
+                </div>
               </div>
               {(skills && skills?.length > 0) &&
                 <Accordion
