@@ -7,7 +7,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
   const sanitizedContent = DOMPurify.sanitize(content_html);
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+      <div className='rich-text' dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
     </>
   )
 }
