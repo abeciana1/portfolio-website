@@ -54,7 +54,7 @@ const Job: React.FC<JobProps> = ({
           <MorphingDialogImage
             src={webpUrl}
             alt={`Company logo - ${companyName}`}
-            className='h-fit w-fit max-h-10 max-w-20 object-cover object-top'
+            className='h-auto w-auto max-h-20 max-w-20 min-w-[80px] object-cover object-top'
           />
           <div className='flex flex-col w-full'>
             <div
