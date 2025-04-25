@@ -1,21 +1,20 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Job from '@/src/blocks/Job/component'
-import userEvent from '@testing-library/user-event';
-
+import userEvent from '@testing-library/user-event'
 
 describe('Job', () => {
   beforeEach(() => {
     render(
       <Job
-        companyName='Company'
-        jobRole='Developer'
-        positionType='Contract'
-        companyDescription='Description'
-        companyWebsite='https://example.com'
-        startDate='2025-08-12'
+        companyName="Company"
+        jobRole="Developer"
+        positionType="Contract"
+        companyDescription="Description"
+        companyWebsite="https://example.com"
+        startDate="2025-08-12"
         currentPosition
-        location='Remote'
+        location="Remote"
         companyLogo={[
           {
             image: {
@@ -35,9 +34,7 @@ describe('Job', () => {
             gradientSelect: 'Variant1',
           },
         ]}
-        duties={[
-          {content_html: '<h1>hello</h1>'}
-        ]}
+        duties={[{ content_html: '<h1>hello</h1>' }]}
         skills={[
           {
             id: 1,
@@ -49,39 +46,39 @@ describe('Job', () => {
               createdAt: '',
             },
             createdAt: '',
-            updatedAt: ''
-          }
+            updatedAt: '',
+          },
         ]}
-      />
+      />,
     )
   })
   test('should render company name', () => {
     const companyName = screen.getByTestId('company-name')
     expect(companyName).toBeInTheDocument()
-    expect(companyName.innerText).toBe('Company')
+    expect(companyName.innerHTML).toBe('Company')
   })
   test('should render job role', () => {
     const role = screen.getByTestId('job-role')
-    expect(role.innerText).toBe('Developer')
+    expect(role.innerHTML).toBe('Developer')
     expect(role).toBeInTheDocument()
   })
   test('should render position', () => {
     const position = screen.getByTestId('position')
-    expect(position.innerText).toBe('Contract')
+    expect(position.innerHTML).toBe('Contract')
     expect(position).toBeInTheDocument()
   })
   test('should render company description', async () => {
     const jobEl = screen.getByTestId('job')
     await userEvent.click(jobEl)
     const description = await screen.findByTestId('company-desc')
-    expect(description.innerText).toBe('Description')
+    expect(description.innerHTML).toBe('<div>Description</div>')
     expect(description).toBeInTheDocument()
   })
   test('should render company website', async () => {
     const jobEl = screen.getByTestId('job')
     await userEvent.click(jobEl)
     const compWeb = await screen.findByRole('link', {
-      name: 'company website'
+      name: 'company website',
     })
     expect(compWeb).toHaveAttribute('href', 'https://example.com')
     expect(compWeb).toHaveAccessibleName('company website')
@@ -89,7 +86,7 @@ describe('Job', () => {
   })
   test('should render location', () => {
     const location = screen.getByTestId('location')
-    expect(location.innerText).toBe('Remote')
+    expect(location.innerHTML).toBe('Remote')
     expect(location).toBeInTheDocument()
   })
   test('should render company logo', () => {
@@ -102,7 +99,6 @@ describe('Job', () => {
     await userEvent.click(jobEl)
     const duties = await screen.findByTestId('duties')
     expect(duties).toBeInTheDocument()
-    expect(duties.innerHTML).toBe('<h1>hello</h1>')
-    expect(duties.innerText).toBe('hello')
+    expect(duties.innerHTML).toBe('<div class=\"rich-text\"><h1>hello</h1></div>')
   })
 })
