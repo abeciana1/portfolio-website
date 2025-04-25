@@ -72,7 +72,7 @@ function MorphingDialogProvider({
 }
 
 export type MorphingDialogProps = {
-  testId: string;
+  testId?: string;
   children: React.ReactNode;
   transition?: Transition;
 };
@@ -90,6 +90,7 @@ export type MorphingDialogTriggerProps = {
   className?: string;
   style?: React.CSSProperties;
   triggerRef?: React.RefObject<HTMLButtonElement>;
+  testId?: string;
 };
 
 function MorphingDialogTrigger({
@@ -97,6 +98,7 @@ function MorphingDialogTrigger({
   className,
   style,
   triggerRef,
+  testId
 }: MorphingDialogTriggerProps) {
   const { setIsOpen, isOpen, uniqueId } = useMorphingDialog();
 
@@ -116,6 +118,7 @@ function MorphingDialogTrigger({
 
   return (
     <motion.button
+      data-testid={testId}
       ref={triggerRef}
       layoutId={`dialog-${uniqueId}`}
       className={cn('relative cursor-pointer', className)}
