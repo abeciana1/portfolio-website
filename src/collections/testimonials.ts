@@ -32,6 +32,19 @@ export const Testimonial: CollectionConfig = {
       required: true
     },
     {
+      name: 'headshot',
+      label: 'Headshot',
+      type: 'upload',
+      relationTo: 'media',
+      required: true
+    },
+    {
+      name: 'callout',
+      label: 'Callout',
+      type: 'text',
+      required: true
+    },
+    {
       name: 'content',
       type: 'richText',
       label: 'Rich Text Content',
@@ -44,12 +57,5 @@ export const Testimonial: CollectionConfig = {
       })
     },
     lexicalHTML('content', { name: 'content_html' }),
-    {
-      name: 'headshot',
-      label: 'Headshot',
-      type: 'upload',
-      relationTo: 'media',
-      required: true
-    }
   ]
 }
