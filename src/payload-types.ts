@@ -587,6 +587,8 @@ export interface Testimonial {
   name: string;
   position: string;
   company: string;
+  headshot: number | Media;
+  callout: string;
   content: {
     root: {
       type: string;
@@ -603,7 +605,6 @@ export interface Testimonial {
     [k: string]: unknown;
   };
   content_html?: string | null;
-  headshot: number | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -1062,9 +1063,10 @@ export interface TestimonialsSelect<T extends boolean = true> {
   name?: T;
   position?: T;
   company?: T;
+  headshot?: T;
+  callout?: T;
   content?: T;
   content_html?: T;
-  headshot?: T;
   updatedAt?: T;
   createdAt?: T;
 }
