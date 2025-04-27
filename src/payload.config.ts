@@ -21,6 +21,7 @@ import SocialLinks from './collections/social-links'
 import Page from './collections/pages'
 import { SkillCollection } from './collections/skills-collection'
 import { Skill } from './collections/skills'
+import { Testimonial } from './collections/testimonials'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
@@ -55,7 +56,8 @@ export default buildConfig({
         'nav-links',
         'pages',
         'skills-collection',
-        'skills'
+        'skills',
+        'testimonials'
       ],
     }
   },
@@ -86,7 +88,8 @@ export default buildConfig({
     SocialLinks,
     Page,
     SkillCollection,
-    Skill
+    Skill,
+    Testimonial
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
