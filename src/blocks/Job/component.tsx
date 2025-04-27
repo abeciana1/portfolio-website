@@ -40,7 +40,6 @@ const Job: React.FC<JobProps> = ({
   const { webpUrl } = image
   return (
     <MorphingDialog
-      testId='job'
       transition={{
         type: 'spring',
         stiffness: 200,
@@ -48,6 +47,7 @@ const Job: React.FC<JobProps> = ({
       }}
     >
       <MorphingDialogTrigger
+        testId='job'
         className='relative w-full max-w-2xl mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4 md:h-20 bg-background'
       >
         <div className='flex space-x-6 items-center'>
@@ -81,7 +81,7 @@ const Job: React.FC<JobProps> = ({
                 >
                   {companyName}
                 </span>
-                <span>{location}</span>
+                <span data-testid='location'>{location}</span>
               </div>
             </MorphingDialogSubtitle>
           </div>
@@ -134,11 +134,12 @@ const Job: React.FC<JobProps> = ({
                     href={companyWebsite}
                     target='_blank'
                     className='text-xl text-blue-500'
+                    aria-label='company website'
                   >
                     Website
                   </Link>
                 </div>
-                <div>
+                <div data-testid='company-desc'>
                   <div>{companyDescription}</div>
                 </div>
               </div>
@@ -169,7 +170,7 @@ const Job: React.FC<JobProps> = ({
               }
               <div className='space-y-3'>
                 <div className='text-xl text-foreground dark:text-background'>Responsibilities</div>
-                <div className='px-3'>
+                <div data-testid='duties' className='px-3'>
                   <RichTextEditor content_html={duties[0].content_html} />
                 </div>
               </div>
