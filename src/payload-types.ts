@@ -71,6 +71,7 @@ export interface Config {
     'in-view-basic': InViewBasic;
     'in-view-embed': InViewEmbedBlock;
     'job-section-block': JobSectionBlock;
+    'testimonial-section-block': TestimonialSectionBlock;
   };
   collections: {
     users: User;
@@ -230,6 +231,7 @@ export interface Page {
         | InViewEmbedBlock
         | CardBlock
         | JobSectionBlock
+        | TestimonialSectionBlock
       )[]
     | null;
   meta?: {
@@ -523,6 +525,50 @@ export interface JobBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialSectionBlock".
+ */
+export interface TestimonialSectionBlock {
+  sectionId?: string | null;
+  pill?: string | null;
+  heading: string;
+  description?: string | null;
+  testimonials: number | Testimonial;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonial-section-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "testimonials".
+ */
+export interface Testimonial {
+  id: number;
+  name: string;
+  position: string;
+  company: string;
+  headshot: number | Media;
+  callout: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  content_html?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -576,36 +622,6 @@ export interface SocialLink {
   id: number;
   label: string;
   link: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "testimonials".
- */
-export interface Testimonial {
-  id: number;
-  name: string;
-  position: string;
-  company: string;
-  headshot: number | Media;
-  callout: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  content_html?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -818,6 +834,7 @@ export interface PagesSelect<T extends boolean = true> {
         'in-view-embed'?: T | InViewEmbedBlockSelect<T>;
         card?: T | CardBlockSelect<T>;
         'job-section-block'?: T | JobSectionBlockSelect<T>;
+        'testimonial-section-block'?: T | TestimonialSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1034,6 +1051,19 @@ export interface JobBlockSelect<T extends boolean = true> {
       };
   skills?: T;
   display?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialSectionBlock_select".
+ */
+export interface TestimonialSectionBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  pill?: T;
+  heading?: T;
+  description?: T;
+  testimonials?: T;
   id?: T;
   blockName?: T;
 }
