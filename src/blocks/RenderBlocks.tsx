@@ -14,6 +14,7 @@ import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 import InViewEmbed from '@/src/blocks/InViewEmbed/component'
 import Card from '@/src/blocks/Card/component'
 import JobSection from '@/src/blocks/JobSection/component'
+import TestimonialSection from '@/src/blocks/TestimonialSection/component'
 
 // * component types
 import {
@@ -25,7 +26,8 @@ import {
   type CodeMockupLineProps,
   type InViewEmbedProps,
   type CardBlockProps,
-  type JobSectionProps
+  type JobSectionProps,
+  type TestimonialSectionProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -38,7 +40,8 @@ export type BlockComponentsMap = {
   'code-mockup-link': React.FC<CodeMockupLineProps>;
   'in-view-embed': React.FC<InViewEmbedProps>;
   'card': React.FC<CardBlockProps>;
-  'job-section-block': React.FC<JobSectionProps>
+  'job-section-block': React.FC<JobSectionProps>;
+  'testimonial-section-block': React.FC<TestimonialSectionProps>;
 };
 
 const blockComponents: BlockComponentsMap = {
@@ -51,7 +54,8 @@ const blockComponents: BlockComponentsMap = {
   'code-mockup-link': CodeMockupLine,
   'in-view-embed': InViewEmbed,
   'card': Card,
-  'job-section-block': JobSection
+  'job-section-block': JobSection,
+  'testimonial-section-block': TestimonialSection
 }
 
 const RenderBlocks: React.FC<{
