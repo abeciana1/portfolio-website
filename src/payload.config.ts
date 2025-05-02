@@ -33,6 +33,7 @@ import { InViewBasic as InViewBasicBlock } from '@/src/blocks/InViewBasic/config
 import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
 import { JobSection as JobSectionBlock } from '@/src/blocks/JobSection/config'
 import { CardBlock } from '@/src/blocks/Card/config'
+import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
 
 
 const filename = fileURLToPath(import.meta.url)
@@ -70,7 +71,8 @@ export default buildConfig({
     InViewBasicBlock,
     InViewEmbedBlock,
     JobSectionBlock,
-    CardBlock
+    CardBlock,
+    TestimonialSectionBlock
   ],
   cors: [
     'http://localhost:3000',
