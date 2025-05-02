@@ -31,23 +31,25 @@ const JobSection: React.FC<JobSectionProps> = ({
       </div>
       <Heading1 text={title} />
       {jobs && jobs.map((job: JobProps, index: number) => {
-        return (
-          <Job
-            key={job.id || `${job.companyName}-${index}`}
-            companyDescription={job.companyDescription}
-            companyName={job.companyName}
-            companyLogo={job.companyLogo}
-            companyWebsite={job.companyWebsite}
-            jobRole={job.jobRole}
-            startDate={job.startDate}
-            endDate={job.endDate}
-            location={job.location}
-            positionType={job.positionType}
-            currentPosition={job.currentPosition}
-            skills={job.skills}
-            duties={job.duties}
-          />
-        )
+        if (job.display) {
+          return (
+            <Job
+              key={job.id || `${job.companyName}-${index}`}
+              companyDescription={job.companyDescription}
+              companyName={job.companyName}
+              companyLogo={job.companyLogo}
+              companyWebsite={job.companyWebsite}
+              jobRole={job.jobRole}
+              startDate={job.startDate}
+              endDate={job.endDate}
+              location={job.location}
+              positionType={job.positionType}
+              currentPosition={job.currentPosition}
+              skills={job.skills}
+              duties={job.duties}
+            />
+          )
+        }
       })}
     </section>
   )
