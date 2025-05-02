@@ -2,7 +2,8 @@ import {
   type HeroSection,
   type Skill,
   type JobSectionBlock,
-  type JobBlock
+  type JobBlock,
+  type TestimonialSectionBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -143,4 +144,22 @@ export type JobProps = Pick<JobBlock,
   companyLogo: ImageBlockProps[];
   skills: Skill[];
   duties: RichTextEditorProps[];
+}
+
+export type TestimonialProps = {
+  name: string;
+  position: string;
+  company: string;
+  headshot: ImageBlockProps;
+  callout: string;
+  content_html: string;
+}
+
+export type TestimonialSectionProps = Pick<TestimonialSectionBlock,
+  'sectionId' |
+  'pill' |
+  'heading' |
+  'description'
+  > & {
+  testimonials: TestimonialProps[];
 }
