@@ -109,6 +109,12 @@ export const Job: Block = {
       type: 'relationship',
       relationTo: 'skills',
       hasMany: true
+    },
+    {
+      name: 'display',
+      label: 'Display',
+      type: 'checkbox',
+      defaultValue: true
     }
   ]
 }
