@@ -516,6 +516,7 @@ export interface JobBlock {
   companyWebsite: string;
   duties: RichTextBlock[];
   skills?: (number | Skill)[] | null;
+  display?: boolean | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'job-block';
@@ -1032,6 +1033,7 @@ export interface JobBlockSelect<T extends boolean = true> {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
       };
   skills?: T;
+  display?: T;
   id?: T;
   blockName?: T;
 }
