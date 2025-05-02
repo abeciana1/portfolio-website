@@ -46,7 +46,7 @@
     "isomorphic-dompurify": "^2.22.0",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.477.0",
-    "motion": "^12.7.4",
+    "motion": "^12.9.4",
     "next": "^15.1.7",
     "payload": "^3.27.0",
     "postcss": "^8.5.1",
