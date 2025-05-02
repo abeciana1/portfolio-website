@@ -24,6 +24,11 @@ export const TestimonialSectionBlock: Block = {
       required: true,
     },
     {
+      name: 'description',
+      type: 'text',
+      label: 'Description'
+    },
+    {
       name: 'testimonials',
       label: 'Testimonials',
       type: 'relationship',
