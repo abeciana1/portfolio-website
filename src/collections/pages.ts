@@ -11,6 +11,7 @@ import { TwoColumnGrid } from '@/src/blocks/TwoColumnGrid/config'
 import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
 import { CardBlock } from '@/src/blocks/Card/config'
 import { JobSection } from '@/src/blocks/JobSection/config'
+import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
 
 const Page: CollectionConfig = {
   slug: 'pages',
@@ -58,7 +59,8 @@ const Page: CollectionConfig = {
                 TwoColumnGrid,
                 InViewEmbedBlock,
                 CardBlock,
-                JobSection
+                JobSection,
+                TestimonialSectionBlock
               ]
             }
           ]
