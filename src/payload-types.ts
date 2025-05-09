@@ -532,7 +532,7 @@ export interface TestimonialSectionBlock {
   pill?: string | null;
   heading: string;
   description?: string | null;
-  testimonials: number | Testimonial;
+  testimonials: (number | Testimonial)[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'testimonial-section-block';
