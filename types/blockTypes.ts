@@ -150,7 +150,7 @@ export type TestimonialProps = {
   name: string;
   position: string;
   company: string;
-  headshot: ImageBlockProps;
+  headshot: CMSMediaT;
   callout: string;
   content_html: string;
 }
