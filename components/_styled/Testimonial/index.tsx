@@ -19,6 +19,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
   callout,
   content_html
 }) => {
+  console.log('headshot', headshot)
   return (
     <MorphingDialog
       transition={{
@@ -33,7 +34,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
       >
         <div className='flex space-x-6 items-center'>
           <MorphingDialogImage
-            src={headshot?.image?.webpUrl as string}
+            src={headshot?.webpUrl as string}
             alt={`${name} headshot`}
             className='h-auto w-auto max-h-20 max-w-20 min-w-[80px] object-cover object-top'
           />
@@ -61,7 +62,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
             <div className='relative p-6 space-y-6'>
               <div className='flex justify-center'>
                 <MorphingDialogImage
-                  src={headshot?.image?.webpUrl as string}
+                  src={headshot?.webpUrl as string}
                   alt={`${name} headshot`}
                   className='h-auto w-auto max-h-16 object-cover object-top'
                 />
