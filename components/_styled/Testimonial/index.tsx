@@ -11,7 +11,7 @@ import {
 import { ScrollArea } from '@/components/_core/ScrollArea'
 import { TestimonialProps } from '@/types/blockTypes'
 
-const Testimonal: React.FC<TestimonialProps> = ({
+const Testimonial: React.FC<TestimonialProps> = ({
   name,
   position,
   company,
@@ -89,4 +89,4 @@ const Testimonal: React.FC<TestimonialProps> = ({
   )
 }
 
-export default Testimonal
+export default Testimonial
