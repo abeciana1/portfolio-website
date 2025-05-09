@@ -30,7 +30,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
     >
       <MorphingDialogTrigger
         testId='testimonial'
-        className='relative w-full max-w-2xl mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4 md:h-20 bg-background'
+        className='relative  max-w-2xl mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4 md:h-20 bg-background'
       >
         <div className='flex space-x-6 items-center'>
           <MorphingDialogImage
