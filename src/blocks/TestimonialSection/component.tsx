@@ -22,6 +22,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
     <section
       data-testid={sectionId as string}
       id={sectionId as string}
+      className='relative z-50'
     >
       <div className='relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto'>
         <div className='flex justify-center'>
