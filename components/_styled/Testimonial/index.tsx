@@ -53,6 +53,38 @@ const Testimonal: React.FC<TestimonialProps> = ({
           </div>
         </div>
       </MorphingDialogTrigger>
+      <MorphingDialogContainer>
+        <MorphingDialogContent
+          className='relative h-auto w-[500px] border-2 border-darkGrey dark:border-pillGrey bg-background rounded-lg'
+        >
+          <ScrollArea className='h-[90vh]' type='scroll'>
+            <div className='relative p-6 space-y-6'>
+              <div className='flex justify-center'>
+                <MorphingDialogImage
+                  src={headshot?.image?.webpUrl as string}
+                  alt={`${name} headshot`}
+                  className='h-auto w-auto max-h-16 object-cover object-top'
+                />
+              </div>
+            </div>
+            <div>
+              <div className='flex justify-between text-foreground dark:text-background font-medium text-md'>
+                <MorphingDialogTitle>
+                  <div className='flex flex-col sm:flex-row sm:gap-2 text-left'>
+                    <span data-testid='job-role'>{name}</span>
+                  </div>
+                </MorphingDialogTitle>
+              </div>
+              <MorphingDialogSubtitle
+                className='flex justify-between text-darkGrey dark:text-pillGrey text-md'
+              >
+                <span data-testid='position'>{`${position} @ ${company}`}</span>
+              </MorphingDialogSubtitle>
+            </div>
+          </ScrollArea>
+          <MorphingDialogClose className='text-foreground' />
+        </MorphingDialogContent>
+      </MorphingDialogContainer>
     </MorphingDialog>
   )
 }
