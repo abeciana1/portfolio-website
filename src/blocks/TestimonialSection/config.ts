@@ -33,7 +33,8 @@ export const TestimonialSectionBlock: Block = {
       label: 'Testimonials',
       type: 'relationship',
       relationTo: 'testimonials' as CollectionSlug,
-      required: true
+      required: true,
+      hasMany: true
     }
   ]
 }
