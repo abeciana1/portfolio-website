@@ -29,13 +29,13 @@ const Testimonial: React.FC<TestimonialProps> = ({
     >
       <MorphingDialogTrigger
         testId='testimonial'
-        className='relative  max-w-2xl mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4 md:h-20 bg-background'
+        className='relative h-56 w-96 mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg p-4 bg-background dark:bg-foreground'
       >
         <div className='flex space-x-6 items-center'>
           <MorphingDialogImage
             src={headshot?.webpUrl as string}
             alt={`${name} headshot`}
-            className='h-auto w-auto max-h-20 max-w-20 min-w-[80px] object-cover object-top'
+            className='h-auto w-auto max-h-20 max-w-20 min-w-[80px] rounded-full object-cover object-top'
           />
           <div className='flex flex-col w-full'>
             <div className='flex flex-col sm:flex-row justify-between text-foreground font-medium text-md'>
