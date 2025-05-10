@@ -106,7 +106,7 @@ function Carousel({
       onIndexChange={handleIndexChange}
       disableDrag={disableDrag}
     >
-      <div className={cn('group/hover relative', className)}>
+      <div className={cn('group/hover relative max-w-fit', className)}>
         <div className='overflow-hidden'>{children}</div>
       </div>
     </CarouselProvider>
@@ -129,7 +129,7 @@ function CarouselNavigation({
   return (
     <div
       className={cn(
-        'pointer-events-none absolute left-[-12.5%] top-1/2 flex w-[125%] -translate-y-1/2 justify-between px-2',
+        'pointer-events-none absolute left-0 md:left-10 -translate-y-10 top-1/2 flex w-full md:w-[90%] justify-between ',
         className
       )}
     >
@@ -332,7 +332,7 @@ function CarouselItem({ children, className }: CarouselItemProps) {
   return (
     <motion.div
       className={cn(
-        'w-fit min-w-0 shrink-0 grow-0 overflow-hidden',
+        'w-full min-w-0 shrink-0 grow-0 overflow-hidden flex justify-center',
         className
       )}
     >
