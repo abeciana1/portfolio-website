@@ -129,7 +129,7 @@ function CarouselNavigation({
   return (
     <div
       className={cn(
-        'pointer-events-none absolute left-0 md:left-10 -translate-y-10 top-1/2 flex w-full md:w-[90%] justify-between ',
+        'pointer-events-auto absolute left-0 md:left-10 -translate-y-10 top-1/2 flex w-full md:w-[90%] justify-between ',
         className
       )}
     >
@@ -137,14 +137,15 @@ function CarouselNavigation({
         type='button'
         aria-label='Previous slide'
         className={cn(
-          'pointer-events-auto h-fit w-fit rounded-full bg-zinc-50 p-2 transition-opacity duration-300 dark:bg-zinc-950',
+          'h-fit w-fit rounded-full bg-zinc-50 p-2 transition-opacity duration-300 dark:bg-zinc-950',
           alwaysShow
             ? 'opacity-100'
             : 'opacity-0 group-hover/hover:opacity-100',
           alwaysShow
             ? 'disabled:opacity-40'
             : 'group-hover/hover:disabled:opacity-40',
-          classNameButton
+          classNameButton,
+          index === 0 ? 'cursor-not-allowed' : 'cursor-pointer'
         )}
         disabled={index === 0}
         onClick={() => {
@@ -168,7 +169,8 @@ function CarouselNavigation({
           alwaysShow
             ? 'disabled:opacity-40'
             : 'group-hover/hover:disabled:opacity-40',
-          classNameButton
+          classNameButton,
+          index + 1 === itemsCount ? 'cursor-not-allowed' : 'cursor-pointer'
         )}
         aria-label='Next slide'
         disabled={index + 1 === itemsCount}
