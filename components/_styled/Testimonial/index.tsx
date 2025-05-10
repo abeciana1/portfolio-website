@@ -38,7 +38,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
             className='h-55 w-48 rounded-md object-cover object-top'
           />
           <div className='flex flex-col w-full p-6 justify-between h-55'>
-            <div className='font-medium italic text-md'>
+            <div className='font-semibold italic text-md text-left'>
               &quot;{callout}&quot;
             </div>
             <div className='flex flex-col justify-between text-foreground font-medium text-md'>
