@@ -9,6 +9,7 @@ import {
   CarouselContent,
   CarouselNavigation,
   CarouselItem,
+  CarouselIndicator
 } from '@/components/motion-primitives/carousel'
 
 const TestimonialSection: React.FC<TestimonialSectionProps> = ({
@@ -34,29 +35,30 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
         </div>
       </div>
       {(testimonials && testimonials?.length > 0) &&
-        <Carousel>
-          <CarouselContent>
-            {testimonials?.map((testimonial) => {
-              return (
-                <CarouselItem key={testimonial.name}>
-                  <Testimonial
-                    name={testimonial?.name}
-                    position={testimonial?.position}
-                    company={testimonial?.company}
-                    headshot={testimonial?.headshot}
-                    callout={testimonial?.callout}
-                    content_html={testimonial?.content_html}
-                  />
-                </CarouselItem>
-              )
-            })}
-          </CarouselContent>
-          <CarouselNavigation
-            className='absolute -bottom-20 left-auto top-auto w-full justify-end gap-2'
-            classNameButton='bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800'
-            alwaysShow
-          />
-        </Carousel>
+        <div className='relative w-full max-w-fit mx-auto'>
+          <Carousel>
+            <CarouselContent>
+              {testimonials?.map((testimonial) => {
+                return (
+                  <CarouselItem key={testimonial.name}>
+                    <Testimonial
+                      name={testimonial?.name}
+                      position={testimonial?.position}
+                      company={testimonial?.company}
+                      headshot={testimonial?.headshot}
+                      callout={testimonial?.callout}
+                      content_html={testimonial?.content_html}
+                    />
+                  </CarouselItem>
+                )
+              })}
+            </CarouselContent>
+            <CarouselNavigation alwaysShow />
+            <CarouselIndicator
+              className='relative my-6'
+            />
+          </Carousel>
+        </div>
       }
     </section>
   )
