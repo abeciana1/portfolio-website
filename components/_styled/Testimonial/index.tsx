@@ -37,19 +37,22 @@ const Testimonial: React.FC<TestimonialProps> = ({
             alt={`${name} headshot`}
             className='h-55 w-48 rounded-md object-cover object-top'
           />
-          <div className='flex flex-col w-full p-6'>
-            <div className='flex flex-col sm:flex-row justify-between text-foreground font-medium text-md'>
+          <div className='flex flex-col w-full p-6 justify-between h-55'>
+            <div className='font-medium italic text-md'>
+              &quot;{callout}&quot;
+            </div>
+            <div className='flex flex-col justify-between text-foreground font-medium text-md'>
               <MorphingDialogTitle>
-                <div className='flex flex-col sm:flex-row sm:gap-2 text-left'>
+                <div className='text-left'>
                   <span data-testid='job-role'>{name}</span>
                 </div>
               </MorphingDialogTitle>
+              <MorphingDialogSubtitle
+                className='flex flex-col justify-between text-darkGrey text-md text-left'
+              >
+                <span data-testid='position'>{`${position} @ ${company}`}</span>
+              </MorphingDialogSubtitle>
             </div>
-            <MorphingDialogSubtitle
-              className='flex justify-between text-darkGrey text-md'
-            >
-              <span data-testid='position'>{`${position} @ ${company}`}</span>
-            </MorphingDialogSubtitle>
           </div>
         </div>
       </MorphingDialogTrigger>
