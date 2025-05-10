@@ -19,7 +19,6 @@ const Testimonial: React.FC<TestimonialProps> = ({
   callout,
   content_html
 }) => {
-  console.log('headshot', headshot)
   return (
     <MorphingDialog
       transition={{
