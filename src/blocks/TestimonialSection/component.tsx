@@ -53,7 +53,10 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
                 )
               })}
             </CarouselContent>
-            <CarouselNavigation alwaysShow />
+            <CarouselNavigation
+              alwaysShow
+              classNameButton='bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800'
+            />
             <CarouselIndicator
               className='relative my-6'
             />
