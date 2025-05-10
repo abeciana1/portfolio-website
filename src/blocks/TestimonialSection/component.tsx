@@ -53,13 +53,16 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
                 )
               })}
             </CarouselContent>
-            <CarouselNavigation
-              alwaysShow
-              classNameButton='bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800'
-            />
-            <CarouselIndicator
-              className='relative my-6'
-            />
+            <div className='relative mx-auto flex justify-between items-center my-6 w-96 lg:w-125'>
+              <CarouselIndicator
+                className='relative max-w-min'
+              />
+              <CarouselNavigation
+                className='relative -bottom-10  w-full justify-end gap-2 max-w-min'
+                classNameButton='bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800'
+                alwaysShow
+              />
+            </div>
           </Carousel>
         </div>
       }
