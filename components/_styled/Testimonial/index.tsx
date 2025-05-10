@@ -29,15 +29,15 @@ const Testimonial: React.FC<TestimonialProps> = ({
     >
       <MorphingDialogTrigger
         testId='testimonial'
-        className='relative h-56 w-96 mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg bg-background dark:bg-foreground'
+        className='relative h-56 w-96 lg:w-125 mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg bg-background dark:bg-foreground'
       >
-        <div className='flex space-x-6 items-center'>
+        <div className='flex items-center'>
           <MorphingDialogImage
             src={headshot?.webpUrl as string}
             alt={`${name} headshot`}
             className='h-55 w-48 rounded-md object-cover object-top'
           />
-          <div className='flex flex-col w-full'>
+          <div className='flex flex-col w-full p-6'>
             <div className='flex flex-col sm:flex-row justify-between text-foreground font-medium text-md'>
               <MorphingDialogTitle>
                 <div className='flex flex-col sm:flex-row sm:gap-2 text-left'>
