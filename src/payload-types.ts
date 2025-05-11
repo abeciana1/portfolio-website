@@ -538,6 +538,13 @@ export interface TestimonialSectionBlock {
    */
   gradient?: boolean | null;
   gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
+  carouselCustom?: boolean | null;
+  enableInfinite?: boolean | null;
+  carouselTimer?: boolean | null;
+  /**
+   * This is the delay between slides.
+   */
+  secondsTimer?: number | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'testimonial-section-block';
@@ -1071,6 +1078,10 @@ export interface TestimonialSectionBlockSelect<T extends boolean = true> {
   testimonials?: T;
   gradient?: T;
   gradientSelect?: T;
+  carouselCustom?: T;
+  enableInfinite?: T;
+  carouselTimer?: T;
+  secondsTimer?: T;
   id?: T;
   blockName?: T;
 }
