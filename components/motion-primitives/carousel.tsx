@@ -177,6 +177,8 @@ function CarouselNavigation({
         onClick={() => {
           if (index < itemsCount - 1) {
             setIndex(index + 1);
+          } else {
+            setIndex(0)
           }
         }}
       >
