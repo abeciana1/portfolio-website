@@ -164,4 +164,8 @@ export type TestimonialSectionProps = Pick<TestimonialSectionBlock,
   testimonials: TestimonialProps[];
   gradient: boolean;
   gradientSelect?: GradientOptions;
+  carouselCustom: boolean;
+  enableInfinite: boolean;
+  carouselTimer: boolean;
+  secondsTimer: number;
 }
