@@ -130,7 +130,6 @@ function CarouselNavigation({
   carouselTimer,
   secondsTimer
 }: CarouselNavigationProps) {
-  console.log('secondsTimer', secondsTimer)
   const { index, setIndex, itemsCount } = useCarousel();
 
   useEffect(() => {
