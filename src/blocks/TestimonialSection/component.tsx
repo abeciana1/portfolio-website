@@ -1,5 +1,6 @@
 import {
-  type TestimonialSectionProps
+  type TestimonialSectionProps,
+  type GradientOptions
 } from '@/types/blockTypes'
 import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
@@ -11,13 +12,16 @@ import {
   CarouselItem,
   CarouselIndicator
 } from '@/components/motion-primitives/carousel'
+import Gradient from '@/components/_styled/Gradient'
 
 const TestimonialSection: React.FC<TestimonialSectionProps> = ({
   sectionId,
   pill,
   heading,
   description,
-  testimonials
+  testimonials,
+  gradient,
+  gradientSelect
 }) => {
   return (
     <section
@@ -25,6 +29,15 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
       id={sectionId as string}
       className='relative z-50 lg:py-24 px-5 py-10'
     >
+      {gradient &&
+        <div
+          className='z-0 absolute -top-15 right-0 md:right-8 rounded-full h-56 sm:h-[10rem] md:h-[20rem] w-[45rem] overflow-hidden blur-3xl sm:opacity-70'
+        >
+          <Gradient
+            variant={gradientSelect as GradientOptions}
+          />
+        </div>
+      }
       <div className='relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto'>
         <div className='flex justify-center'>
           <Pill text={pill as string} />
