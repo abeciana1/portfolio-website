@@ -162,4 +162,6 @@ export type TestimonialSectionProps = Pick<TestimonialSectionBlock,
   'description'
   > & {
   testimonials: TestimonialProps[];
+  gradient: boolean;
+  gradientSelect?: GradientOptions;
 }
