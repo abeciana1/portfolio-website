@@ -64,6 +64,57 @@ export const TestimonialSectionBlock: Block = {
           }
         }
       }
+    },
+    {
+      name: 'carouselCustom',
+      label: 'Add custom carousel settings',
+      type: 'checkbox',
+      defaultValue: false,
+    },
+    {
+      name: 'enableInfinite',
+      label: 'Make carousel infinite',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        condition: (data, siblingData) => {
+          if (siblingData.carouselCustom) {
+            return true
+          } else {
+            return false
+          }
+        }
+      }
+    },
+    {
+      name: 'carouselTimer',
+      label: 'Enable timer',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        condition: (data, siblingData) => {
+          if (siblingData.carouselCustom) {
+            return true
+          } else {
+            return false
+          }
+        }
+      }
+    },
+    {
+      name: 'secondsTimer',
+      label: 'Timer (in seconds)',
+      type: 'number',
+      admin: {
+        description: 'This is the delay between slides.',
+        condition: (data, siblingData) => {
+          if (siblingData.carouselTimer) {
+            return true
+          } else {
+            return false
+          }
+        }
+      }
     }
   ]
 }
