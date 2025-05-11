@@ -533,6 +533,11 @@ export interface TestimonialSectionBlock {
   heading: string;
   description?: string | null;
   testimonials: (number | Testimonial)[];
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'testimonial-section-block';
@@ -1064,6 +1069,8 @@ export interface TestimonialSectionBlockSelect<T extends boolean = true> {
   heading?: T;
   description?: T;
   testimonials?: T;
+  gradient?: T;
+  gradientSelect?: T;
   id?: T;
   blockName?: T;
 }
