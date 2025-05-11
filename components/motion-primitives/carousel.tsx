@@ -117,14 +117,40 @@ export type CarouselNavigationProps = {
   className?: string;
   classNameButton?: string;
   alwaysShow?: boolean;
+  enableInfinite: boolean;
+  carouselTimer: boolean;
+  secondsTimer: number;
 };
 
 function CarouselNavigation({
   className,
   classNameButton,
   alwaysShow,
+  enableInfinite,
+  carouselTimer,
+  secondsTimer
 }: CarouselNavigationProps) {
+  console.log('secondsTimer', secondsTimer)
   const { index, setIndex, itemsCount } = useCarousel();
+
+  useEffect(() => {
+    if (!carouselTimer) return;
+
+    const timerId = window.setInterval(() => {
+      nextHandler()
+    }, secondsTimer * 1000);
+
+    return () => window.clearInterval(timerId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [carouselTimer, secondsTimer, itemsCount, enableInfinite, setIndex]);
+
+  const nextHandler = () => {
+    if (index < itemsCount - 1) {
+      setIndex(index + 1);
+    } else if (enableInfinite) {
+      setIndex(0)
+    }
+  }
 
   return (
     <div
@@ -170,17 +196,11 @@ function CarouselNavigation({
             ? 'disabled:opacity-40'
             : 'group-hover/hover:disabled:opacity-40',
           classNameButton,
-          index + 1 === itemsCount ? 'cursor-not-allowed' : 'cursor-pointer'
+          (!enableInfinite && (index + 1 === itemsCount)) ? 'cursor-not-allowed' : 'cursor-pointer'
         )}
         aria-label='Next slide'
-        disabled={index + 1 === itemsCount}
-        onClick={() => {
-          if (index < itemsCount - 1) {
-            setIndex(index + 1);
-          } else {
-            setIndex(0)
-          }
-        }}
+        disabled={!enableInfinite && (index + 1 === itemsCount)}
+        onClick={nextHandler}
       >
         <ChevronRight
           className='stroke-zinc-600 dark:stroke-zinc-50'
