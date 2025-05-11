@@ -10,6 +10,7 @@ import {
 } from '@/components/motion-primitives/morphing-dialog';
 import { ScrollArea } from '@/components/_core/ScrollArea'
 import { TestimonialProps } from '@/types/blockTypes'
+import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 
 const Testimonial: React.FC<TestimonialProps> = ({
   name,
@@ -59,34 +60,44 @@ const Testimonial: React.FC<TestimonialProps> = ({
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
         <MorphingDialogContent
-          className='relative h-auto w-[500px] border-2 border-darkGrey dark:border-pillGrey bg-background rounded-lg'
+          className='relative border-2 p-6 border-darkGrey dark:border-pillGrey bg-background dark:bg-foreground rounded-lg'
         >
-          <ScrollArea className='h-[90vh]' type='scroll'>
-            <div className='relative p-6 space-y-6'>
-              <div className='flex justify-center'>
+          <div className='relative flex flex-col md:flex-row space-x-6 h-auto w-auto items-center'>
+            <div className='relative flex flex-col space-y-6 w-full max-w-80'>
+              <div className='relative mx-auto'>
                 <MorphingDialogImage
                   src={headshot?.webpUrl as string}
                   alt={`${name} headshot`}
-                  className='h-auto w-auto max-h-16 object-cover object-top'
+                  className='h-56 w-56 aspect-square rounded-full object-cover object-top'
                 />
               </div>
-            </div>
-            <div>
-              <div className='flex justify-between text-foreground dark:text-background font-medium text-md'>
+              <div className='flex flex-col justify-between text-foreground font-medium text-lg'>
                 <MorphingDialogTitle>
-                  <div className='flex flex-col sm:flex-row sm:gap-2 text-left'>
+                  <div className='text-center'>
                     <span data-testid='job-role'>{name}</span>
                   </div>
                 </MorphingDialogTitle>
+                <MorphingDialogSubtitle
+                  className='flex flex-col justify-between text-darkGrey text-center'
+                >
+                  <span data-testid='position'>{`${position} @ ${company}`}</span>
+                </MorphingDialogSubtitle>
               </div>
-              <MorphingDialogSubtitle
-                className='flex justify-between text-darkGrey dark:text-pillGrey text-md'
-              >
-                <span data-testid='position'>{`${position} @ ${company}`}</span>
-              </MorphingDialogSubtitle>
             </div>
-          </ScrollArea>
-          <MorphingDialogClose className='text-foreground' />
+            <div className='flex flex-col w-full h-auto max-h-72 justify-between'>
+              <div className='font-semibold italic text-lg text-left'>
+                &quot;{callout}&quot;
+              </div>
+              <div className='max-h-56 overflow-scroll mt-6'>
+                <ScrollArea className='h-[80vh]' type='scroll'>
+                  <RichTextEditor
+                    content_html={content_html}
+                  />
+                </ScrollArea>
+              </div>
+            </div>
+          </div>
+        <MorphingDialogClose className='text-foreground' />
         </MorphingDialogContent>
       </MorphingDialogContainer>
     </MorphingDialog>
