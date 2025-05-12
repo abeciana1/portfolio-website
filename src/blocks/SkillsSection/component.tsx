@@ -74,7 +74,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
           }
         </div>
         {(gradient && gradientSelect) &&
-          <div className='z-0 absolute top-15 left-0 md:left-8 rounded-full h-56 sm:h-[25rem] md:h-[30rem] w-[50rem] overflow-hidden blur-3xl sm:opacity-70'>
+          <div className='z-0 absolute top-18 left-0 md:left-8 rounded-full h-56 sm:h-[25rem] md:h-[30rem] w-[50rem] overflow-hidden blur-3xl sm:opacity-70'>
             <Gradient
               variant={gradientSelect as GradientOptions}
             />
