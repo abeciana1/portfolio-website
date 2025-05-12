@@ -657,7 +657,6 @@ export interface Job {
   companyWebsite: string;
   duties: RichTextBlock[];
   skills?: (number | Skill)[] | null;
-  display?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1173,7 +1172,6 @@ export interface JobsSelect<T extends boolean = true> {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
       };
   skills?: T;
-  display?: T;
   updatedAt?: T;
   createdAt?: T;
 }
