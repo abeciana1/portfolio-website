@@ -59,7 +59,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
         <MorphingDialogContent
-          className='relative border-2 p-6 border-darkGrey dark:border-pillGrey bg-background dark:bg-foreground rounded-lg'
+          className='relative max-w-4xl border-2 p-6 border-darkGrey dark:border-pillGrey bg-background dark:bg-foreground rounded-lg'
         >
           <div className='relative flex flex-col md:flex-row space-x-6 h-auto w-auto items-center'>
             <div className='relative flex flex-col space-y-6 w-full max-w-80'>
@@ -88,11 +88,9 @@ const Testimonial: React.FC<TestimonialProps> = ({
                 &quot;{callout}&quot;
               </div>
               <div className='max-h-56 overflow-scroll mt-6'>
-                <ScrollArea className='h-[80vh]' type='scroll'>
-                  <RichTextEditor
-                    content_html={content_html}
-                  />
-                </ScrollArea>
+                <RichTextEditor
+                  content_html={content_html}
+                />
               </div>
             </div>
           </div>
