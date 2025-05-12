@@ -33,7 +33,7 @@ const JobSection: React.FC<JobSectionProps> = ({
       {jobs && jobs.map((job: JobProps, index: number) => {
         return (
           <Job
-            key={job.id || `${job.companyName}-${index}`}
+            key={`${job.companyName}-${index}`}
             companyDescription={job.companyDescription}
             companyName={job.companyName}
             companyLogo={job.companyLogo}
