@@ -83,6 +83,7 @@ export interface Config {
     'skills-collection': SkillsCollection;
     skills: Skill;
     testimonials: Testimonial;
+    jobs: Job;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -98,6 +99,7 @@ export interface Config {
     'skills-collection': SkillsCollectionSelect<false> | SkillsCollectionSelect<true>;
     skills: SkillsSelect<false> | SkillsSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
+    jobs: JobsSelect<false> | JobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -639,6 +641,28 @@ export interface SocialLink {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "jobs".
+ */
+export interface Job {
+  id: number;
+  companyLogo: ImageBlock[];
+  companyName: string;
+  jobRole: string;
+  startDate: string;
+  currentPosition?: boolean | null;
+  endDate?: string | null;
+  location: string;
+  positionType: 'Contract' | 'Full-Time' | 'Entrepreneur';
+  companyDescription: string;
+  companyWebsite: string;
+  duties: RichTextBlock[];
+  skills?: (number | Skill)[] | null;
+  display?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -679,6 +703,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'testimonials';
         value: number | Testimonial;
+      } | null)
+    | ({
+        relationTo: 'jobs';
+        value: number | Job;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1117,6 +1145,35 @@ export interface TestimonialsSelect<T extends boolean = true> {
   callout?: T;
   content?: T;
   content_html?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "jobs_select".
+ */
+export interface JobsSelect<T extends boolean = true> {
+  companyLogo?:
+    | T
+    | {
+        'image-block'?: T | ImageBlockSelect<T>;
+      };
+  companyName?: T;
+  jobRole?: T;
+  startDate?: T;
+  currentPosition?: T;
+  endDate?: T;
+  location?: T;
+  positionType?: T;
+  companyDescription?: T;
+  companyWebsite?: T;
+  duties?:
+    | T
+    | {
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+      };
+  skills?: T;
+  display?: T;
   updatedAt?: T;
   createdAt?: T;
 }
