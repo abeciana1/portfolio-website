@@ -29,10 +29,10 @@ const DarkModeToggle = () => {
       onClick={() => darkModeHandler()}
       className='transition delay-50 duration-100 ease-in-out hover:bg-zinc-200 rounded-md h-10 w-10 flex justify-center items-center text-foreground'
     >
-      {(theme === 'dark') &&
+      {(theme === 'light') &&
         <Moon size={24} />
       }
-      {(theme === 'light') &&
+      {(theme === 'dark') &&
         <Sun size={24} />
       }
     </button>
