@@ -113,12 +113,6 @@ export const Job: CollectionConfig = {
         type: 'relationship',
         relationTo: 'skills',
         hasMany: true
-      },
-      {
-        name: 'display',
-        label: 'Display',
-        type: 'checkbox',
-        defaultValue: true
       }
     ]
 }
