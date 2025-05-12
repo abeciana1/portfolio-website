@@ -20,10 +20,9 @@ export const JobSection: Block = {
     {
       name: 'jobs',
       label: 'jobs',
-      type: 'blocks',
-      blocks: [
-        Job
-      ]
+      type: 'relationship',
+      relationTo: 'jobs',
+      hasMany: true
     },
     {
       name: 'gradient',
