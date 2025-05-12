@@ -2,8 +2,8 @@ import {
   type HeroSection,
   type Skill,
   type JobSectionBlock,
-  type JobBlock,
-  type TestimonialSectionBlock
+  type TestimonialSectionBlock,
+  type Job
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -128,7 +128,7 @@ export type JobSectionProps = Pick<JobSectionBlock, 'title' | 'sectionId' > & {
   gradientSelect?: GradientOptions;
 }
 
-export type JobProps = Pick<JobBlock,
+export type JobProps = Pick<Job,
   'companyName' |
   'jobRole' |
   'companyDescription' |
