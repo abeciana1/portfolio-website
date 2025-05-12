@@ -138,8 +138,7 @@ export type JobProps = Pick<JobBlock,
   'location' |
   'positionType' |
   'currentPosition' |
-  'id' |
-  'display'
+  'id' 
   > & {
   companyLogo: ImageBlockProps[];
   skills: Skill[];
