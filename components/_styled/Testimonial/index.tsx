@@ -8,7 +8,6 @@ import {
   MorphingDialogClose,
   MorphingDialogContainer,
 } from '@/components/motion-primitives/morphing-dialog';
-import { ScrollArea } from '@/components/_core/ScrollArea'
 import { TestimonialProps } from '@/types/blockTypes'
 import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 
