@@ -493,7 +493,7 @@ export interface CardBlock {
 export interface JobSectionBlock {
   sectionId: string;
   title: string;
-  jobs?: JobBlock[] | null;
+  jobs?: (number | Job)[] | null;
   /**
    * Add a gradient aura to the image
    */
@@ -505,9 +505,10 @@ export interface JobSectionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "JobBlock".
+ * via the `definition` "jobs".
  */
-export interface JobBlock {
+export interface Job {
+  id: number;
   companyLogo: ImageBlock[];
   companyName: string;
   jobRole: string;
@@ -520,10 +521,8 @@ export interface JobBlock {
   companyWebsite: string;
   duties: RichTextBlock[];
   skills?: (number | Skill)[] | null;
-  display?: boolean | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'job-block';
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -636,27 +635,6 @@ export interface SocialLink {
   id: number;
   label: string;
   link: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "jobs".
- */
-export interface Job {
-  id: number;
-  companyLogo: ImageBlock[];
-  companyName: string;
-  jobRole: string;
-  startDate: string;
-  currentPosition?: boolean | null;
-  endDate?: string | null;
-  location: string;
-  positionType: 'Contract' | 'Full-Time' | 'Entrepreneur';
-  companyDescription: string;
-  companyWebsite: string;
-  duties: RichTextBlock[];
-  skills?: (number | Skill)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1054,42 +1032,9 @@ export interface CardBlockSelect<T extends boolean = true> {
 export interface JobSectionBlockSelect<T extends boolean = true> {
   sectionId?: T;
   title?: T;
-  jobs?:
-    | T
-    | {
-        'job-block'?: T | JobBlockSelect<T>;
-      };
+  jobs?: T;
   gradient?: T;
   gradientSelect?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "JobBlock_select".
- */
-export interface JobBlockSelect<T extends boolean = true> {
-  companyLogo?:
-    | T
-    | {
-        'image-block'?: T | ImageBlockSelect<T>;
-      };
-  companyName?: T;
-  jobRole?: T;
-  startDate?: T;
-  currentPosition?: T;
-  endDate?: T;
-  location?: T;
-  positionType?: T;
-  companyDescription?: T;
-  companyWebsite?: T;
-  duties?:
-    | T
-    | {
-        'rich-text-block'?: T | RichTextBlockSelect<T>;
-      };
-  skills?: T;
-  display?: T;
   id?: T;
   blockName?: T;
 }
