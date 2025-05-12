@@ -43,12 +43,12 @@ const Testimonial: React.FC<TestimonialProps> = ({
             </div>
             <div className='flex flex-col justify-between text-foreground font-medium text-md'>
               <MorphingDialogTitle>
-                <div className='text-left'>
+                <div className='text-left dark:text-background'>
                   <span data-testid='job-role'>{name}</span>
                 </div>
               </MorphingDialogTitle>
               <MorphingDialogSubtitle
-                className='flex flex-col justify-between text-darkGrey text-md text-left'
+                className='flex flex-col justify-between text-darkGrey dark:text-pillGrey text-md text-left'
               >
                 <span data-testid='position'>{`${position} @ ${company}`}</span>
               </MorphingDialogSubtitle>
@@ -71,12 +71,12 @@ const Testimonial: React.FC<TestimonialProps> = ({
               </div>
               <div className='flex flex-col justify-between text-foreground font-medium text-lg'>
                 <MorphingDialogTitle>
-                  <div className='text-center'>
+                  <div className='text-center dark:text-background'>
                     <span data-testid='job-role'>{name}</span>
                   </div>
                 </MorphingDialogTitle>
                 <MorphingDialogSubtitle
-                  className='flex flex-col justify-between text-darkGrey text-center'
+                  className='flex flex-col justify-between text-darkGrey dark:text-pillGrey text-center'
                 >
                   <span data-testid='position'>{`${position} @ ${company}`}</span>
                 </MorphingDialogSubtitle>
