@@ -664,8 +664,8 @@ export interface Project {
     };
     [k: string]: unknown;
   };
-  status: 'completed' | 'inProgress' | 'onHold';
   content_html?: string | null;
+  status: 'completed' | 'inProgress' | 'onHold';
   links?:
     | {
         label: string;
@@ -1172,8 +1172,8 @@ export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   excerpt?: T;
   description?: T;
-  status?: T;
   content_html?: T;
+  status?: T;
   links?:
     | T
     | {
