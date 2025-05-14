@@ -85,6 +85,14 @@ export const Project: CollectionConfig = {
           required: true
         }
       ]
+    },
+    {
+      name: 'tech',
+      label: 'Technology',
+      type: 'relationship',
+      relationTo: 'skills',
+      required: true,
+      hasMany: true
     }
   ]
 }
