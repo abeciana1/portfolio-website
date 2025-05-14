@@ -3,10 +3,12 @@ import {
   type Skill,
   type JobSectionBlock,
   type TestimonialSectionBlock,
-  type Job
+  type Job,
+  type Project
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
+  type ProjectLink
 } from '@/types/general'
 import { type BlockComponentsMap } from '@/src/blocks/RenderBlocks'
 
@@ -166,4 +168,17 @@ export type TestimonialSectionProps = Pick<TestimonialSectionBlock,
   enableInfinite: boolean;
   carouselTimer: boolean;
   secondsTimer: number;
+}
+
+
+
+export type ProjectProps = Pick<Project,
+  'id' |
+  'title' |
+  'excerpt' |
+  'status'
+> & {
+  description: RichTextEditorProps[];
+  tech: Skill[];
+  links: ProjectLink[];
 }
