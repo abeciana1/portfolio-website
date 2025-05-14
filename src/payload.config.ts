@@ -23,6 +23,7 @@ import { SkillCollection } from './collections/skills-collection'
 import { Skill } from './collections/skills'
 import { Testimonial } from './collections/testimonials'
 import { Job } from './collections/jobs'
+import { Project } from './collections/projects'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
@@ -60,7 +61,8 @@ export default buildConfig({
         'skills-collection',
         'skills',
         'testimonials',
-        'jobs'
+        'jobs',
+        'projects'
       ],
     }
   },
@@ -94,7 +96,8 @@ export default buildConfig({
     SkillCollection,
     Skill,
     Testimonial,
-    Job
+    Job,
+    Project
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
