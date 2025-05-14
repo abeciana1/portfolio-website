@@ -84,6 +84,7 @@ export interface Config {
     skills: Skill;
     testimonials: Testimonial;
     jobs: Job;
+    projects: Project;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -100,6 +101,7 @@ export interface Config {
     skills: SkillsSelect<false> | SkillsSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     jobs: JobsSelect<false> | JobsSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -640,6 +642,43 @@ export interface SocialLink {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  image: number | Media;
+  title: string;
+  excerpt: string;
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  status: 'completed' | 'inProgress' | 'onHold';
+  content_html?: string | null;
+  links?:
+    | {
+        label: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  tech: (number | Skill)[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -684,6 +723,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'jobs';
         value: number | Job;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: number | Project;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1117,6 +1160,28 @@ export interface JobsSelect<T extends boolean = true> {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
       };
   skills?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  image?: T;
+  title?: T;
+  excerpt?: T;
+  description?: T;
+  status?: T;
+  content_html?: T;
+  links?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        id?: T;
+      };
+  tech?: T;
   updatedAt?: T;
   createdAt?: T;
 }
