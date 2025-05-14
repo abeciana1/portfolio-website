@@ -1,11 +1,7 @@
 import {
   type CollectionConfig
 } from 'payload';
-import {
-  HTMLConverterFeature,
-  lexicalEditor,
-  lexicalHTML
-} from '@payloadcms/richtext-lexical'
+import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 
 export const Project: CollectionConfig = {
   slug: 'projects',
@@ -34,15 +30,12 @@ export const Project: CollectionConfig = {
     },
     {
       name: 'description',
-      label: 'Description',
-      type: 'richText',
-      required: true,
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-          HTMLConverterFeature({}),
-        ]
-      })
+      label: 'Project description',
+      type: 'blocks',
+      blocks: [
+        RichTextBlock
+      ],
+      required: true
     },
     {
       name: 'status',
@@ -64,7 +57,6 @@ export const Project: CollectionConfig = {
       ],
       required: true
     },
-    lexicalHTML('description', { name: 'content_html' }),
     {
       name: 'links',
       label: 'Links',
