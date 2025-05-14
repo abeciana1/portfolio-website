@@ -649,22 +649,7 @@ export interface Project {
   image: number | Media;
   title: string;
   excerpt: string;
-  description: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  content_html?: string | null;
+  description: RichTextBlock[];
   status: 'completed' | 'inProgress' | 'onHold';
   links?:
     | {
@@ -1171,8 +1156,11 @@ export interface ProjectsSelect<T extends boolean = true> {
   image?: T;
   title?: T;
   excerpt?: T;
-  description?: T;
-  content_html?: T;
+  description?:
+    | T
+    | {
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+      };
   status?: T;
   links?:
     | T
