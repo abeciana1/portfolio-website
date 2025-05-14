@@ -25,3 +25,8 @@ export type SkillProps = {
 export type ButtonGroupProps = {
   children: React.ReactNode[]
 }
+
+export type ProjectLink = {
+  label: string;
+  link: string;
+}
