@@ -2,12 +2,22 @@ import {
   type CollectionConfig
 } from 'payload';
 import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
+import { titleToSlug } from '@/utils/helpers'
 
 export const Project: CollectionConfig = {
   slug: 'projects',
   admin: {
     useAsTitle: 'title'
-  }, 
+  },
+  hooks: {
+    afterChange: [
+      async ({ doc }) => {
+        if (doc.title) {
+          doc.slug = titleToSlug(doc.title);
+        }
+      }
+    ]
+  },
   fields: [
     {
       name: 'image',
@@ -21,6 +31,11 @@ export const Project: CollectionConfig = {
       label: 'Title',
       type: 'text',
       required: true
+    },
+    {
+      name: 'slug',
+      type: 'text',
+      label: 'Slug'
     },
     {
       name: 'excerpt',
