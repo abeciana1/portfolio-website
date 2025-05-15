@@ -650,6 +650,7 @@ export interface Project {
   id: number;
   image: number | Media;
   title: string;
+  slug?: string | null;
   excerpt: string;
   description: RichTextBlock[];
   status: 'completed' | 'inProgress' | 'onHold';
@@ -1172,6 +1173,7 @@ export interface JobsSelect<T extends boolean = true> {
 export interface ProjectsSelect<T extends boolean = true> {
   image?: T;
   title?: T;
+  slug?: T;
   excerpt?: T;
   description?:
     | T
