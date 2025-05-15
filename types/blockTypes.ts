@@ -4,7 +4,8 @@ import {
   type JobSectionBlock,
   type TestimonialSectionBlock,
   type Job,
-  type Project
+  type Project,
+  type ProjectTag
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -170,7 +171,11 @@ export type TestimonialSectionProps = Pick<TestimonialSectionBlock,
   secondsTimer: number;
 }
 
-
+export type ProjectTagProps = Pick<ProjectTag,
+  'id'
+> & {
+  label: string;
+}
 
 export type ProjectProps = Pick<Project,
   'id' |
@@ -178,7 +183,9 @@ export type ProjectProps = Pick<Project,
   'excerpt' |
   'status'
 > & {
+  slug: string;
   description: RichTextEditorProps[];
   tech: Skill[];
   links: ProjectLink[];
+  tags: ProjectTagProps[];
 }
