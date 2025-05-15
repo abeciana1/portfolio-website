@@ -85,6 +85,14 @@ export const Project: CollectionConfig = {
       relationTo: 'skills',
       required: true,
       hasMany: true
+    },
+    {
+      name: 'tags',
+      label: 'Tags',
+      type: 'relationship',
+      relationTo: 'project-tags',
+      required: true,
+      hasMany: true
     }
   ]
 }
