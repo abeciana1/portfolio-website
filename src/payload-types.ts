@@ -661,6 +661,7 @@ export interface Project {
       }[]
     | null;
   tech: (number | Skill)[];
+  tags: (number | ProjectTag)[];
   updatedAt: string;
   createdAt: string;
 }
@@ -1186,6 +1187,7 @@ export interface ProjectsSelect<T extends boolean = true> {
         id?: T;
       };
   tech?: T;
+  tags?: T;
   updatedAt?: T;
   createdAt?: T;
 }
