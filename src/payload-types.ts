@@ -85,6 +85,7 @@ export interface Config {
     testimonials: Testimonial;
     jobs: Job;
     projects: Project;
+    'project-tags': ProjectTag;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -102,6 +103,7 @@ export interface Config {
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     jobs: JobsSelect<false> | JobsSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    'project-tags': ProjectTagsSelect<false> | ProjectTagsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -664,6 +666,16 @@ export interface Project {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-tags".
+ */
+export interface ProjectTag {
+  id: number;
+  label: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -712,6 +724,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'project-tags';
+        value: number | ProjectTag;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1170,6 +1186,15 @@ export interface ProjectsSelect<T extends boolean = true> {
         id?: T;
       };
   tech?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-tags_select".
+ */
+export interface ProjectTagsSelect<T extends boolean = true> {
+  label?: T;
   updatedAt?: T;
   createdAt?: T;
 }
