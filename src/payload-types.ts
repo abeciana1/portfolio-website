@@ -80,6 +80,7 @@ export interface Config {
     'nav-links': NavLink;
     'social-links': SocialLink;
     pages: Page;
+    'project-pages': ProjectPage;
     'skills-collection': SkillsCollection;
     skills: Skill;
     testimonials: Testimonial;
@@ -98,6 +99,7 @@ export interface Config {
     'nav-links': NavLinksSelect<false> | NavLinksSelect<true>;
     'social-links': SocialLinksSelect<false> | SocialLinksSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    'project-pages': ProjectPagesSelect<false> | ProjectPagesSelect<true>;
     'skills-collection': SkillsCollectionSelect<false> | SkillsCollectionSelect<true>;
     skills: SkillsSelect<false> | SkillsSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
@@ -644,6 +646,59 @@ export interface SocialLink {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-pages".
+ */
+export interface ProjectPage {
+  id: number;
+  /**
+   * Title for the page
+   */
+  title: string;
+  slug?: string | null;
+  layout?:
+    | {
+        sectionId: string;
+        title: string;
+        subtitle?: string | null;
+        description?: string | null;
+        secondaryBlurb?: string | null;
+        /**
+         * Enable the inner container for this section
+         */
+        enableInnerContainer?: boolean | null;
+        callToAction?:
+          | {
+              style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?:
+                  | {
+                      relationTo: 'pages';
+                      value: number | Page;
+                    }[]
+                  | null;
+                url?: string | null;
+                label: string;
+              };
+              arrow?: boolean | null;
+              arrowDirection?: ('right' | 'down') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'call-to-action';
+            }[]
+          | null;
+        media: ImageBlock[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero-section';
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "projects".
  */
 export interface Project {
@@ -652,7 +707,6 @@ export interface Project {
   title: string;
   slug?: string | null;
   excerpt: string;
-  description: RichTextBlock[];
   status: 'completed' | 'inProgress' | 'onHold';
   links?:
     | {
@@ -706,6 +760,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'project-pages';
+        value: number | ProjectPage;
       } | null)
     | ({
         relationTo: 'skills-collection';
@@ -1105,6 +1163,59 @@ export interface TestimonialSectionBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-pages_select".
+ */
+export interface ProjectPagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  layout?:
+    | T
+    | {
+        'hero-section'?:
+          | T
+          | {
+              sectionId?: T;
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              secondaryBlurb?: T;
+              enableInnerContainer?: T;
+              callToAction?:
+                | T
+                | {
+                    'call-to-action'?:
+                      | T
+                      | {
+                          style?: T;
+                          link?:
+                            | T
+                            | {
+                                type?: T;
+                                newTab?: T;
+                                reference?: T;
+                                url?: T;
+                                label?: T;
+                              };
+                          arrow?: T;
+                          arrowDirection?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              media?:
+                | T
+                | {
+                    'image-block'?: T | ImageBlockSelect<T>;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "skills-collection_select".
  */
 export interface SkillsCollectionSelect<T extends boolean = true> {
@@ -1175,11 +1286,6 @@ export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   excerpt?: T;
-  description?:
-    | T
-    | {
-        'rich-text-block'?: T | RichTextBlockSelect<T>;
-      };
   status?: T;
   links?:
     | T
