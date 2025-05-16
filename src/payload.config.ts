@@ -25,6 +25,7 @@ import { Testimonial } from './collections/testimonials'
 import { Job } from './collections/jobs'
 import { Project } from './collections/projects'
 import { ProjectTag } from './collections/project-tags'
+import { ProjectPage } from './collections/project-pages'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
@@ -64,7 +65,8 @@ export default buildConfig({
         'testimonials',
         'jobs',
         'projects',
-        'project-tags'
+        'project-tags',
+        'project-pages'
       ],
     }
   },
@@ -95,6 +97,7 @@ export default buildConfig({
     NavLinks,
     SocialLinks,
     Page,
+    ProjectPage,
     SkillCollection,
     Skill,
     Testimonial,
