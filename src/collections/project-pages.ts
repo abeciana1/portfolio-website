@@ -4,9 +4,11 @@ import {
 import { titleToSlug } from '@/utils/helpers'
 
 // * blocks
+import { HeroSection } from '@/src/blocks/HeroSection/config'
 import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 
 const allowableBlocks = [
+  HeroSection,
   RichTextBlock
 ]
 
