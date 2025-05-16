@@ -1,7 +1,6 @@
 import {
   type CollectionConfig
 } from 'payload';
-import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 import { titleToSlug } from '@/utils/helpers'
 
 export const Project: CollectionConfig = {
@@ -41,15 +40,6 @@ export const Project: CollectionConfig = {
       name: 'excerpt',
       label: 'Excerpt',
       type: 'textarea',
-      required: true
-    },
-    {
-      name: 'description',
-      label: 'Project description',
-      type: 'blocks',
-      blocks: [
-        RichTextBlock
-      ],
       required: true
     },
     {
