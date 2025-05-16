@@ -24,13 +24,31 @@ export const Image: Block = {
       name: 'gradientXFlip',
       label: 'Flip gradient along X-axis',
       type: 'checkbox',
-      defaultValue: false
+      defaultValue: false,
+      admin: {
+        condition: (data, siblingData) => {
+          if (siblingData?.gradient) {
+            return true
+          } else {
+            return false
+          }
+        }
+      }
     },
     {
       name: 'gradientYFlip',
       label: 'Flip gradient along X-axis',
       type: 'checkbox',
-      defaultValue: false
+      defaultValue: false,
+      admin: {
+        condition: (data, siblingData) => {
+          if (siblingData?.gradient) {
+            return true
+          } else {
+            return false
+          }
+        }
+      }
     },
     {
       name: 'forcedWidth',
@@ -57,7 +75,16 @@ export const Image: Block = {
         { label: 'Variant 2', value: 'Variant2' },
         { label: 'Variant 3', value: 'Variant3' },
         { label: 'Variant 4', value: 'Variant4' }
-      ]
+      ],
+      admin: {
+        condition: (data, siblingData) => {
+          if (siblingData?.gradient) {
+            return true
+          } else {
+            return false
+          }
+        }
+      }
     }
   ]
 }
