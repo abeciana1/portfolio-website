@@ -50,8 +50,6 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }) => {
     },
   })
 
-  console.log('page result fetch', result)
-
   return result.docs?.[0] || null
 })
 
