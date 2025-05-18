@@ -656,6 +656,7 @@ export interface SocialLink {
  */
 export interface ProjectPage {
   id: number;
+  nestedRoute?: NestedRouteField;
   /**
    * Title for the page
    */
@@ -1181,6 +1182,7 @@ export interface TestimonialSectionBlockSelect<T extends boolean = true> {
  * via the `definition` "project-pages_select".
  */
 export interface ProjectPagesSelect<T extends boolean = true> {
+  nestedRoute?: T;
   title?: T;
   slug?: T;
   layout?:
