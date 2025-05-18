@@ -160,7 +160,6 @@ export default buildConfig({
       generateTitle: ({ doc }) => `Alex Beciana | ${doc.title}`,
       generateDescription: ({ doc }) => `${doc.description}`,
       generateURL: ({ collectionSlug, doc }) => {
-      // generateURL: (args) => {
         console.log('url generation doc', doc)
         return `https://alexbeciana.com/${nestedRouteHash[collectionSlug as CollectionSlug] + '/' || '/'}${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`
       },
