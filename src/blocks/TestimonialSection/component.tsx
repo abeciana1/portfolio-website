@@ -35,7 +35,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
     >
       {gradient &&
         <div
-          className='z-0 absolute top-1/5 left-1/6 rounded-full h-64 sm:h-[10rem] md:h-[20rem] w-[45rem] overflow-hidden blur-3xl sm:opacity-70'
+          className='z-0 absolute top-1/5 left-5 lg:left-1/4 rounded-full h-64 sm:h-[10rem] md:h-[20rem] w-[45rem] overflow-hidden blur-3xl sm:opacity-70'
         >
           <Gradient
             variant={gradientSelect as GradientOptions}
