@@ -13,6 +13,9 @@ import { CardBlock } from '@/src/blocks/Card/config'
 import { JobSection } from '@/src/blocks/JobSection/config'
 import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
 
+// * fields
+import { NestedRoute } from '@/src/fields/nested-route'
+
 const Page: CollectionConfig = {
   slug: 'pages',
   admin: {
@@ -35,6 +38,7 @@ const Page: CollectionConfig = {
           label: 'Page Layout',
           description: 'Added blocks and title to the page.',
           fields: [
+            NestedRoute,
             {
               name: 'title',
               type: 'text',
