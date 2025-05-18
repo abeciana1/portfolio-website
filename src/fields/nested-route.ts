@@ -5,6 +5,7 @@ export const NestedRoute: Field = {
   name: 'nestedRoute',
   label: 'Nested Route',
   type: 'select',
+  required: true,
   options: [
     {
       label: 'Base',
