@@ -7,6 +7,11 @@
  */
 
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NestedRouteField".
+ */
+export type NestedRouteField = ('base' | 'projects') | null;
+/**
  * Supported timezones in IANA format.
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -189,6 +194,7 @@ export interface HeroSection {
  */
 export interface Page {
   id: number;
+  nestedRoute?: NestedRouteField;
   /**
    * Title for the page
    */
@@ -913,6 +919,7 @@ export interface SocialLinksSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
+  nestedRoute?: T;
   title?: T;
   slug?: T;
   layout?:
