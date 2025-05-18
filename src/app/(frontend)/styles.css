@@ -63,7 +63,7 @@ html {
 }
 
 main {
-  @media (width < 48rem) {
+  @media (width < 60rem) {
     @apply overflow-x-hidden;
   }
 }
