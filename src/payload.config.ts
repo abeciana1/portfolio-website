@@ -2,7 +2,7 @@ import { postgresAdapter } from '@payloadcms/db-postgres'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
-import { buildConfig } from 'payload'
+import { buildConfig, type CollectionSlug } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { s3Storage } from '@payloadcms/storage-s3'
@@ -40,7 +40,13 @@ import { CardBlock } from '@/src/blocks/Card/config'
 import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
 
 // * nested route mapping
+type HashMap = {
+  [key in CollectionSlug | string]: string
+}
 
+const nestedRouteHash: HashMap = {
+  'project-pages' : 'projects'
+}
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -153,9 +159,10 @@ export default buildConfig({
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `Alex Beciana | ${doc.title}`,
       generateDescription: ({ doc }) => `${doc.description}`,
-      generateURL: ({ doc }) => {
+      generateURL: ({ collectionSlug, doc }) => {
+      // generateURL: (args) => {
         console.log('url generation doc', doc)
-        return `https://alexbeciana.com/${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`
+        return `https://alexbeciana.com/${nestedRouteHash[collectionSlug as CollectionSlug] + '/' || '/'}${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`
       },
       generateImage: ({ doc }) => doc?.featuredImage,
       tabbedUI: true
