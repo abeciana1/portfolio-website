@@ -60,9 +60,9 @@ export default buildConfig({
     },
     livePreview: {
       url: (data) => {
-        console.log('live preview data', data)
+        const routing = nestedRouteHash[data?.data?.nestedRoute] + '/' || '/'
         const pageUrl = data.data?.slug === 'home' ? '' : data.data?.slug
-        return process.env.NODE_ENV === 'production' ? `https://alexbeciana.com/${pageUrl}` : `http://localhost:3000/${pageUrl}`
+        return process.env.NODE_ENV === 'production' ? `https://alexbeciana.com${routing}${pageUrl}` : `http://localhost:3000${routing}${pageUrl}`
       },
       collections: [
         'users',
