@@ -29,14 +29,15 @@ const Page = async ({ params: paramsPromise }: Args) => {
   const { layout } = page
 
   return (
-    <main className='relative overflow-x-hidden'>
+    <main className='relative'>
       <RenderBlocks blocks={layout} />
     </main>
   )
 }
 
-const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
+const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }) => {
   const payload = await getPayload({ config: buildConfig })
+  console.log('page slug', slug)
 
   const result = await payload.find({
     collection: 'pages',
@@ -44,10 +45,12 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     pagination: false,
     where: {
       slug: {
-        equals: slug,
+        equals: Array.isArray(slug) ? slug[0] : slug,
       },
     },
   })
+
+  console.log('page result fetch', result)
 
   return result.docs?.[0] || null
 })
