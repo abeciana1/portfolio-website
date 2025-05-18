@@ -6,6 +6,9 @@ import { titleToSlug } from '@/utils/helpers'
 // * blocks
 import { HeroSection } from '@/src/blocks/HeroSection/config'
 
+// * fields
+import { NestedRoute } from '@/src/fields/nested-route'
+
 const allowableBlocks = [
   HeroSection,
 ]
@@ -32,6 +35,7 @@ export const ProjectPage: CollectionConfig = {
           label: 'Page Layout',
           description: 'Added blocks and title to the page.',
           fields: [
+            NestedRoute,
             {
               name: 'title',
               type: 'text',
