@@ -16,12 +16,11 @@ export const appearanceOptions: Record<LinkAppearances, { label: string; value: 
 
 type LinkType = (options?: {
   required?: boolean;
-  appearances?: LinkAppearances[] | false
-  disableLabel?: boolean
-  overrides?: Partial<GroupField>
+  disableLabel?: boolean;
+  overrides?: Partial<GroupField>;
 }) => Field
 
-export const link: LinkType = ({ required, appearances, disableLabel = false, overrides = {} } = {}) => {
+export const link: LinkType = ({ required, disableLabel = false, overrides = {} } = {}) => {
   const linkResult: GroupField = {
     name: 'link',
     type: 'group',
