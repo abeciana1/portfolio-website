@@ -9,6 +9,9 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import { titleToSlug } from '@/utils/helpers'
 
+// * subdirectory hash
+
+
 // * collections
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -36,6 +39,16 @@ import { JobSection as JobSectionBlock } from '@/src/blocks/JobSection/config'
 import { CardBlock } from '@/src/blocks/Card/config'
 import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
 
+// * nested route mapping
+type HashMap = {
+  [key in CollectionSlug | string]: string
+}
+
+const nestedRouteHash: HashMap = {
+  'projects' : 'projects',
+  'base': ''
+}
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -47,7 +60,7 @@ export default buildConfig({
     },
     livePreview: {
       url: (data) => {
-        const routing = data?.data?.nestedRoute === 'base' ? '/' : `/${data?.data?.nestedRoute}/`
+        const routing = data?.data?.nestedRoute === 'base' ? '/' : `/${nestedRouteHash[data?.data?.nestedRoute]}/`
         const pageUrl = data.data?.slug === 'home' ? '' : data.data?.slug
         return process.env.NODE_ENV === 'production' ? `https://alexbeciana.com${routing}${pageUrl}` : `http://localhost:3000${routing}${pageUrl}`
       },
@@ -148,7 +161,7 @@ export default buildConfig({
       generateTitle: ({ doc }) => `Alex Beciana | ${doc.title}`,
       generateDescription: ({ doc }) => `${doc.description}`,
       generateURL: ({ doc }) => {
-        const routing = doc?.nestedRoute === 'base' ? '/' : `/${doc?.nestedRoute}/`
+        const routing = doc.nestedRoute === 'base' ? '/' : `/${nestedRouteHash[doc?.nestedRoute]}/`
         return `https://alexbeciana.com${routing}${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`
       },
       generateImage: ({ doc }) => doc?.featuredImage,
