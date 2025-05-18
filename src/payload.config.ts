@@ -51,6 +51,7 @@ export default buildConfig({
     },
     livePreview: {
       url: (data) => {
+        console.log('live preview data', data)
         const pageUrl = data.data?.slug === 'home' ? '' : data.data?.slug
         return process.env.NODE_ENV === 'production' ? `https://alexbeciana.com/${pageUrl}` : `http://localhost:3000/${pageUrl}`
       },
@@ -144,12 +145,16 @@ export default buildConfig({
     }),
     seoPlugin({
       collections: [
-        'pages'
+        'pages',
+        'project-pages'
       ],
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `Alex Beciana | ${doc.title}`,
       generateDescription: ({ doc }) => `${doc.description}`,
-      generateURL: ({ doc }) => `https://alexbeciana.com/${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`,
+      generateURL: ({ doc }) => {
+        console.log('url generation doc', doc)
+        return `https://alexbeciana.com/${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`
+      },
       generateImage: ({ doc }) => doc?.featuredImage,
       tabbedUI: true
     })
