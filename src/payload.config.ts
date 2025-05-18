@@ -45,8 +45,8 @@ type HashMap = {
 }
 
 const nestedRouteHash: HashMap = {
-  'project-pages' : 'projects',
-  'pages': ''
+  'projects' : 'projects',
+  'base': ''
 }
 
 const filename = fileURLToPath(import.meta.url)
@@ -160,9 +160,9 @@ export default buildConfig({
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `Alex Beciana | ${doc.title}`,
       generateDescription: ({ doc }) => `${doc.description}`,
-      generateURL: ({ collectionSlug, doc }) => {
+      generateURL: ({ doc }) => {
         console.log('url generation doc', doc)
-        return `https://alexbeciana.com${nestedRouteHash[collectionSlug as CollectionSlug] + '/' || '/'}${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`
+        return `https://alexbeciana.com${nestedRouteHash[doc?.nestedRoute] + '/' || '/'}${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`
       },
       generateImage: ({ doc }) => doc?.featuredImage,
       tabbedUI: true
