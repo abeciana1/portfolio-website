@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { type Page } from '@/src/payload-types'
+import {
+  type Page,
+  type ProjectPage
+} from '@/src/payload-types'
 import { Fragment } from 'react'
 import { transformBlockMedia } from '@/utils/transformImage'
 
@@ -59,7 +62,7 @@ const blockComponents: BlockComponentsMap = {
 }
 
 const RenderBlocks: React.FC<{
-  blocks: Page['layout']
+  blocks: Page['layout'] | ProjectPage['layout']
 }> = (props) => {
   const { blocks } = props
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
