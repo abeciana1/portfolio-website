@@ -44,7 +44,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
     pagination: false,
     where: {
       slug: {
-        equals: slug,
+        equals: Array.isArray(slug) ? slug[0] : slug,
       },
     },
   })
