@@ -33,15 +33,6 @@ export const HeroSectionNoImage: Block = {
       type: 'textarea'
     },
     {
-      name: 'enableInnerContainer',
-      label: 'Enable Inner Container',
-      type: 'checkbox',
-      admin: {
-        description: 'Enable the inner container for this section'
-      },
-      defaultValue: false,
-    },
-    {
       name: 'callToAction',
       label: 'Call-to-Action',
       type: 'blocks',
