@@ -2,7 +2,7 @@ import { Heading1, Heading2 } from '@/components/_styled/Heading'
 import clsx from 'clsx'
 import { innerContainer, limitContainer } from '@/utils/helpers'
 import {
-  type HeroSectionProps,
+  type HeroSectionNoImageBlockProps,
   type ArrowDirection,
   type CTAStyle,
   type CTALink
@@ -10,12 +10,11 @@ import {
 import CallToAction from '@/src/blocks/CallToAction/component'
 import ButtonGroup from '@/components/_styled/ButtonGroup'
 
-const HeroSectionNoImage: React.FC<HeroSectionProps> = ({
+const HeroSectionNoImage: React.FC<HeroSectionNoImageBlockProps> = ({
   sectionId,
   title,
   subtitle,
   description,
-  enableInnerContainer,
   secondaryBlurb,
   callToAction,
 }) => {
@@ -23,10 +22,7 @@ const HeroSectionNoImage: React.FC<HeroSectionProps> = ({
     <section
       aria-label='section'
       id={sectionId}
-      className={clsx('relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto', {
-        [innerContainer]: enableInnerContainer,
-        [limitContainer]: !enableInnerContainer
-      })}
+      className='relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto'
     >
       <div className='lg:max-w-[550px] md:max-w-[400px] space-y-6'>
         <Heading1 text={title as string} />
