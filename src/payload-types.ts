@@ -663,43 +663,46 @@ export interface ProjectPage {
   title: string;
   slug?: string | null;
   layout?:
-    | {
-        sectionId: string;
-        title: string;
-        subtitle?: string | null;
-        description?: string | null;
-        secondaryBlurb?: string | null;
-        /**
-         * Enable the inner container for this section
-         */
-        enableInnerContainer?: boolean | null;
-        callToAction?:
-          | {
-              style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
-              link: {
-                type?: ('reference' | 'custom') | null;
-                newTab?: boolean | null;
-                reference?:
-                  | {
-                      relationTo: 'pages';
-                      value: number | Page;
-                    }[]
-                  | null;
-                url?: string | null;
-                label: string;
-              };
-              arrow?: boolean | null;
-              arrowDirection?: ('right' | 'down') | null;
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'call-to-action';
-            }[]
-          | null;
-        media: ImageBlock[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'hero-section';
-      }[]
+    | (
+        | {
+            sectionId: string;
+            title: string;
+            subtitle?: string | null;
+            description?: string | null;
+            secondaryBlurb?: string | null;
+            /**
+             * Enable the inner container for this section
+             */
+            enableInnerContainer?: boolean | null;
+            callToAction?:
+              | {
+                  style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
+                  link: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | {
+                          relationTo: 'pages';
+                          value: number | Page;
+                        }[]
+                      | null;
+                    url?: string | null;
+                    label: string;
+                  };
+                  arrow?: boolean | null;
+                  arrowDirection?: ('right' | 'down') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'call-to-action';
+                }[]
+              | null;
+            media: ImageBlock[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero-section';
+          }
+        | HeroSectionNoImageBlock
+      )[]
     | null;
   meta?: {
     title?: string | null;
@@ -711,6 +714,46 @@ export interface ProjectPage {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroSectionNoImageBlock".
+ */
+export interface HeroSectionNoImageBlock {
+  sectionId: string;
+  title: string;
+  subtitle?: string | null;
+  description?: string | null;
+  secondaryBlurb?: string | null;
+  /**
+   * Enable the inner container for this section
+   */
+  enableInnerContainer?: boolean | null;
+  callToAction?:
+    | {
+        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | {
+                relationTo: 'pages';
+                value: number | Page;
+              }[]
+            | null;
+          url?: string | null;
+          label: string;
+        };
+        arrow?: boolean | null;
+        arrowDirection?: ('right' | 'down') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'call-to-action';
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-section-no-image';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1227,6 +1270,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'hero-section-no-image'?: T | HeroSectionNoImageBlockSelect<T>;
       };
   meta?:
     | T
@@ -1237,6 +1281,42 @@ export interface ProjectPagesSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroSectionNoImageBlock_select".
+ */
+export interface HeroSectionNoImageBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  title?: T;
+  subtitle?: T;
+  description?: T;
+  secondaryBlurb?: T;
+  enableInnerContainer?: T;
+  callToAction?:
+    | T
+    | {
+        'call-to-action'?:
+          | T
+          | {
+              style?: T;
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                  };
+              arrow?: T;
+              arrowDirection?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
