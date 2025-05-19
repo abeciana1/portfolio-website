@@ -43,11 +43,11 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
         </div>
       }
       <div className='relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto'>
-        <div className='flex justify-center'>
+        <div data-testid='testimonials-pill' className='flex justify-center'>
           <Pill text={pill as string} />
         </div>
         <Heading1 text={heading} />
-        <div className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
+        <div data-testid='testimonials-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
           {description}
         </div>
       </div>
