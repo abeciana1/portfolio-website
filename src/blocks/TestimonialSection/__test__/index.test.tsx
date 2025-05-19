@@ -36,4 +36,25 @@ describe('TestimonialSection', () => {
       />
     )
   })
+  test('should render section', () => {
+    const section = screen.getByTestId('testimonials')
+    expect(section).toBeInTheDocument()
+  })
+  test('should render section heading', () => {
+    const heading = screen.getByRole('heading', {
+      level: 1
+    })
+    expect(heading.textContent).toBe('Testimonials')
+    expect(heading).toBeInTheDocument()
+  })
+  test('should render section pill', () => {
+    const pill = screen.getByTestId('testimonials-pill')
+    expect(pill.textContent).toBe('Testionials')
+    expect(pill).toBeInTheDocument()
+  })
+  test('should render section description', () => {
+    const description = screen.getByTestId('testimonials-desc')
+    expect(description.textContent).toBe('Testimonials description')
+    expect(description).toBeInTheDocument()
+  })
 })
