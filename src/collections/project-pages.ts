@@ -5,12 +5,14 @@ import { titleToSlug } from '@/utils/helpers'
 
 // * blocks
 import { HeroSection } from '@/src/blocks/HeroSection/config'
+import { HeroSectionNoImage } from '@/src/blocks/HeroSectionNoImage/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
 
 const allowableBlocks = [
   HeroSection,
+  HeroSectionNoImage
 ]
 
 export const ProjectPage: CollectionConfig = {
