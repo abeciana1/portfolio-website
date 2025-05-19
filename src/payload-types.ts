@@ -725,10 +725,6 @@ export interface HeroSectionNoImageBlock {
   subtitle?: string | null;
   description?: string | null;
   secondaryBlurb?: string | null;
-  /**
-   * Enable the inner container for this section
-   */
-  enableInnerContainer?: boolean | null;
   callToAction?:
     | {
         style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
@@ -1292,7 +1288,6 @@ export interface HeroSectionNoImageBlockSelect<T extends boolean = true> {
   subtitle?: T;
   description?: T;
   secondaryBlurb?: T;
-  enableInnerContainer?: T;
   callToAction?:
     | T
     | {
