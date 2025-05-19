@@ -5,7 +5,8 @@ import {
   type TestimonialSectionBlock,
   type Job,
   type Project,
-  type ProjectTag
+  type ProjectTag,
+  type HeroSectionNoImageBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -29,6 +30,8 @@ export type HeroSectionProps = Omit<HeroSection, 'media' | 'enableInnerContainer
   media: ImageBlockProps[];
   enableInnerContainer: boolean;
 }
+
+export type HeroSectionNoImageBlockProps = HeroSectionNoImageBlock;
 
 export type ImageBlockProps = {
   image: CMSMediaT;
