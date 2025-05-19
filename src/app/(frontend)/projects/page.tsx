@@ -29,7 +29,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
   const { layout } = page
 
   return (
-    <main className='relative overflow-x-hidden'>
+    <main className='relative'>
       <RenderBlocks blocks={layout} />
     </main>
   )
