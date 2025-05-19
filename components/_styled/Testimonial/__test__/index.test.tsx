@@ -23,4 +23,19 @@ describe('Testimonial', () => {
       />
     )
   })
+  test('should render headshot', () => {
+    const image = screen.getByRole('img')
+    expect(image).toHaveAttribute('alt', 'name headshot')
+    expect(image).toBeInTheDocument()
+  })
+  test('should render quote callout', () => {
+    const callout = screen.getByTestId('callout')
+    expect(callout.textContent).toBe('"callout"')
+    expect(callout).toBeInTheDocument()
+  })
+  test('should render position and company', () => {
+    const position = screen.getByTestId('position')
+    expect(position.textContent).toBe('position @ company')
+    expect(position).toBeInTheDocument()
+  })
 })
