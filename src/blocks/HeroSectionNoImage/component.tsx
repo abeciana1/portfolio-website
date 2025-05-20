@@ -22,9 +22,9 @@ const HeroSectionNoImage: React.FC<HeroSectionNoImageBlockProps> = ({
     <section
       aria-label='section'
       id={sectionId}
-      className='relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto'
+      className='relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 lg:py-24 px-5 py-10 items-center mx-auto'
     >
-      <div className='lg:max-w-[550px] md:max-w-[400px] space-y-6'>
+      <div className='space-y-6 text-center'>
         <Heading1 text={title as string} />
         {subtitle && <Heading2 text={subtitle as string} />}
         <div className='leading-10 text-3xl font-semibold'>{description}</div>
