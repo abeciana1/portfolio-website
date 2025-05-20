@@ -1,6 +1,11 @@
 import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
-import { type ProjectSectionBlockProps } from '@/types/blockTypes'
+import {
+  type ProjectSectionBlockProps,
+  type CTAStyle,
+  type ArrowDirection,
+  type CTALink
+} from '@/types/blockTypes'
 import CallToAction from '@/src/blocks/CallToAction/component'
 import ButtonGroup from '@/components/_styled/ButtonGroup'
 
