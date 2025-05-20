@@ -6,7 +6,8 @@ import {
   type Job,
   type Project,
   type ProjectTag,
-  type HeroSectionNoImageBlock
+  type HeroSectionNoImageBlock,
+  type ProjectSectionBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -191,4 +192,14 @@ export type ProjectProps = Pick<Project,
   tech: Skill[];
   links: ProjectLink[];
   tags: ProjectTagProps[];
+}
+
+export type ProjectSectionBlockProps = Pick<ProjectSectionBlock,
+  'sectionId' |
+  'pill' |
+  'heading' |
+  'description' |
+  'callToAction'
+> & {
+  projects: ProjectProps[];
 }
