@@ -37,7 +37,6 @@ const Page = async ({ params: paramsPromise }: Args) => {
 
 const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }) => {
   const payload = await getPayload({ config: buildConfig })
-  console.log('page slug', slug)
 
   const result = await payload.find({
     collection: 'pages',
