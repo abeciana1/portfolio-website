@@ -16,6 +16,17 @@ import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
 
+const allowableBlocks = [
+  HeroSection,
+  InViewBasic,
+  SkillsSection,
+  TwoColumnGrid,
+  InViewEmbedBlock,
+  CardBlock,
+  JobSection,
+  TestimonialSectionBlock
+]
+
 const Page: CollectionConfig = {
   slug: 'pages',
   admin: {
@@ -56,16 +67,7 @@ const Page: CollectionConfig = {
               name: 'layout',
               type: 'blocks',
               label: 'Layout',
-              blocks: [
-                HeroSection,
-                InViewBasic,
-                SkillsSection,
-                TwoColumnGrid,
-                InViewEmbedBlock,
-                CardBlock,
-                JobSection,
-                TestimonialSectionBlock
-              ]
+              blocks: allowableBlocks
             }
           ]
         }
