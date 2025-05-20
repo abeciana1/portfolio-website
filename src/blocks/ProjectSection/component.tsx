@@ -1,6 +1,8 @@
 import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
 import { type ProjectSectionBlockProps } from '@/types/blockTypes'
+import CallToAction from '@/src/blocks/CallToAction/component'
+import ButtonGroup from '@/components/_styled/ButtonGroup'
 
 const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
   sectionId,
@@ -15,7 +17,34 @@ const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
       data-testid={sectionId as string}
       id={sectionId as string}
       className='relative z-50 lg:py-24 px-5 py-10'
-    ></section>
+    >
+      <div className='relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto'>
+        {pill &&
+          <div data-testid='testimonials-pill' className='flex justify-center'>
+            <Pill text={pill as string} />
+          </div>
+        }
+        <Heading1 text={heading} />
+        <div data-testid='testimonials-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
+          {description}
+        </div>
+        {(callToAction && callToAction?.length > 0) &&
+            <ButtonGroup>
+              {callToAction?.map((callToAction, index) => {
+                return (
+                  <CallToAction
+                    key={index}
+                    style={callToAction.style as CTAStyle}
+                    arrow={callToAction.arrow as boolean}
+                    arrowDirection={callToAction.arrowDirection as ArrowDirection}
+                    link={callToAction.link as CTALink}
+                  />
+                )
+              })}
+            </ButtonGroup>
+          }
+      </div>
+    </section>
   )
 }
 
