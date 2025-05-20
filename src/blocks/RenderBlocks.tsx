@@ -18,7 +18,6 @@ import InViewEmbed from '@/src/blocks/InViewEmbed/component'
 import Card from '@/src/blocks/Card/component'
 import JobSection from '@/src/blocks/JobSection/component'
 import TestimonialSection from '@/src/blocks/TestimonialSection/component'
-import HeroSectionNoImage from '@/src/blocks/HeroSectionNoImage/component'
 
 // * component types
 import {
@@ -31,8 +30,7 @@ import {
   type InViewEmbedProps,
   type CardBlockProps,
   type JobSectionProps,
-  type TestimonialSectionProps,
-  type HeroSectionNoImageBlockProps
+  type TestimonialSectionProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -47,7 +45,6 @@ export type BlockComponentsMap = {
   'card': React.FC<CardBlockProps>;
   'job-section-block': React.FC<JobSectionProps>;
   'testimonial-section-block': React.FC<TestimonialSectionProps>;
-  'hero-section-no-image': React.FC<HeroSectionNoImageBlockProps>;
 };
 
 const blockComponents: BlockComponentsMap = {
@@ -61,12 +58,11 @@ const blockComponents: BlockComponentsMap = {
   'in-view-embed': InViewEmbed,
   'card': Card,
   'job-section-block': JobSection,
-  'testimonial-section-block': TestimonialSection,
-  'hero-section-no-image': HeroSectionNoImage
+  'testimonial-section-block': TestimonialSection
 }
 
 const RenderBlocks: React.FC<{
-  blocks: Page['layout'] | ProjectPage['layout']
+  blocks: Page['layout']
 }> = (props) => {
   const { blocks } = props
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
