@@ -4,7 +4,7 @@ import {
   type RequiredDataFromCollectionSlug
 } from 'payload'
 import { cache } from 'react'
-import RenderBlocks from '@/src/blocks/RenderBlocks'
+import RenderProjectBlocks from '@/src/blocks/RenderProjectBlocks'
 import { notFound } from 'next/navigation';
 import buildConfig from '@/src/payload.config'
 import { generateMeta } from '@/utils/generateMeta'
@@ -30,7 +30,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
 
   return (
     <main className='relative'>
-      <RenderBlocks blocks={layout} />
+      <RenderProjectBlocks blocks={layout} />
     </main>
   )
 }
