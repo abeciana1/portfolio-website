@@ -624,7 +624,7 @@ export interface ProjectSectionBlock {
         blockType: 'call-to-action';
       }[]
     | null;
-  projects: number | Project;
+  projects: (number | Project)[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-section-block';
@@ -785,7 +785,7 @@ export interface HeroSectionNoImageBlock {
  * via the `definition` "ProjectGridBlock".
  */
 export interface ProjectGridBlock {
-  projects: number | Project;
+  projects: (number | Project)[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-grid-block';
