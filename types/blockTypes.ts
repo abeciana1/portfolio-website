@@ -182,7 +182,6 @@ export type ProjectTagProps = Pick<ProjectTag,
 }
 
 export type ProjectProps = Pick<Project,
-  'id' |
   'title' |
   'excerpt' |
   'status'
