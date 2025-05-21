@@ -10,7 +10,18 @@ const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps, 'projects'>> = ({
   return (
     <section>
       {projects?.map((project) => {
-        return <></>
+        return (
+          <ProjectCard
+            key={project.slug}
+            slug={project.slug}
+            title={project.title}
+            excerpt={project.excerpt}
+            status={project.status}
+            tech={project.tech}
+            links={project.links}
+            tags={project.tags}
+          />
+        )
       })}
     </section>
   )
