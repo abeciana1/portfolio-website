@@ -9,7 +9,7 @@ import ProjectGrid from '@/src/blocks/ProjectGrid/component'
 
 // * component types
 import {
-  type HeroSectionNoImageBlockProps
+  type HeroSectionNoImageBlockProps,
   type ProjectSectionBlockProps
 } from '@/types/blockTypes'
 
