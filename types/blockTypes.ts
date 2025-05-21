@@ -187,7 +187,6 @@ export type ProjectProps = Pick<Project,
   'status'
 > & {
   slug: string;
-  description: RichTextEditorProps[];
   tech: Skill[];
   links: ProjectLink[];
   tags: ProjectTagProps[];
