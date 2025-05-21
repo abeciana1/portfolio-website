@@ -1,5 +1,8 @@
+import { type ProjectSectionBlockProps } from '@/types/blockTypes'
 
-const ProjectGrid = () => {
+const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps, 'projects'>> = ({
+  projects
+}) => {
   return (
     <section></section>
   )
