@@ -732,7 +732,7 @@ export interface ProjectPage {
    */
   title: string;
   slug?: string | null;
-  layout?: HeroSectionNoImageBlock[] | null;
+  layout?: (HeroSectionNoImageBlock | ProjectGridBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -779,6 +779,16 @@ export interface HeroSectionNoImageBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero-section-no-image';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectGridBlock".
+ */
+export interface ProjectGridBlock {
+  projects: number | Project;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'project-grid-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1260,6 +1270,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
     | T
     | {
         'hero-section-no-image'?: T | HeroSectionNoImageBlockSelect<T>;
+        'project-grid-block'?: T | ProjectGridBlockSelect<T>;
       };
   meta?:
     | T
@@ -1303,6 +1314,15 @@ export interface HeroSectionNoImageBlockSelect<T extends boolean = true> {
               blockName?: T;
             };
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectGridBlock_select".
+ */
+export interface ProjectGridBlockSelect<T extends boolean = true> {
+  projects?: T;
   id?: T;
   blockName?: T;
 }
