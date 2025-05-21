@@ -42,7 +42,8 @@ export const ProjectSection: Block = {
       label: 'Projects',
       type: 'relationship',
       relationTo: 'projects',
-      required: true
+      required: true,
+      hasMany: true
     }
   ]
 }
