@@ -5,18 +5,22 @@ import { transformBlockMedia } from '@/utils/transformImage'
 
 // * components
 import HeroSectionNoImage from '@/src/blocks/HeroSectionNoImage/component'
+import ProjectGrid from '@/src/blocks/ProjectGrid/component'
 
 // * component types
 import {
   type HeroSectionNoImageBlockProps
+  type ProjectSectionBlockProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
   'hero-section-no-image': React.FC<HeroSectionNoImageBlockProps>;
+  'project-grid-block': React.FC<Pick<ProjectSectionBlockProps, 'projects'>>;
 };
 
 const blockComponents: BlockComponentsMap = {
-  'hero-section-no-image': HeroSectionNoImage
+  'hero-section-no-image': HeroSectionNoImage,
+  'project-grid-block': ProjectGrid
 }
 
 const RenderProjectBlocks: React.FC<{
