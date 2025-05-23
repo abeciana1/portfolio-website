@@ -7,7 +7,9 @@ const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps, 'projects'>> = ({
   projects
 }) => {
   return (
-    <section>
+    <section
+      className="grid grid-cols-1 md:grid-cols-2"
+    >
       {projects?.map((project) => {
         return (
           <ProjectCard
@@ -19,6 +21,7 @@ const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps, 'projects'>> = ({
             tech={project.tech}
             links={project.links}
             tags={project.tags}
+            image={project.image}
           />
         )
       })}
