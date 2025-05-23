@@ -1,4 +1,6 @@
 import { type ProjectProps } from '@/types/blockTypes'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const ProjectCard: React.FC<ProjectProps> = ({
   slug,
@@ -7,10 +9,40 @@ const ProjectCard: React.FC<ProjectProps> = ({
   status,
   tech,
   links,
-  tags
+  tags,
+  image
 }) => {
+
+  const {
+    webpUrl,
+    alt
+  } = image
+
   return (
-    <div></div>
+    <Link
+      href={`/projects/${slug}`}
+      className='p-6 rounded-3xl'
+    >
+      <div>
+        <div className='relative w-full p-6 bg-pillGrey h-full max-h-[240px]'>
+          <Image
+            src={webpUrl}
+            alt={alt}
+            height={100}
+            width={100}
+            className="mx-auto h-32 w-auto"
+          />
+        </div>
+        <div>
+          <div className="font-medium text-lg text-foreground dark:text-background">
+            {title}
+          </div>
+          <div className="font-medium text-md text-darkGrey dark:text-pillGrey">
+            {excerpt}
+          </div>
+        </div>
+      </div>
+    </Link>
   )
 }
 
