@@ -21,10 +21,10 @@ const ProjectCard: React.FC<ProjectProps> = ({
   return (
     <Link
       href={`/projects/${slug}`}
-      className='p-6 rounded-3xl'
+      className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50'
     >
-      <div>
-        <div className='relative w-full p-6 bg-pillGrey h-full max-h-[240px]'>
+      <div className='relative z-50 opacity-100 space-y-6'>
+        <div className='relative w-full p-6 bg-pillGrey h-full max-h-[240px] rounded-2xl'>
           <Image
             src={webpUrl}
             alt={alt}
