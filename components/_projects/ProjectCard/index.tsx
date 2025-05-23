@@ -2,13 +2,12 @@ import { type ProjectProps } from '@/types/blockTypes'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const ProjectCard: React.FC<ProjectProps> = ({
+const ProjectCard: React.FC<Pick<ProjectProps,
+  'excerpt' | 'slug' | 'image' | 'tags' | 'title'
+>> = ({
   slug,
   title,
   excerpt,
-  status,
-  tech,
-  links,
   tags,
   image
 }) => {
