@@ -3,7 +3,8 @@ import {
 } from '@/types/blockTypes'
 import ProjectCard from '@/components/_projects/ProjectCard'
 
-const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps, 'projects'>> = ({
+const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps,
+'projects' | 'gradient' | 'gradientSelect'>> = ({
   projects
 }) => {
   return (
