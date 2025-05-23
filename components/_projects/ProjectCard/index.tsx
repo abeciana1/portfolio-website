@@ -26,6 +26,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
       <div className='relative z-50 opacity-100 space-y-6'>
         <div className='relative w-full p-6 bg-pillGrey h-full max-h-[240px] rounded-2xl'>
           <Image
+            data-testid='project-image'
             src={webpUrl}
             alt={alt}
             height={100}
@@ -34,10 +35,10 @@ const ProjectCard: React.FC<ProjectProps> = ({
           />
         </div>
         <div>
-          <div className="font-medium text-lg text-foreground dark:text-background">
+          <div data-testid='project-title' className="font-medium text-lg text-foreground dark:text-background">
             {title}
           </div>
-          <div className="font-medium text-md text-darkGrey dark:text-pillGrey">
+          <div data-testid='project-excerpt' className="font-medium text-md text-darkGrey dark:text-pillGrey">
             {excerpt}
           </div>
         </div>
