@@ -201,4 +201,6 @@ export type ProjectSectionBlockProps = Pick<ProjectSectionBlock,
   'callToAction'
 > & {
   projects: ProjectProps[];
+  gradient: boolean;
+  gradientSelect?: GradientOptions;
 }
