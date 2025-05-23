@@ -190,6 +190,7 @@ export type ProjectProps = Pick<Project,
   tech: Skill[];
   links: ProjectLink[];
   tags: ProjectTagProps[];
+  image: CMSMediaT;
 }
 
 export type ProjectSectionBlockProps = Pick<ProjectSectionBlock,
