@@ -625,6 +625,11 @@ export interface ProjectSectionBlock {
       }[]
     | null;
   projects: (number | Project)[];
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-section-block';
@@ -786,6 +791,11 @@ export interface HeroSectionNoImageBlock {
  */
 export interface ProjectGridBlock {
   projects: (number | Project)[];
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-grid-block';
@@ -1255,6 +1265,8 @@ export interface ProjectSectionBlockSelect<T extends boolean = true> {
             };
       };
   projects?: T;
+  gradient?: T;
+  gradientSelect?: T;
   id?: T;
   blockName?: T;
 }
@@ -1323,6 +1335,8 @@ export interface HeroSectionNoImageBlockSelect<T extends boolean = true> {
  */
 export interface ProjectGridBlockSelect<T extends boolean = true> {
   projects?: T;
+  gradient?: T;
+  gradientSelect?: T;
   id?: T;
   blockName?: T;
 }
