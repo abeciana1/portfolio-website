@@ -40,9 +40,6 @@ const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps,
               slug={project.slug}
               title={project.title}
               excerpt={project.excerpt}
-              status={project.status}
-              tech={project.tech}
-              links={project.links}
               tags={project.tags}
               image={project.image}
             />
