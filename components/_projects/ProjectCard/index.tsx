@@ -11,7 +11,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
   tags,
   image
 }) => {
-
+  console.log('tags', tags)
   const {
     webpUrl,
     alt
@@ -42,6 +42,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
           </div>
           <div>
             <div className="font-medium text-lg text-foreground dark:text-background">Tags</div>
+            <div data-testid='tags-list'></div>
           </div>
         </div>
       </div>
