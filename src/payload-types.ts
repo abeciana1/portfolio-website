@@ -246,7 +246,6 @@ export interface Page {
         | CardBlock
         | JobSectionBlock
         | TestimonialSectionBlock
-        | ProjectSectionBlock
       )[]
     | null;
   meta?: {
@@ -595,80 +594,6 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ProjectSectionBlock".
- */
-export interface ProjectSectionBlock {
-  sectionId: string;
-  pill?: string | null;
-  heading: string;
-  description?: string | null;
-  callToAction?:
-    | {
-        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | {
-                relationTo: 'pages';
-                value: number | Page;
-              }[]
-            | null;
-          url?: string | null;
-          label: string;
-        };
-        arrow?: boolean | null;
-        arrowDirection?: ('right' | 'down') | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'call-to-action';
-      }[]
-    | null;
-  projects: (number | Project)[];
-  /**
-   * Add a gradient aura to the image
-   */
-  gradient?: boolean | null;
-  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'project-section-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
-export interface Project {
-  id: number;
-  image: number | Media;
-  title: string;
-  slug?: string | null;
-  excerpt: string;
-  status: 'completed' | 'inProgress' | 'onHold';
-  links?:
-    | {
-        label: string;
-        link: string;
-        id?: string | null;
-      }[]
-    | null;
-  tech: (number | Skill)[];
-  tags: (number | ProjectTag)[];
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "project-tags".
- */
-export interface ProjectTag {
-  id: number;
-  label: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -841,6 +766,39 @@ export interface ProjectGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-grid-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  image: number | Media;
+  title: string;
+  slug?: string | null;
+  excerpt: string;
+  status: 'completed' | 'inProgress' | 'onHold';
+  links?:
+    | {
+        label: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  tech: (number | Skill)[];
+  tags: (number | ProjectTag)[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-tags".
+ */
+export interface ProjectTag {
+  id: number;
+  label: string;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1069,7 +1027,6 @@ export interface PagesSelect<T extends boolean = true> {
         card?: T | CardBlockSelect<T>;
         'job-section-block'?: T | JobSectionBlockSelect<T>;
         'testimonial-section-block'?: T | TestimonialSectionBlockSelect<T>;
-        'project-section-block'?: T | ProjectSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1272,43 +1229,6 @@ export interface TestimonialSectionBlockSelect<T extends boolean = true> {
   enableInfinite?: T;
   carouselTimer?: T;
   secondsTimer?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ProjectSectionBlock_select".
- */
-export interface ProjectSectionBlockSelect<T extends boolean = true> {
-  sectionId?: T;
-  pill?: T;
-  heading?: T;
-  description?: T;
-  callToAction?:
-    | T
-    | {
-        'call-to-action'?:
-          | T
-          | {
-              style?: T;
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                  };
-              arrow?: T;
-              arrowDirection?: T;
-              id?: T;
-              blockName?: T;
-            };
-      };
-  projects?: T;
-  gradient?: T;
-  gradientSelect?: T;
   id?: T;
   blockName?: T;
 }
