@@ -23,7 +23,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
       className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50'
     >
       <div className='relative z-50 opacity-100 space-y-6'>
-        <div className='relative w-full p-6 bg-pillGrey h-full max-h-[240px] rounded-2xl'>
+        <div className='relative w-full p-6 bg-background h-full max-h-[240px] rounded-2xl'>
           <Image
             data-testid='project-image'
             src={webpUrl}
@@ -33,12 +33,15 @@ const ProjectCard: React.FC<Pick<ProjectProps,
             className="mx-auto h-32 w-auto"
           />
         </div>
-        <div>
+        <div className='flex flex-col justify-between gap-3'>
           <div data-testid='project-title' className="font-medium text-lg text-foreground dark:text-background">
             {title}
           </div>
-          <div data-testid='project-excerpt' className="font-medium text-md text-darkGrey dark:text-pillGrey">
-            {excerpt}
+          <div data-testid='project-excerpt' className="font-medium text-lg text-darkGrey dark:text-pillGrey">
+            {excerpt.length > 70 ? excerpt.substring(0, 70) : excerpt}
+          </div>
+          <div>
+            <div className="font-medium text-lg text-foreground dark:text-background">Tags</div>
           </div>
         </div>
       </div>
