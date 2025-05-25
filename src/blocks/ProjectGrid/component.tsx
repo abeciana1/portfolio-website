@@ -20,7 +20,7 @@ const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps,
 
   return (
     <section
-      className=""
+      className="px-5 lg:px-20"
     >
       {groups.map((group, groupIdx) => (
         <div
