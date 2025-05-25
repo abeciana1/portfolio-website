@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  type Page,
-  type ProjectPage
+  type Page
 } from '@/src/payload-types'
 import { Fragment } from 'react'
 import { transformBlockMedia } from '@/utils/transformImage'
