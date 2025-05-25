@@ -737,7 +737,49 @@ export interface ProjectPage {
    */
   title: string;
   slug?: string | null;
-  layout?: (HeroSectionNoImageBlock | ProjectGridBlock)[] | null;
+  layout?:
+    | (
+        | HeroSectionNoImageBlock
+        | ProjectGridBlock
+        | {
+            sectionId: string;
+            title: string;
+            subtitle?: string | null;
+            description?: string | null;
+            secondaryBlurb?: string | null;
+            /**
+             * Enable the inner container for this section
+             */
+            enableInnerContainer?: boolean | null;
+            callToAction?:
+              | {
+                  style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
+                  link: {
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?:
+                      | {
+                          relationTo: 'pages';
+                          value: number | Page;
+                        }[]
+                      | null;
+                    url?: string | null;
+                    label: string;
+                  };
+                  arrow?: boolean | null;
+                  arrowDirection?: ('right' | 'down') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'call-to-action';
+                }[]
+              | null;
+            media: ImageBlock[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero-section';
+          }
+      )[]
+    | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1283,6 +1325,45 @@ export interface ProjectPagesSelect<T extends boolean = true> {
     | {
         'hero-section-no-image'?: T | HeroSectionNoImageBlockSelect<T>;
         'project-grid-block'?: T | ProjectGridBlockSelect<T>;
+        'hero-section'?:
+          | T
+          | {
+              sectionId?: T;
+              title?: T;
+              subtitle?: T;
+              description?: T;
+              secondaryBlurb?: T;
+              enableInnerContainer?: T;
+              callToAction?:
+                | T
+                | {
+                    'call-to-action'?:
+                      | T
+                      | {
+                          style?: T;
+                          link?:
+                            | T
+                            | {
+                                type?: T;
+                                newTab?: T;
+                                reference?: T;
+                                url?: T;
+                                label?: T;
+                              };
+                          arrow?: T;
+                          arrowDirection?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              media?:
+                | T
+                | {
+                    'image-block'?: T | ImageBlockSelect<T>;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
