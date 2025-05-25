@@ -34,24 +34,24 @@ const ProjectCard: React.FC<Pick<ProjectProps,
           />
         </div>
         <div className='flex flex-col justify-between gap-3'>
-          <div data-testid='project-title' className="font-medium text-lg text-foreground dark:text-background">
+          <div tabIndex={0} data-testid='project-title' className="font-medium text-lg text-foreground dark:text-background">
             {title}
           </div>
-          <div data-testid='project-excerpt' className="font-medium text-lg text-darkGrey dark:text-pillGrey">
+          <div  data-testid='project-excerpt' className="font-medium text-lg text-darkGrey dark:text-pillGrey">
             {excerpt.length > 70 ? excerpt.substring(0, 70) + '...' : excerpt}
           </div>
-          <div>
-            <ul
-              data-testid='tags-list'
-              className='flex gap-2 flex-wrap'
-            >
-              {tags?.map((tag) => {
-                return (
-                  <ProjectTag key={tag?.id} label={tag?.label} />
-                )
-              })}
-            </ul>
-          </div>
+          <span tabIndex={0} className='sr-only'>{excerpt}</span>
+          <ul
+            tabIndex={0}
+            data-testid='tags-list'
+            className='flex gap-2 flex-wrap'
+          >
+            {tags?.map((tag) => {
+              return (
+                <ProjectTag key={tag?.id} label={tag?.label} />
+              )
+            })}
+          </ul>
         </div>
       </div>
     </Link>
