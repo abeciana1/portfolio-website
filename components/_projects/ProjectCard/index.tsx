@@ -12,7 +12,6 @@ const ProjectCard: React.FC<Pick<ProjectProps,
   tags,
   image
 }) => {
-  console.log('tags', tags)
   const {
     webpUrl,
     alt
@@ -44,6 +43,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
           <div>
             <ul
               data-testid='tags-list'
+              className='flex gap-3 flex-wrap'
             >
               {tags?.map((tag) => {
                 return (
