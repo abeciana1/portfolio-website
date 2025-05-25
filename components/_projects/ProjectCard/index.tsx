@@ -1,6 +1,7 @@
 import { type ProjectProps } from '@/types/blockTypes'
 import Link from 'next/link'
 import Image from 'next/image'
+import ProjectTag from '@/components/_projects/ProjectTag'
 
 const ProjectCard: React.FC<Pick<ProjectProps,
   'excerpt' | 'slug' | 'image' | 'tags' | 'title'
@@ -41,8 +42,15 @@ const ProjectCard: React.FC<Pick<ProjectProps,
             {excerpt.length > 70 ? excerpt.substring(0, 70) : excerpt}
           </div>
           <div>
-            <div className="font-medium text-lg text-foreground dark:text-background">Tags</div>
-            <div data-testid='tags-list'></div>
+            <div
+              data-testid='tags-list'
+            >
+              {tags?.map((tag) => {
+                return (
+                  <ProjectTag key={tag?.id} label={tag?.label} />
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
