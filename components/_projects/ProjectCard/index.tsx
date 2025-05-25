@@ -20,7 +20,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
   return (
     <Link
       href={`projects${slug}`}
-      className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50'
+      className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto max-h-[412px]'
     >
       <div className='relative z-50 opacity-100 space-y-6'>
         <div className='relative w-full p-6 bg-background h-full max-h-[240px] rounded-2xl'>
@@ -38,12 +38,12 @@ const ProjectCard: React.FC<Pick<ProjectProps,
             {title}
           </div>
           <div data-testid='project-excerpt' className="font-medium text-lg text-darkGrey dark:text-pillGrey">
-            {excerpt.length > 70 ? excerpt.substring(0, 70) : excerpt}
+            {excerpt.length > 70 ? excerpt.substring(0, 70) + '...' : excerpt}
           </div>
           <div>
             <ul
               data-testid='tags-list'
-              className='flex gap-3 flex-wrap'
+              className='flex gap-2 flex-wrap'
             >
               {tags?.map((tag) => {
                 return (
