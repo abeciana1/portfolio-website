@@ -9,7 +9,7 @@ const ProjectTag: React.FC<Pick<ProjectTagProps,
 }) => {
   return (
     <li
-      className="text-foreground bg-pillGrey rounded-lg py-1 px-2 text-center font-medium max-w-fit text-lg"
+      className="text-foreground bg-pillGrey rounded-lg py-1 px-2 text-center font-medium max-w-fit text-sm"
     >
       { label }
     </li>
