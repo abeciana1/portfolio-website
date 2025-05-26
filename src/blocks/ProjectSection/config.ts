@@ -1,7 +1,7 @@
 import { type Block } from 'payload';
 import { CallToAction } from '@/src/blocks/CallToAction/config'
 
-export const ProjectSection: Block = {
+export const ProjectSectionBlock: Block = {
   slug: 'project-section-block',
   interfaceName: 'ProjectSectionBlock',
   fields: [
