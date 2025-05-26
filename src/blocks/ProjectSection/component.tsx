@@ -34,20 +34,20 @@ const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
           {description}
         </div>
         {(callToAction && callToAction?.length > 0) &&
-            <ButtonGroup>
-              {callToAction?.map((callToAction, index) => {
-                return (
-                  <CallToAction
-                    key={index}
-                    style={callToAction.style as CTAStyle}
-                    arrow={callToAction.arrow as boolean}
-                    arrowDirection={callToAction.arrowDirection as ArrowDirection}
-                    link={callToAction.link as CTALink}
-                  />
-                )
-              })}
-            </ButtonGroup>
-          }
+          <ButtonGroup>
+            {callToAction?.map((callToAction, index) => {
+              return (
+                <CallToAction
+                  key={index}
+                  style={callToAction.style as CTAStyle}
+                  arrow={callToAction.arrow as boolean}
+                  arrowDirection={callToAction.arrowDirection as ArrowDirection}
+                  link={callToAction.link as CTALink}
+                />
+              )
+            })}
+          </ButtonGroup>
+        }
       </div>
     </section>
   )
