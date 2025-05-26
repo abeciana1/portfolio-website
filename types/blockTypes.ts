@@ -7,7 +7,8 @@ import {
   type Project,
   type ProjectTag,
   type HeroSectionNoImageBlock,
-  type ProjectSectionBlock
+  type ProjectSectionBlock,
+  type OverviewSectionBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -211,3 +212,11 @@ export type ProjectSectionBlockProps = Pick<ProjectSectionBlock,
   gradient: boolean;
   gradientSelect?: GradientOptions;
 }
+
+export type OverviewSectionBlockProps = Pick<OverviewSectionBlock,
+  'title' |
+  'content_html' |
+  'role' |
+  'duration' |
+  'tags'
+>
