@@ -32,7 +32,14 @@ export type HeroSectionProps = Omit<HeroSection, 'media' | 'enableInnerContainer
   enableInnerContainer: boolean;
 }
 
-export type HeroSectionNoImageBlockProps = HeroSectionNoImageBlock;
+export type HeroSectionNoImageBlockProps = Pick<HeroSectionNoImageBlock,
+  'sectionId' |
+  'title' |
+  'subtitle' |
+  'description' |
+  'secondaryBlurb' |
+  'callToAction'
+>;
 
 export type ImageBlockProps = {
   image: CMSMediaT;
