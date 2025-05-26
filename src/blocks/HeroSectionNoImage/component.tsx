@@ -20,13 +20,14 @@ const HeroSectionNoImage: React.FC<HeroSectionNoImageBlockProps> = ({
     <section
       aria-label='section'
       id={sectionId}
+      data-testid={sectionId}
       className='relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 lg:py-24 px-5 py-10 items-center mx-auto'
     >
       <div className='space-y-6 text-center'>
         <Heading1 text={title as string} />
         {subtitle && <Heading2 text={subtitle as string} />}
-        <div className='leading-10 text-3xl font-semibold'>{description}</div>
-        {secondaryBlurb && <div className='text-xl text-darkGrey font-semibold'>{secondaryBlurb}</div>}
+        <div data-testid='description' className='leading-10 text-3xl font-semibold'>{description}</div>
+        {secondaryBlurb && <div data-testid='secondary-blurb' className='text-xl text-darkGrey font-semibold'>{secondaryBlurb}</div>}
         {(callToAction && callToAction?.length > 0) &&
           <ButtonGroup>
             {callToAction?.map((callToAction, index) => {
