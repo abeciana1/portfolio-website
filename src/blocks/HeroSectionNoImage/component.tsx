@@ -1,6 +1,4 @@
 import { Heading1, Heading2 } from '@/components/_styled/Heading'
-import clsx from 'clsx'
-import { innerContainer, limitContainer } from '@/utils/helpers'
 import {
   type HeroSectionNoImageBlockProps,
   type ArrowDirection,
