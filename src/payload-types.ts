@@ -77,6 +77,7 @@ export interface Config {
     'in-view-embed': InViewEmbedBlock;
     'job-section-block': JobSectionBlock;
     'testimonial-section-block': TestimonialSectionBlock;
+    'project-section-block': ProjectSectionBlock;
   };
   collections: {
     users: User;
@@ -594,6 +595,80 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectSectionBlock".
+ */
+export interface ProjectSectionBlock {
+  sectionId: string;
+  pill?: string | null;
+  heading: string;
+  description?: string | null;
+  callToAction?:
+    | {
+        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | {
+                relationTo: 'pages';
+                value: number | Page;
+              }[]
+            | null;
+          url?: string | null;
+          label: string;
+        };
+        arrow?: boolean | null;
+        arrowDirection?: ('right' | 'down') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'call-to-action';
+      }[]
+    | null;
+  projects: (number | Project)[];
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'project-section-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  image: number | Media;
+  title: string;
+  slug?: string | null;
+  excerpt: string;
+  status: 'completed' | 'inProgress' | 'onHold';
+  links?:
+    | {
+        label: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
+  tech: (number | Skill)[];
+  tags: (number | ProjectTag)[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-tags".
+ */
+export interface ProjectTag {
+  id: number;
+  label: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -766,39 +841,6 @@ export interface ProjectGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-grid-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
-export interface Project {
-  id: number;
-  image: number | Media;
-  title: string;
-  slug?: string | null;
-  excerpt: string;
-  status: 'completed' | 'inProgress' | 'onHold';
-  links?:
-    | {
-        label: string;
-        link: string;
-        id?: string | null;
-      }[]
-    | null;
-  tech: (number | Skill)[];
-  tags: (number | ProjectTag)[];
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "project-tags".
- */
-export interface ProjectTag {
-  id: number;
-  label: string;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
