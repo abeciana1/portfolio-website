@@ -39,6 +39,7 @@ import { JobSection as JobSectionBlock } from '@/src/blocks/JobSection/config'
 import { CardBlock } from '@/src/blocks/Card/config'
 import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
 import { ProjectSectionBlock } from '@/src/blocks/ProjectSection/config'
+import { OverviewSection } from '@/src/blocks/OverviewSection/config'
 
 // * nested route mapping
 type HashMap = {
@@ -92,7 +93,8 @@ export default buildConfig({
     JobSectionBlock,
     CardBlock,
     TestimonialSectionBlock,
-    ProjectSectionBlock
+    ProjectSectionBlock,
+    OverviewSection
   ],
   cors: [
     'http://localhost:3000',
