@@ -38,6 +38,7 @@ import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
 import { JobSection as JobSectionBlock } from '@/src/blocks/JobSection/config'
 import { CardBlock } from '@/src/blocks/Card/config'
 import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
+import { ProjectSectionBlock } from '@/src/blocks/ProjectSection/config'
 
 // * nested route mapping
 type HashMap = {
@@ -90,7 +91,8 @@ export default buildConfig({
     InViewEmbedBlock,
     JobSectionBlock,
     CardBlock,
-    TestimonialSectionBlock
+    TestimonialSectionBlock,
+    ProjectSectionBlock
   ],
   cors: [
     'http://localhost:3000',
