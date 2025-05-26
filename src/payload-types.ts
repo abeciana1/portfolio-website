@@ -78,6 +78,7 @@ export interface Config {
     'job-section-block': JobSectionBlock;
     'testimonial-section-block': TestimonialSectionBlock;
     'project-section-block': ProjectSectionBlock;
+    'overview-section': OverviewSectionBlock;
   };
   collections: {
     users: User;
@@ -666,6 +667,38 @@ export interface ProjectTag {
   label: string;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverviewSectionBlock".
+ */
+export interface OverviewSectionBlock {
+  title: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  content_html?: string | null;
+  role: ('designer' | 'frontendDev' | 'backendDEv' | 'integrationSpec')[];
+  duration: {
+    timeLength: number;
+    frequency: 'years' | 'months' | 'weeks';
+  };
+  tags: (number | ProjectTag)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overview-section';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
