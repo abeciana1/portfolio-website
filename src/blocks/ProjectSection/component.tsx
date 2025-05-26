@@ -8,6 +8,7 @@ import {
 } from '@/types/blockTypes'
 import CallToAction from '@/src/blocks/CallToAction/component'
 import ButtonGroup from '@/components/_styled/ButtonGroup'
+import ProjectGrid from '@/src/blocks/ProjectGrid/component'
 
 const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
   sectionId,
@@ -15,7 +16,9 @@ const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
   heading,
   description,
   callToAction,
-  projects
+  projects,
+  gradient,
+  gradientSelect
 }) => {
   return (
     <section
@@ -48,6 +51,11 @@ const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
             })}
           </ButtonGroup>
         }
+        <ProjectGrid
+          projects={projects}
+          gradient={gradient}
+          gradientSelect={gradientSelect}
+        />
       </div>
     </section>
   )
