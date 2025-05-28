@@ -26,7 +26,7 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
     <section
       data-testid='overview-section'
       id='overview-section'
-      className='relative z-50 lg:py-24 px-5 py-10 flex'
+      className='relative z-50 lg:py-24 px-5 py-10 flex md:px-10'
     >
       <section className='space-y-6'>
         <Heading1 text={title} />
