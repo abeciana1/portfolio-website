@@ -17,7 +17,6 @@ type Args = {
 
 const Page = async ({ params: paramsPromise }: Args) => {
   const { slug = 'home' } = await paramsPromise
-  console.log('pagesslug', slug)
 
   const page: RequiredDataFromCollectionSlug<'project-pages'> | null = await queryPageBySlug({
     slug,
