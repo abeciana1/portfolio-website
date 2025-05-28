@@ -7,24 +7,28 @@ import { transformBlockMedia } from '@/utils/transformImage'
 import HeroSectionNoImage from '@/src/blocks/HeroSectionNoImage/component'
 import ProjectGrid from '@/src/blocks/ProjectGrid/component'
 import HeroSection from '@/src/blocks/HeroSection/component'
+import OverviewSection from '@/src/blocks/OverviewSection/component'
 
 // * component types
 import {
   type HeroSectionNoImageBlockProps,
   type ProjectSectionBlockProps,
   type HeroSectionProps,
+  type OverviewSectionBlockProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
   'hero-section-no-image': React.FC<HeroSectionNoImageBlockProps>;
   'project-grid-block': React.FC<Pick<ProjectSectionBlockProps, 'projects' | 'gradient' | 'gradientSelect'>>;
   'hero-section': React.FC<HeroSectionProps>;
+  'overview-section': React.FC<OverviewSectionBlockProps>;
 };
 
 const blockComponents: BlockComponentsMap = {
   'hero-section-no-image': HeroSectionNoImage,
   'project-grid-block': ProjectGrid,
   'hero-section': HeroSection,
+  'overview-section': OverviewSection
 }
 
 const RenderProjectBlocks: React.FC<{
