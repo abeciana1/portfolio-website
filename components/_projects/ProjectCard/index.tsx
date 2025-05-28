@@ -19,7 +19,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
 
   return (
     <Link
-      href={`projects${slug}`}
+      href={`projects/${slug}`}
       className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto max-h-[412px]'
     >
       <div className='relative z-50 opacity-100 space-y-6'>
