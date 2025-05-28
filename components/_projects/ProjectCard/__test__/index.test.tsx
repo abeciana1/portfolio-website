@@ -8,7 +8,7 @@ describe('ProjectCard', () => {
       <ProjectCard
         title='Project title'
         excerpt='Project excerpt'
-        slug='/project-title'
+        slug='project-title'
         image={{
           id: 1,
           alt: 'Hero Image',
