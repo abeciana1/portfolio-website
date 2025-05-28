@@ -13,7 +13,12 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
       data-testid='overview-section'
       id='overview-section'
       className='relative z-50 lg:py-24 px-5 py-10'
-    ></section>
+    >
+      <div>
+        <Heading1 text={title} />
+      </div>
+      <div></div>
+    </section>
   )
 }
 
