@@ -213,10 +213,13 @@ export type ProjectSectionBlockProps = Pick<ProjectSectionBlock,
   gradientSelect?: GradientOptions;
 }
 
+export type RoleSelect = 'designer' | 'frontendDev' | 'backendDEv' | 'integrationSpec'
+
 export type OverviewSectionBlockProps = Pick<OverviewSectionBlock,
   'title' |
   'content_html' |
   'role' |
-  'duration' |
-  'tags'
->
+  'duration'
+> & {
+  tags: ProjectTagProps[]
+}
