@@ -811,6 +811,7 @@ export interface ProjectPage {
             blockName?: string | null;
             blockType: 'hero-section';
           }
+        | OverviewSectionBlock
       )[]
     | null;
   meta?: {
@@ -1359,6 +1360,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'overview-section'?: T | OverviewSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1413,6 +1415,25 @@ export interface ProjectGridBlockSelect<T extends boolean = true> {
   projects?: T;
   gradient?: T;
   gradientSelect?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverviewSectionBlock_select".
+ */
+export interface OverviewSectionBlockSelect<T extends boolean = true> {
+  title?: T;
+  content?: T;
+  content_html?: T;
+  role?: T;
+  duration?:
+    | T
+    | {
+        timeLength?: T;
+        frequency?: T;
+      };
+  tags?: T;
   id?: T;
   blockName?: T;
 }
