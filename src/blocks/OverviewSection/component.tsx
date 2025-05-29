@@ -28,7 +28,7 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
       className='relative z-50 lg:py-24 py-10 px-5 md:px-10 lg:px-17 mx-auto w-full'
     >
       <Heading1 text={title} />
-      <section className='mt-10 flex justify-center'>
+      <section className='mt-10 flex justify-center gap-6'>
         <RichTextEditor
           content_html={content_html as string}
         />
