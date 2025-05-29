@@ -25,17 +25,19 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
     <section
       data-testid='overview-section'
       id='overview-section'
-      className='relative z-50 lg:py-24 py-10 px-5 md:px-10 lg:px-17 mx-auto w-full'
+      className='relative z-50 lg:py-24 py-10 plx-5 md:pl-10 lg:pl-17 mx-auto w-full'
     >
       <Heading1 text={title} />
-      <section className='mt-10 flex justify-center gap-6'>
-        <RichTextEditor
-          content_html={content_html as string}
-        />
-        <section className='w-full max-w-56'>
-          <div>
-            <div className=''>Role</div>
-            <ul>
+      <section className='mt-10 flex gap-6'>
+        <section className='max-w-2xl'>
+          <RichTextEditor
+            content_html={content_html as string}
+          />
+        </section>
+        <section className='w-full  lg:max-w-64 space-y-3'>
+          <div className='space-y-1'>
+            <div className='text-lg font-semibold'>Role</div>
+            <ul className='flex flex-wrap gap-2'>
               {role?.map((role, index) => {
                 return (
                   <ProjectTag
@@ -46,13 +48,13 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
               })}
             </ul>
           </div>
-          <div>
-            <div>Duration</div>
-            <div>{`${duration.timeLength} ${duration.frequency}`}</div>
+          <div className='space-y-1'>
+            <div className='text-lg font-semibold'>Duration</div>
+            <div className='text-md'>{`${duration.timeLength} ${duration.frequency}`}</div>
           </div>
-          <div>
-            <div>Tags</div>
-            <ul>
+          <div className='space-y-1'>
+            <div className='text-lg font-semibold'>Tags</div>
+            <ul className='flex flex-wrap gap-2'>
               {tags?.map((tag) => {
                 return (
                   <ProjectTag key={`${tag?.label}-${tag?.id}`} label={tag?.label} />
