@@ -48,6 +48,8 @@ export type ImageBlockProps = {
   gradientXFlip?: boolean;
   gradientYFlip?: boolean;
   gradientSelect?: GradientOptions;
+  forcedWidth?: number;
+  forcedHeight?: number;
 }
 
 export type InViewBasicProps = {
