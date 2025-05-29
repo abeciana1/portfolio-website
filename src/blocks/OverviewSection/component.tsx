@@ -34,7 +34,7 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
             content_html={content_html as string}
           />
         </section>
-        <section className='w-full sticky bottom-0 lg:max-w-64 space-y-3'>
+        <section className='w-full sticky top-0 lg:max-w-64 space-y-3'>
           <div className='space-y-1'>
             <div className='text-lg font-semibold'>Role</div>
             <ul className='flex flex-wrap gap-2'>
