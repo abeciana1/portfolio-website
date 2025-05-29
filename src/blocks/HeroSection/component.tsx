@@ -28,6 +28,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     gradientYFlip,
     gradientSelect,
     image,
+    forcedHeight,
+    forcedWidth
   } = media && media[0]
   return (
     <section
@@ -65,6 +67,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         gradientXFlip={gradientXFlip as boolean}
         gradientYFlip={gradientYFlip as boolean}
         gradientSelect={gradientSelect}
+        forcedHeight={forcedHeight}
+        forcedWidth={forcedWidth}
       />
     </section>
   )
