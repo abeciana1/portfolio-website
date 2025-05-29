@@ -29,13 +29,9 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
     >
       <Heading1 text={title} />
       <section className='mt-10 flex justify-center'>
-        <section>
-          <div className=''>
-            <RichTextEditor
-              content_html={content_html as string}
-            />
-          </div>
-        </section>
+        <RichTextEditor
+          content_html={content_html as string}
+        />
         <section className='w-full max-w-56'>
           <div>
             <div className=''>Role</div>
