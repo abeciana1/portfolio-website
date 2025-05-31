@@ -268,19 +268,19 @@ export interface Page {
 export interface ImageBlock {
   image: number | Media;
   /**
+   * Set a specific width for the image, overriding the aspect ratio
+   */
+  forcedWidth: number;
+  /**
+   * Set a specific height for the image, overriding the aspect ratio
+   */
+  forcedHeight: number;
+  /**
    * Add a gradient aura to the image
    */
   gradient?: boolean | null;
   gradientXFlip?: boolean | null;
   gradientYFlip?: boolean | null;
-  /**
-   * Set a specific width for the image, overriding the aspect ratio
-   */
-  forcedWidth?: number | null;
-  /**
-   * Set a specific height for the image, overriding the aspect ratio
-   */
-  forcedHeight?: number | null;
   gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
@@ -1120,11 +1120,11 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface ImageBlockSelect<T extends boolean = true> {
   image?: T;
+  forcedWidth?: T;
+  forcedHeight?: T;
   gradient?: T;
   gradientXFlip?: T;
   gradientYFlip?: T;
-  forcedWidth?: T;
-  forcedHeight?: T;
   gradientSelect?: T;
   id?: T;
   blockName?: T;
