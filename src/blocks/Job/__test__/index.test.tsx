@@ -32,6 +32,8 @@ describe('Job', () => {
             gradientXFlip: false,
             gradientYFlip: false,
             gradientSelect: 'Variant1',
+            forcedHeight: 0,
+            forcedWidth: 0
           },
         ]}
         duties={[{ content_html: '<h1>hello</h1>' }]}
