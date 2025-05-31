@@ -8,6 +8,8 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   gradientXFlip,
   gradientYFlip,
   gradientSelect,
+  forcedHeight,
+  forcedWidth
 }) => {
 
   const {
@@ -22,8 +24,8 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
         <Image
           src={webpUrl}
           alt={alt}
-          height={height as number}
-          width={width as number}
+          height={(forcedHeight || height) as number}
+          width={(forcedWidth || width) as number}
           className='relative z-50 rounded-md'
         />
         {gradient &&
