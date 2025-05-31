@@ -12,6 +12,26 @@ export const Image: Block = {
       required: true,
     },
     {
+      name: 'forcedWidth',
+      type: 'number',
+      label: 'Force image width (in pixels)',
+      admin: {
+        description: 'Set a specific width for the image, overriding the aspect ratio'
+      },
+      required: true,
+      defaultValue: 0
+    },
+    {
+      name: 'forcedHeight',
+      type: 'number',
+      label: 'Force image height (in pixels)',
+      admin: {
+        description: 'Set a specific height for the image, overriding the aspect ratio'
+      },
+      required: true,
+      defaultValue: 0
+    },
+    {
       name: 'gradient',
       label: 'Add gradient to image',
       type: 'checkbox',
@@ -51,22 +71,6 @@ export const Image: Block = {
       }
     },
     {
-      name: 'forcedWidth',
-      type: 'number',
-      label: 'Force image width (in pixels)',
-      admin: {
-        description: 'Set a specific width for the image, overriding the aspect ratio'
-      }
-    },
-    {
-      name: 'forcedHeight',
-      type: 'number',
-      label: 'Force image height (in pixels)',
-      admin: {
-        description: 'Set a specific height for the image, overriding the aspect ratio'
-      }
-    },
-    {
       name: 'gradientSelect',
       label: 'Gradient variant select',
       type: 'select',
@@ -85,6 +89,6 @@ export const Image: Block = {
           }
         }
       }
-    }
+    },
   ]
 }
