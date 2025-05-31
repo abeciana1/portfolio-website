@@ -21,8 +21,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   callToAction,
   media = []
 }) => {
-  console.log('media props', media)
-
   const {
     gradient,
     gradientXFlip,
