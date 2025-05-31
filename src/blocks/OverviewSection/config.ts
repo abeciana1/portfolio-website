@@ -77,6 +77,11 @@ export const OverviewSection: Block = {
       relationTo: 'project-tags',
       required: true,
       hasMany: true
+    },
+    {
+      name: 'greyBackground',
+      label: 'Grey background enabled',
+      type: 'checkbox',
     }
   ]
 }
