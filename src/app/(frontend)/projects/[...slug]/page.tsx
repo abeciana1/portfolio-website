@@ -46,7 +46,7 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
       slug: {
         equals: Array.isArray(slug) ? slug[0] : slug,
       },
-    },
+    }
   })
 
   return result.docs?.[0] || null
