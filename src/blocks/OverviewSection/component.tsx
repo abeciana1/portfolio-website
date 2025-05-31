@@ -28,7 +28,7 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
       data-testid='overview-section'
       id='overview-section'
       className={clsx('relative z-50 lg:py-24 py-5 px-5 md:px-10 md:justify-around mx-auto w-full', {
-        ['bg-pillGrey']: greyBackground
+        ['bg-pillGrey dark:bg-darkGrey']: greyBackground
       })}
     >
       <section className='flex gap-6 relative mx-auto flex-col sm:flex-col-reverse lg:flex-row items-start'>
@@ -49,6 +49,7 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
                   <ProjectTag
                     key={`${role}-${index}`}
                     label={roles[role as RoleSelect] as string}
+                    addBorder={greyBackground as boolean}
                   />
                 )
               })}
@@ -63,7 +64,7 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
             <ul className='flex flex-wrap gap-2'>
               {tags?.map((tag) => {
                 return (
-                  <ProjectTag key={`${tag?.label}-${tag?.id}`} label={tag?.label} />
+                  <ProjectTag key={`${tag?.label}-${tag?.id}`} label={tag?.label} addBorder={greyBackground as boolean} />
                 )
               })}
             </ul>
