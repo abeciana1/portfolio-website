@@ -223,7 +223,8 @@ export type OverviewSectionBlockProps = Pick<OverviewSectionBlock,
   'title' |
   'content_html' |
   'role' |
-  'duration'
+  'duration' | 
+  'greyBackground'
 > & {
   tags: ProjectTagProps[]
 }
