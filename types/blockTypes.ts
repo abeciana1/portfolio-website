@@ -9,7 +9,8 @@ import {
   type HeroSectionNoImageBlock,
   type ProjectSectionBlock,
   type OverviewSectionBlock,
-  type ImageBlock
+  type ImageBlock,
+  type ProblemFramingSectionBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -228,4 +229,19 @@ export type OverviewSectionBlockProps = Pick<OverviewSectionBlock,
   'greyBackground'
 > & {
   tags: ProjectTagProps[]
+}
+
+export type ProblemFrameProps = {
+  frame: 'who' | 'where' | 'when' | 'why';
+  description: string;
+}
+
+export type ProblemFramingSectionBlockProps = Pick<ProblemFramingSectionBlock,
+  'sectionId' |
+  'pill' |
+  'heading' |
+  'description' |
+  'greyBackground'
+> & {
+  problems: ProblemFrameProps[];
 }
