@@ -8,7 +8,8 @@ import {
   type ProjectTag,
   type HeroSectionNoImageBlock,
   type ProjectSectionBlock,
-  type OverviewSectionBlock
+  type OverviewSectionBlock,
+  type ImageBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -28,7 +29,7 @@ export type GradientProps = {
   forcedSecondHeight?: number;
 }
 
-export type HeroSectionProps = Omit<HeroSection, 'media' | 'enableInnerContainer'> & {
+export type HeroSectionProps = Omit<HeroSection, 'enableInnerContainer'> & {
   media: ImageBlockProps[];
   enableInnerContainer: boolean;
 }
@@ -42,14 +43,15 @@ export type HeroSectionNoImageBlockProps = Pick<HeroSectionNoImageBlock,
   'callToAction'
 >;
 
-export type ImageBlockProps = {
+export type ImageBlockProps = Pick<ImageBlock,
+'forcedHeight' |
+'forcedWidth'
+> & {
   image: CMSMediaT;
   gradient?: boolean;
   gradientXFlip?: boolean;
   gradientYFlip?: boolean;
   gradientSelect?: GradientOptions;
-  forcedWidth?: number;
-  forcedHeight?: number;
 }
 
 export type InViewBasicProps = {
