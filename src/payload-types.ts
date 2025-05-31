@@ -813,6 +813,7 @@ export interface ProjectPage {
             blockType: 'hero-section';
           }
         | OverviewSectionBlock
+        | ProblemFramingSectionBlock
       )[]
     | null;
   meta?: {
@@ -876,6 +877,27 @@ export interface ProjectGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-grid-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProblemFramingSectionBlock".
+ */
+export interface ProblemFramingSectionBlock {
+  sectionId: string;
+  pill?: string | null;
+  heading: string;
+  description?: string | null;
+  problems?:
+    | {
+        frame: 'who' | 'where' | 'when' | 'why';
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  greyBackground?: boolean | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'problem-framing';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1362,6 +1384,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
               blockName?: T;
             };
         'overview-section'?: T | OverviewSectionBlockSelect<T>;
+        'problem-framing'?: T | ProblemFramingSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1435,6 +1458,26 @@ export interface OverviewSectionBlockSelect<T extends boolean = true> {
         frequency?: T;
       };
   tags?: T;
+  greyBackground?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProblemFramingSectionBlock_select".
+ */
+export interface ProblemFramingSectionBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  pill?: T;
+  heading?: T;
+  description?: T;
+  problems?:
+    | T
+    | {
+        frame?: T;
+        description?: T;
+        id?: T;
+      };
   greyBackground?: T;
   id?: T;
   blockName?: T;
