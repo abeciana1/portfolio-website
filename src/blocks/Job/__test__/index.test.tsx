@@ -101,6 +101,6 @@ describe('Job', () => {
     await userEvent.click(jobEl)
     const duties = await screen.findByTestId('duties')
     expect(duties).toBeInTheDocument()
-    expect(duties.innerHTML).toBe('<div class=\"rich-text\"><h1>hello</h1></div>')
+    expect(duties.innerHTML).toBe('<div class=\"rich-text space-y-3\"><h1>hello</h1></div>')
   })
 })
