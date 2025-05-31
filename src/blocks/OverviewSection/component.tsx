@@ -5,13 +5,15 @@ import {
 import { Heading1 } from '@/components/_styled/Heading'
 import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 import ProjectTag from '@/components/_projects/ProjectTag'
+import clsx from 'clsx'
 
 const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
   title,
   content_html,
   role,
   duration,
-  tags
+  tags,
+  greyBackground
 }) => {
 
   const roles = {
@@ -25,7 +27,9 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
     <section
       data-testid='overview-section'
       id='overview-section'
-      className='relative z-50 lg:py-24 py-5 px-5 md:px-10 md:justify-around mx-auto w-full'
+      className={clsx('relative z-50 lg:py-24 py-5 px-5 md:px-10 md:justify-around mx-auto w-full', {
+        ['bg-pillGrey']: greyBackground
+      })}
     >
       <section className='flex gap-6 relative mx-auto flex-col sm:flex-col-reverse lg:flex-row items-start'>
         <section className='lg:max-w-2xl relative mx-auto'>
