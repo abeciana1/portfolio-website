@@ -43,7 +43,7 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
         <section className='w-full lg:max-w-64 space-y-3 relative mx-auto lg:mt-20 lg:pt-4'>
           <div className='space-y-1'>
             <div className='text-lg font-semibold'>Role</div>
-            <ul className='flex flex-wrap gap-2'>
+            <ul data-testid='roles' className='flex flex-wrap gap-2'>
               {role?.map((role, index) => {
                 return (
                   <ProjectTag
@@ -57,11 +57,11 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
           </div>
           <div className='space-y-1'>
             <div className='text-lg font-semibold'>Duration</div>
-            <div className='text-md'>{`${duration.timeLength} ${duration.frequency}`}</div>
+            <div data-testid='duration' className='text-md'>{`${duration.timeLength} ${duration.frequency}`}</div>
           </div>
           <div className='space-y-1'>
             <div className='text-lg font-semibold'>Tags</div>
-            <ul className='flex flex-wrap gap-2'>
+            <ul data-testid='tags' className='flex flex-wrap gap-2'>
               {tags?.map((tag) => {
                 return (
                   <ProjectTag key={`${tag?.label}-${tag?.id}`} label={tag?.label} addBorder={greyBackground as boolean} />
