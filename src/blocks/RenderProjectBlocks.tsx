@@ -8,13 +8,15 @@ import HeroSectionNoImage from '@/src/blocks/HeroSectionNoImage/component'
 import ProjectGrid from '@/src/blocks/ProjectGrid/component'
 import HeroSection from '@/src/blocks/HeroSection/component'
 import OverviewSection from '@/src/blocks/OverviewSection/component'
+import ProblemFramingSection from '@/src/blocks/ProblemFramingSection/component'
 
 // * component types
 import {
   type HeroSectionNoImageBlockProps,
   type ProjectSectionBlockProps,
   type HeroSectionProps,
-  type OverviewSectionBlockProps
+  type OverviewSectionBlockProps,
+  type ProblemFramingSectionBlockProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -22,13 +24,15 @@ export type BlockComponentsMap = {
   'project-grid-block': React.FC<Pick<ProjectSectionBlockProps, 'projects' | 'gradient' | 'gradientSelect'>>;
   'hero-section': React.FC<HeroSectionProps>;
   'overview-section': React.FC<OverviewSectionBlockProps>;
+  'problem-framing': React.FC<ProblemFramingSectionBlockProps>
 };
 
 const blockComponents: BlockComponentsMap = {
   'hero-section-no-image': HeroSectionNoImage,
   'project-grid-block': ProjectGrid,
   'hero-section': HeroSection,
-  'overview-section': OverviewSection
+  'overview-section': OverviewSection,
+  'problem-framing': ProblemFramingSection
 }
 
 const RenderProjectBlocks: React.FC<{
