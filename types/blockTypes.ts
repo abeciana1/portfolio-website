@@ -191,6 +191,7 @@ export type ProjectTagProps = Pick<ProjectTag,
   'id'
 > & {
   label: string;
+  addBorder: boolean;
 }
 
 export type ProjectProps = Pick<Project,
