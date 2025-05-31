@@ -14,6 +14,7 @@ describe('HeroSection', () => {
         description="This is a description of my website"
         media={[
           {
+            blockType: 'image-block',
             image: {
               id: 1,
               alt: 'Hero Image',
@@ -29,6 +30,8 @@ describe('HeroSection', () => {
             gradientXFlip: false,
             gradientYFlip: false,
             gradientSelect: 'Variant1',
+            forcedHeight: 0,
+            forcedWidth: 0
           },
         ]}
       />,
