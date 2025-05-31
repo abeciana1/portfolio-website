@@ -696,6 +696,7 @@ export interface OverviewSectionBlock {
     frequency: 'years' | 'months' | 'weeks';
   };
   tags: (number | ProjectTag)[];
+  greyBackground?: boolean | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'overview-section';
@@ -1434,6 +1435,7 @@ export interface OverviewSectionBlockSelect<T extends boolean = true> {
         frequency?: T;
       };
   tags?: T;
+  greyBackground?: T;
   id?: T;
   blockName?: T;
 }
