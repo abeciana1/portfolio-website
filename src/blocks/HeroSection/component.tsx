@@ -21,6 +21,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   callToAction,
   media = []
 }) => {
+  console.log('media props', media)
 
   const {
     gradient,
@@ -31,6 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     forcedHeight,
     forcedWidth
   } = media && media[0]
+
   return (
     <section
       aria-label='section'
