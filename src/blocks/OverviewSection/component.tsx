@@ -25,16 +25,18 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
     <section
       data-testid='overview-section'
       id='overview-section'
-      className='relative z-50 lg:py-24 py-10 plx-5 md:pl-10 lg:pl-17 mx-auto w-full'
+      className='relative z-50 lg:py-24 py-5 px-5 md:px-10 md:justify-around mx-auto w-full'
     >
-      <Heading1 text={title} />
-      <section className='mt-10 flex gap-6'>
-        <section className='max-w-2xl'>
-          <RichTextEditor
-            content_html={content_html as string}
-          />
+      <section className='flex gap-6 relative mx-auto flex-col sm:flex-col-reverse lg:flex-row items-start'>
+        <section className='lg:max-w-2xl relative mx-auto'>
+          <Heading1 text={title} />
+          <div className='mt-10'>
+            <RichTextEditor
+              content_html={content_html as string}
+            />
+          </div>
         </section>
-        <section className='w-full sticky top-0 lg:max-w-64 space-y-3'>
+        <section className='w-full lg:max-w-64 space-y-3 relative mx-auto lg:mt-20 lg:pt-4'>
           <div className='space-y-1'>
             <div className='text-lg font-semibold'>Role</div>
             <ul className='flex flex-wrap gap-2'>
