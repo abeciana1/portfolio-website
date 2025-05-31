@@ -23,7 +23,8 @@ describe('ProjectCard', () => {
         tags={[
           {
             id: 1,
-            label: 'test'
+            label: 'test',
+            addBorder: false
           }
         ]}
       />

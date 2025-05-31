@@ -7,6 +7,7 @@ describe('ProjectTag', () => {
     render(
       <ProjectTag
         label='Test'
+        addBorder={false}
       />
     )
   })
