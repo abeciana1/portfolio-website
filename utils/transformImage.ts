@@ -24,6 +24,8 @@ export const transformImageBlock = (block: ImageBlock): ImageBlockProps => ({
   gradientXFlip: block.gradientXFlip ?? undefined,
   gradientYFlip: block.gradientYFlip ?? undefined,
   gradientSelect: block.gradientSelect ?? undefined,
+  forcedHeight: block.forcedHeight ?? 0,
+  forcedWidth: block.forcedWidth ?? 0
 })
 
 export const transformImage = (img: number | Media): CMSMediaT => {
