@@ -35,11 +35,11 @@ const UserResearchCard: React.FC<UserResearchCardProps> = ({
             className='items-center text-3xl font-bold text-foreground dark:text-zinc-50'
             springOptions={{
               bounce: 0,
-              duration: 10000,
+              duration: 1500,
             }}
             value={numberMetric}
           />
-          <div className='font-medium text-xl min-h-[3rem] leading-tight'>{researchTypeHash[researchType]}</div>
+          <div className='font-medium text-xl min-h-[3rem] leading-tight text-darkGrey dark:text-pillGrey'>{researchTypeHash[researchType]}</div>
         </div>
       </div>
     </div>
