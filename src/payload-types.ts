@@ -863,6 +863,7 @@ export interface ProjectPage {
           }
         | OverviewSectionBlock
         | ProblemFramingSectionBlock
+        | UserResearchSectionBlock
       )[]
     | null;
   meta?: {
@@ -1415,6 +1416,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
             };
         'overview-section'?: T | OverviewSectionBlockSelect<T>;
         'problem-framing'?: T | ProblemFramingSectionBlockSelect<T>;
+        'user-research'?: T | UserResearchSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1511,6 +1513,25 @@ export interface ProblemFramingSectionBlockSelect<T extends boolean = true> {
   greyBackground?: T;
   gradient?: T;
   gradientSelect?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "UserResearchSectionBlock_select".
+ */
+export interface UserResearchSectionBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  pill?: T;
+  heading?: T;
+  description?: T;
+  research?:
+    | T
+    | {
+        researchType?: T;
+        numberMetric?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
