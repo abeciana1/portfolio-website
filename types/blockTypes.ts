@@ -251,7 +251,7 @@ export type ProblemFramingSectionBlockProps = Pick<ProblemFramingSectionBlock,
 }
 
 export type UserResearchCardProps = {
-  researchType?: ('survey' | 'interviews' | 'usability' | 'accessibility') | null;
+  researchType?: ('survey' | 'interviews' | 'usability' | 'accessibility');
   numberMetric: number;
 }
 
