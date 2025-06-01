@@ -69,6 +69,11 @@ export const HeroSection: Block = {
         ImageBlock
       ],
       required: true,
+    },
+    {
+      name: 'greyBackground',
+      label: 'Grey background enabled',
+      type: 'checkbox',
     }
   ]
 }
