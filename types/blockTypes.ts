@@ -250,6 +250,11 @@ export type ProblemFramingSectionBlockProps = Pick<ProblemFramingSectionBlock,
   problems: ProblemFrameProps[];
 }
 
+export type UserResearchCardProps = {
+  researchType?: ('survey' | 'interviews' | 'usability' | 'accessibility') | null;
+  numberMetric: number;
+}
+
 export type UserResearchSectionBlockProps = Pick<UserResearchSectionBlock,
   'sectionId' |
   'pill' |
