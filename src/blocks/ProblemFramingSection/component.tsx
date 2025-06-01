@@ -1,8 +1,12 @@
 import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
-import { type ProblemFramingSectionBlockProps } from '@/types/blockTypes'
+import {
+  type ProblemFramingSectionBlockProps,
+  type GradientOptions
+} from '@/types/blockTypes'
 import clsx from 'clsx'
 import ProblemFrameCard from '@/components/_styled/ProblemFrameCard'
+import Gradient from '@/components/_styled/Gradient'
 
 const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
   sectionId,
@@ -10,7 +14,9 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
   heading,
   description,
   greyBackground,
-  problems
+  problems,
+  gradient,
+  gradientSelect
 }) => {
   return (
     <section
@@ -31,7 +37,9 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
           {description}
         </div>
       </section>
-      <section>
+      <section
+        className='relative'
+      >
         {problems?.map((problem, index) => {
           return (
             <ProblemFrameCard
@@ -41,6 +49,13 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
             />
           )
         })}
+        {gradient && (
+          <div
+            className="absolute top-1/5 left-5 lg:left-1/4 rounded-full h-64 w-[45rem] blur-3xl opacity-70 z-0"
+          >
+            <Gradient variant={gradientSelect as GradientOptions} />
+          </div>
+        )}
       </section>
     </section>
   )
