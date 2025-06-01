@@ -22,7 +22,7 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
     <section
       data-testid={sectionId as string}
       id={sectionId as string}
-      className={clsx('relative z-50 lg:py-24 px-5 py-10', {
+      className={clsx('relative z-50 lg:py-24 px-5 py-10 space-y-6', {
         ['bg-pillGrey dark:bg-darkGrey']: greyBackground
       })}
     >
@@ -38,8 +38,15 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
         </div>
       </section>
       <section
-        className='relative'
+        className="relative grid grid-cols-1 md:grid-cols-2 gap-8 px-5 lg:px-20"
       >
+        {gradient && (
+          <div
+            className="absolute top-1/5 left-5 lg:left-1/4 rounded-full h-64 w-[45rem] blur-3xl opacity-70 z-0"
+          >
+            <Gradient variant={gradientSelect as GradientOptions} />
+          </div>
+        )}
         {problems?.map((problem, index) => {
           return (
             <ProblemFrameCard
@@ -49,13 +56,6 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
             />
           )
         })}
-        {gradient && (
-          <div
-            className="absolute top-1/5 left-5 lg:left-1/4 rounded-full h-64 w-[45rem] blur-3xl opacity-70 z-0"
-          >
-            <Gradient variant={gradientSelect as GradientOptions} />
-          </div>
-        )}
       </section>
     </section>
   )
