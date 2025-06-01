@@ -5,9 +5,19 @@ const Insight: React.FC<InsightProps> = ({
   body
 }) => {
   return (
-    <li>
-      <div data-testid='insight-title'>{title}</div>
-      <div data-testid='insight-body'>{body}</div>
+    <li className='space-y-1'>
+      <div
+        data-testid='insight-title'
+        className='text-darkGrey dark:text-pillGrey text-2xl font-semibold'
+      >
+        {title}
+      </div>
+      <div
+        data-testid='insight-body'
+        className='text-xl font-medium'
+      >
+        {body}
+      </div>
     </li>
   )
 }
