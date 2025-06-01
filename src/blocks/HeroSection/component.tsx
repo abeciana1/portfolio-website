@@ -19,7 +19,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   enableInnerContainer,
   secondaryBlurb,
   callToAction,
-  media = []
+  media = [],
+  greyBackground = false
 }) => {
   const {
     gradient,
@@ -37,7 +38,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       id={sectionId}
       className={clsx('relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto', {
         [innerContainer]: enableInnerContainer,
-        [limitContainer]: !enableInnerContainer
+        [limitContainer]: !enableInnerContainer,
+        ['bg-pillGrey dark:bg-darkGrey']: greyBackground
       })}
     >
       <div className='lg:max-w-[550px] md:max-w-[400px] space-y-6'>
