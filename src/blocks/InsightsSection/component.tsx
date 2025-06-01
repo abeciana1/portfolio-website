@@ -6,7 +6,6 @@ import Insight from '@/components/_projects/Insight'
 
 const InsightsSection: React.FC<InsightsSectionBlockProps> = ({
   sectionId,
-  pill,
   heading,
   description,
   insights
