@@ -5,6 +5,7 @@ import {
 import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
 import Gradient from '@/components/_styled/Gradient'
+import clsx from 'clsx'
 
 const UserResearchSection: React.FC<UserResearchSectionBlockProps> = ({
   sectionId,
@@ -33,7 +34,7 @@ const UserResearchSection: React.FC<UserResearchSectionBlockProps> = ({
         </div>
       </section>
       <section
-        className="relative grid grid-cols-1 md:grid-cols-2 gap-8 px-5 lg:px-20 lg:max-w-[1000px] mx-auto"
+        className="relative grid grid-cols-1 md:grid-cols-2 gap-8 px-5 lg:px-20 mx-auto"
       >
         {gradient && (
           <div
