@@ -10,6 +10,7 @@ import { HeroSection } from '@/src/blocks/HeroSection/config'
 import { OverviewSection } from '@/src/blocks/OverviewSection/config'
 import { ProblemFramingSection } from '@/src/blocks/ProblemFramingSection/config'
 import { UserResearchSectionBlock } from '@/src/blocks/UserResearchSection/config'
+import { InsightsSectionBlock } from '@/src/blocks/InsightsSection/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
@@ -20,7 +21,8 @@ const allowableBlocks = [
   HeroSection,
   OverviewSection,
   ProblemFramingSection,
-  UserResearchSectionBlock
+  UserResearchSectionBlock,
+  InsightsSectionBlock
 ]
 
 export const ProjectPage: CollectionConfig = {
