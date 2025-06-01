@@ -186,6 +186,7 @@ export interface HeroSection {
       }[]
     | null;
   media: ImageBlock[];
+  greyBackground?: boolean | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hero-section';
@@ -237,6 +238,7 @@ export interface Page {
                 }[]
               | null;
             media: ImageBlock[];
+            greyBackground?: boolean | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'hero-section';
@@ -808,6 +810,7 @@ export interface ProjectPage {
                 }[]
               | null;
             media: ImageBlock[];
+            greyBackground?: boolean | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'hero-section';
@@ -895,6 +898,11 @@ export interface ProblemFramingSectionBlock {
       }[]
     | null;
   greyBackground?: boolean | null;
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'problem-framing';
@@ -1116,6 +1124,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     'image-block'?: T | ImageBlockSelect<T>;
                   };
+              greyBackground?: T;
               id?: T;
               blockName?: T;
             };
@@ -1380,6 +1389,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
                 | {
                     'image-block'?: T | ImageBlockSelect<T>;
                   };
+              greyBackground?: T;
               id?: T;
               blockName?: T;
             };
@@ -1479,6 +1489,8 @@ export interface ProblemFramingSectionBlockSelect<T extends boolean = true> {
         id?: T;
       };
   greyBackground?: T;
+  gradient?: T;
+  gradientSelect?: T;
   id?: T;
   blockName?: T;
 }
