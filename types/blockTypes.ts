@@ -296,5 +296,7 @@ export type OutcomesSectionBlockProps = Pick<OutcomesSectionBlock,
   'pill' |
   'heading' |
   'description' |
-  'outcomes'
+  'outcomes' |
+  'gradient' |
+  'gradientSelect'
 >
