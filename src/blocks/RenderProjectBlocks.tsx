@@ -9,6 +9,7 @@ import ProjectGrid from '@/src/blocks/ProjectGrid/component'
 import HeroSection from '@/src/blocks/HeroSection/component'
 import OverviewSection from '@/src/blocks/OverviewSection/component'
 import ProblemFramingSection from '@/src/blocks/ProblemFramingSection/component'
+import UserResearchSection from '@/src/blocks/UserResearchSection/component'
 
 // * component types
 import {
@@ -16,7 +17,8 @@ import {
   type ProjectSectionBlockProps,
   type HeroSectionProps,
   type OverviewSectionBlockProps,
-  type ProblemFramingSectionBlockProps
+  type ProblemFramingSectionBlockProps,
+  type UserResearchSectionBlockProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -24,7 +26,8 @@ export type BlockComponentsMap = {
   'project-grid-block': React.FC<Pick<ProjectSectionBlockProps, 'projects' | 'gradient' | 'gradientSelect'>>;
   'hero-section': React.FC<HeroSectionProps>;
   'overview-section': React.FC<OverviewSectionBlockProps>;
-  'problem-framing': React.FC<ProblemFramingSectionBlockProps>
+  'problem-framing': React.FC<ProblemFramingSectionBlockProps>;
+  'user-research': React.FC<UserResearchSectionBlockProps>;
 };
 
 const blockComponents: BlockComponentsMap = {
@@ -32,7 +35,8 @@ const blockComponents: BlockComponentsMap = {
   'project-grid-block': ProjectGrid,
   'hero-section': HeroSection,
   'overview-section': OverviewSection,
-  'problem-framing': ProblemFramingSection
+  'problem-framing': ProblemFramingSection,
+  'user-research': UserResearchSection
 }
 
 const RenderProjectBlocks: React.FC<{
