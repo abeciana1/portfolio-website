@@ -12,7 +12,8 @@ import {
   type ImageBlock,
   type ProblemFramingSectionBlock,
   type UserResearchSectionBlock,
-  type InsightsSectionBlock
+  type InsightsSectionBlock,
+  type OutcomesSectionBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -277,4 +278,23 @@ export type InsightsSectionBlockProps = Pick<InsightsSectionBlock,
   'heading' |
   'description' |
   'insights'
+>
+
+export type OutcomeProps = {
+  outcomeType: 'adoption' | 'retention' | 'efficieny';
+  emojis: string;
+  stats: {
+    statNumber: number;
+    numberLabel?: string | null;
+    statLabel: string;
+    id?: string | null;
+  }[];
+}
+
+export type OutcomesSectionBlockProps = Pick<OutcomesSectionBlock,
+  'sectionId' |
+  'pill' |
+  'heading' |
+  'description' |
+  'outcomes'
 >
