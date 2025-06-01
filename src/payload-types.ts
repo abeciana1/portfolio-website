@@ -79,6 +79,7 @@ export interface Config {
     'testimonial-section-block': TestimonialSectionBlock;
     'project-section-block': ProjectSectionBlock;
     'overview-section': OverviewSectionBlock;
+    'problem-framing': ProblemFramingSectionBlock;
   };
   collections: {
     users: User;
@@ -705,6 +706,32 @@ export interface OverviewSectionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProblemFramingSectionBlock".
+ */
+export interface ProblemFramingSectionBlock {
+  sectionId: string;
+  pill?: string | null;
+  heading: string;
+  description?: string | null;
+  problems?:
+    | {
+        frame: 'who' | 'where' | 'when' | 'why';
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  greyBackground?: boolean | null;
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'problem-framing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -880,32 +907,6 @@ export interface ProjectGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-grid-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ProblemFramingSectionBlock".
- */
-export interface ProblemFramingSectionBlock {
-  sectionId: string;
-  pill?: string | null;
-  heading: string;
-  description?: string | null;
-  problems?:
-    | {
-        frame: 'who' | 'where' | 'when' | 'why';
-        description: string;
-        id?: string | null;
-      }[]
-    | null;
-  greyBackground?: boolean | null;
-  /**
-   * Add a gradient aura to the image
-   */
-  gradient?: boolean | null;
-  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'problem-framing';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
