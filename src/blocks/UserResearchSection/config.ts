@@ -26,5 +26,30 @@ export const UserResearchSection: Block = {
       type: 'text',
       label: 'Description'
     },
+    {
+      name: 'research',
+      type: 'array',
+      label: 'Research',
+      required: true,
+      fields: [
+        {
+          name: 'researchType',
+          type: 'select',
+          label: 'Research Type',
+          options: [
+            { label: 'Survey', value: 'survey' },
+            { label: 'Interviews', value: 'interviews' },
+            { label: 'Usability Testing', value: 'usability' },
+            { label: 'Accessibility Audit', value: 'accessibility' }
+          ]
+        },
+        {
+          name: 'numberMetric',
+          type: 'number',
+          label: 'Number Metric',
+          required: true
+        }
+      ]
+    }
   ]
 }
