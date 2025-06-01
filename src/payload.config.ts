@@ -43,6 +43,7 @@ import { OverviewSection } from '@/src/blocks/OverviewSection/config'
 import { ProblemFramingSection } from '@/src/blocks/ProblemFramingSection/config'
 import { UserResearchSectionBlock } from '@/src/blocks/UserResearchSection/config'
 import { InsightsSectionBlock } from '@/src/blocks/InsightsSection/config'
+import { OutcomesSectionBlock } from '@/src/blocks/OutcomesSection/config'
 
 // * nested route mapping
 type HashMap = {
@@ -100,7 +101,8 @@ export default buildConfig({
     OverviewSection,
     ProblemFramingSection,
     UserResearchSectionBlock,
-    InsightsSectionBlock
+    InsightsSectionBlock,
+    OutcomesSectionBlock
   ],
   cors: [
     'http://localhost:3000',
