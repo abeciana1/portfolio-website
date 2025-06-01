@@ -22,7 +22,9 @@ const InsightsSection: React.FC<InsightsSectionBlockProps> = ({
       <section>
         <div></div>
         {insights &&
-          <ul></ul>
+          <ul aria-label='insight-list'>
+            
+          </ul>
         }
       </section>
     </section>
