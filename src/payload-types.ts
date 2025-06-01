@@ -745,6 +745,11 @@ export interface UserResearchSectionBlock {
     numberMetric: number;
     id?: string | null;
   }[];
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'user-research';
@@ -1532,6 +1537,8 @@ export interface UserResearchSectionBlockSelect<T extends boolean = true> {
         numberMetric?: T;
         id?: T;
       };
+  gradient?: T;
+  gradientSelect?: T;
   id?: T;
   blockName?: T;
 }
