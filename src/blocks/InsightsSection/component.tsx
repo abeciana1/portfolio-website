@@ -15,6 +15,7 @@ const InsightsSection: React.FC<InsightsSectionBlockProps> = ({
     <section
       data-testid={sectionId as string}
       id={sectionId as string}
+      className='px-5 md:px-10'
     >
       <Heading1 text={heading} />
       <div data-testid='insight-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
