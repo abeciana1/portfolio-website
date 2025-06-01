@@ -21,17 +21,17 @@ const ProblemFrameCard: React.FC<ProblemFrameProps> = ({
 }) => {
   return (
     <div
-    className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto max-h-[412px]'
+    className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto min-h-[250px] max-h-[412px]'
     >
       <div className='relative z-50 opacity-100 space-y-6'>
         <div
           data-testid='frame-heading'
           className='flex justify-between'
         >
-          <div>{frameHash[frame]}</div>
-          <div>{emojiHash[frame]}</div>
+          <div className='font-medium text-xl'>{frameHash[frame]}</div>
+          <div className='font-medium text-2xl'>{emojiHash[frame]}</div>
         </div>
-        <div>{description}</div>
+        <div className='font-medium text-xl'>{description}</div>
       </div>
     </div>
   )
