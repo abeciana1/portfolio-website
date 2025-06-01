@@ -39,6 +39,8 @@ html {
   --spacing-48: calc(var(--spacing) * 24); /* 192px */
   --spacing-56: calc(var(--spacing) * 28); /* 224px */
   --spacing-64: calc(var(--spacing) * 32); /* 256px */
+  --spacing-72: calc(var(--spacing) * 36); /* 288px */
+  --spacing-80: calc(var(--spacing) * 40);
 }
 
 @layer base {
