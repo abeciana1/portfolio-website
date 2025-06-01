@@ -5,7 +5,7 @@ import {
   type GradientOptions
 } from '@/types/blockTypes'
 import clsx from 'clsx'
-import ProblemFrameCard from '@/components/_styled/ProblemFrameCard'
+import ProblemFrameCard from '@/components/_projects/ProblemFrameCard'
 import Gradient from '@/components/_styled/Gradient'
 
 const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
