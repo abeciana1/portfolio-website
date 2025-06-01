@@ -27,7 +27,7 @@ const HeroSectionNoImage: React.FC<HeroSectionNoImageBlockProps> = ({
         <Heading1 text={title as string} />
         {subtitle && <Heading2 text={subtitle as string} />}
         <div data-testid='description' className='leading-10 text-3xl font-semibold'>{description}</div>
-        {secondaryBlurb && <div data-testid='secondary-blurb' className='text-xl text-darkGrey font-semibold'>{secondaryBlurb}</div>}
+        {secondaryBlurb && <div data-testid='secondary-blurb' className='text-xl text-darkGrey dark:text-pillGrey font-semibold'>{secondaryBlurb}</div>}
         {(callToAction && callToAction?.length > 0) &&
           <ButtonGroup>
             {callToAction?.map((callToAction, index) => {
