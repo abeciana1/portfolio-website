@@ -8,6 +8,13 @@ const frameHash = {
   'why': 'Why'
 }
 
+const emojiHash = {
+  'who': '🤔',
+  'where': '⏰',
+  'when': '📍',
+  'why': '❤️',
+}
+
 const ProblemFrameCard: React.FC<ProblemFrameProps> = ({
   frame,
   description
@@ -18,7 +25,7 @@ const ProblemFrameCard: React.FC<ProblemFrameProps> = ({
     >
       <div data-testid='frame-heading'>
         <div>{frameHash[frame]}</div>
-        <div></div>
+        <div>{emojiHash[frame]}</div>
       </div>
       <div>{description}</div>
     </div>
