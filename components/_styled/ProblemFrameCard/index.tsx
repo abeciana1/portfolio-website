@@ -31,7 +31,7 @@ const ProblemFrameCard: React.FC<ProblemFrameProps> = ({
           <div className='font-medium text-xl'>{frameHash[frame]}</div>
           <div className='font-medium text-2xl'>{emojiHash[frame]}</div>
         </div>
-        <div className='font-medium text-xl'>{description}</div>
+        <div data-testid='frame-desc' className='font-medium text-xl'>{description}</div>
       </div>
     </div>
   )
