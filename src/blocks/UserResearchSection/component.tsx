@@ -5,6 +5,7 @@ import {
 import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
 import Gradient from '@/components/_styled/Gradient'
+import UserResearchCard from '@/components/_projects/UserResearchCard'
 import clsx from 'clsx'
 
 const UserResearchSection: React.FC<UserResearchSectionBlockProps> = ({
@@ -34,7 +35,7 @@ const UserResearchSection: React.FC<UserResearchSectionBlockProps> = ({
         </div>
       </section>
       <section
-        className="relative grid grid-cols-1 md:grid-cols-2 gap-8 px-5 lg:px-20 mx-auto"
+        className="relative gap-6 px-5 lg:px-20 grid grid-cols-1 sm:[grid-template-columns:repeat(2,minmax(16rem,16rem))] place-content-center"
       >
         {gradient && (
           <div
@@ -43,6 +44,22 @@ const UserResearchSection: React.FC<UserResearchSectionBlockProps> = ({
             <Gradient variant={gradientSelect as GradientOptions} />
           </div>
         )}
+        {gradient && (
+          <div
+            className="absolute bottom-0 left-5 lg:left-1/4 rounded-full h-64 w-[45rem] blur-3xl opacity-70 z-0 sm:hidden"
+          >
+            <Gradient variant={gradientSelect as GradientOptions} />
+          </div>
+        )}
+        {research?.map((research, index) => {
+          return (
+            <UserResearchCard
+              key={`research-${research.researchType}-${index}`}
+              researchType={research.researchType}
+              numberMetric={research.numberMetric}
+            />
+          )
+        })}
       </section>
     </section>
   )
