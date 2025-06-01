@@ -26,7 +26,7 @@ const UserResearchCard: React.FC<UserResearchCardProps> = ({
       <div className='relative z-50 opacity-100 flex flex-col justify-between h-full grow'>
         <div
           className='relative'
-          data-testid='usability-header'
+          data-testid='research-header'
         >
           <div className='font-medium text-4xl'>{emojiHash[researchType] as string}</div>
         </div>
