@@ -1,7 +1,6 @@
 import {
   type UserResearchSectionBlockProps
 } from '@/types/blockTypes'
-import { Heading } from 'lucide-react'
 
 const UserResearchSection: React.FC<UserResearchSectionBlockProps> = ({
   sectionId,
