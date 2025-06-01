@@ -33,6 +33,7 @@ export type GradientProps = {
 export type HeroSectionProps = Omit<HeroSection, 'enableInnerContainer'> & {
   media: ImageBlockProps[];
   enableInnerContainer: boolean;
+  greyBackground?: boolean;
 }
 
 export type HeroSectionNoImageBlockProps = Pick<HeroSectionNoImageBlock,
