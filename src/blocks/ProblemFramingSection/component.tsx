@@ -38,7 +38,7 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
         </div>
       </section>
       <section
-        className="relative grid grid-cols-1 md:grid-cols-2 gap-8 px-5 lg:px-20 lg:max-w-[1000px] mx-auto"
+        className="relative grid grid-cols-1 md:grid-cols-2 gap-6 px-5 lg:px-20 lg:max-w-[1000px] mx-auto"
       >
         {gradient && (
           <div

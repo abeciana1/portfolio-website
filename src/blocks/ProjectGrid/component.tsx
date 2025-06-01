@@ -25,7 +25,7 @@ const ProjectGrid: React.FC<Pick<ProjectSectionBlockProps,
       {groups.map((group, groupIdx) => (
         <div
           key={groupIdx}
-          className="relative grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="relative grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {gradient && (
             <div
