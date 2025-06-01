@@ -80,6 +80,7 @@ export interface Config {
     'project-section-block': ProjectSectionBlock;
     'overview-section': OverviewSectionBlock;
     'problem-framing': ProblemFramingSectionBlock;
+    'user-research': UserResearchSectionBlock;
   };
   collections: {
     users: User;
@@ -729,6 +730,24 @@ export interface ProblemFramingSectionBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'problem-framing';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "UserResearchSectionBlock".
+ */
+export interface UserResearchSectionBlock {
+  sectionId: string;
+  pill?: string | null;
+  heading: string;
+  description?: string | null;
+  research: {
+    researchType?: ('survey' | 'interviews' | 'usability' | 'accessibility') | null;
+    numberMetric: number;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'user-research';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
