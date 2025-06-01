@@ -11,6 +11,7 @@ import OverviewSection from '@/src/blocks/OverviewSection/component'
 import ProblemFramingSection from '@/src/blocks/ProblemFramingSection/component'
 import UserResearchSection from '@/src/blocks/UserResearchSection/component'
 import InsightsSection from '@/src/blocks/InsightsSection/component'
+import OutcomesSection from '@/src/blocks/OutcomesSection/component'
 
 // * component types
 import {
@@ -20,7 +21,8 @@ import {
   type OverviewSectionBlockProps,
   type ProblemFramingSectionBlockProps,
   type UserResearchSectionBlockProps,
-  type InsightsSectionBlockProps
+  type InsightsSectionBlockProps,
+  type OutcomesSectionBlockProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -31,6 +33,7 @@ export type BlockComponentsMap = {
   'problem-framing': React.FC<ProblemFramingSectionBlockProps>;
   'user-research': React.FC<UserResearchSectionBlockProps>;
   'insights-section': React.FC<InsightsSectionBlockProps>;
+  'outcomes-section': React.FC<OutcomesSectionBlockProps>;
 };
 
 const blockComponents: BlockComponentsMap = {
@@ -40,7 +43,8 @@ const blockComponents: BlockComponentsMap = {
   'overview-section': OverviewSection,
   'problem-framing': ProblemFramingSection,
   'user-research': UserResearchSection,
-  'insights-section': InsightsSection
+  'insights-section': InsightsSection,
+  'outcomes-section': OutcomesSection
 }
 
 const RenderProjectBlocks: React.FC<{
