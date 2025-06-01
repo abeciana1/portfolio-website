@@ -2,6 +2,7 @@ import {
   type InsightsSectionBlockProps
 } from '@/types/blockTypes'
 import { Heading1 } from '@/components/_styled/Heading'
+import Insight from '@/components/_projects/Insight'
 
 const InsightsSection: React.FC<InsightsSectionBlockProps> = ({
   sectionId,
@@ -23,7 +24,15 @@ const InsightsSection: React.FC<InsightsSectionBlockProps> = ({
         <div></div>
         {insights &&
           <ul aria-label='insight-list'>
-            
+            {insights?.map((insight, index) => {
+              return (
+                <Insight
+                  key={`insight-${insight.title}-${index}`}
+                  title={insight.title}
+                  body={insight.body}
+                />
+              )
+            })}
           </ul>
         }
       </section>
