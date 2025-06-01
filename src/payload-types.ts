@@ -81,6 +81,7 @@ export interface Config {
     'overview-section': OverviewSectionBlock;
     'problem-framing': ProblemFramingSectionBlock;
     'user-research': UserResearchSectionBlock;
+    'insights-section': InsightsSectionBlock;
   };
   collections: {
     users: User;
@@ -756,6 +757,24 @@ export interface UserResearchSectionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsightsSectionBlock".
+ */
+export interface InsightsSectionBlock {
+  sectionId: string;
+  pill?: string | null;
+  heading: string;
+  description?: string | null;
+  insights: {
+    title: string;
+    body: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'insights-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -869,6 +888,7 @@ export interface ProjectPage {
         | OverviewSectionBlock
         | ProblemFramingSectionBlock
         | UserResearchSectionBlock
+        | InsightsSectionBlock
       )[]
     | null;
   meta?: {
@@ -1422,6 +1442,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
         'overview-section'?: T | OverviewSectionBlockSelect<T>;
         'problem-framing'?: T | ProblemFramingSectionBlockSelect<T>;
         'user-research'?: T | UserResearchSectionBlockSelect<T>;
+        'insights-section'?: T | InsightsSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1539,6 +1560,25 @@ export interface UserResearchSectionBlockSelect<T extends boolean = true> {
       };
   gradient?: T;
   gradientSelect?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InsightsSectionBlock_select".
+ */
+export interface InsightsSectionBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  pill?: T;
+  heading?: T;
+  description?: T;
+  insights?:
+    | T
+    | {
+        title?: T;
+        body?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
