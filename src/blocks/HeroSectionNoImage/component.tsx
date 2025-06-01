@@ -21,7 +21,7 @@ const HeroSectionNoImage: React.FC<HeroSectionNoImageBlockProps> = ({
       aria-label='section'
       id={sectionId}
       data-testid={sectionId}
-      className='relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 lg:py-24 px-5 py-10 items-center mx-auto'
+      className='relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 lg:py-24 px-5 md:px-10 py-10 items-center mx-auto'
     >
       <div className='space-y-6 text-center'>
         <Heading1 text={title as string} />
