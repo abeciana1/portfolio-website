@@ -10,7 +10,10 @@ describe('ProblemFramingSection', () => {
         pill='Problems'
         heading='Problem Section'
         description='Problem description'
-        problems={[]}
+        problems={[{
+          frame: 'who',
+          description: 'who'
+        }]}
       />
     )
   })
