@@ -2,6 +2,7 @@ import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
 import { type ProblemFramingSectionBlockProps } from '@/types/blockTypes'
 import clsx from 'clsx'
+import ProblemFrameCard from '@/components/_styled/ProblemFrameCard'
 
 const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
   sectionId,
@@ -30,7 +31,17 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
           {description}
         </div>
       </section>
-      <section></section>
+      <section>
+        {problems?.map((problem, index) => {
+          return (
+            <ProblemFrameCard
+              key={`${problem.frame}-${index}`}
+              frame={problem?.frame}
+              description={problem?.description}
+            />
+          )
+        })}
+      </section>
     </section>
   )
 }
