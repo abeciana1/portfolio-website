@@ -784,7 +784,7 @@ export interface OutcomesSectionBlock {
   heading: string;
   description?: string | null;
   outcomes: {
-    outcomeType?: ('adoption' | 'retention' | 'efficieny') | null;
+    outcomeType: 'adoption' | 'retention' | 'efficieny';
     emojis: string;
     stats: {
       statNumber: number;
