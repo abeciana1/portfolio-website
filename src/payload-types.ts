@@ -741,7 +741,7 @@ export interface UserResearchSectionBlock {
   heading: string;
   description?: string | null;
   research: {
-    researchType?: ('survey' | 'interviews' | 'usability' | 'accessibility') | null;
+    researchType: 'survey' | 'interviews' | 'usability' | 'accessibility';
     numberMetric: number;
     id?: string | null;
   }[];
