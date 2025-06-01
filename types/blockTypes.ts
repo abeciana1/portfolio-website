@@ -242,7 +242,9 @@ export type ProblemFramingSectionBlockProps = Pick<ProblemFramingSectionBlock,
   'pill' |
   'heading' |
   'description' |
-  'greyBackground'
+  'greyBackground' |
+  'gradient' |
+  'gradientSelect'
 > & {
   problems: ProblemFrameProps[];
 }
