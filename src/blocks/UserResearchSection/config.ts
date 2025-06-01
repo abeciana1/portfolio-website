@@ -1,6 +1,6 @@
 import { type Block } from 'payload'
 
-export const UserResearchSection: Block = {
+export const UserResearchSectionBlock: Block = {
   slug: 'user-research',
   interfaceName: 'UserResearchSectionBlock',
   fields: [
