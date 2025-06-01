@@ -11,7 +11,8 @@ import {
   type OverviewSectionBlock,
   type ImageBlock,
   type ProblemFramingSectionBlock,
-  type UserResearchSectionBlock
+  type UserResearchSectionBlock,
+  type InsightsSectionBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -263,4 +264,17 @@ export type UserResearchSectionBlockProps = Pick<UserResearchSectionBlock,
   'research' |
   'gradient' |
   'gradientSelect'
+>
+
+export type InsightProps = {
+  title: string;
+  body: string;
+}
+
+export type InsightsSectionBlockProps = Pick<InsightsSectionBlock,
+  'sectionId' |
+  'pill' |
+  'heading' |
+  'description' |
+  'insights'
 >
