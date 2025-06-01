@@ -40,7 +40,8 @@ export const OutcomesSectionBlock: Block = {
             { label: 'Adoption', value: 'adoption' },
             { label: 'Retention', value: 'retention' },
             { label: 'Efficiency', value: 'efficieny' }
-          ]
+          ],
+          required: true
         },
         {
           name: 'emojis',
