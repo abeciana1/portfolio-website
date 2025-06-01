@@ -6,8 +6,8 @@ const Insight: React.FC<InsightProps> = ({
 }) => {
   return (
     <li>
-      <div>{title}</div>
-      <div>{body}</div>
+      <div data-testid='insight-title'>{title}</div>
+      <div data-testid='insight-body'>{body}</div>
     </li>
   )
 }
