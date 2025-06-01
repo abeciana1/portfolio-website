@@ -9,6 +9,7 @@ import { ProjectGridBlock } from '@/src/blocks/ProjectGrid/config'
 import { HeroSection } from '@/src/blocks/HeroSection/config'
 import { OverviewSection } from '@/src/blocks/OverviewSection/config'
 import { ProblemFramingSection } from '@/src/blocks/ProblemFramingSection/config'
+import { UserResearchSectionBlock } from '@/src/blocks/UserResearchSection/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
@@ -18,7 +19,8 @@ const allowableBlocks = [
   ProjectGridBlock,
   HeroSection,
   OverviewSection,
-  ProblemFramingSection
+  ProblemFramingSection,
+  UserResearchSectionBlock
 ]
 
 export const ProjectPage: CollectionConfig = {
