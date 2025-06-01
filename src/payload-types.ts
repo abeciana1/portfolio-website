@@ -82,6 +82,7 @@ export interface Config {
     'problem-framing': ProblemFramingSectionBlock;
     'user-research': UserResearchSectionBlock;
     'insights-section': InsightsSectionBlock;
+    'outcomes-section': OutcomesSectionBlock;
   };
   collections: {
     users: User;
@@ -775,6 +776,30 @@ export interface InsightsSectionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OutcomesSectionBlock".
+ */
+export interface OutcomesSectionBlock {
+  sectionId: string;
+  pill?: string | null;
+  heading: string;
+  description?: string | null;
+  outcomes: {
+    outcomeType?: ('adoption' | 'retention' | 'efficieny') | null;
+    emojis: string;
+    stats: {
+      statNumber: number;
+      numberLabel?: string | null;
+      statLabel: string;
+      id?: string | null;
+    }[];
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'outcomes-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -889,6 +914,7 @@ export interface ProjectPage {
         | ProblemFramingSectionBlock
         | UserResearchSectionBlock
         | InsightsSectionBlock
+        | OutcomesSectionBlock
       )[]
     | null;
   meta?: {
@@ -1443,6 +1469,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
         'problem-framing'?: T | ProblemFramingSectionBlockSelect<T>;
         'user-research'?: T | UserResearchSectionBlockSelect<T>;
         'insights-section'?: T | InsightsSectionBlockSelect<T>;
+        'outcomes-section'?: T | OutcomesSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1577,6 +1604,33 @@ export interface InsightsSectionBlockSelect<T extends boolean = true> {
     | {
         title?: T;
         body?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OutcomesSectionBlock_select".
+ */
+export interface OutcomesSectionBlockSelect<T extends boolean = true> {
+  sectionId?: T;
+  pill?: T;
+  heading?: T;
+  description?: T;
+  outcomes?:
+    | T
+    | {
+        outcomeType?: T;
+        emojis?: T;
+        stats?:
+          | T
+          | {
+              statNumber?: T;
+              numberLabel?: T;
+              statLabel?: T;
+              id?: T;
+            };
         id?: T;
       };
   id?: T;
