@@ -36,6 +36,7 @@ export const UserResearchSectionBlock: Block = {
           name: 'researchType',
           type: 'select',
           label: 'Research Type',
+          required: true,
           options: [
             { label: 'Survey', value: 'survey' },
             { label: 'Interviews', value: 'interviews' },
