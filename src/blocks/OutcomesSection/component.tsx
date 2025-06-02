@@ -5,6 +5,7 @@ import {
 import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
 import Gradient from '@/components/_styled/Gradient'
+import OutcomeCard from '@/components/_projects/OutcomeCard'
 
 const OutcomesSection: React.FC<OutcomesSectionBlockProps> = ({
   sectionId,
@@ -33,7 +34,7 @@ const OutcomesSection: React.FC<OutcomesSectionBlockProps> = ({
         </div>
       </section>
       <section
-          className="relative grid grid-cols-1 md:grid-cols-2 gap-6 px-5 lg:px-20 lg:max-w-[1000px] mx-auto"
+        className="relative grid grid-cols-1 md:grid-cols-2 gap-6 px-5 lg:px-20 lg:max-w-[1000px] mx-auto"
       >
         {gradient && (
           <div
@@ -42,6 +43,16 @@ const OutcomesSection: React.FC<OutcomesSectionBlockProps> = ({
             <Gradient variant={gradientSelect as GradientOptions} />
           </div>
         )}
+        {outcomes?.map((result, index) => {
+          return (
+            <OutcomeCard
+              key={`${result?.resultType}-${index}`}
+              resultType={result?.resultType}
+              emojis={result?.emojis}
+              stats={result?.stats}
+            />
+          )
+        })}
       </section>
     </section>
   )
