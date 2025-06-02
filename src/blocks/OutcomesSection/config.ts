@@ -39,7 +39,7 @@ export const OutcomesSectionBlock: Block = {
           options: [
             { label: 'Adoption', value: 'adoption' },
             { label: 'Retention', value: 'retention' },
-            { label: 'Efficiency', value: 'efficieny' }
+            { label: 'Efficiency', value: 'efficiency' }
           ],
           required: true
         },
