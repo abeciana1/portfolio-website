@@ -24,7 +24,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
         <div
           className='bg-background relative flex flex-col items-center top-24'
         >
-          {links && (links?.length > 0) &&
+          {links &&
             <ul
               key='menu-link-list'
               className='flex flex-col items-center gap-4'
