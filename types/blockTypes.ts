@@ -280,15 +280,17 @@ export type InsightsSectionBlockProps = Pick<InsightsSectionBlock,
   'insights'
 >
 
+export type OutcomeStatProps = {
+  number: number;
+  numLabel?: string | null;
+  label: string;
+  id?: string | null;
+}
+
 export type OutcomeProps = {
   outcomeType: 'adoption' | 'retention' | 'efficiency';
   emojis: string;
-  stats: {
-    statNumber: number;
-    numberLabel?: string | null;
-    statLabel: string;
-    id?: string | null;
-  }[];
+  stats: OutcomeStatProps[];
 }
 
 export type OutcomesSectionBlockProps = Pick<OutcomesSectionBlock,
