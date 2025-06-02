@@ -1,6 +1,6 @@
 describe('NavBar component', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
   })
   it('should be visible', () => {
     cy.get('nav')
