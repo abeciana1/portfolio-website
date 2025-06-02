@@ -288,7 +288,7 @@ export type OutcomeStatProps = {
 }
 
 export type OutcomeProps = {
-  outcomeType: 'adoption' | 'retention' | 'efficiency';
+  resultType: 'adoption' | 'retention' | 'efficiency';
   emojis: string;
   stats: OutcomeStatProps[];
 }

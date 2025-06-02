@@ -33,7 +33,7 @@ export const OutcomesSectionBlock: Block = {
       required: true,
       fields: [
         {
-          name: 'outcomeType',
+          name: 'resultType',
           label: 'Outcome Type',
           type: 'select',
           options: [
@@ -56,18 +56,18 @@ export const OutcomesSectionBlock: Block = {
           required: true,
           fields: [
             {
-              name: 'statNumber',
+              name: 'number',
               label: 'Stat Number',
               type: 'number',
               required: true,
             },
             {
-              name: 'numberLabel',
+              name: 'numLabel',
               label: 'Number Label',
               type: 'text'
             },
             {
-              name: 'statLabel',
+              name: 'label',
               label: 'Stat Label',
               type: 'text',
               required: true

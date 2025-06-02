@@ -23,7 +23,7 @@ const OutcomeStat: React.FC<OutcomeStatProps> = ({
 }
 
 const OutcomeCard: React.FC<OutcomeProps> = ({
-  outcomeType,
+  resultType,
   emojis,
   stats
 }) => {
@@ -38,7 +38,7 @@ const OutcomeCard: React.FC<OutcomeProps> = ({
         <div
           className='font-medium text-darkGrey dark:text-pillGrey'
         >
-          {outcomeHash[outcomeType]}
+          {outcomeHash[resultType]}
         </div>
         {stats?.map((stat, index) => {
           return (
