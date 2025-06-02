@@ -9,7 +9,7 @@ const outcomeHash = {
   'efficiency': 'Efficiency'
 }
 
-const OutcomeStat: React.FC<OutcomeStatProps> = ({
+export const OutcomeStat: React.FC<OutcomeStatProps> = ({
   number,
   label,
   numLabel
