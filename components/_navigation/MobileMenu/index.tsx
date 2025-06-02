@@ -26,6 +26,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
         >
           {links && (links?.length > 0) &&
             <ul
+              key='menu-link-list'
               className='flex flex-col items-center gap-4'
               data-testid='navLinksList'
             >
