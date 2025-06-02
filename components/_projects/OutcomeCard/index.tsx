@@ -30,7 +30,7 @@ const OutcomeCard: React.FC<OutcomeProps> = ({
 
   return (
     <div
-      className='relative p-6 rounded-2xl bg-background dark:bg-darkGrey h-auto min-h-80 max-h-80 min-w-64 max-w-64 mx-auto'
+      className='relative p-6 rounded-2xl bg-background dark:bg-darkGrey h-auto min-h-80 max-h-80 min-w-64 max-w-64 mx-auto shadow-xl'
     >
       <div
         className='relative z-50 opacity-100 flex flex-col justify-between h-full grow'
