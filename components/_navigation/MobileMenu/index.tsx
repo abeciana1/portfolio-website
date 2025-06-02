@@ -49,7 +49,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
               return (
                 <>
                   <SocialLink
-                    key={index + link?.label}
+                    key={`social-link-${link?.label}-${index}`}
                     link={link.link as string}
                     label={link.label as string}
                     size={40}
