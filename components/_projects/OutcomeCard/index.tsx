@@ -15,9 +15,9 @@ const OutcomeStat: React.FC<OutcomeStatProps> = ({
   numLabel
 }) => {
   return(
-    <div>
-      <div>{`${number}${numLabel}`}</div>
-      <div>{label}</div>
+    <div className='h-40'>
+      <div className='font-semibold text-3xl'>{`${number}${numLabel}`}</div>
+      <div className='font-medium text-lg'>{label}</div>
     </div>
   )
 }
@@ -30,18 +30,22 @@ const OutcomeCard: React.FC<OutcomeProps> = ({
 
   return (
     <div
-      className='relative p-6 rounded-2xl  h-auto min-h-64 max-h-64 min-w-64 max-w-64 mx-auto'
+      className='relative p-6 rounded-2xl bg-background dark:bg-darkGrey h-auto min-h-80 max-h-80 min-w-64 max-w-64 mx-auto'
     >
       <div
         className='relative z-50 opacity-100 flex flex-col justify-between h-full grow'
       >
         <div
-          className='font-medium text-darkGrey dark:text-pillGrey'
+          className='font-medium text-darkGrey/70 dark:text-pillGrey'
         >
           {outcomeHash[resultType]}
         </div>
-        <div>{emojis}</div>
-        <div>
+        <div
+          className='font-medium text-2xl min-h-8'
+        >
+          {emojis}
+        </div>
+        <div className=''>
           {stats?.map((stat, index) => {
             return (
               <OutcomeStat
