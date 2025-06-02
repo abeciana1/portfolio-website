@@ -24,40 +24,40 @@ const MobileMenu: React.FC<MobileMenuI> = ({
         <div
           className='bg-background relative flex flex-col items-center top-24'
         >
-          <ul
-            key='menu-link-list'
-            className='flex flex-col items-center gap-4'
-            data-testid='navLinksList'
-          >
-            {links?.map((link: NavLinkType, index) => {
-              return (
-                <>
+          {links && (links?.length > 0) &&
+            <ul
+              key='menu-link-list'
+              className='flex flex-col items-center gap-4'
+              data-testid='navLinksList'
+            >
+              {links?.map((link: NavLinkType, index) => {
+                return (
                   <NavLink
                     key={`mobile-link-${link?.label}-${index}`}
                     link={link.link as string}
                     label={link.label as string}
                   />
-                </>
-              )
-            })}
-          </ul>
-          <ul
-            data-testid='socialLinksList'
-            className='flex items-center mt-8 gap-4'
-          >
-            {socialLinks?.map((link: NavLinkType, index) => {
-              return (
-                <>
+                )
+              })}
+            </ul>
+          }
+          {socialLinks && (socialLinks?.length > 0) &&
+            <ul
+              data-testid='socialLinksList'
+              className='flex items-center mt-8 gap-4'
+            >
+              {socialLinks?.map((link: NavLinkType, index) => {
+                return (
                   <SocialLink
                     key={`social-link-${link?.label}-${index}`}
                     link={link.link as string}
                     label={link.label as string}
                     size={40}
                   />
-                </>
-              )
-            })}
-          </ul>
+                )
+              })}
+            </ul>
+          }
         </div>
       }
     </>
