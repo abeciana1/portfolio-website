@@ -1,23 +1,27 @@
 describe('NavBar component', () => {
-  beforeEach(() => {
-    cy.visit('/');
-  })
+  // beforeEach(() => {
+  //   cy.visit('/')
+  // })
   it('should be visible', () => {
+    cy.visit('/')
     cy.get('nav')
       .should('be.visible')
   })
   it('should an a profile image of Alex', () => {
+    cy.visit('/')
     cy.get('img[data-cy="profile-image"]')
       .should('be.visible')
       .should('have.attr', 'src')
   })
   it('should navigate to homepage when clicking on nav logo', () => {
+    cy.visit('/')
     cy.get('a[data-cy="nav-logo"]')
       .should('have.attr', 'href', '/')
       .click()
       cy.location('pathname').should('eq', '/')
   })
   it('should have a link to the about page', () => {
+    cy.visit('/')
     cy.get('a[href="/about"]')
       .should('exist')
       .should('have.text', 'About')
