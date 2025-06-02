@@ -40,16 +40,19 @@ const OutcomeCard: React.FC<OutcomeProps> = ({
         >
           {outcomeHash[resultType]}
         </div>
-        {stats?.map((stat, index) => {
-          return (
-            <OutcomeStat
-              key={`${stat.label}-${index}`}
-              label={stat?.label}
-              number={stat?.number}
-              numLabel ={stat?.numLabel}
-            />
-          )
-        })}
+        <div>{emojis}</div>
+        <div>
+          {stats?.map((stat, index) => {
+            return (
+              <OutcomeStat
+                key={`${stat.label}-${index}`}
+                label={stat?.label}
+                number={stat?.number}
+                numLabel ={stat?.numLabel}
+              />
+            )
+          })}
+        </div>
       </div>
     </div>
   )
