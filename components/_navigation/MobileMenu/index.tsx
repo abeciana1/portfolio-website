@@ -33,7 +33,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
               return (
                 <>
                   <NavLink
-                    key={index + link?.label}
+                    key={`mobile-link-${link?.label}-${index}`}
                     link={link.link as string}
                     label={link.label as string}
                   />
