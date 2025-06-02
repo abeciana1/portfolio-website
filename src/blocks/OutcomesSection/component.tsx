@@ -34,7 +34,7 @@ const OutcomesSection: React.FC<OutcomesSectionBlockProps> = ({
         </div>
       </section>
       <section
-        className="relative grid grid-cols-1 md:grid-cols-2 gap-6 px-5 lg:px-20 lg:max-w-[1000px] mx-auto"
+        className="relative grid grid-cols-1 sm:[grid-template-columns:repeat(2,minmax(16rem,16rem))] lg:[grid-template-columns:repeat(3,minmax(16rem,16rem))] gap-6 px-5 lg:px-20 lg:max-w-[1000px] mx-auto place-content-center"
       >
         {gradient && (
           <div
