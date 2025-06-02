@@ -24,44 +24,40 @@ const MobileMenu: React.FC<MobileMenuI> = ({
         <div
           className='bg-background relative flex flex-col items-center top-24'
         >
-          {links &&
-            <ul
-              key='menu-link-list'
-              className='flex flex-col items-center gap-4'
-              data-testid='navLinksList'
-            >
-              {links?.map((link: NavLinkType, index) => {
-                return (
-                  <>
-                    <NavLink
-                      key={index + link?.label}
-                      link={link.link as string}
-                      label={link.label as string}
-                    />
-                  </>
-                )
-              })}
-            </ul>
-          }
-          {socialLinks && (socialLinks?.length > 0) &&
-            <ul
-              data-testid='socialLinksList'
-              className='flex items-center mt-8 gap-4'
-            >
-              {socialLinks?.map((link: NavLinkType, index) => {
-                return (
-                  <>
-                    <SocialLink
-                      key={index + link?.label}
-                      link={link.link as string}
-                      label={link.label as string}
-                      size={40}
-                    />
-                  </>
-                )
-              })}
-            </ul>
-          }
+          <ul
+            key='menu-link-list'
+            className='flex flex-col items-center gap-4'
+            data-testid='navLinksList'
+          >
+            {links?.map((link: NavLinkType, index) => {
+              return (
+                <>
+                  <NavLink
+                    key={index + link?.label}
+                    link={link.link as string}
+                    label={link.label as string}
+                  />
+                </>
+              )
+            })}
+          </ul>
+          <ul
+            data-testid='socialLinksList'
+            className='flex items-center mt-8 gap-4'
+          >
+            {socialLinks?.map((link: NavLinkType, index) => {
+              return (
+                <>
+                  <SocialLink
+                    key={index + link?.label}
+                    link={link.link as string}
+                    label={link.label as string}
+                    size={40}
+                  />
+                </>
+              )
+            })}
+          </ul>
         </div>
       }
     </>
