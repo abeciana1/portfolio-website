@@ -784,12 +784,12 @@ export interface OutcomesSectionBlock {
   heading: string;
   description?: string | null;
   outcomes: {
-    outcomeType: 'adoption' | 'retention' | 'efficiency';
+    resultType: 'adoption' | 'retention' | 'efficiency';
     emojis: string;
     stats: {
-      statNumber: number;
-      numberLabel?: string | null;
-      statLabel: string;
+      number: number;
+      numLabel?: string | null;
+      label: string;
       id?: string | null;
     }[];
     id?: string | null;
@@ -1626,14 +1626,14 @@ export interface OutcomesSectionBlockSelect<T extends boolean = true> {
   outcomes?:
     | T
     | {
-        outcomeType?: T;
+        resultType?: T;
         emojis?: T;
         stats?:
           | T
           | {
-              statNumber?: T;
-              numberLabel?: T;
-              statLabel?: T;
+              number?: T;
+              numLabel?: T;
+              label?: T;
               id?: T;
             };
         id?: T;
