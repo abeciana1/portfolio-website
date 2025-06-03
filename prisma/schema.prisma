@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
   output   = "../generated/prisma"
@@ -11,5 +5,1201 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("DATABASE_URI")
+}
+
+model jobs {
+  id                            Int                             @id @default(autoincrement())
+  company_name                  String                          @db.VarChar
+  job_role                      String                          @db.VarChar
+  start_date                    DateTime                        @db.Timestamptz(3)
+  current_position              Boolean?
+  end_date                      DateTime?                       @db.Timestamptz(3)
+  location                      String                          @db.VarChar
+  position_type                 enum_jobs_position_type
+  company_description           String                          @db.VarChar
+  company_website               String                          @db.VarChar
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  jobs_blocks_image_block       jobs_blocks_image_block[]
+  jobs_blocks_rich_text_block   jobs_blocks_rich_text_block[]
+  jobs_rels                     jobs_rels[]
+  pages_rels                    pages_rels[]
+  payload_locked_documents_rels payload_locked_documents_rels[]
+
+  @@index([created_at])
+  @@index([updated_at])
+}
+
+model jobs_blocks_image_block {
+  order           Int                                           @map("_order")
+  parent_id       Int                                           @map("_parent_id")
+  path            String                                        @map("_path")
+  id              String                                        @id @db.VarChar
+  image_id        Int
+  gradient        Boolean?                                      @default(false)
+  gradient_x_flip Boolean?                                      @default(false)
+  gradient_y_flip Boolean?                                      @default(false)
+  gradient_select enum_jobs_blocks_image_block_gradient_select?
+  block_name      String?                                       @db.VarChar
+  forced_width    Decimal                                       @default(0) @db.Decimal
+  forced_height   Decimal                                       @default(0) @db.Decimal
+  media           media                                         @relation(fields: [image_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "jobs_blocks_image_block_image_id_media_id_fk")
+  jobs            jobs                                          @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "jobs_blocks_image_block_parent_id_fk")
+
+  @@index([image_id], map: "jobs_blocks_image_block_image_idx")
+  @@index([order], map: "jobs_blocks_image_block_order_idx")
+  @@index([parent_id], map: "jobs_blocks_image_block_parent_id_idx")
+  @@index([path], map: "jobs_blocks_image_block_path_idx")
+}
+
+model jobs_blocks_rich_text_block {
+  order        Int     @map("_order")
+  parent_id    Int     @map("_parent_id")
+  path         String  @map("_path")
+  id           String  @id @db.VarChar
+  content      Json
+  content_html String? @db.VarChar
+  block_name   String? @db.VarChar
+  jobs         jobs    @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "jobs_blocks_rich_text_block_parent_id_fk")
+
+  @@index([order], map: "jobs_blocks_rich_text_block_order_idx")
+  @@index([parent_id], map: "jobs_blocks_rich_text_block_parent_id_idx")
+  @@index([path], map: "jobs_blocks_rich_text_block_path_idx")
+}
+
+model jobs_rels {
+  id        Int     @id @default(autoincrement())
+  order     Int?
+  parent_id Int
+  path      String  @db.VarChar
+  skills_id Int?
+  jobs      jobs    @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "jobs_rels_parent_fk")
+  skills    skills? @relation(fields: [skills_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "jobs_rels_skills_fk")
+
+  @@index([order])
+  @@index([parent_id], map: "jobs_rels_parent_idx")
+  @@index([path])
+  @@index([skills_id])
+}
+
+model media {
+  id                               Int                                @id @default(autoincrement())
+  alt                              String                             @db.VarChar
+  updated_at                       DateTime                           @default(now()) @db.Timestamptz(3)
+  created_at                       DateTime                           @default(now()) @db.Timestamptz(3)
+  url                              String?                            @db.VarChar
+  thumbnail_u_r_l                  String?                            @db.VarChar
+  filename                         String?                            @unique(map: "media_filename_idx") @db.VarChar
+  mime_type                        String?                            @db.VarChar
+  filesize                         Decimal?                           @db.Decimal
+  width                            Decimal?                           @db.Decimal
+  height                           Decimal?                           @db.Decimal
+  focal_x                          Decimal?                           @db.Decimal
+  focal_y                          Decimal?                           @db.Decimal
+  convert_webp                     Boolean?                           @default(false)
+  jobs_blocks_image_block          jobs_blocks_image_block[]
+  navigation_menu                  navigation_menu[]
+  pages                            pages[]
+  pages_blocks_image_block         pages_blocks_image_block[]
+  payload_locked_documents_rels    payload_locked_documents_rels[]
+  project_pages                    project_pages[]
+  project_pages_blocks_image_block project_pages_blocks_image_block[]
+  projects                         projects[]
+  skills                           skills[]
+  testimonials                     testimonials[]
+
+  @@index([created_at])
+  @@index([updated_at])
+}
+
+model nav_links {
+  id                            Int                             @id @default(autoincrement())
+  label                         String                          @db.VarChar
+  link                          String                          @db.VarChar
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  navigation_menu_rels          navigation_menu_rels[]
+  payload_locked_documents_rels payload_locked_documents_rels[]
+
+  @@index([created_at])
+  @@index([updated_at])
+}
+
+model navigation_menu {
+  id                            Int                             @id @default(autoincrement())
+  title                         String                          @db.VarChar
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  logo_id                       Int?
+  media                         media?                          @relation(fields: [logo_id], references: [id], onUpdate: NoAction, map: "navigation_menu_logo_id_media_id_fk")
+  navigation_menu_rels          navigation_menu_rels[]
+  payload_locked_documents_rels payload_locked_documents_rels[]
+
+  @@index([created_at])
+  @@index([logo_id], map: "navigation_menu_logo_idx")
+  @@index([updated_at])
+}
+
+model navigation_menu_rels {
+  id              Int             @id @default(autoincrement())
+  order           Int?
+  parent_id       Int
+  path            String          @db.VarChar
+  nav_links_id    Int?
+  social_links_id Int?
+  nav_links       nav_links?      @relation(fields: [nav_links_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "navigation_menu_rels_nav_links_fk")
+  navigation_menu navigation_menu @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "navigation_menu_rels_parent_fk")
+  social_links    social_links?   @relation(fields: [social_links_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "navigation_menu_rels_social_links_fk")
+
+  @@index([nav_links_id])
+  @@index([order])
+  @@index([parent_id], map: "navigation_menu_rels_parent_idx")
+  @@index([path])
+  @@index([social_links_id])
+}
+
+model pages {
+  id                                     Int                                      @id @default(autoincrement())
+  title                                  String                                   @db.VarChar
+  updated_at                             DateTime                                 @default(now()) @db.Timestamptz(3)
+  created_at                             DateTime                                 @default(now()) @db.Timestamptz(3)
+  meta_title                             String?                                  @db.VarChar
+  meta_description                       String?                                  @db.VarChar
+  meta_image_id                          Int?
+  slug                                   String?                                  @db.VarChar
+  nested_route                           enum_pages_nested_route
+  media                                  media?                                   @relation(fields: [meta_image_id], references: [id], onUpdate: NoAction, map: "pages_meta_image_id_media_id_fk")
+  pages_blocks_call_to_action            pages_blocks_call_to_action[]
+  pages_blocks_card                      pages_blocks_card[]
+  pages_blocks_code_mockup_link          pages_blocks_code_mockup_link[]
+  pages_blocks_code_mockup_section       pages_blocks_code_mockup_section[]
+  pages_blocks_hero_section              pages_blocks_hero_section[]
+  pages_blocks_image_block               pages_blocks_image_block[]
+  pages_blocks_in_view_basic             pages_blocks_in_view_basic[]
+  pages_blocks_in_view_embed             pages_blocks_in_view_embed[]
+  pages_blocks_job_section_block         pages_blocks_job_section_block[]
+  pages_blocks_rich_text_block           pages_blocks_rich_text_block[]
+  pages_blocks_skills_section            pages_blocks_skills_section[]
+  pages_blocks_testimonial_section_block pages_blocks_testimonial_section_block[]
+  pages_blocks_two_column_grid           pages_blocks_two_column_grid[]
+  pages_rels_pages_rels_pages_idTopages  pages_rels[]                             @relation("pages_rels_pages_idTopages")
+  pages_rels_pages_rels_parent_idTopages pages_rels[]                             @relation("pages_rels_parent_idTopages")
+  payload_locked_documents_rels          payload_locked_documents_rels[]
+  project_pages_rels                     project_pages_rels[]
+
+  @@index([created_at])
+  @@index([meta_image_id], map: "pages_meta_meta_image_idx")
+  @@index([updated_at])
+}
+
+model pages_blocks_call_to_action {
+  order           Int                                               @map("_order")
+  parent_id       Int                                               @map("_parent_id")
+  path            String                                            @map("_path")
+  id              String                                            @id @db.VarChar
+  style           enum_pages_blocks_call_to_action_style?
+  link_type       enum_pages_blocks_call_to_action_link_type?       @default(reference)
+  link_new_tab    Boolean?                                          @default(false)
+  link_url        String?                                           @db.VarChar
+  link_label      String                                            @db.VarChar
+  arrow           Boolean?                                          @default(false)
+  arrow_direction enum_pages_blocks_call_to_action_arrow_direction?
+  block_name      String?                                           @db.VarChar
+  pages           pages                                             @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_call_to_action_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_call_to_action_order_idx")
+  @@index([parent_id], map: "pages_blocks_call_to_action_parent_id_idx")
+  @@index([path], map: "pages_blocks_call_to_action_path_idx")
+}
+
+model pages_blocks_card {
+  order      Int     @map("_order")
+  parent_id  Int     @map("_parent_id")
+  path       String  @map("_path")
+  id         String  @id @db.VarChar
+  pill       String? @db.VarChar
+  block_name String? @db.VarChar
+  pages      pages   @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_card_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_card_order_idx")
+  @@index([parent_id], map: "pages_blocks_card_parent_id_idx")
+  @@index([path], map: "pages_blocks_card_path_idx")
+}
+
+model pages_blocks_code_mockup_link {
+  order      Int                                           @map("_order")
+  parent_id  Int                                           @map("_parent_id")
+  path       String                                        @map("_path")
+  id         String                                        @id @db.VarChar
+  prefix     String?                                       @db.VarChar
+  text       String                                        @db.VarChar
+  text_color enum_pages_blocks_code_mockup_link_text_color
+  block_name String?                                       @db.VarChar
+  pages      pages                                         @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_code_mockup_link_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_code_mockup_link_order_idx")
+  @@index([parent_id], map: "pages_blocks_code_mockup_link_parent_id_idx")
+  @@index([path], map: "pages_blocks_code_mockup_link_path_idx")
+}
+
+model pages_blocks_code_mockup_section {
+  order           Int      @map("_order")
+  parent_id       Int      @map("_parent_id")
+  path            String   @map("_path")
+  id              String   @id @db.VarChar
+  enable_section  Boolean?
+  block_name      String?  @db.VarChar
+  use_random_data Boolean?
+  pages           pages    @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_code_mockup_section_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_code_mockup_section_order_idx")
+  @@index([parent_id], map: "pages_blocks_code_mockup_section_parent_id_idx")
+  @@index([path], map: "pages_blocks_code_mockup_section_path_idx")
+}
+
+model pages_blocks_hero_section {
+  order                  Int      @map("_order")
+  parent_id              Int      @map("_parent_id")
+  path                   String   @map("_path")
+  id                     String   @id @db.VarChar
+  title                  String   @db.VarChar
+  subtitle               String?  @db.VarChar
+  description            String?  @db.VarChar
+  block_name             String?  @db.VarChar
+  section_id             String   @db.VarChar
+  enable_inner_container Boolean? @default(false)
+  secondary_blurb        String?  @db.VarChar
+  grey_background        Boolean?
+  pages                  pages    @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_hero_section_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_hero_section_order_idx")
+  @@index([parent_id], map: "pages_blocks_hero_section_parent_id_idx")
+  @@index([path], map: "pages_blocks_hero_section_path_idx")
+}
+
+model pages_blocks_image_block {
+  order           Int                                            @map("_order")
+  parent_id       Int                                            @map("_parent_id")
+  path            String                                         @map("_path")
+  id              String                                         @id @db.VarChar
+  image_id        Int
+  gradient        Boolean?                                       @default(false)
+  gradient_x_flip Boolean?                                       @default(false)
+  gradient_y_flip Boolean?                                       @default(false)
+  gradient_select enum_pages_blocks_image_block_gradient_select?
+  block_name      String?                                        @db.VarChar
+  forced_width    Decimal                                        @default(0) @db.Decimal
+  forced_height   Decimal                                        @default(0) @db.Decimal
+  media           media                                          @relation(fields: [image_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "pages_blocks_image_block_image_id_media_id_fk")
+  pages           pages                                          @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_image_block_parent_id_fk")
+
+  @@index([image_id], map: "pages_blocks_image_block_image_idx")
+  @@index([order], map: "pages_blocks_image_block_order_idx")
+  @@index([parent_id], map: "pages_blocks_image_block_parent_id_idx")
+  @@index([path], map: "pages_blocks_image_block_path_idx")
+}
+
+model pages_blocks_in_view_basic {
+  order        Int      @map("_order")
+  parent_id    Int      @map("_parent_id")
+  path         String   @map("_path")
+  id           String   @id @db.VarChar
+  title        String   @db.VarChar
+  description  String   @db.VarChar
+  hidden_y     Decimal? @default(0) @db.Decimal
+  hidden_blur  Decimal? @default(4) @db.Decimal
+  visible_y    Decimal? @default(1) @db.Decimal
+  visible_blur Decimal? @default(0) @db.Decimal
+  block_name   String?  @db.VarChar
+  pages        pages    @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_in_view_basic_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_in_view_basic_order_idx")
+  @@index([parent_id], map: "pages_blocks_in_view_basic_parent_id_idx")
+  @@index([path], map: "pages_blocks_in_view_basic_path_idx")
+}
+
+model pages_blocks_in_view_embed {
+  order        Int      @map("_order")
+  parent_id    Int      @map("_parent_id")
+  path         String   @map("_path")
+  id           String   @id @db.VarChar
+  section_id   String   @db.VarChar
+  hidden_y     Decimal? @default(0) @db.Decimal
+  hidden_blur  Decimal? @default(4) @db.Decimal
+  visible_y    Decimal? @default(1) @db.Decimal
+  visible_blur Decimal? @default(0) @db.Decimal
+  block_name   String?  @db.VarChar
+  pages        pages    @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_in_view_embed_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_in_view_embed_order_idx")
+  @@index([parent_id], map: "pages_blocks_in_view_embed_parent_id_idx")
+  @@index([path], map: "pages_blocks_in_view_embed_path_idx")
+}
+
+model pages_blocks_job_section_block {
+  order           Int                                                  @map("_order")
+  parent_id       Int                                                  @map("_parent_id")
+  path            String                                               @map("_path")
+  id              String                                               @id @db.VarChar
+  title           String                                               @db.VarChar
+  gradient        Boolean?                                             @default(false)
+  gradient_select enum_pages_blocks_job_section_block_gradient_select?
+  block_name      String?                                              @db.VarChar
+  section_id      String                                               @db.VarChar
+  pages           pages                                                @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_job_section_block_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_job_section_block_order_idx")
+  @@index([parent_id], map: "pages_blocks_job_section_block_parent_id_idx")
+  @@index([path], map: "pages_blocks_job_section_block_path_idx")
+}
+
+model pages_blocks_rich_text_block {
+  order        Int     @map("_order")
+  parent_id    Int     @map("_parent_id")
+  path         String  @map("_path")
+  id           String  @id @db.VarChar
+  block_name   String? @db.VarChar
+  content      Json
+  content_html String? @db.VarChar
+  pages        pages   @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_rich_text_block_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_rich_text_block_order_idx")
+  @@index([parent_id], map: "pages_blocks_rich_text_block_parent_id_idx")
+  @@index([path], map: "pages_blocks_rich_text_block_path_idx")
+}
+
+model pages_blocks_skills_section {
+  order                Int                                               @map("_order")
+  parent_id            Int                                               @map("_parent_id")
+  path                 String                                            @map("_path")
+  id                   String                                            @id @db.VarChar
+  section_id           String                                            @db.VarChar
+  skills_collection_id Int
+  block_name           String?                                           @db.VarChar
+  heading              String                                            @db.VarChar
+  gradient             Boolean?                                          @default(false)
+  gradient_select      enum_pages_blocks_skills_section_gradient_select?
+  pill                 String?                                           @db.VarChar
+  description          String?                                           @db.VarChar
+  pages                pages                                             @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_skills_section_parent_id_fk")
+  skills_collection    skills_collection                                 @relation(fields: [skills_collection_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "pages_blocks_skills_section_skills_collection_id_skills_collect")
+
+  @@index([order], map: "pages_blocks_skills_section_order_idx")
+  @@index([parent_id], map: "pages_blocks_skills_section_parent_id_idx")
+  @@index([path], map: "pages_blocks_skills_section_path_idx")
+  @@index([skills_collection_id], map: "pages_blocks_skills_section_skills_collection_idx")
+}
+
+model pages_blocks_testimonial_section_block {
+  order           Int                                                          @map("_order")
+  parent_id       Int                                                          @map("_parent_id")
+  path            String                                                       @map("_path")
+  id              String                                                       @id @db.VarChar
+  section_id      String?                                                      @db.VarChar
+  pill            String?                                                      @db.VarChar
+  heading         String                                                       @db.VarChar
+  description     String?                                                      @db.VarChar
+  block_name      String?                                                      @db.VarChar
+  gradient        Boolean?                                                     @default(false)
+  gradient_select enum_pages_blocks_testimonial_section_block_gradient_select?
+  carousel_custom Boolean?                                                     @default(false)
+  enable_infinite Boolean?                                                     @default(false)
+  carousel_timer  Boolean?                                                     @default(false)
+  seconds_timer   Decimal?                                                     @db.Decimal
+  pages           pages                                                        @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_testimonial_section_block_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_testimonial_section_block_order_idx")
+  @@index([parent_id], map: "pages_blocks_testimonial_section_block_parent_id_idx")
+  @@index([path], map: "pages_blocks_testimonial_section_block_path_idx")
+}
+
+model pages_blocks_two_column_grid {
+  order          Int                                               @map("_order")
+  parent_id      Int                                               @map("_parent_id")
+  path           String                                            @map("_path")
+  id             String                                            @id @db.VarChar
+  section_id     String                                            @db.VarChar
+  reverse_order  Boolean?
+  block_name     String?                                           @db.VarChar
+  vert_alignment enum_pages_blocks_two_column_grid_vert_alignment?
+  pages          pages                                             @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_blocks_two_column_grid_parent_id_fk")
+
+  @@index([order], map: "pages_blocks_two_column_grid_order_idx")
+  @@index([parent_id], map: "pages_blocks_two_column_grid_parent_id_idx")
+  @@index([path], map: "pages_blocks_two_column_grid_path_idx")
+}
+
+model pages_rels {
+  id                                Int           @id @default(autoincrement())
+  order                             Int?
+  parent_id                         Int
+  path                              String        @db.VarChar
+  pages_id                          Int?
+  testimonials_id                   Int?
+  jobs_id                           Int?
+  jobs                              jobs?         @relation(fields: [jobs_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_rels_jobs_fk")
+  pages_pages_rels_pages_idTopages  pages?        @relation("pages_rels_pages_idTopages", fields: [pages_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_rels_pages_fk")
+  pages_pages_rels_parent_idTopages pages         @relation("pages_rels_parent_idTopages", fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_rels_parent_fk")
+  testimonials                      testimonials? @relation(fields: [testimonials_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "pages_rels_testimonials_fk")
+
+  @@index([jobs_id])
+  @@index([order])
+  @@index([pages_id])
+  @@index([parent_id], map: "pages_rels_parent_idx")
+  @@index([path])
+  @@index([testimonials_id])
+}
+
+model payload_locked_documents {
+  id                            Int                             @id @default(autoincrement())
+  global_slug                   String?                         @db.VarChar
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  payload_locked_documents_rels payload_locked_documents_rels[]
+
+  @@index([created_at])
+  @@index([global_slug])
+  @@index([updated_at])
+}
+
+model payload_locked_documents_rels {
+  id                       Int                      @id @default(autoincrement())
+  order                    Int?
+  parent_id                Int
+  path                     String                   @db.VarChar
+  media_id                 Int?
+  users_id                 Int?
+  navigation_menu_id       Int?
+  nav_links_id             Int?
+  social_links_id          Int?
+  pages_id                 Int?
+  skills_collection_id     Int?
+  skills_id                Int?
+  testimonials_id          Int?
+  jobs_id                  Int?
+  projects_id              Int?
+  project_tags_id          Int?
+  project_pages_id         Int?
+  jobs                     jobs?                    @relation(fields: [jobs_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_jobs_fk")
+  media                    media?                   @relation(fields: [media_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_media_fk")
+  nav_links                nav_links?               @relation(fields: [nav_links_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_nav_links_fk")
+  navigation_menu          navigation_menu?         @relation(fields: [navigation_menu_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_navigation_menu_fk")
+  pages                    pages?                   @relation(fields: [pages_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_pages_fk")
+  payload_locked_documents payload_locked_documents @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_parent_fk")
+  project_pages            project_pages?           @relation(fields: [project_pages_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_project_pages_fk")
+  project_tags             project_tags?            @relation(fields: [project_tags_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_project_tags_fk")
+  projects                 projects?                @relation(fields: [projects_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_projects_fk")
+  skills_collection        skills_collection?       @relation(fields: [skills_collection_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_skills_collection_fk")
+  skills                   skills?                  @relation(fields: [skills_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_skills_fk")
+  social_links             social_links?            @relation(fields: [social_links_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_social_links_fk")
+  testimonials             testimonials?            @relation(fields: [testimonials_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_testimonials_fk")
+  users                    users?                   @relation(fields: [users_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_locked_documents_rels_users_fk")
+
+  @@index([jobs_id])
+  @@index([media_id])
+  @@index([nav_links_id])
+  @@index([navigation_menu_id])
+  @@index([order])
+  @@index([pages_id])
+  @@index([parent_id], map: "payload_locked_documents_rels_parent_idx")
+  @@index([path])
+  @@index([project_pages_id])
+  @@index([project_tags_id])
+  @@index([projects_id])
+  @@index([skills_collection_id])
+  @@index([skills_id])
+  @@index([social_links_id])
+  @@index([testimonials_id])
+  @@index([users_id])
+}
+
+model payload_migrations {
+  id         Int      @id @default(autoincrement())
+  name       String?  @db.VarChar
+  batch      Decimal? @db.Decimal
+  updated_at DateTime @default(now()) @db.Timestamptz(3)
+  created_at DateTime @default(now()) @db.Timestamptz(3)
+
+  @@index([created_at])
+  @@index([updated_at])
+}
+
+model payload_preferences {
+  id                       Int                        @id @default(autoincrement())
+  key                      String?                    @db.VarChar
+  value                    Json?
+  updated_at               DateTime                   @default(now()) @db.Timestamptz(3)
+  created_at               DateTime                   @default(now()) @db.Timestamptz(3)
+  payload_preferences_rels payload_preferences_rels[]
+
+  @@index([created_at])
+  @@index([key])
+  @@index([updated_at])
+}
+
+model payload_preferences_rels {
+  id                  Int                 @id @default(autoincrement())
+  order               Int?
+  parent_id           Int
+  path                String              @db.VarChar
+  users_id            Int?
+  payload_preferences payload_preferences @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_preferences_rels_parent_fk")
+  users               users?              @relation(fields: [users_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "payload_preferences_rels_users_fk")
+
+  @@index([order])
+  @@index([parent_id], map: "payload_preferences_rels_parent_idx")
+  @@index([path])
+  @@index([users_id])
+}
+
+model project_pages {
+  id                                         Int                                          @id @default(autoincrement())
+  title                                      String                                       @db.VarChar
+  slug                                       String?                                      @db.VarChar
+  meta_title                                 String?                                      @db.VarChar
+  meta_description                           String?                                      @db.VarChar
+  meta_image_id                              Int?
+  updated_at                                 DateTime                                     @default(now()) @db.Timestamptz(3)
+  created_at                                 DateTime                                     @default(now()) @db.Timestamptz(3)
+  nested_route                               enum_project_pages_nested_route
+  payload_locked_documents_rels              payload_locked_documents_rels[]
+  media                                      media?                                       @relation(fields: [meta_image_id], references: [id], onUpdate: NoAction, map: "project_pages_meta_image_id_media_id_fk")
+  project_pages_blocks_call_to_action        project_pages_blocks_call_to_action[]
+  project_pages_blocks_hero_section          project_pages_blocks_hero_section[]
+  project_pages_blocks_hero_section_no_image project_pages_blocks_hero_section_no_image[]
+  project_pages_blocks_image_block           project_pages_blocks_image_block[]
+  project_pages_blocks_insights_section      project_pages_blocks_insights_section[]
+  project_pages_blocks_outcomes_section      project_pages_blocks_outcomes_section[]
+  project_pages_blocks_overview_section      project_pages_blocks_overview_section[]
+  project_pages_blocks_problem_framing       project_pages_blocks_problem_framing[]
+  project_pages_blocks_project_grid_block    project_pages_blocks_project_grid_block[]
+  project_pages_blocks_user_research         project_pages_blocks_user_research[]
+  project_pages_rels                         project_pages_rels[]
+
+  @@index([created_at])
+  @@index([meta_image_id], map: "project_pages_meta_meta_image_idx")
+  @@index([updated_at])
+}
+
+model project_pages_blocks_call_to_action {
+  order           Int                                                       @map("_order")
+  parent_id       Int                                                       @map("_parent_id")
+  path            String                                                    @map("_path")
+  id              String                                                    @id @db.VarChar
+  style           enum_project_pages_blocks_call_to_action_style?
+  link_type       enum_project_pages_blocks_call_to_action_link_type?       @default(reference)
+  link_new_tab    Boolean?                                                  @default(false)
+  link_url        String?                                                   @db.VarChar
+  link_label      String                                                    @db.VarChar
+  arrow           Boolean?                                                  @default(false)
+  arrow_direction enum_project_pages_blocks_call_to_action_arrow_direction?
+  block_name      String?                                                   @db.VarChar
+  project_pages   project_pages                                             @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_call_to_action_parent_id_fk")
+
+  @@index([order], map: "project_pages_blocks_call_to_action_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_call_to_action_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_call_to_action_path_idx")
+}
+
+model project_pages_blocks_hero_section {
+  order                  Int           @map("_order")
+  parent_id              Int           @map("_parent_id")
+  path                   String        @map("_path")
+  id                     String        @id @db.VarChar
+  section_id             String        @db.VarChar
+  title                  String        @db.VarChar
+  subtitle               String?       @db.VarChar
+  description            String?       @db.VarChar
+  secondary_blurb        String?       @db.VarChar
+  enable_inner_container Boolean?      @default(false)
+  block_name             String?       @db.VarChar
+  grey_background        Boolean?
+  project_pages          project_pages @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_hero_section_parent_id_fk")
+
+  @@index([order], map: "project_pages_blocks_hero_section_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_hero_section_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_hero_section_path_idx")
+}
+
+model project_pages_blocks_hero_section_no_image {
+  order           Int           @map("_order")
+  parent_id       Int           @map("_parent_id")
+  path            String        @map("_path")
+  id              String        @id @db.VarChar
+  section_id      String        @db.VarChar
+  title           String        @db.VarChar
+  subtitle        String?       @db.VarChar
+  description     String?       @db.VarChar
+  secondary_blurb String?       @db.VarChar
+  block_name      String?       @db.VarChar
+  project_pages   project_pages @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_hero_section_no_image_parent_id_fk")
+
+  @@index([order], map: "project_pages_blocks_hero_section_no_image_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_hero_section_no_image_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_hero_section_no_image_path_idx")
+}
+
+model project_pages_blocks_image_block {
+  order           Int                                                    @map("_order")
+  parent_id       Int                                                    @map("_parent_id")
+  path            String                                                 @map("_path")
+  id              String                                                 @id @db.VarChar
+  image_id        Int
+  gradient        Boolean?                                               @default(false)
+  gradient_x_flip Boolean?                                               @default(false)
+  gradient_y_flip Boolean?                                               @default(false)
+  gradient_select enum_project_pages_blocks_image_block_gradient_select?
+  block_name      String?                                                @db.VarChar
+  forced_width    Decimal                                                @default(0) @db.Decimal
+  forced_height   Decimal                                                @default(0) @db.Decimal
+  media           media                                                  @relation(fields: [image_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "project_pages_blocks_image_block_image_id_media_id_fk")
+  project_pages   project_pages                                          @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_image_block_parent_id_fk")
+
+  @@index([image_id], map: "project_pages_blocks_image_block_image_idx")
+  @@index([order], map: "project_pages_blocks_image_block_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_image_block_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_image_block_path_idx")
+}
+
+model project_pages_blocks_insights_section {
+  order                                          Int                                              @map("_order")
+  parent_id                                      Int                                              @map("_parent_id")
+  path                                           String                                           @map("_path")
+  id                                             String                                           @id @db.VarChar
+  section_id                                     String                                           @db.VarChar
+  pill                                           String?                                          @db.VarChar
+  heading                                        String                                           @db.VarChar
+  description                                    String?                                          @db.VarChar
+  block_name                                     String?                                          @db.VarChar
+  project_pages                                  project_pages                                    @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_insights_section_parent_id_fk")
+  project_pages_blocks_insights_section_insights project_pages_blocks_insights_section_insights[]
+
+  @@index([order], map: "project_pages_blocks_insights_section_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_insights_section_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_insights_section_path_idx")
+}
+
+model project_pages_blocks_insights_section_insights {
+  order                                 Int                                   @map("_order")
+  parent_id                             String                                @map("_parent_id") @db.VarChar
+  id                                    String                                @id @db.VarChar
+  title                                 String                                @db.VarChar
+  body                                  String                                @db.VarChar
+  project_pages_blocks_insights_section project_pages_blocks_insights_section @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_insights_section_insights_parent_id_fk")
+
+  @@index([order], map: "project_pages_blocks_insights_section_insights_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_insights_section_insights_parent_id_idx")
+}
+
+model project_pages_blocks_outcomes_section {
+  order                                          Int                                                         @map("_order")
+  parent_id                                      Int                                                         @map("_parent_id")
+  path                                           String                                                      @map("_path")
+  id                                             String                                                      @id @db.VarChar
+  section_id                                     String                                                      @db.VarChar
+  pill                                           String?                                                     @db.VarChar
+  heading                                        String                                                      @db.VarChar
+  description                                    String?                                                     @db.VarChar
+  gradient                                       Boolean?                                                    @default(false)
+  gradient_select                                enum_project_pages_blocks_outcomes_section_gradient_select?
+  block_name                                     String?                                                     @db.VarChar
+  project_pages                                  project_pages                                               @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_outcomes_section_parent_id_fk")
+  project_pages_blocks_outcomes_section_outcomes project_pages_blocks_outcomes_section_outcomes[]
+
+  @@index([order], map: "project_pages_blocks_outcomes_section_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_outcomes_section_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_outcomes_section_path_idx")
+}
+
+model project_pages_blocks_outcomes_section_outcomes {
+  order                                                Int                                                             @map("_order")
+  parent_id                                            String                                                          @map("_parent_id") @db.VarChar
+  id                                                   String                                                          @id @db.VarChar
+  result_type                                          enum_project_pages_blocks_outcomes_section_outcomes_result_type
+  emojis                                               String                                                          @db.VarChar
+  project_pages_blocks_outcomes_section                project_pages_blocks_outcomes_section                           @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_outcomes_section_outcomes_parent_id_fk")
+  project_pages_blocks_outcomes_section_outcomes_stats project_pages_blocks_outcomes_section_outcomes_stats[]
+
+  @@index([order], map: "project_pages_blocks_outcomes_section_outcomes_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_outcomes_section_outcomes_parent_id_idx")
+}
+
+model project_pages_blocks_outcomes_section_outcomes_stats {
+  order                                          Int                                            @map("_order")
+  parent_id                                      String                                         @map("_parent_id") @db.VarChar
+  id                                             String                                         @id @db.VarChar
+  number                                         Decimal                                        @db.Decimal
+  num_label                                      String?                                        @db.VarChar
+  label                                          String                                         @db.VarChar
+  project_pages_blocks_outcomes_section_outcomes project_pages_blocks_outcomes_section_outcomes @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "stats_parent_id_fk")
+
+  @@index([order], map: "project_pages_blocks_outcomes_section_outcomes_stats_order_idx")
+  @@index([parent_id], map: "stats_parent_id_idx")
+}
+
+model project_pages_blocks_overview_section {
+  order                                      Int                                                           @map("_order")
+  parent_id                                  Int                                                           @map("_parent_id")
+  path                                       String                                                        @map("_path")
+  id                                         String                                                        @id @db.VarChar
+  title                                      String                                                        @db.VarChar
+  content                                    Json
+  content_html                               String?                                                       @db.VarChar
+  duration_time_length                       Decimal                                                       @db.Decimal
+  duration_frequency                         enum_project_pages_blocks_overview_section_duration_frequency
+  block_name                                 String?                                                       @db.VarChar
+  grey_background                            Boolean?
+  project_pages                              project_pages                                                 @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_overview_section_parent_id_fk")
+  project_pages_blocks_overview_section_role project_pages_blocks_overview_section_role[]
+
+  @@index([order], map: "project_pages_blocks_overview_section_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_overview_section_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_overview_section_path_idx")
+}
+
+model project_pages_blocks_overview_section_role {
+  order                                 Int
+  parent_id                             String                                           @db.VarChar
+  value                                 enum_project_pages_blocks_overview_section_role?
+  id                                    Int                                              @id @default(autoincrement())
+  project_pages_blocks_overview_section project_pages_blocks_overview_section            @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_overview_section_role_parent_fk")
+
+  @@index([order])
+  @@index([parent_id], map: "project_pages_blocks_overview_section_role_parent_idx")
+}
+
+model project_pages_blocks_problem_framing {
+  order                                         Int                                                        @map("_order")
+  parent_id                                     Int                                                        @map("_parent_id")
+  path                                          String                                                     @map("_path")
+  id                                            String                                                     @id @db.VarChar
+  section_id                                    String                                                     @db.VarChar
+  pill                                          String?                                                    @db.VarChar
+  heading                                       String                                                     @db.VarChar
+  description                                   String?                                                    @db.VarChar
+  grey_background                               Boolean?
+  block_name                                    String?                                                    @db.VarChar
+  gradient                                      Boolean?                                                   @default(false)
+  gradient_select                               enum_project_pages_blocks_problem_framing_gradient_select?
+  project_pages                                 project_pages                                              @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_problem_framing_parent_id_fk")
+  project_pages_blocks_problem_framing_problems project_pages_blocks_problem_framing_problems[]
+
+  @@index([order], map: "project_pages_blocks_problem_framing_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_problem_framing_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_problem_framing_path_idx")
+}
+
+model project_pages_blocks_problem_framing_problems {
+  order                                Int                                                      @map("_order")
+  parent_id                            String                                                   @map("_parent_id") @db.VarChar
+  id                                   String                                                   @id @db.VarChar
+  frame                                enum_project_pages_blocks_problem_framing_problems_frame
+  description                          String                                                   @db.VarChar
+  project_pages_blocks_problem_framing project_pages_blocks_problem_framing                     @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_problem_framing_problems_parent_id_fk")
+
+  @@index([order], map: "project_pages_blocks_problem_framing_problems_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_problem_framing_problems_parent_id_idx")
+}
+
+model project_pages_blocks_project_grid_block {
+  order           Int                                                           @map("_order")
+  parent_id       Int                                                           @map("_parent_id")
+  path            String                                                        @map("_path")
+  id              String                                                        @id @db.VarChar
+  block_name      String?                                                       @db.VarChar
+  gradient        Boolean?                                                      @default(false)
+  gradient_select enum_project_pages_blocks_project_grid_block_gradient_select?
+  project_pages   project_pages                                                 @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_project_grid_block_parent_id_fk")
+
+  @@index([order], map: "project_pages_blocks_project_grid_block_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_project_grid_block_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_project_grid_block_path_idx")
+}
+
+model project_pages_blocks_user_research {
+  order                                       Int                                                      @map("_order")
+  parent_id                                   Int                                                      @map("_parent_id")
+  path                                        String                                                   @map("_path")
+  id                                          String                                                   @id @db.VarChar
+  section_id                                  String                                                   @db.VarChar
+  pill                                        String?                                                  @db.VarChar
+  heading                                     String                                                   @db.VarChar
+  description                                 String?                                                  @db.VarChar
+  block_name                                  String?                                                  @db.VarChar
+  gradient                                    Boolean?                                                 @default(false)
+  gradient_select                             enum_project_pages_blocks_user_research_gradient_select?
+  project_pages                               project_pages                                            @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_user_research_parent_id_fk")
+  project_pages_blocks_user_research_research project_pages_blocks_user_research_research[]
+
+  @@index([order], map: "project_pages_blocks_user_research_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_user_research_parent_id_idx")
+  @@index([path], map: "project_pages_blocks_user_research_path_idx")
+}
+
+model project_pages_blocks_user_research_research {
+  order                              Int                                                            @map("_order")
+  parent_id                          String                                                         @map("_parent_id") @db.VarChar
+  id                                 String                                                         @id @db.VarChar
+  research_type                      enum_project_pages_blocks_user_research_research_research_type
+  number_metric                      Decimal                                                        @db.Decimal
+  project_pages_blocks_user_research project_pages_blocks_user_research                             @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_user_research_research_parent_id_fk")
+
+  @@index([order], map: "project_pages_blocks_user_research_research_order_idx")
+  @@index([parent_id], map: "project_pages_blocks_user_research_research_parent_id_idx")
+}
+
+model project_pages_rels {
+  id              Int           @id @default(autoincrement())
+  order           Int?
+  parent_id       Int
+  path            String        @db.VarChar
+  pages_id        Int?
+  projects_id     Int?
+  project_tags_id Int?
+  pages           pages?        @relation(fields: [pages_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_rels_pages_fk")
+  project_pages   project_pages @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_rels_parent_fk")
+  project_tags    project_tags? @relation(fields: [project_tags_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_rels_project_tags_fk")
+  projects        projects?     @relation(fields: [projects_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_rels_projects_fk")
+
+  @@index([order])
+  @@index([pages_id])
+  @@index([parent_id], map: "project_pages_rels_parent_idx")
+  @@index([path])
+  @@index([project_tags_id])
+  @@index([projects_id])
+}
+
+model project_tags {
+  id                            Int                             @id @default(autoincrement())
+  label                         String                          @db.VarChar
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  payload_locked_documents_rels payload_locked_documents_rels[]
+  project_pages_rels            project_pages_rels[]
+  projects_rels                 projects_rels[]
+
+  @@index([created_at])
+  @@index([updated_at])
+}
+
+model projects {
+  id                            Int                             @id @default(autoincrement())
+  image_id                      Int
+  title                         String                          @db.VarChar
+  excerpt                       String                          @db.VarChar
+  status                        enum_projects_status
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  slug                          String?                         @db.VarChar
+  payload_locked_documents_rels payload_locked_documents_rels[]
+  project_pages_rels            project_pages_rels[]
+  media                         media                           @relation(fields: [image_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "projects_image_id_media_id_fk")
+  projects_links                projects_links[]
+  projects_rels                 projects_rels[]
+
+  @@index([created_at])
+  @@index([image_id], map: "projects_image_idx")
+  @@index([updated_at])
+}
+
+model projects_links {
+  order     Int      @map("_order")
+  parent_id Int      @map("_parent_id")
+  id        String   @id @db.VarChar
+  label     String   @db.VarChar
+  link      String   @db.VarChar
+  projects  projects @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "projects_links_parent_id_fk")
+
+  @@index([order], map: "projects_links_order_idx")
+  @@index([parent_id], map: "projects_links_parent_id_idx")
+}
+
+model projects_rels {
+  id              Int           @id @default(autoincrement())
+  order           Int?
+  parent_id       Int
+  path            String        @db.VarChar
+  skills_id       Int?
+  project_tags_id Int?
+  projects        projects      @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "projects_rels_parent_fk")
+  project_tags    project_tags? @relation(fields: [project_tags_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "projects_rels_project_tags_fk")
+  skills          skills?       @relation(fields: [skills_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "projects_rels_skills_fk")
+
+  @@index([order])
+  @@index([parent_id], map: "projects_rels_parent_idx")
+  @@index([path])
+  @@index([project_tags_id])
+  @@index([skills_id])
+}
+
+model skills {
+  id                            Int                             @id @default(autoincrement())
+  title                         String                          @db.VarChar
+  skill_icon_id                 Int
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  jobs_rels                     jobs_rels[]
+  payload_locked_documents_rels payload_locked_documents_rels[]
+  projects_rels                 projects_rels[]
+  media                         media                           @relation(fields: [skill_icon_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "skills_skill_icon_id_media_id_fk")
+  skills_collection_rels        skills_collection_rels[]
+
+  @@index([created_at])
+  @@index([skill_icon_id], map: "skills_skill_icon_idx")
+  @@index([updated_at])
+}
+
+model skills_collection {
+  id                            Int                             @id @default(autoincrement())
+  title                         String                          @db.VarChar
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  pages_blocks_skills_section   pages_blocks_skills_section[]
+  payload_locked_documents_rels payload_locked_documents_rels[]
+  skills_collection_rels        skills_collection_rels[]
+
+  @@index([created_at])
+  @@index([updated_at])
+}
+
+model skills_collection_rels {
+  id                Int               @id @default(autoincrement())
+  order             Int?
+  parent_id         Int
+  path              String            @db.VarChar
+  skills_id         Int?
+  skills_collection skills_collection @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "skills_collection_rels_parent_fk")
+  skills            skills?           @relation(fields: [skills_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "skills_collection_rels_skills_fk")
+
+  @@index([order])
+  @@index([parent_id], map: "skills_collection_rels_parent_idx")
+  @@index([path])
+  @@index([skills_id])
+}
+
+model social_links {
+  id                            Int                             @id @default(autoincrement())
+  label                         String                          @db.VarChar
+  link                          String                          @db.VarChar
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  navigation_menu_rels          navigation_menu_rels[]
+  payload_locked_documents_rels payload_locked_documents_rels[]
+
+  @@index([created_at])
+  @@index([updated_at])
+}
+
+model testimonials {
+  id                            Int                             @id @default(autoincrement())
+  name                          String                          @db.VarChar
+  position                      String                          @db.VarChar
+  company                       String                          @db.VarChar
+  headshot_id                   Int
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  content                       Json
+  content_html                  String?                         @db.VarChar
+  callout                       String                          @db.VarChar
+  pages_rels                    pages_rels[]
+  payload_locked_documents_rels payload_locked_documents_rels[]
+  media                         media                           @relation(fields: [headshot_id], references: [id], onDelete: SetNull, onUpdate: NoAction, map: "testimonials_headshot_id_media_id_fk")
+
+  @@index([created_at])
+  @@index([headshot_id], map: "testimonials_headshot_idx")
+  @@index([updated_at])
+}
+
+model users {
+  id                            Int                             @id @default(autoincrement())
+  updated_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  created_at                    DateTime                        @default(now()) @db.Timestamptz(3)
+  email                         String                          @unique(map: "users_email_idx") @db.VarChar
+  reset_password_token          String?                         @db.VarChar
+  reset_password_expiration     DateTime?                       @db.Timestamptz(3)
+  salt                          String?                         @db.VarChar
+  hash                          String?                         @db.VarChar
+  login_attempts                Decimal?                        @default(0) @db.Decimal
+  lock_until                    DateTime?                       @db.Timestamptz(3)
+  enable_a_p_i_key              Boolean?
+  api_key                       String?                         @db.VarChar
+  api_key_index                 String?                         @db.VarChar
+  payload_locked_documents_rels payload_locked_documents_rels[]
+  payload_preferences_rels      payload_preferences_rels[]
+
+  @@index([created_at])
+  @@index([updated_at])
+}
+
+enum enum_jobs_blocks_image_block_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_jobs_position_type {
+  Contract
+  Full_Time    @map("Full-Time")
+  Entrepreneur
+}
+
+enum enum_pages_blocks_call_to_action_arrow_direction {
+  right
+  down
+}
+
+enum enum_pages_blocks_call_to_action_link_type {
+  reference
+  custom
+}
+
+enum enum_pages_blocks_call_to_action_style {
+  primary
+  secondary
+  tertiary
+  noBackground
+}
+
+enum enum_pages_blocks_code_mockup_link_text_color {
+  white
+  black
+  success
+  warning
+}
+
+enum enum_pages_blocks_image_block_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_pages_blocks_job_section_block_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_pages_blocks_skills_section_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_pages_blocks_testimonial_section_block_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_pages_blocks_two_column_grid_vert_alignment {
+  top
+  middle
+  bottom
+}
+
+enum enum_pages_nested_route {
+  base
+  projects
+}
+
+enum enum_project_pages_blocks_call_to_action_arrow_direction {
+  right
+  down
+}
+
+enum enum_project_pages_blocks_call_to_action_link_type {
+  reference
+  custom
+}
+
+enum enum_project_pages_blocks_call_to_action_style {
+  primary
+  secondary
+  tertiary
+  noBackground
+}
+
+enum enum_project_pages_blocks_image_block_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_project_pages_blocks_outcomes_section_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_project_pages_blocks_outcomes_section_outcomes_result_type {
+  adoption
+  retention
+  efficiency
+}
+
+enum enum_project_pages_blocks_overview_section_duration_frequency {
+  years
+  months
+  weeks
+}
+
+enum enum_project_pages_blocks_overview_section_role {
+  designer
+  frontendDev
+  backendDEv
+  integrationSpec
+}
+
+enum enum_project_pages_blocks_problem_framing_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_project_pages_blocks_problem_framing_problems_frame {
+  who
+  where
+  when
+  why
+}
+
+enum enum_project_pages_blocks_project_grid_block_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_project_pages_blocks_user_research_gradient_select {
+  Variant1
+  Variant2
+  Variant3
+  Variant4
+}
+
+enum enum_project_pages_blocks_user_research_research_research_type {
+  survey
+  interviews
+  usability
+  accessibility
+}
+
+enum enum_project_pages_nested_route {
+  base
+  projects
+}
+
+enum enum_projects_status {
+  completed
+  inProgress
+  onHold
 }
