@@ -37,8 +37,8 @@ jobs:
       #   run: npm run cy:run
 
       # Optional: Merge coverage reports from both Jest and Cypress if needed
-      - name: Merge Coverage Reports
-        run: npm run merge:coverage
+      # - name: Merge Coverage Reports
+      #   run: npm run merge:coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
