@@ -1,4 +1,3 @@
-import { postgresAdapter } from '@payloadcms/db-postgres'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
@@ -8,6 +7,7 @@ import sharp from 'sharp'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import { titleToSlug } from '@/utils/helpers'
+import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 
 // * subdirectory hash
 
@@ -128,13 +128,14 @@ export default buildConfig({
     ProjectTag
   ],
   editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  db: postgresAdapter({
+  serverURL: process.env.PAYLOAD_SERVER_URL,
+  secret: process.env.PAYLOAD_SECRET as string,
+  db: vercelPostgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      connectionString: process.env.NODE_ENV === 'development' ? process.env.DATABASE_URI as string : process.env.DATABASE_URL as string,
     },
   }),
   sharp,
