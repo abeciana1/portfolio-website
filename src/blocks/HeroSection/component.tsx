@@ -71,6 +71,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         gradientSelect={gradientSelect}
         forcedHeight={forcedHeight}
         forcedWidth={forcedWidth}
+        priority
       />
     </section>
   )
