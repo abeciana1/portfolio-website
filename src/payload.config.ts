@@ -135,7 +135,7 @@ export default buildConfig({
   secret: process.env.PAYLOAD_SECRET as string,
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.NODE_ENV === 'development' ? process.env.DATABASE_URI as string : process.env.DATABASE_URL as string,
+      connectionString: process.env.NODE_ENV === 'development' ? process.env.DATABASE_URI as string : process.env.DATABASE_URI as string,
     },
   }),
   sharp,
