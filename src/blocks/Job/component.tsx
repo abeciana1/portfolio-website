@@ -36,11 +36,9 @@ const Job: React.FC<JobProps> = ({
   skills,
   duties,
 }) => {
-  const { image } = companyLogo[0]
+  const { image, forcedWidth, forcedHeight } = companyLogo[0]
   const {
     webpUrl,
-    width,
-    height
   } = image
   return (
     <MorphingDialog
@@ -56,8 +54,8 @@ const Job: React.FC<JobProps> = ({
       >
         <div className="flex space-x-6 items-center">
           <MorphingDialogImage
-            width={width as number}
-            height={height as number}
+            width={forcedWidth as number}
+            height={forcedHeight as number}
             src={webpUrl}
             alt={`Company logo - ${companyName}`}
             className="h-auto w-auto max-h-20 max-w-20 min-w-[80px] object-cover object-top"
@@ -91,8 +89,8 @@ const Job: React.FC<JobProps> = ({
               <div className="flex justify-center">
                 <MorphingDialogImage
                   src={webpUrl}
-                  width={width as number}
-                  height={height as number}
+                  width={forcedWidth as number}
+                  height={forcedHeight as number}
                   alt={`Company logo - ${companyName}`}
                   className="h-auto w-auto max-h-16 object-cover object-top"
                 />
