@@ -354,6 +354,8 @@ export type MorphingDialogImageProps = {
   alt: string;
   className?: string;
   style?: React.CSSProperties;
+  height: number;
+  width: number;
 };
 
 function MorphingDialogImage({
@@ -361,6 +363,8 @@ function MorphingDialogImage({
   alt,
   className,
   style,
+  width = 100,
+  height = 37
 }: MorphingDialogImageProps) {
   const { uniqueId } = useMorphingDialog();
 
@@ -372,6 +376,8 @@ function MorphingDialogImage({
       layoutId={`dialog-img-${uniqueId}`}
       style={style}
       loading='lazy'
+      width={width}
+      height={height}
     />
   );
 }
