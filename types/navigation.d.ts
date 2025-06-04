@@ -17,3 +17,10 @@ export interface NavBarContentI extends NavigationMenu {
   links: NavLinkType[];
   socialLinks: NavLinkType[];
 }
+
+export type NavLogoT = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
