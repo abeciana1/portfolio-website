@@ -371,6 +371,7 @@ function MorphingDialogImage({
       className={cn(className)}
       layoutId={`dialog-img-${uniqueId}`}
       style={style}
+      loading='lazy'
     />
   );
 }
