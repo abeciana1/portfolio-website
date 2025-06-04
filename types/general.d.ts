@@ -1,6 +1,5 @@
 import {
-  type Media,
-  type Skill
+  type Media
 } from '@/src/payload-types'
 
 export type CMSMediaT = Media & {
