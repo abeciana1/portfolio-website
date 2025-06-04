@@ -33,8 +33,8 @@ const Testimonial: React.FC<TestimonialProps> = ({
       >
         <div className='flex items-center'>
           <MorphingDialogImage
-            width={headshot?.width as number}
-            height={headshot?.height as number}
+            width={48}
+            height={55}
             src={headshot?.webpUrl as string}
             alt={`${name} headshot`}
             className='h-55 w-48 rounded-md object-cover object-top'
@@ -66,8 +66,8 @@ const Testimonial: React.FC<TestimonialProps> = ({
             <div className='relative flex flex-col space-y-6 w-full max-w-80'>
               <div className='relative mx-auto'>
                 <MorphingDialogImage
-                  width={headshot?.width as number}
-                  height={headshot?.height as number}
+                  width={56}
+                  height={56}
                   src={headshot?.webpUrl as string}
                   alt={`${name} headshot`}
                   className='h-56 w-56 aspect-square rounded-full object-cover object-top'
