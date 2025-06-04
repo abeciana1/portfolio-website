@@ -7,7 +7,7 @@ import sharp from 'sharp'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import { titleToSlug } from '@/utils/helpers'
-import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
+import { postgresAdapter } from '@payloadcms/db-postgres';
 
 // * subdirectory hash
 
@@ -133,7 +133,7 @@ export default buildConfig({
   },
   serverURL: process.env.PAYLOAD_SERVER_URL,
   secret: process.env.PAYLOAD_SECRET as string,
-  db: vercelPostgresAdapter({
+  db: postgresAdapter({
     pool: {
       connectionString: process.env.NODE_ENV === 'development' ? process.env.DATABASE_URI as string : process.env.DATABASE_URL as string,
     },
