@@ -9,7 +9,8 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   gradientYFlip,
   gradientSelect,
   forcedHeight,
-  forcedWidth
+  forcedWidth,
+  priority = false
 }) => {
 
   const {
@@ -22,6 +23,8 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   return (
     <div className='relative'>
         <Image
+          priority={priority}
+          loading={priority ? 'eager' : 'lazy'}
           src={webpUrl}
           alt={alt}
           height={(forcedHeight || height) as number}
