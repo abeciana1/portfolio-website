@@ -1,6 +1,7 @@
 import {
   type Media
 } from '@/src/payload-types'
+import React from 'react'
 
 export type CMSMediaT = Media & {
   webpUrl: string
@@ -28,4 +29,8 @@ export type ButtonGroupProps = {
 export type ProjectLink = {
   label: string;
   link: string;
+}
+
+export interface WrapperI {
+  children: React.ReactNode | React.ReactNode[];
 }
