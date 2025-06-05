@@ -58,7 +58,7 @@ const Job: React.FC<JobProps> = ({
             height={forcedHeight as number}
             src={webpUrl}
             alt={`Company logo - ${companyName}`}
-            className="h-auto w-auto max-h-20 max-w-20 min-w-[80px] object-cover object-top"
+            className="max-h-20 max-w-20 min-w-[80px] object-cover object-top"
           />
           <div className="flex flex-col w-full">
             <div className="flex flex-col sm:flex-row justify-between text-foreground font-medium text-md">
@@ -92,7 +92,7 @@ const Job: React.FC<JobProps> = ({
                   width={forcedWidth as number}
                   height={forcedHeight as number}
                   alt={`Company logo - ${companyName}`}
-                  className="h-auto w-auto max-h-16 object-cover object-top"
+                  className="max-h-16 object-cover object-top"
                 />
               </div>
               <div>
