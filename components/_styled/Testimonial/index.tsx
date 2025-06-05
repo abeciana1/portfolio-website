@@ -33,11 +33,13 @@ const Testimonial: React.FC<TestimonialProps> = ({
       >
         <div className='flex items-center'>
           <MorphingDialogImage
-            width={48}
-            height={55}
+            // width={48}
+            // height={55}
+            width={headshot.width as number}
+            height={headshot.height as number}
             src={headshot?.webpUrl as string}
             alt={`${name} headshot`}
-            className='h-55 w-48 rounded-md object-cover object-top'
+            className='max-h-55 max-w-48 rounded-md object-cover object-top'
           />
           <div className='flex flex-col w-full p-6 justify-between h-55'>
             <div data-testid='callout' className='font-semibold italic text-md text-left'>
@@ -66,11 +68,11 @@ const Testimonial: React.FC<TestimonialProps> = ({
             <div className='relative flex flex-col space-y-6 w-full max-w-80'>
               <div className='relative mx-auto'>
                 <MorphingDialogImage
-                  width={56}
-                  height={56}
+                  width={headshot.width as number}
+                  height={headshot.height as number}
                   src={headshot?.webpUrl as string}
                   alt={`${name} headshot`}
-                  className='h-56 w-56 aspect-square rounded-full object-cover object-top'
+                  className='max-h-56 max-w-56 aspect-square rounded-full object-cover object-top'
                 />
               </div>
               <div className='flex flex-col justify-between text-foreground font-medium text-lg'>
