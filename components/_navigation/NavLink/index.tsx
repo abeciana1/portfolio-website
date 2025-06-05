@@ -12,6 +12,7 @@ const NavLink: React.FC<NavLinkType> = ({ label, link }) => {
   return (
     <li>
       <Link
+        prefetch
         aria-label={label}
         href={link as string}
         className={clsx('text-lg', {

@@ -19,6 +19,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
 
   return (
     <Link
+      prefetch
       href={`projects/${slug}`}
       className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto max-h-[412px]'
     >

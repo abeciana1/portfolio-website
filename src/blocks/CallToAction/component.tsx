@@ -29,6 +29,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
 
   return (
     <Link
+      prefetch
       target={newTab ? "_blank" : "_parent"}
       href={`/${pageUrl}`}
       className={clsx('flex items-center rounded-md text-lg font-medium py-2 px-6 no-underline', {
