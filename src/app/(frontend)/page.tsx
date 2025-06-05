@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import {
-  getPayload,
   type RequiredDataFromCollectionSlug
 } from 'payload'
 import { cache } from 'react'
 import RenderBlocks from '@/src/blocks/RenderBlocks'
 import { notFound } from 'next/navigation';
-import buildConfig from '@/src/payload.config'
 import { generateMeta } from '@/utils/generateMeta'
+import { QueryClient } from '@tanstack/react-query'
+import { payload } from '@/src/payload'
 
 type Args = {
   params: Promise<{
@@ -17,10 +17,11 @@ type Args = {
 
 const Page = async ({ params: paramsPromise }: Args) => {
   const { slug = 'home' } = await paramsPromise
+  const queryClient = new QueryClient()
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
     slug,
-  })
+  }, queryClient)
 
   if (!page) {
     return notFound()
@@ -35,28 +36,31 @@ const Page = async ({ params: paramsPromise }: Args) => {
   )
 }
 
-const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }) => {
-  const payload = await getPayload({ config: buildConfig })
-  
-  const result = await payload.find({
-    collection: 'pages',
-    limit: 1,
-    pagination: false,
-    where: {
-      slug: {
-        equals: Array.isArray(slug) ? slug[0] : slug,
-      },
-    },
+const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryClient: QueryClient) => {
+  const result = await queryClient?.ensureQueryData({
+    queryKey: ['page'],
+    queryFn: () => 
+      payload.find({
+        collection: 'pages',
+        limit: 1,
+        pagination: false,
+        where: {
+          slug: {
+            equals: Array.isArray(slug) ? slug[0] : slug,
+          },
+        },
+      }),
+      staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 * 10 * 3 : 60 * 1000
   })
-
-  return result.docs?.[0] || null
+  return result?.docs?.[0] || null
 })
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
+  const queryClient = new QueryClient()
   const { slug = 'home' } = await paramsPromise
   const page = await queryPageBySlug({
     slug,
-  })
+  }, queryClient)
 
   return generateMeta({ doc: page })
 }
