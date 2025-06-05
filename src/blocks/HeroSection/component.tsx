@@ -45,7 +45,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className='lg:max-w-[550px] md:max-w-[400px] space-y-6'>
         <Heading1 text={title as string} />
         {subtitle && <Heading2 text={subtitle as string} />}
-        <div className='leading-10 text-3xl font-semibold'>{description}</div>
+        <div className='leading-10 text-3xl font-semibold min-h-[5.5rem]'>{description}</div>
         {secondaryBlurb && <div className='text-xl text-darkGrey font-semibold'>{secondaryBlurb}</div>}
         {(callToAction && callToAction?.length > 0) &&
           <ButtonGroup>
