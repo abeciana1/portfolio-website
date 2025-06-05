@@ -1,15 +1,14 @@
 import type { Metadata } from 'next'
 import {
-  getPayload,
   type RequiredDataFromCollectionSlug
 } from 'payload'
-import { cache } from 'react'
+// import { cache } from 'react'
 import RenderBlocks from '@/src/blocks/RenderBlocks'
 import { notFound } from 'next/navigation';
-import buildConfig from '@/src/payload.config'
 import { generateMeta } from '@/utils/generateMeta'
 import { QueryClient } from '@tanstack/react-query'
 import { payload } from '@/src/payload'
+import { unstable_cache } from 'next/cache';
 
 type Args = {
   params: Promise<{
@@ -38,7 +37,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
   )
 }
 
-const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryClient: QueryClient) => {
+const queryPageBySlug = unstable_cache(async ({ slug = 'home' }: { slug: string }, queryClient: QueryClient) => {
   const result = await queryClient?.ensureQueryData({
     queryKey: ['page'],
     queryFn: () => 
