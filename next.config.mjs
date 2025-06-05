@@ -16,5 +16,13 @@ const nextConfig = {
 
 export default MillionLint.next({
   enabled: true,
-  rsc: true
+  rsc: true,
+  optimizeDOM: true,
+  legacyHmr: true,
+  filter: {
+    include: [
+      "**/components/*.{tsx}",
+      "**/src/blocks/*/component.{tsx}"
+    ]
+  }
 })(withPayload(nextConfig));
