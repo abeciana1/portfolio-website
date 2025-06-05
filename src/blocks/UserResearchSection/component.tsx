@@ -6,7 +6,6 @@ import Pill from '@/components/_styled/Pill'
 import { Heading1 } from '@/components/_styled/Heading'
 import Gradient from '@/components/_styled/Gradient'
 import UserResearchCard from '@/components/_projects/UserResearchCard'
-import clsx from 'clsx'
 
 const UserResearchSection: React.FC<UserResearchSectionBlockProps> = ({
   sectionId,
