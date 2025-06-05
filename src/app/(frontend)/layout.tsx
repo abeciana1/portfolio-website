@@ -6,6 +6,8 @@ import NavBar from '@/components/_navigation/NavBar'
 import Toolbar from '@/components/_navigation/Toolbar'
 import { cookies } from 'next/headers';
 
+export const revalidate = 3600 
+
 const inter = Inter({
   weight: ['100', '300', '400', '500', '600', '700'],
   subsets: ['latin'],
