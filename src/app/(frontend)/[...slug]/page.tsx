@@ -38,7 +38,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
 }
 
 const queryPageBySlug = unstable_cache(async ({ slug = 'home' }: { slug: string }, queryClient: QueryClient) => {
-  const result = await queryClient?.ensureQueryData({
+  const result = await queryClient.ensureQueryData({
     queryKey: ['page'],
     queryFn: () => 
       payload.find({
@@ -48,7 +48,7 @@ const queryPageBySlug = unstable_cache(async ({ slug = 'home' }: { slug: string 
         where: {
           slug: {
             equals: Array.isArray(slug) ? slug[0] : slug,
-          },
+          }
         },
       }),
       staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 * 10 * 3 : 60 * 1000
