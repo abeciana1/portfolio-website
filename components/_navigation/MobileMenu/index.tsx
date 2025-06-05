@@ -10,7 +10,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
   links,
   socialLinks
 }) => {
-  const [isOpen, setOpen] = useState(true)
+  const [isOpen, setOpen] = useState(false)
   return (
     <>
       <div data-testid='mobile-btn' className='absolute right-2 top-4'>
