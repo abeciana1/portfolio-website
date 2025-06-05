@@ -10,7 +10,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
   links,
   socialLinks
 }) => {
-  const [isOpen, setOpen] = useState(false)
+  const [isOpen, setOpen] = useState(true)
   return (
     <>
       <div data-testid='mobile-btn' className='absolute right-2 top-4'>
@@ -22,7 +22,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
       </div>
       {isOpen &&
         <div
-          className='bg-background relative flex flex-col items-center top-24'
+          className='bg-background absolute w-full h-screen z-[99999] left-0 flex flex-col items-center top-20'
         >
           {links && (links?.length > 0) &&
             <ul
