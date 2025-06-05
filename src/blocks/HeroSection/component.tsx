@@ -36,7 +36,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     <section
       aria-label='section'
       id={sectionId}
-      className={clsx('relative flex flex-col-reverse md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto', {
+      className={clsx('relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto', {
         [innerContainer]: enableInnerContainer,
         [limitContainer]: !enableInnerContainer,
         ['bg-pillGrey dark:bg-darkGrey']: greyBackground
