@@ -30,6 +30,7 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
           height={(forcedHeight || height) as number}
           width={(forcedWidth || width) as number}
           className='relative z-50 rounded-md'
+          placeholder="blur"
         />
         {gradient &&
           <Gradient
