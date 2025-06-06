@@ -70,12 +70,12 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
                 )
               })}
             </CarouselContent>
-            <div className='relative mx-auto flex justify-between items-center my-6 w-96 lg:w-125'>
+            <div className='relative mx-auto flex justify-between items-center my-6 sm:w-96 lg:w-125'>
               <CarouselIndicator
                 className='relative max-w-min'
               />
               <CarouselNavigation
-                className='relative -bottom-10  w-full justify-end gap-2 max-w-min'
+                className='relative -bottom-10 w-full justify-end gap-2 max-w-min'
                 classNameButton='bg-zinc-800 *:stroke-zinc-50 dark:bg-zinc-200 dark:*:stroke-zinc-800'
                 alwaysShow
                 enableInfinite={carouselCustom && enableInfinite}
