@@ -37,7 +37,7 @@ const Testimonial: React.FC<TestimonialProps> = ({
             height={200}
             src={headshot?.webpUrl as string}
             alt={`${name} headshot`}
-            className='max-h-55 max-w-48 rounded-md object-cover object-top'
+            className='max-h-[200px] max-w-48 rounded-md object-cover object-top'
           />
           <div className='flex flex-col w-full p-6 justify-between h-55'>
             <div data-testid='callout' className='font-semibold italic text-md text-left'>
