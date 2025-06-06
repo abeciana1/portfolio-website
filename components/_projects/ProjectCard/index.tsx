@@ -38,7 +38,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
           <div tabIndex={0} data-testid='project-title' className="font-medium text-lg text-foreground dark:text-background">
             {title}
           </div>
-          <div  data-testid='project-excerpt' className="font-medium text-lg text-darkGrey dark:text-pillGrey">
+          <div  data-testid='project-excerpt' className="font-medium text-lg text-darkGrey">
             {excerpt.length > 70 ? excerpt.substring(0, 70) + '...' : excerpt}
           </div>
           <span tabIndex={0} className='sr-only'>{excerpt}</span>
