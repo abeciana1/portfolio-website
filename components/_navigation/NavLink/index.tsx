@@ -4,13 +4,15 @@ import { type NavLink as NavLinkI } from '@/src/payload-types'
 import Link from 'next/link'
 import clsx from 'clsx'
 
-export type NavLinkType = Pick<NavLinkI, 'link' | 'label'>
+export type NavLinkType = Pick<NavLinkI, 'link' | 'label'> & {
+  onClick?: () => void;
+}
 
-const NavLink: React.FC<NavLinkType> = ({ label, link }) => {
+const NavLink: React.FC<NavLinkType> = ({ label, link, onClick }) => {
   const pathname = usePathname()
   const isActive = pathname === link
   return (
-    <li>
+    <li onClick={onClick}>
       <Link
         prefetch
         aria-label={label}
