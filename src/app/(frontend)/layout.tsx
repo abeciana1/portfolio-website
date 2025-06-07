@@ -5,7 +5,7 @@ import CombinedProviders from '@/components/providers'
 import NavBar from '@/components/_navigation/NavBar'
 import Toolbar from '@/components/_navigation/Toolbar'
 import { cookies } from 'next/headers';
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 
 export const revalidate = 3600 
 
@@ -30,6 +30,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body className={`relative antialiased ${inter.className} bg-background text-foreground dark:bg-foreground dark:text-background max-w-[1440px] mx-auto`}>
         <GoogleAnalytics
           gaId='G-Y7HNS80HJT'
+        />
+        <GoogleTagManager
+          gtmId='GTM-PJCZ4RCZ'
         />
         <CombinedProviders>
           <NavBar/>
