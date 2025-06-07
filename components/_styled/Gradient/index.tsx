@@ -86,13 +86,15 @@ const Gradient: React.FC<GradientProps> = ({
   forcedSecondHeight
 }) => {
   return (
-    <div className='absolute top-5.5 left-0 w-full h-full'>
+    <div className='absolute top-5.5 left-0 w-full h-full blur-gradient-control'>
       <div
         style={{
           height: '100%',
-          width: '100%'
+          width: '100%',
+          transform: 'translateZ(0)',
+          willChange: 'transform',
         }}
-        className={clsx('absolute z-20 rounded-full blur-3xl',{
+        className={clsx('absolute z-20 rounded-full blur-3xl opacity-100',{
           [gradients[variant]["default"]["first"]]: !gradientXFlip && !gradientYFlip,
           [gradients[variant]["xFlip"]["first"]]: gradientXFlip && !gradientYFlip,
           [gradients[variant]["yFlip"]["first"]]: !gradientXFlip && gradientYFlip,
@@ -102,9 +104,11 @@ const Gradient: React.FC<GradientProps> = ({
       <div
         style={{
           height: '100%',
-          width: '100%'
+          width: '100%',
+          transform: 'translateZ(0)',
+          willChange: 'transform',
         }}
-        className={clsx('absolute z-10 rounded-full blur-2xl',{
+        className={clsx('absolute z-10 rounded-full blur-2xl opacity-30',{
           [gradients[variant]["default"]["second"]]: !gradientXFlip && !gradientYFlip,
           [gradients[variant]["xFlip"]["second"]]: gradientXFlip && !gradientYFlip,
           [gradients[variant]["yFlip"]["second"]]: !gradientXFlip && gradientYFlip,
