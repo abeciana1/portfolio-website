@@ -36,6 +36,7 @@ const MobileMenu: React.FC<MobileMenuI> = ({
                     key={`mobile-link-${link?.label}-${index}`}
                     link={link.link as string}
                     label={link.label as string}
+                    onClick={() => setOpen(false)}
                   />
                 )
               })}
