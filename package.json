@@ -28,6 +28,7 @@
     "@aws-sdk/client-s3": "^3.758.0",
     "@million/lint": "^1.0.14",
     "@neondatabase/serverless": "^1.0.0",
+    "@next/third-parties": "^15.3.3",
     "@payloadcms/db-postgres": "^3.40.0",
     "@payloadcms/db-vercel-postgres": "^3.40.0",
     "@payloadcms/next": "^3.40.0",
