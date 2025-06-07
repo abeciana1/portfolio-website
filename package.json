@@ -55,6 +55,7 @@
     "next": "^15.1.7",
     "payload": "^3.40.0",
     "postcss": "^8.5.1",
+    "posthog-js": "^1.249.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-icons": "^5.4.0",
