@@ -69,3 +69,8 @@ main {
     @apply overflow-x-hidden;
   }
 }
+
+.blur-gradient-control {
+  transform: translateZ(0);
+  will-change: transform;
+}
