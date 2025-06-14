@@ -310,5 +310,5 @@ export type FormBlockProps = {
   destination: string;
   enableIntro?: boolean;
   content_html: string;
-  form: Form
+  form: Form;
 }
