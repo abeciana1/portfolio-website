@@ -13,7 +13,8 @@ import {
   type ProblemFramingSectionBlock,
   type UserResearchSectionBlock,
   type InsightsSectionBlock,
-  type OutcomesSectionBlock
+  type OutcomesSectionBlock,
+  type Form
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -303,3 +304,11 @@ export type OutcomesSectionBlockProps = Pick<OutcomesSectionBlock,
   'gradient' |
   'gradientSelect'
 >
+
+export type FormBlockProps = {
+  formTitle: string;
+  destination: string;
+  enableIntro?: boolean;
+  content_html: string;
+  form: Form
+}
