@@ -613,8 +613,9 @@ export interface Testimonial {
  */
 export interface FormBlockInterface {
   formTitle: string;
+  destination: string;
   enableIntro?: boolean | null;
-  content: {
+  content?: {
     root: {
       type: string;
       children: {
@@ -628,7 +629,7 @@ export interface FormBlockInterface {
       version: number;
     };
     [k: string]: unknown;
-  };
+  } | null;
   content_html?: string | null;
   form: number | Form;
   id?: string | null;
@@ -1658,6 +1659,7 @@ export interface TestimonialSectionBlockSelect<T extends boolean = true> {
  */
 export interface FormBlockInterfaceSelect<T extends boolean = true> {
   formTitle?: T;
+  destination?: T;
   enableIntro?: T;
   content?: T;
   content_html?: T;
