@@ -45,6 +45,7 @@ import { ProblemFramingSection } from '@/src/blocks/ProblemFramingSection/config
 import { UserResearchSectionBlock } from '@/src/blocks/UserResearchSection/config'
 import { InsightsSectionBlock } from '@/src/blocks/InsightsSection/config'
 import { OutcomesSectionBlock } from '@/src/blocks/OutcomesSection/config'
+import { FormBlock } from '@/src/blocks/FormBlock/config'
 
 // * nested route mapping
 type HashMap = {
@@ -103,7 +104,8 @@ export default buildConfig({
     ProblemFramingSection,
     UserResearchSectionBlock,
     InsightsSectionBlock,
-    OutcomesSectionBlock
+    OutcomesSectionBlock,
+    FormBlock
   ],
   cors: [
     'http://localhost:3000',
