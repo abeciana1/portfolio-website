@@ -2,9 +2,8 @@ import {
   type CollectionConfig
 } from 'payload';
 import {
-  HTMLConverterFeature,
   lexicalEditor,
-  lexicalHTML
+  lexicalHTMLField
 } from '@payloadcms/richtext-lexical'
 
 export const Testimonial: CollectionConfig = {
@@ -49,13 +48,11 @@ export const Testimonial: CollectionConfig = {
       type: 'richText',
       label: 'Rich Text Content',
       required: true,
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-          HTMLConverterFeature({}),
-        ]
-      })
+      editor: lexicalEditor()
     },
-    lexicalHTML('content', { name: 'content_html' }),
+    lexicalHTMLField({
+      htmlFieldName: 'content_html',
+      lexicalFieldName: 'content'
+    }),
   ]
 }
