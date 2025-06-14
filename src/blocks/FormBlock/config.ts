@@ -24,7 +24,16 @@ export const FormBlock: Block = {
       type: 'richText',
       label: 'Rich Text Content',
       required: true,
-      editor: lexicalEditor()
+      editor: lexicalEditor(),
+      admin: {
+        condition: (data, siblingData) => {
+          if (siblingData?.enableIntro) {
+            return true
+          } else {
+            return false
+          }
+        }
+      }
     },
     lexicalHTMLField({
       htmlFieldName: 'content_html',
