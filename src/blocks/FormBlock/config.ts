@@ -15,6 +15,12 @@ export const FormBlock: Block = {
       required: true
     },
     {
+      name: 'destination',
+      label: 'API destination',
+      type: 'text',
+      required: true
+    },
+    {
       name: 'enableIntro',
       label: 'Enable Intro Content',
       type: 'checkbox',
