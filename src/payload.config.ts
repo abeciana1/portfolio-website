@@ -8,6 +8,7 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import { titleToSlug } from '@/utils/helpers'
 import { postgresAdapter } from '@payloadcms/db-postgres';
+import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 
 // * subdirectory hash
 
@@ -180,17 +181,17 @@ export default buildConfig({
       generateImage: ({ doc }) => doc?.featuredImage,
       tabbedUI: true
     }),
-    // formBuilderPlugin({
-    //   fields: {
-    //     text: true,
-    //     textarea: true,
-    //     select: true,
-    //     email: true,
-    //     checkbox: true,
-    //     number: true,
-    //     message: true,
-    //     date: false,
-    //   }
-    // })
+    formBuilderPlugin({
+      fields: {
+        text: true,
+        textarea: true,
+        select: true,
+        email: true,
+        checkbox: true,
+        number: true,
+        message: true,
+        date: false,
+      }
+    })
   ],
 })
