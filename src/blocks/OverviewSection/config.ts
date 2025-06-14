@@ -1,8 +1,7 @@
 import { type Block } from 'payload'
 import {
-  HTMLConverterFeature,
   lexicalEditor,
-  lexicalHTML
+  lexicalHTMLField
 } from '@payloadcms/richtext-lexical'
 
 export const OverviewSection: Block = {
@@ -20,14 +19,12 @@ export const OverviewSection: Block = {
       type: 'richText',
       label: 'Rich Text Content',
       required: true,
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-          HTMLConverterFeature({}),
-        ]
-      })
+      editor: lexicalEditor()
     },
-    lexicalHTML('content', { name: 'content_html' }),
+    lexicalHTMLField({
+      htmlFieldName: 'content_html',
+      lexicalFieldName: 'content'
+    }),
     {
       name: 'role',
       label: 'Role',
