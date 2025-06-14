@@ -1,13 +1,13 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import useMeasure from 'react-use-measure';
-import { AnimatePresence, motion, MotionConfig } from 'motion/react';
+import { AnimatePresence, motion, MotionConfig, type Transition } from 'motion/react';
 import cx from 'classnames'
 
 // * item content
 import DarkModeToggle from '@/components/_navigation/DarkModeToggle';
 
-const transition = {
+const transition: Transition = {
   type: 'spring',
   bounce: 0.1,
   duration: 0.25,
