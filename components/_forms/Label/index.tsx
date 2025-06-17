@@ -1,7 +1,12 @@
+import { LabelProps } from '@/types/form'
 
-const Label = () => {
+const Label: React.FC<LabelProps> = ({
+  label,
+  name,
+  required
+}) => {
   return (
-    <label></label>
+    <label htmlFor={name}>{label}{required && '*'}</label>
   )
 }
 
