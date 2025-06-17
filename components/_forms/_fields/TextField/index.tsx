@@ -19,6 +19,7 @@ const TextField: React.FC<BaseInputProps> = ({
         {...register(name, {
           required: required
         })}
+        className='border-2 border-darkGrey dark:border-pillGrey p-2 rounded-md focus:border-foreground dark:focus:border-pillGrey'
       />
     </div>
   )
