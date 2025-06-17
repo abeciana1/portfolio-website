@@ -6,7 +6,12 @@ const Label: React.FC<LabelProps> = ({
   required
 }) => {
   return (
-    <label htmlFor={name}>{label}{required && '*'}</label>
+    <label
+      htmlFor={name}
+      className='text-lg font-semibold'
+    >
+      {label}{required && '*'}
+    </label>
   )
 }
 
