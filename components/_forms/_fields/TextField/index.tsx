@@ -8,7 +8,7 @@ const TextField: React.FC<BaseInputProps> = ({
   register
 }) => {
   return (
-    <div>
+    <div className='flex flex-col gap-3'>
       <Label
         name={name}
         label={label}
