@@ -1,4 +1,4 @@
-import MillionLint from '@million/lint';
+// import MillionLint from '@million/lint';
 import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
@@ -14,15 +14,16 @@ const nextConfig = {
   reactStrictMode: false
 }
 
-export default MillionLint.next({
-  enabled: true,
-  rsc: true,
-  optimizeDOM: true,
-  legacyHmr: true,
-  filter: {
-    include: [
-      "**/components/*.{tsx}",
-      "**/src/blocks/*/component.{tsx}"
-    ]
-  }
-})(withPayload(nextConfig));
+export default withPayload(nextConfig)
+// MillionLint.next({
+//   enabled: true,
+//   rsc: true,
+//   optimizeDOM: true,
+//   legacyHmr: true,
+//   filter: {
+//     include: [
+//       "**/components/*.{tsx}",
+//       "**/src/blocks/*/component.{tsx}"
+//     ]
+//   }
+// })(withPayload(nextConfig));
