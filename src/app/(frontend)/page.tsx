@@ -50,7 +50,7 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
           },
         },
       }),
-      staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 * 10 * 3 : 60 * 1000
+    staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 : 10 * 1000 // 1 minute in production, 10 seconds in development
   })
   return result?.docs?.[0] || null
 })
