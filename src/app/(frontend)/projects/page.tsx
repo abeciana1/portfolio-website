@@ -7,7 +7,6 @@ import RenderProjectBlocks from '@/src/blocks/RenderProjectBlocks'
 import { notFound } from 'next/navigation';
 import { generateMeta } from '@/utils/generateMeta'
 import { QueryClient } from '@tanstack/react-query'
-// import queryClient from '@/utils/queryClient'
 import { payload } from '@/src/payload'
 
 type Args = {
@@ -24,7 +23,6 @@ const Page = async ({ params: paramsPromise }: Args) => {
   }
   const { slug = 'home' } = cachedParams
   const queryClient = new QueryClient()
-  // const { slug = 'home' } = await paramsPromise;
 
   console.log('Received slug:', slug);
 

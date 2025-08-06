@@ -6,7 +6,6 @@ import { cache } from 'react'
 import RenderProjectBlocks from '@/src/blocks/RenderProjectBlocks'
 import { notFound } from 'next/navigation';
 import { generateMeta } from '@/utils/generateMeta'
-// import queryClient from '@/utils/queryClient'
 import { QueryClient } from '@tanstack/react-query'
 import { payload } from '@/src/payload'
 
@@ -24,7 +23,6 @@ const Page = async ({ params: paramsPromise }: Args) => {
   }
   const { slug = 'home' } = cachedParams
   const queryClient = new QueryClient()
-  // const { slug = 'home' } = await paramsPromise;
 
   const page: RequiredDataFromCollectionSlug<'project-pages'> | null = await queryPageBySlug({
     slug,
