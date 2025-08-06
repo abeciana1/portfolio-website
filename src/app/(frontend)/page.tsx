@@ -16,15 +16,16 @@ type Args = {
   }>
 }
 
-// let cachedParams: any;
+let cachedParams: any;
 
 const Page = async ({ params: paramsPromise }: Args) => {
-  // if (!cachedParams) {
-  //   cachedParams = await paramsPromise;
-  // }
-  // const { slug = 'home' } = cachedParams;
-  const { slug = 'home' } = await paramsPromise;
-  console.log('Received slug:', slug);
+  if (!cachedParams) {
+    cachedParams = await paramsPromise;
+  }
+  const { slug = 'home' } = cachedParams;
+    // const queryClient = new QueryClient()
+  // const { slug = 'home' } = await paramsPromise;
+  // console.log('Received slug:', slug);
 
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
@@ -64,6 +65,7 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
 })
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
+  // const queryClient = new QueryClient()
   const { slug = 'home' } = await paramsPromise
   const page = await queryPageBySlug({
     slug,
