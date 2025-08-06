@@ -24,6 +24,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
   // }
   // const { slug = 'home' } = cachedParams;
   const { slug = 'home' } = await paramsPromise;
+  console.log('Received slug:', slug);
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
     slug,
