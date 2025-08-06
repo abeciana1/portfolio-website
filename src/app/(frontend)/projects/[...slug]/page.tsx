@@ -16,8 +16,13 @@ type Args = {
   }>
 }
 
+let cachedParams: any;
+
 const Page = async ({ params: paramsPromise }: Args) => {
-  const { slug = 'home' } = await paramsPromise
+  if (!cachedParams) {
+    cachedParams = await paramsPromise;
+  }
+  const { slug = 'home' } = cachedParams;
 
   const page: RequiredDataFromCollectionSlug<'project-pages'> | null = await queryPageBySlug({
     slug,
