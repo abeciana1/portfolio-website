@@ -6,7 +6,7 @@ import { cache } from 'react'
 import RenderBlocks from '@/src/blocks/RenderBlocks'
 import { notFound } from 'next/navigation';
 import { generateMeta } from '@/utils/generateMeta'
-import queryClient from '@/utils/queryClient'
+// import queryClient from '@/utils/queryClient'
 import { QueryClient } from '@tanstack/react-query'
 import { payload } from '@/src/payload'
 
@@ -16,15 +16,15 @@ type Args = {
   }>
 }
 
-let cachedParams: any;
+// let cachedParams: any;
 
 const Page = async ({ params: paramsPromise }: Args) => {
-  if (!cachedParams) {
-    cachedParams = await paramsPromise;
-  }
-  const { slug = 'home' } = cachedParams;
-    // const queryClient = new QueryClient()
-  // const { slug = 'home' } = await paramsPromise;
+  // if (!cachedParams) {
+  //   cachedParams = await paramsPromise;
+  // }
+  // const { slug = 'home' } = cachedParams;
+    const queryClient = new QueryClient()
+  const { slug = 'home' } = await paramsPromise;
   // console.log('Received slug:', slug);
 
 
@@ -65,7 +65,7 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
 })
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  // const queryClient = new QueryClient()
+  const queryClient = new QueryClient()
   const { slug = 'home' } = await paramsPromise
   const page = await queryPageBySlug({
     slug,
