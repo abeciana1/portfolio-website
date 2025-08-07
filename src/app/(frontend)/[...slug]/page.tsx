@@ -15,8 +15,13 @@ type Args = {
   }>
 }
 
+let cachedParams: any;
+
 const Page = async ({ params: paramsPromise }: Args) => {
-  const { slug = 'home' } = await paramsPromise
+  if (!cachedParams) {
+    cachedParams = await paramsPromise;
+  }
+  const { slug = 'home' } = cachedParams;
   const queryClient = new QueryClient()
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
@@ -50,7 +55,7 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
           }
         },
       }),
-      staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 * 10 * 3 : 60 * 1000
+      staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 : 10 * 1000
   })
   return result?.docs?.[0] || null
 })

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-.rich-text {
+.payload-richtext {
   h1 {
     @apply text-6xl font-semibold leading-16;
   }
@@ -26,7 +26,7 @@
   }
   
   p {
-    @apply text-lg leading-12;
+    @apply text-lg leading-6;
   }
   
   ul {
