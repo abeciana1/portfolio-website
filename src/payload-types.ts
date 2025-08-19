@@ -99,6 +99,7 @@ export interface Config {
     jobs: Job;
     projects: Project;
     'project-tags': ProjectTag;
+    'blog-pages': BlogPage;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -118,6 +119,7 @@ export interface Config {
     jobs: JobsSelect<false> | JobsSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     'project-tags': ProjectTagsSelect<false> | ProjectTagsSelect<true>;
+    'blog-pages': BlogPagesSelect<false> | BlogPagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -987,6 +989,30 @@ export interface ProjectGridBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-pages".
+ */
+export interface BlogPage {
+  id: number;
+  nestedRoute: NestedRouteField;
+  /**
+   * Title for the page
+   */
+  title: string;
+  slug?: string | null;
+  layout?: HeroSectionNoImageBlock[] | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -1043,6 +1069,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'project-tags';
         value: number | ProjectTag;
+      } | null)
+    | ({
+        relationTo: 'blog-pages';
+        value: number | BlogPage;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1735,6 +1765,29 @@ export interface ProjectsSelect<T extends boolean = true> {
  */
 export interface ProjectTagsSelect<T extends boolean = true> {
   label?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-pages_select".
+ */
+export interface BlogPagesSelect<T extends boolean = true> {
+  nestedRoute?: T;
+  title?: T;
+  slug?: T;
+  layout?:
+    | T
+    | {
+        'hero-section-no-image'?: T | HeroSectionNoImageBlockSelect<T>;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
