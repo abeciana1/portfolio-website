@@ -26,6 +26,7 @@ import { Job } from './collections/jobs'
 import { Project } from './collections/projects'
 import { ProjectTag } from './collections/project-tags'
 import { ProjectPage } from './collections/project-pages'
+import { BlogPage } from './collections/blog-pages'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
@@ -51,6 +52,7 @@ type HashMap = {
 }
 
 const nestedRouteHash: HashMap = {
+  'blogs': 'blog',
   'projects' : 'projects',
   'base': ''
 }
@@ -82,7 +84,8 @@ export default buildConfig({
         'jobs',
         'projects',
         'project-tags',
-        'project-pages'
+        'project-pages',
+        'blog-pages'
       ],
     }
   },
@@ -125,7 +128,8 @@ export default buildConfig({
     Testimonial,
     Job,
     Project,
-    ProjectTag
+    ProjectTag,
+    BlogPage
   ],
   editor: lexicalEditor(),
   typescript: {
@@ -168,7 +172,8 @@ export default buildConfig({
     seoPlugin({
       collections: [
         'pages',
-        'project-pages'
+        'project-pages',
+        'blog-pages'
       ],
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `Alex Beciana | ${doc.title}`,
