@@ -10,7 +10,7 @@
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "NestedRouteField".
  */
-export type NestedRouteField = 'base' | 'projects';
+export type NestedRouteField = 'base' | 'projects' | 'blog';
 /**
  * Supported timezones in IANA format.
  *
