@@ -8,8 +8,6 @@ import { cookies } from 'next/headers';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { WebVitals } from '@/components/providers/web-vitals'
 
-export const revalidate = 3600 
-
 const inter = Inter({
   // weight: ['100', '300', '400', '500', '600', '700'],
   subsets: ['latin'],
