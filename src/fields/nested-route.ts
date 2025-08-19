@@ -14,6 +14,10 @@ export const NestedRoute: Field = {
     {
       label: 'Projects',
       value: 'projects'
+    },
+    {
+      label: 'Blog',
+      value: 'blog'
     }
   ]
 }
