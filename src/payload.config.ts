@@ -52,7 +52,7 @@ type HashMap = {
 }
 
 const nestedRouteHash: HashMap = {
-  'blogs': 'blog',
+  'blog': 'blog',
   'projects' : 'projects',
   'base': ''
 }
