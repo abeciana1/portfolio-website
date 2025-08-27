@@ -27,6 +27,7 @@ import { Project } from './collections/projects'
 import { ProjectTag } from './collections/project-tags'
 import { ProjectPage } from './collections/project-pages'
 import { BlogPage } from './collections/blog-pages'
+import { BlogCategory } from './collections/blog-categories'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
@@ -86,7 +87,8 @@ export default buildConfig({
         'projects',
         'project-tags',
         'project-pages',
-        'blog-pages'
+        'blog-pages',
+        'blog-categories'
       ],
     }
   },
@@ -131,7 +133,8 @@ export default buildConfig({
     Job,
     Project,
     ProjectTag,
-    BlogPage
+    BlogPage,
+    BlogCategory
   ],
   editor: lexicalEditor(),
   typescript: {
