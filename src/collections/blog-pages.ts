@@ -6,13 +6,15 @@ import { titleToSlug } from '@/utils/helpers'
 // * blocks
 import { HeroSectionNoImage } from '@/src/blocks/HeroSectionNoImage/config'
 import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
+import { BlogImage as BlogImageBlock } from '@/src/blocks/BlogImage/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
 
 const allowableBlocks = [
   HeroSectionNoImage,
-  RichTextBlock
+  RichTextBlock,
+  BlogImageBlock
 ]
 
 export const BlogPage: CollectionConfig = {
