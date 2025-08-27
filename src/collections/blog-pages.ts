@@ -92,6 +92,14 @@ export const BlogPage: CollectionConfig = {
                   relationTo: 'blog-categories',
                   required: true,
                   hasMany: false
+                },
+                {
+                  name: 'tags',
+                  label: 'Tags',
+                  type: 'relationship',
+                  relationTo: 'project-tags',
+                  required: true,
+                  hasMany: true
                 }
               ]
             },
