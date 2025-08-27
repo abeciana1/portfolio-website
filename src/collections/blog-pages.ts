@@ -5,12 +5,14 @@ import { titleToSlug } from '@/utils/helpers'
 
 // * blocks
 import { HeroSectionNoImage } from '@/src/blocks/HeroSectionNoImage/config'
+import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
 
 const allowableBlocks = [
-  HeroSectionNoImage
+  HeroSectionNoImage,
+  RichTextBlock
 ]
 
 export const BlogPage: CollectionConfig = {
@@ -48,6 +50,40 @@ export const BlogPage: CollectionConfig = {
               name: 'slug',
               type: 'text',
               label: 'Slug'
+            },
+            {
+              name: 'enableBlogHeader',
+              label: 'Enable blog header',
+              type: 'checkbox'
+            },
+            {
+              name: 'blogHeader',
+              type: 'group',
+              admin: {
+                condition: (_, siblingData) => {
+                  if (siblingData.enableBlogHeader) {
+                    return true
+                  } else {
+                    return false
+                  }
+                }
+              },
+              fields: [
+                {
+                  name: 'excerpt',
+                  label: 'Excerpt',
+                  type: 'textarea',
+                  required: true
+                },
+                {
+                  name: 'featuredImage',
+                  label: 'Featured Image',
+                  type: 'upload',
+                  relationTo: 'media',
+                  required: true,
+                  hasMany: false
+                }
+              ]
             },
             {
               name: 'layout',
