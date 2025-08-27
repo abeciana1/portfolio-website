@@ -90,7 +90,8 @@ export const BlogPage: CollectionConfig = {
                   label: 'Category',
                   type: 'relationship',
                   relationTo: 'blog-categories',
-                  required: true
+                  required: true,
+                  hasMany: false
                 }
               ]
             },
