@@ -45,6 +45,7 @@ import { ProblemFramingSection } from '@/src/blocks/ProblemFramingSection/config
 import { UserResearchSectionBlock } from '@/src/blocks/UserResearchSection/config'
 import { InsightsSectionBlock } from '@/src/blocks/InsightsSection/config'
 import { OutcomesSectionBlock } from '@/src/blocks/OutcomesSection/config'
+import { BlogImage as BlogImageBlock } from '@/src/blocks/BlogImage/config'
 
 // * nested route mapping
 type HashMap = {
@@ -105,7 +106,8 @@ export default buildConfig({
     ProblemFramingSection,
     UserResearchSectionBlock,
     InsightsSectionBlock,
-    OutcomesSectionBlock
+    OutcomesSectionBlock,
+    BlogImageBlock
   ],
   cors: [
     'http://localhost:3000',
