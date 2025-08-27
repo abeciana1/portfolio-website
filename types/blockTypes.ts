@@ -303,3 +303,10 @@ export type OutcomesSectionBlockProps = Pick<OutcomesSectionBlock,
   'gradient' |
   'gradientSelect'
 >
+
+export type BlogImageProps = {
+  image: CMSMediaT;
+  caption: string;
+}
+
+export type BlogHeaderProps = {}
