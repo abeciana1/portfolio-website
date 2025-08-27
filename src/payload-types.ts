@@ -84,6 +84,7 @@ export interface Config {
     'user-research': UserResearchSectionBlock;
     'insights-section': InsightsSectionBlock;
     'outcomes-section': OutcomesSectionBlock;
+    'blog-image': BlogImageBlock;
   };
   collections: {
     users: User;
@@ -808,6 +809,17 @@ export interface OutcomesSectionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogImageBlock".
+ */
+export interface BlogImageBlock {
+  image: number | Media;
+  caption: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-image';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -999,7 +1011,12 @@ export interface BlogPage {
    */
   title: string;
   slug?: string | null;
-  layout?: HeroSectionNoImageBlock[] | null;
+  enableBlogHeader?: boolean | null;
+  blogHeader?: {
+    excerpt: string;
+    featuredImage: number | Media;
+  };
+  layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1776,10 +1793,19 @@ export interface BlogPagesSelect<T extends boolean = true> {
   nestedRoute?: T;
   title?: T;
   slug?: T;
+  enableBlogHeader?: T;
+  blogHeader?:
+    | T
+    | {
+        excerpt?: T;
+        featuredImage?: T;
+      };
   layout?:
     | T
     | {
         'hero-section-no-image'?: T | HeroSectionNoImageBlockSelect<T>;
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+        'blog-image'?: T | BlogImageBlockSelect<T>;
       };
   meta?:
     | T
@@ -1790,6 +1816,16 @@ export interface BlogPagesSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogImageBlock_select".
+ */
+export interface BlogImageBlockSelect<T extends boolean = true> {
+  image?: T;
+  caption?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
