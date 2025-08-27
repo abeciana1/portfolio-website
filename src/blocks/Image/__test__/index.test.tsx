@@ -17,6 +17,8 @@ describe('ImageComponent', () => {
           height: 100,
           width: 100,
         }}
+        forcedWidth={100}
+        forcedHeight={100}
         gradient={false}
         gradientXFlip={false}
         gradientYFlip={false}
