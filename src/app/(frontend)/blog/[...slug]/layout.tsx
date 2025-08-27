@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import '@/src/app/(frontend)/styles.css'
 import { Inter } from 'next/font/google'
 import CombinedProviders from '@/components/providers'
 import NavBar from '@/components/_navigation/NavBar'
