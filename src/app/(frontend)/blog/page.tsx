@@ -3,7 +3,7 @@ import {
   type RequiredDataFromCollectionSlug
 } from 'payload'
 import { cache } from 'react'
-import RenderProjectBlocks from '@/src/blocks/RenderProjectBlocks'
+import RenderBlogBlocks from '@/src/blocks/RenderBlogBlocks'
 import { notFound } from 'next/navigation';
 import { generateMeta } from '@/utils/generateMeta'
 import { QueryClient } from '@tanstack/react-query'
@@ -39,7 +39,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
 
   return (
     <main className='relative'>
-      <RenderProjectBlocks blocks={layout} />
+      <RenderBlogBlocks blocks={layout} />
     </main>
   )
 }
