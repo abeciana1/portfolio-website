@@ -84,6 +84,13 @@ export const BlogPage: CollectionConfig = {
                   relationTo: 'media',
                   required: true,
                   hasMany: false
+                },
+                {
+                  name: 'category',
+                  label: 'Category',
+                  type: 'relationship',
+                  relationTo: 'blog-categories',
+                  required: true
                 }
               ]
             },
