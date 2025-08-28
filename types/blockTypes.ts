@@ -309,4 +309,10 @@ export type BlogImageProps = {
   caption: string;
 }
 
-export type BlogHeaderProps = {}
+export type BlogHeaderProps = {
+  title: string;
+  excerpt: string;
+  featuredImage: CMSMediaT;
+  category: ProjectTagProps;
+  tags: ProjectTagProps[];
+}
