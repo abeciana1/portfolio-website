@@ -6,21 +6,25 @@ import { transformBlockMedia } from '@/utils/transformImage'
 // * components
 import HeroSectionNoImage from '@/src/blocks/HeroSectionNoImage/component'
 import RichTextEditor from '@/src/blocks/RichTextEditor/component'
+import BlogImage from '@/src/blocks/BlogImage/component'
 
 // * component types
 import {
   type HeroSectionNoImageBlockProps,
   type RichTextEditorProps,
+  type BlogImageProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
   'hero-section-no-image': React.FC<HeroSectionNoImageBlockProps>;
   'rich-text-block': React.FC<RichTextEditorProps>;
+  'blog-image': React.FC<BlogImageProps>;
 }
 
 const blockComponents: BlockComponentsMap = {
   'hero-section-no-image': HeroSectionNoImage,
   'rich-text-block': RichTextEditor,
+  'blog-image': BlogImage
 }
 
 const RenderProjectBlocks: React.FC<{
