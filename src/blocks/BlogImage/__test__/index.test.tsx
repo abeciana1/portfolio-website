@@ -21,4 +21,13 @@ describe('BlogImage', () => {
       />
     )
   })
+  test('should render image', () => {
+    const image = screen.getByRole('img')
+    expect(image).toBeInTheDocument()
+    expect(image).toHaveAttribute('alt', 'Sample Image')
+  })
+  test('should render caption', () => {
+    const caption = screen.getByText('This is a caption')
+    expect(caption).toBeInTheDocument()
+  })
 })
