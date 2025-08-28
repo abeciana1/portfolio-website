@@ -7,6 +7,7 @@ import { titleToSlug } from '@/utils/helpers'
 import { HeroSectionNoImage } from '@/src/blocks/HeroSectionNoImage/config'
 import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 import { BlogImage as BlogImageBlock } from '@/src/blocks/BlogImage/config'
+import { BlogHeader as BlogHeaderBlock } from '@/src/blocks/BlogHeader/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
@@ -14,7 +15,8 @@ import { NestedRoute } from '@/src/fields/nested-route'
 const allowableBlocks = [
   HeroSectionNoImage,
   RichTextBlock,
-  BlogImageBlock
+  BlogImageBlock,
+  BlogHeaderBlock
 ]
 
 export const BlogPage: CollectionConfig = {
@@ -52,56 +54,6 @@ export const BlogPage: CollectionConfig = {
               name: 'slug',
               type: 'text',
               label: 'Slug'
-            },
-            {
-              name: 'enableBlogHeader',
-              label: 'Enable blog header',
-              type: 'checkbox'
-            },
-            {
-              name: 'blogHeader',
-              type: 'group',
-              admin: {
-                condition: (_, siblingData) => {
-                  if (siblingData.enableBlogHeader) {
-                    return true
-                  } else {
-                    return false
-                  }
-                }
-              },
-              fields: [
-                {
-                  name: 'excerpt',
-                  label: 'Excerpt',
-                  type: 'textarea',
-                  required: true
-                },
-                {
-                  name: 'featuredImage',
-                  label: 'Featured Image',
-                  type: 'upload',
-                  relationTo: 'media',
-                  required: true,
-                  hasMany: false
-                },
-                {
-                  name: 'category',
-                  label: 'Category',
-                  type: 'relationship',
-                  relationTo: 'blog-categories',
-                  required: true,
-                  hasMany: false
-                },
-                {
-                  name: 'tags',
-                  label: 'Tags',
-                  type: 'relationship',
-                  relationTo: 'project-tags',
-                  required: true,
-                  hasMany: true
-                }
-              ]
             },
             {
               name: 'layout',
