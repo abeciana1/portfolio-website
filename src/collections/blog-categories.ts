@@ -11,8 +11,8 @@ export const BlogCategory: CollectionConfig = {
   hooks: {
     afterChange: [
       async ({ doc }) => {
-        if (doc.title) {
-          doc.slug = titleToSlug(doc.title);
+        if (doc.label) {
+          doc.slug = titleToSlug(doc.label);
         }
       }
     ]
