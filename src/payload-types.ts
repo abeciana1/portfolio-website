@@ -85,6 +85,7 @@ export interface Config {
     'insights-section': InsightsSectionBlock;
     'outcomes-section': OutcomesSectionBlock;
     'blog-image': BlogImageBlock;
+    'blog-header': BlogHeaderBlock;
   };
   collections: {
     users: User;
@@ -822,6 +823,31 @@ export interface BlogImageBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogHeaderBlock".
+ */
+export interface BlogHeaderBlock {
+  title: string;
+  excerpt: string;
+  featuredImage: number | Media;
+  category: number | BlogCategory;
+  tags: (number | ProjectTag)[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-header';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-categories".
+ */
+export interface BlogCategory {
+  id: number;
+  label: string;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -1013,12 +1039,7 @@ export interface BlogPage {
    */
   title: string;
   slug?: string | null;
-  enableBlogHeader?: boolean | null;
-  blogHeader?: {
-    excerpt: string;
-    featuredImage: number | Media;
-  };
-  layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock)[] | null;
+  layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock | BlogHeaderBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1027,17 +1048,6 @@ export interface BlogPage {
      */
     image?: (number | null) | Media;
   };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-categories".
- */
-export interface BlogCategory {
-  id: number;
-  label: string;
-  slug: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -1810,19 +1820,13 @@ export interface BlogPagesSelect<T extends boolean = true> {
   nestedRoute?: T;
   title?: T;
   slug?: T;
-  enableBlogHeader?: T;
-  blogHeader?:
-    | T
-    | {
-        excerpt?: T;
-        featuredImage?: T;
-      };
   layout?:
     | T
     | {
         'hero-section-no-image'?: T | HeroSectionNoImageBlockSelect<T>;
         'rich-text-block'?: T | RichTextBlockSelect<T>;
         'blog-image'?: T | BlogImageBlockSelect<T>;
+        'blog-header'?: T | BlogHeaderBlockSelect<T>;
       };
   meta?:
     | T
@@ -1841,6 +1845,19 @@ export interface BlogPagesSelect<T extends boolean = true> {
 export interface BlogImageBlockSelect<T extends boolean = true> {
   image?: T;
   caption?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogHeaderBlock_select".
+ */
+export interface BlogHeaderBlockSelect<T extends boolean = true> {
+  title?: T;
+  excerpt?: T;
+  featuredImage?: T;
+  category?: T;
+  tags?: T;
   id?: T;
   blockName?: T;
 }
