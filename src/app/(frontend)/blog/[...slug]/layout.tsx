@@ -2,8 +2,6 @@ import React from 'react'
 import '@/src/app/(frontend)/styles.css'
 import { Inter } from 'next/font/google'
 import CombinedProviders from '@/components/providers'
-import NavBar from '@/components/_navigation/NavBar'
-import Toolbar from '@/components/_navigation/Toolbar'
 import { cookies } from 'next/headers';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { WebVitals } from '@/components/providers/web-vitals'
@@ -29,9 +27,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body className={`relative antialiased ${inter.className} bg-background text-foreground dark:bg-foreground dark:text-background max-w-[1440px] mx-auto`}>
         <WebVitals />
         <CombinedProviders>
-          <NavBar/>
-          {children}
-          <Toolbar/>
+          <section className='lg:px-10 md:px-10 px-5'>
+            {children}
+          </section>
         </CombinedProviders>
       </body>
       <GoogleAnalytics
