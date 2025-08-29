@@ -36,7 +36,7 @@ export const BlogHeader: Block = {
       name: 'tags',
       label: 'Tags',
       type: 'relationship',
-      relationTo: 'skills',
+      relationTo: 'project-tags',
       required: true,
       hasMany: true
     }
