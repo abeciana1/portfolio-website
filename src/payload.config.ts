@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config({ path: ".env.development.local" });
+dotenv.config({ path: process.env.NODE_ENV === 'production' ? ".env.production" : ".env.development.local" });
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
