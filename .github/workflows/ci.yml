@@ -33,18 +33,18 @@ jobs:
       - name: Run Jest tests with coverage
         run: npm run test:coverage
 
-      # - name: Publish JSON snapshots to R2
-      #   env: 
-      #     NODE_ENV: production
-      #     DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      #     CLOUDFLARE_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_ACCESS_KEY_ID }}
-      #     CLOUDFLARE_ACCT_ID: ${{ secrets.CLOUDFLARE_ACCT_ID }}
-      #     CLOUDFLARE_AUTH_TOKEN: ${{ secrets.CLOUDFLARE_AUTH_TOKEN }}
-      #     CLOUDFLARE_ENDPOINT: ${{ secrets.CLOUDFLARE_ENDPOINT }}
-      #     CLOUDFLARE_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_SECRET_ACCESS_KEY }}
-      #     PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
-      #     R2_SNAPSHOTS_BUCKET: ${{ secrets.R2_SNAPSHOTS_BUCKET }}
-      #   run: npm run collection-snap
+      - name: Publish JSON snapshots to R2
+        env: 
+          NODE_ENV: production
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          CLOUDFLARE_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_ACCESS_KEY_ID }}
+          CLOUDFLARE_ACCT_ID: ${{ secrets.CLOUDFLARE_ACCT_ID }}
+          CLOUDFLARE_AUTH_TOKEN: ${{ secrets.CLOUDFLARE_AUTH_TOKEN }}
+          CLOUDFLARE_ENDPOINT: ${{ secrets.CLOUDFLARE_ENDPOINT }}
+          CLOUDFLARE_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_SECRET_ACCESS_KEY }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          R2_SNAPSHOTS_BUCKET: ${{ secrets.R2_SNAPSHOTS_BUCKET }}
+        run: npm run collection-snap
 
       # - name: Run Cypress tests
       #   run: npm run cy:run
