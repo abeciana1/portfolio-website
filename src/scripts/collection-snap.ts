@@ -35,7 +35,7 @@ const bucket = r2.bucket(BUCKET)
 
 console.log(await bucket.exists()); // true
 
-const getCollectionData = async (collectionSlug: CollectionSlug) => {
+export const getCollectionData = async (collectionSlug: CollectionSlug) => {
   return await payload.find({
     collection: collectionSlug,
     limit: 1000,
