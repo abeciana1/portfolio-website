@@ -32,8 +32,9 @@ jobs:
 
       - name: Run Payload migrations on Neon
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
           PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          NEON_DATABASE_URI: ${{ secrets.NEON_DATABASE_URI }}
         run: npm run migrate:neon
 
       - name: Run Jest tests with coverage
@@ -42,7 +43,8 @@ jobs:
       - name: Publish JSON snapshots to R2
         env: 
           NODE_ENV: production
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
+          NEON_DATABASE_URI: ${{ secrets.NEON_DATABASE_URI }}
           CLOUDFLARE_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_ACCESS_KEY_ID }}
           CLOUDFLARE_ACCT_ID: ${{ secrets.CLOUDFLARE_ACCT_ID }}
           CLOUDFLARE_AUTH_TOKEN: ${{ secrets.CLOUDFLARE_AUTH_TOKEN }}
