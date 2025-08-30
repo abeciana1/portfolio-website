@@ -23,8 +23,7 @@
     "cy:run": "cypress run",
     "merge:coverage": "nyc merge ./coverage ./coverage/merged-coverage.json",
     "test:w": "jest --watch",
-    "collection-snap": "npx tsx src/scripts/collection-snap.ts",
-    "migrate:neon": "prisma migrate deploy"
+    "collection-snap": "npx tsx src/scripts/collection-snap.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.758.0",
