@@ -25,13 +25,27 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'  # or your preferred version
+          node-version: '23.x'  # or your preferred version
 
       - name: Install dependencies
         run: npm ci
 
       - name: Run Jest tests with coverage
         run: npm run test:coverage
+
+      - name: Publish JSON snapshots to R2
+        env: 
+          NODE_ENV: production
+          DATABASE_URI: ${{ secrets.DATABASE_URI }}
+          NEON_DATABASE_URI: ${{ secrets.NEON_DATABASE_URI }}
+          CLOUDFLARE_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_ACCESS_KEY_ID }}
+          CLOUDFLARE_ACCT_ID: ${{ secrets.CLOUDFLARE_ACCT_ID }}
+          CLOUDFLARE_AUTH_TOKEN: ${{ secrets.CLOUDFLARE_AUTH_TOKEN }}
+          CLOUDFLARE_ENDPOINT: ${{ secrets.CLOUDFLARE_ENDPOINT }}
+          CLOUDFLARE_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_SECRET_ACCESS_KEY }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+          R2_SNAPSHOTS_BUCKET: ${{ secrets.R2_SNAPSHOTS_BUCKET }}
+        run: npm run collection-snap
 
       # - name: Run Cypress tests
       #   run: npm run cy:run
@@ -46,5 +60,3 @@ jobs:
           # files: ./coverage/lcov.info  # adjust path if using merged coverage
           token: ${{ secrets.CODECOV_TOKEN }}  # set this in your repository secrets if needed
           slug: abeciana1/portfolio-website
-
-

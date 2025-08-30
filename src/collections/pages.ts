@@ -1,6 +1,4 @@
-import {
-  type CollectionConfig
-} from 'payload';
+import { type CollectionConfig } from 'payload'
 import { titleToSlug } from '@/utils/helpers'
 
 // * blocks
@@ -24,7 +22,7 @@ const allowableBlocks = [
   InViewEmbedBlock,
   CardBlock,
   JobSection,
-  TestimonialSectionBlock
+  TestimonialSectionBlock,
 ]
 
 const Page: CollectionConfig = {
@@ -35,11 +33,11 @@ const Page: CollectionConfig = {
   hooks: {
     afterChange: [
       async ({ doc }) => {
-        if (doc.title) {
-          doc.slug = titleToSlug(doc.title);
+        if (doc?.title) {
+          doc.slug = titleToSlug(doc.title)
         }
-      }
-    ]
+      },
+    ],
   },
   fields: [
     {
@@ -56,24 +54,24 @@ const Page: CollectionConfig = {
               admin: {
                 description: 'Title for the page',
               },
-              required: true
+              required: true,
             },
             {
               name: 'slug',
               type: 'text',
-              label: 'Slug'
+              label: 'Slug',
             },
             {
               name: 'layout',
               type: 'blocks',
               label: 'Layout',
-              blocks: allowableBlocks
-            }
-          ]
-        }
+              blocks: allowableBlocks,
+            },
+          ],
+        },
       ],
-    }
-  ]
+    },
+  ],
 }
 
-export default Page;
+export default Page

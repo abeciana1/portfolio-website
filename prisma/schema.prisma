@@ -60,8 +60,8 @@ model jobs_blocks_rich_text_block {
   path         String  @map("_path")
   id           String  @id @db.VarChar
   content      Json
-  content_html String? @db.VarChar
   block_name   String? @db.VarChar
+  content_html String? @db.VarChar
   jobs         jobs    @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "jobs_blocks_rich_text_block_parent_id_fk")
 
   @@index([order], map: "jobs_blocks_rich_text_block_order_idx")
@@ -736,7 +736,7 @@ model project_pages_blocks_outcomes_section_outcomes_stats {
   project_pages_blocks_outcomes_section_outcomes project_pages_blocks_outcomes_section_outcomes @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "stats_parent_id_fk")
 
   @@index([order], map: "project_pages_blocks_outcomes_section_outcomes_stats_order_idx")
-  @@index([parent_id], map: "stats_parent_id_idx")
+  @@index([parent_id], map: "project_pages_blocks_outcomes_section_outcomes_stats_parent_id_")
 }
 
 model project_pages_blocks_overview_section {
@@ -746,11 +746,11 @@ model project_pages_blocks_overview_section {
   id                                         String                                                        @id @db.VarChar
   title                                      String                                                        @db.VarChar
   content                                    Json
-  content_html                               String?                                                       @db.VarChar
   duration_time_length                       Decimal                                                       @db.Decimal
   duration_frequency                         enum_project_pages_blocks_overview_section_duration_frequency
   block_name                                 String?                                                       @db.VarChar
   grey_background                            Boolean?
+  content_html                               String?                                                       @db.VarChar
   project_pages                              project_pages                                                 @relation(fields: [parent_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "project_pages_blocks_overview_section_parent_id_fk")
   project_pages_blocks_overview_section_role project_pages_blocks_overview_section_role[]
 

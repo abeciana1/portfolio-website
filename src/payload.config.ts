@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config({ path: process.env.NODE_ENV === 'production' ? ".env.production" : ".env.development.local" });
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
@@ -142,11 +144,11 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  serverURL: process.env.PAYLOAD_SERVER_URL,
-  secret: process.env.PAYLOAD_SECRET as string,
+  serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL as string,
+  secret: process.env.NEXT_PUBLIC_PAYLOAD_SECRET as string || process.env.PAYLOAD_SECRET as string,
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.NODE_ENV === 'development' ? process.env.DATABASE_URI as string : process.env.DATABASE_URI as string,
+      connectionString: process.env.DATABASE_URI as string,
     },
   }),
   sharp,
