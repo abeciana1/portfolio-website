@@ -46,5 +46,3 @@ jobs:
           # files: ./coverage/lcov.info  # adjust path if using merged coverage
           token: ${{ secrets.CODECOV_TOKEN }}  # set this in your repository secrets if needed
           slug: abeciana1/portfolio-website
-
-
