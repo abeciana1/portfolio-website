@@ -25,10 +25,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'  # or your preferred version
+          node-version: '23.x'  # or your preferred version
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Run Payload migrations on Neon
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+        run: npm run migrate:neon
 
       - name: Run Jest tests with coverage
         run: npm run test:coverage
