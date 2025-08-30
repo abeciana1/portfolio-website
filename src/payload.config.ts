@@ -134,10 +134,10 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL as string,
-  secret: process.env.NEXT_PUBLIC_PAYLOAD_SECRET as string,
+  secret: process.env.NEXT_PUBLIC_PAYLOAD_SECRET as string || process.env.PAYLOAD_SECRET as string,
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.NODE_ENV === 'development' ? process.env.DATABASE_URI as string : process.env.DATABASE_URI as string,
+      connectionString: process.env.DATABASE_URI as string,
     },
   }),
   sharp,
