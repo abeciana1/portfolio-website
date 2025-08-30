@@ -26,9 +26,9 @@ const collectionHash: HashI = {
 const BUCKET = process.env.NEXT_PUBLIC_R2_SNAPSHOTS_BUCKET || 'portfolio-snapshots'
 
 const r2 = new R2({
-    accountId: process.env.NEXT_PUBLIC_CLOUDFLARE_ACCT_ID as string,
-    accessKeyId: process.env.NEXT_PUBLIC_CLOUDFLARE_ACCESS_KEY_ID as string,
-    secretAccessKey: process.env.NEXT_PUBLIC_CLOUDFLARE_SECRET_ACCESS_KEY as string,
+    accountId: process.env.NEXT_PUBLIC_CLOUDFLARE_ACCT_ID as string || process.env.CLOUDFLARE_ACCT_ID as string,
+    accessKeyId: process.env.NEXT_PUBLIC_CLOUDFLARE_ACCESS_KEY_ID as string || process.env.CLOUDFLARE_ACCESS_KEY_ID as string,
+    secretAccessKey: process.env.NEXT_PUBLIC_CLOUDFLARE_SECRET_ACCESS_KEY as string || process.env.CLOUDFLARE_SECRET_ACCESS_KEY as string,
 });
 
 const bucket = r2.bucket(BUCKET)
