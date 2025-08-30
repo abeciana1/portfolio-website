@@ -43,6 +43,7 @@ export const getCollectionData = async (collectionSlug: CollectionSlug) => {
   })
 }
 
+//* this runs on all collections
 const main = async () => {
   const contentAreas = Object.keys(collectionHash)
 
