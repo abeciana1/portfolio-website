@@ -50,10 +50,8 @@ const main = async () => {
     const collectionSlugs = collectionHash[contentArea]
     for (const collectionSlug of collectionSlugs) {
       const collection = await getCollectionData(collectionSlug)
-      console.log('formattedCollection', collection)
       const formattedCollection = JSON.stringify(collection, null, 2)
-      const uploadContent = await bucket.upload(formattedCollection, `${contentArea}/${collectionSlug}.json`);
-      console.log('uploadContent', uploadContent)
+      await bucket.upload(formattedCollection, `${contentArea}/${collectionSlug}.json`);
     }
   }
 }
