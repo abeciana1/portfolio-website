@@ -55,6 +55,7 @@ const main = async () => {
       await bucket.upload(formattedCollection, `${contentArea}/${collectionSlug}.json`);
     }
   }
+  process.exit(0)
 }
 
 main()
