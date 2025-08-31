@@ -30,15 +30,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run migrations on Neon
-        env:
-          NODE_ENV: production
-          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
-          DATABASE_URI: ${{ secrets.DATABASE_URI }}
-        run: |
-          echo "Using DB: $DATABASE_URI" | sed 's/:.*@/:****@/'
-          npm run payload migrate -- --yes --database "$DATABASE_URI"
-
       - name: Run Jest tests with coverage
         run: npm run test:coverage
 
