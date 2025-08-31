@@ -1051,7 +1051,7 @@ export interface BlogPage {
    */
   title: string;
   slug?: string | null;
-  layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock | BlogHeaderBlock)[] | null;
+  layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock | BlogHeaderBlock | BlogBodyBlock)[] | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1062,6 +1062,16 @@ export interface BlogPage {
   };
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBodyBlock".
+ */
+export interface BlogBodyBlock {
+  body?: (RichTextBlock | BlogImageBlock)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-body';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1843,6 +1853,7 @@ export interface BlogPagesSelect<T extends boolean = true> {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
         'blog-image'?: T | BlogImageBlockSelect<T>;
         'blog-header'?: T | BlogHeaderBlockSelect<T>;
+        'blog-body'?: T | BlogBodyBlockSelect<T>;
       };
   meta?:
     | T
@@ -1874,6 +1885,20 @@ export interface BlogHeaderBlockSelect<T extends boolean = true> {
   featuredImage?: T;
   category?: T;
   tags?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBodyBlock_select".
+ */
+export interface BlogBodyBlockSelect<T extends boolean = true> {
+  body?:
+    | T
+    | {
+        'rich-text-block'?: T | RichTextBlockSelect<T>;
+        'blog-image'?: T | BlogImageBlockSelect<T>;
+      };
   id?: T;
   blockName?: T;
 }
