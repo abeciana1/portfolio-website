@@ -832,7 +832,7 @@ export interface BlogHeaderBlock {
   excerpt: string;
   featuredImage: number | Media;
   category: number | BlogCategory;
-  tags: (number | BlogTag)[];
+  tags?: (number | BlogTag)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'blog-header';
