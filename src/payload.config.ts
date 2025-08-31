@@ -11,9 +11,6 @@ import { seoPlugin } from '@payloadcms/plugin-seo';
 import { titleToSlug } from '@/utils/helpers'
 import { postgresAdapter } from '@payloadcms/db-postgres';
 
-// * subdirectory hash
-
-
 // * collections
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
@@ -30,6 +27,7 @@ import { ProjectTag } from './collections/project-tags'
 import { ProjectPage } from './collections/project-pages'
 import { BlogPage } from './collections/blog-pages'
 import { BlogCategory } from './collections/blog-categories'
+import { BlogTag } from './collections/blog-tags'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
@@ -91,7 +89,8 @@ export default buildConfig({
         'project-tags',
         'project-pages',
         'blog-pages',
-        'blog-categories'
+        'blog-categories',
+        'blog-tags'
       ],
     }
   },
@@ -138,7 +137,8 @@ export default buildConfig({
     Project,
     ProjectTag,
     BlogPage,
-    BlogCategory
+    BlogCategory,
+    BlogTag
   ],
   editor: lexicalEditor(),
   typescript: {
