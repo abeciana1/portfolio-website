@@ -32,6 +32,8 @@ jobs:
 
       - name: Run migrations on Neon
         env:
+          NODE_ENV: production
+          PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
           DATABASE_URL: ${{ secrets.NEON_DATABASE_URI }} # include ?sslmode=require
         run: npm run payload migrate
 
