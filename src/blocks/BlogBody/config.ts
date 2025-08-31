@@ -14,7 +14,7 @@ export const BlogBody: Block = {
   interfaceName: 'BlogBodyBlock',
   fields: [
     {
-      name: 'body',
+      name: 'embedBlocks',
       label: 'Body',
       type: 'blocks',
       blocks: allowableBlocks
