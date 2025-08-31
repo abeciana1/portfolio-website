@@ -86,6 +86,7 @@ export interface Config {
     'outcomes-section': OutcomesSectionBlock;
     'blog-image': BlogImageBlock;
     'blog-header': BlogHeaderBlock;
+    'blog-body': BlogBodyBlock;
   };
   collections: {
     users: User;
@@ -860,6 +861,16 @@ export interface BlogTag {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBodyBlock".
+ */
+export interface BlogBodyBlock {
+  embedBlocks?: (RichTextBlock | BlogImageBlock)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-body';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -1062,16 +1073,6 @@ export interface BlogPage {
   };
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogBodyBlock".
- */
-export interface BlogBodyBlock {
-  body?: (RichTextBlock | BlogImageBlock)[] | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'blog-body';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1893,7 +1894,7 @@ export interface BlogHeaderBlockSelect<T extends boolean = true> {
  * via the `definition` "BlogBodyBlock_select".
  */
 export interface BlogBodyBlockSelect<T extends boolean = true> {
-  body?:
+  embedBlocks?:
     | T
     | {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
