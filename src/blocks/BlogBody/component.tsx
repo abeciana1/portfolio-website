@@ -6,7 +6,9 @@ const BlogBodyBlock: React.FC<BlogBodyBlockProps> = ({
   embedBlocks
 }) => {
   return (
-    <section>
+    <section
+      className='max-w-3xl mx-auto'
+    >
       <RenderBlogBlocks blocks={[...embedBlocks] as any} />
     </section>
   )
