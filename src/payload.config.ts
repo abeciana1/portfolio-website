@@ -64,6 +64,8 @@ const nestedRouteHash: HashMap = {
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+import { Test } from './collections/test'
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -91,7 +93,8 @@ export default buildConfig({
         'project-pages',
         'blog-pages',
         'blog-categories',
-        'blog-tags'
+        'blog-tags',
+        'test'
       ],
     }
   },
@@ -140,7 +143,8 @@ export default buildConfig({
     ProjectTag,
     BlogPage,
     BlogCategory,
-    BlogTag
+    BlogTag,
+    Test
   ],
   editor: lexicalEditor(),
   typescript: {
