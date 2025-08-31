@@ -58,6 +58,40 @@ export const BlogPage: CollectionConfig = {
               label: 'Slug'
             },
             {
+              name: 'isBlogPost',
+              label: 'Is Blog Post?',
+              type: 'checkbox'
+            },
+            {
+              name: 'publishedDate',
+              type: 'date',
+              label: 'Published Date',
+              admin: {
+                condition: (_, siblingData) => siblingData.isBlogPost
+              }
+            },
+            {
+              name: 'category',
+              label: 'Category',
+              type: 'relationship',
+              relationTo: 'blog-categories',
+              required: true,
+              hasMany: false,
+              admin: {
+                condition: (_, siblingData) => siblingData.isBlogPost
+              }
+            },
+            {
+              name: 'tags',
+              label: 'Tags',
+              type: 'relationship',
+              relationTo: 'blog-tags',
+              hasMany: true,
+              admin: {
+                condition: (_, siblingData) => siblingData.isBlogPost
+              }
+            },
+            {
               name: 'layout',
               type: 'blocks',
               label: 'Layout',
