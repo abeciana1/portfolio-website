@@ -11,8 +11,6 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
   tags
 }) => {
 
-  console.log('tags', tags)
-
   const {
     webpUrl,
     alt
@@ -23,19 +21,21 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
       <ul className='relative mx-auto flex justify-center'>
         <ProjectTag label={category?.label} />
       </ul>
-      <Heading1 text={title} />
-      <div data-testid='blog-excerpt' className='italic text-lg font-medium'>{excerpt}</div>
+      <section className='flex flex-col space-y-6 max-w-5xl justify-center mx-auto'>
+        <Heading1 text={title} />
+        <div data-testid='blog-excerpt' className='italic text-lg font-medium'>{excerpt}</div>
+      </section>
       <Image
         src={webpUrl}
         alt={alt}
-        width={700}
-        height={1400}
-        className='mx-auto object-cover object-center rounded-md'
+        width={800}
+        height={1600}
+        className='mx-auto h-auto w-full object-cover object-center rounded-md'
       />
       <ul
         tabIndex={0}
         data-testid='tags-list'
-        className='flex gap-2 flex-wrap'
+        className='flex gap-2 flex-wrap justify-end'
       >
         {tags?.map((tag) => {
           return (
