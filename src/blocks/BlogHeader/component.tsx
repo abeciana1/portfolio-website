@@ -31,6 +31,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
         width={800}
         height={1600}
         className='mx-auto h-auto w-full object-cover object-center rounded-md'
+        loading='eager'
       />
       <ul
         tabIndex={0}
