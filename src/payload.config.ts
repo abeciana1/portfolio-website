@@ -152,6 +152,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI as string,
     },
+    push: false
   }),
   sharp,
   plugins: [
