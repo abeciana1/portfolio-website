@@ -20,6 +20,7 @@ import {
   type ProjectLink
 } from '@/types/general'
 import { type BlockComponentsMap } from '@/src/blocks/RenderBlocks'
+import { type BlockComponentsMap as BlogBlockComponentsMap } from '@/src/blocks/RenderBlogBlocks'
 
 export type GradientOptions = 'Variant1' | 'Variant2' | 'Variant3' | 'Variant4';
 
@@ -315,4 +316,8 @@ export type BlogHeaderProps = {
   featuredImage: CMSMediaT;
   category: ProjectTagProps;
   tags: ProjectTagProps[];
+}
+
+export type BlogBodyBlockProps = {
+  embedBlocks: BlogBlockComponentsMap[];
 }
