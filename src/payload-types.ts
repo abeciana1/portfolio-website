@@ -1064,7 +1064,7 @@ export interface BlogPage {
   slug?: string | null;
   isBlogPost?: boolean | null;
   publishedDate?: string | null;
-  category: number | BlogCategory;
+  category?: (number | null) | BlogCategory;
   tags?: (number | BlogTag)[] | null;
   layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock | BlogHeaderBlock | BlogBodyBlock)[] | null;
   meta?: {
