@@ -8,6 +8,7 @@ import { HeroSectionNoImage } from '@/src/blocks/HeroSectionNoImage/config'
 import { RichTextBlock } from '@/src/blocks/RichTextEditor/config'
 import { BlogImage as BlogImageBlock } from '@/src/blocks/BlogImage/config'
 import { BlogHeader as BlogHeaderBlock } from '@/src/blocks/BlogHeader/config'
+import { BlogBody as BlogBodyBlock } from '@/src/blocks/BlogBody/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
@@ -16,7 +17,8 @@ const allowableBlocks = [
   HeroSectionNoImage,
   RichTextBlock,
   BlogImageBlock,
-  BlogHeaderBlock
+  BlogHeaderBlock,
+  BlogBodyBlock
 ]
 
 export const BlogPage: CollectionConfig = {
