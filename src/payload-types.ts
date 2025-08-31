@@ -103,6 +103,7 @@ export interface Config {
     'project-tags': ProjectTag;
     'blog-pages': BlogPage;
     'blog-categories': BlogCategory;
+    'blog-tags': BlogTag;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -124,6 +125,7 @@ export interface Config {
     'project-tags': ProjectTagsSelect<false> | ProjectTagsSelect<true>;
     'blog-pages': BlogPagesSelect<false> | BlogPagesSelect<true>;
     'blog-categories': BlogCategoriesSelect<false> | BlogCategoriesSelect<true>;
+    'blog-tags': BlogTagsSelect<false> | BlogTagsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -1053,6 +1055,16 @@ export interface BlogPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tags".
+ */
+export interface BlogTag {
+  id: number;
+  label: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -1117,6 +1129,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blog-categories';
         value: number | BlogCategory;
+      } | null)
+    | ({
+        relationTo: 'blog-tags';
+        value: number | BlogTag;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1868,6 +1884,15 @@ export interface BlogHeaderBlockSelect<T extends boolean = true> {
 export interface BlogCategoriesSelect<T extends boolean = true> {
   label?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tags_select".
+ */
+export interface BlogTagsSelect<T extends boolean = true> {
+  label?: T;
   updatedAt?: T;
   createdAt?: T;
 }
