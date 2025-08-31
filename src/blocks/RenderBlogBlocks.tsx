@@ -8,13 +8,15 @@ import HeroSectionNoImage from '@/src/blocks/HeroSectionNoImage/component'
 import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 import BlogImage from '@/src/blocks/BlogImage/component'
 import BlogHeader from '@/src/blocks/BlogHeader/component'
+import BlogBodyBlock from '@/src/blocks/BlogBody/component'
 
 // * component types
 import {
   type HeroSectionNoImageBlockProps,
   type RichTextEditorProps,
   type BlogImageProps,
-  type BlogHeaderProps
+  type BlogHeaderProps,
+  type BlogBodyBlockProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -22,16 +24,18 @@ export type BlockComponentsMap = {
   'rich-text-block': React.FC<RichTextEditorProps>;
   'blog-image': React.FC<BlogImageProps>;
   'blog-header': React.FC<BlogHeaderProps>;
+  'blog-body': React.FC<BlogBodyBlockProps>;
 }
 
 const blockComponents: BlockComponentsMap = {
   'hero-section-no-image': HeroSectionNoImage,
   'rich-text-block': RichTextEditor,
   'blog-image': BlogImage,
-  'blog-header': BlogHeader
+  'blog-header': BlogHeader,
+  'blog-body': BlogBodyBlock
 }
 
-const RenderProjectBlocks: React.FC<{
+const RenderBlogBlocks: React.FC<{
   blocks: BlogPage['layout']
 }> = (props) => {
   const { blocks } = props
@@ -56,4 +60,4 @@ const RenderProjectBlocks: React.FC<{
   return null
 }
 
-export default RenderProjectBlocks
+export default RenderBlogBlocks
