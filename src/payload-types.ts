@@ -832,7 +832,7 @@ export interface BlogHeaderBlock {
   excerpt: string;
   featuredImage: number | Media;
   category: number | BlogCategory;
-  tags: (number | ProjectTag)[];
+  tags: (number | BlogTag)[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'blog-header';
@@ -845,6 +845,16 @@ export interface BlogCategory {
   id: number;
   label: string;
   slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tags".
+ */
+export interface BlogTag {
+  id: number;
+  label: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -1050,16 +1060,6 @@ export interface BlogPage {
      */
     image?: (number | null) | Media;
   };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-tags".
- */
-export interface BlogTag {
-  id: number;
-  label: string;
   updatedAt: string;
   createdAt: string;
 }
