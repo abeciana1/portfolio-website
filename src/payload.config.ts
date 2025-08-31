@@ -64,8 +64,6 @@ const nestedRouteHash: HashMap = {
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-import { Test } from './collections/test'
-
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -93,8 +91,7 @@ export default buildConfig({
         'project-pages',
         'blog-pages',
         'blog-categories',
-        'blog-tags',
-        'test'
+        'blog-tags'
       ],
     }
   },
@@ -143,8 +140,7 @@ export default buildConfig({
     ProjectTag,
     BlogPage,
     BlogCategory,
-    BlogTag,
-    Test
+    BlogTag
   ],
   editor: lexicalEditor(),
   typescript: {
@@ -154,7 +150,7 @@ export default buildConfig({
   secret: process.env.NEXT_PUBLIC_PAYLOAD_SECRET as string || process.env.PAYLOAD_SECRET as string,
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.HOSTED_DB as string,
+      connectionString: process.env.DATABASE_URI as string,
     },
   }),
   sharp,
