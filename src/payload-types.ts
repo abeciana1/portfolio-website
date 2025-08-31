@@ -1062,6 +1062,10 @@ export interface BlogPage {
    */
   title: string;
   slug?: string | null;
+  isBlogPost?: boolean | null;
+  publishedDate?: string | null;
+  category: number | BlogCategory;
+  tags?: (number | BlogTag)[] | null;
   layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock | BlogHeaderBlock | BlogBodyBlock)[] | null;
   meta?: {
     title?: string | null;
@@ -1847,6 +1851,10 @@ export interface BlogPagesSelect<T extends boolean = true> {
   nestedRoute?: T;
   title?: T;
   slug?: T;
+  isBlogPost?: T;
+  publishedDate?: T;
+  category?: T;
+  tags?: T;
   layout?:
     | T
     | {
