@@ -54,7 +54,8 @@ describe('BlogHeader', () => {
   })
   test('should render category', () => {
     const category = screen.getByTestId('blog-category')
-    expect(category.textContent).toBe('test category')
+    expect(category.children.length).toBe(1)
+    expect(category.children[0].textContent).toBe('test category')
     expect(category).toBeInTheDocument()
   })
 })
