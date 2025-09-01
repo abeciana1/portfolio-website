@@ -87,6 +87,7 @@ export interface Config {
     'blog-image': BlogImageBlock;
     'blog-header': BlogHeaderBlock;
     'blog-body': BlogBodyBlock;
+    'blog-post-section': BlogPostSectionBlock;
   };
   collections: {
     users: User;
@@ -871,6 +872,83 @@ export interface BlogBodyBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogPostSectionBlock".
+ */
+export interface BlogPostSectionBlock {
+  postSelection?: ('latest' | 'custom' | 'all' | 'byCategory') | null;
+  postLimit?: number | null;
+  categoryFilter?: (number | null) | BlogCategory;
+  posts?: (number | BlogPage)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-post-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-pages".
+ */
+export interface BlogPage {
+  id: number;
+  nestedRoute: NestedRouteField;
+  /**
+   * Title for the page
+   */
+  title: string;
+  slug?: string | null;
+  isBlogPost?: boolean | null;
+  publishedDate?: string | null;
+  category?: (number | null) | BlogCategory;
+  tags?: (number | BlogTag)[] | null;
+  layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock | BlogHeaderBlock | BlogBodyBlock)[] | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroSectionNoImageBlock".
+ */
+export interface HeroSectionNoImageBlock {
+  sectionId: string;
+  title: string;
+  subtitle?: string | null;
+  description?: string | null;
+  secondaryBlurb?: string | null;
+  callToAction?:
+    | {
+        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | {
+                relationTo: 'pages';
+                value: number | Page;
+              }[]
+            | null;
+          url?: string | null;
+          label: string;
+        };
+        arrow?: boolean | null;
+        arrowDirection?: ('right' | 'down') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'call-to-action';
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-section-no-image';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -1001,42 +1079,6 @@ export interface ProjectPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroSectionNoImageBlock".
- */
-export interface HeroSectionNoImageBlock {
-  sectionId: string;
-  title: string;
-  subtitle?: string | null;
-  description?: string | null;
-  secondaryBlurb?: string | null;
-  callToAction?:
-    | {
-        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | {
-                relationTo: 'pages';
-                value: number | Page;
-              }[]
-            | null;
-          url?: string | null;
-          label: string;
-        };
-        arrow?: boolean | null;
-        arrowDirection?: ('right' | 'down') | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'call-to-action';
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'hero-section-no-image';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ProjectGridBlock".
  */
 export interface ProjectGridBlock {
@@ -1049,34 +1091,6 @@ export interface ProjectGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-grid-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-pages".
- */
-export interface BlogPage {
-  id: number;
-  nestedRoute: NestedRouteField;
-  /**
-   * Title for the page
-   */
-  title: string;
-  slug?: string | null;
-  isBlogPost?: boolean | null;
-  publishedDate?: string | null;
-  category?: (number | null) | BlogCategory;
-  tags?: (number | BlogTag)[] | null;
-  layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock | BlogHeaderBlock | BlogBodyBlock)[] | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
