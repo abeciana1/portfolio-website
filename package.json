@@ -64,7 +64,6 @@
     "react-dom": "19.0.0",
     "react-hot-toast": "^2.6.0",
     "react-icons": "^5.4.0",
-    "react-tooltip": "^5.29.1",
     "react-use-measure": "^2.1.7",
     "sharp": "0.32.6",
     "tailwind-merge": "^3.2.0",
