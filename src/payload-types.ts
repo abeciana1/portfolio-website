@@ -875,7 +875,7 @@ export interface BlogBodyBlock {
  * via the `definition` "BlogPostSectionBlock".
  */
 export interface BlogPostSectionBlock {
-  postSelection?: ('latest' | 'custom' | 'all' | 'byCategory') | null;
+  postSelection: 'latest' | 'custom' | 'all' | 'byCategory';
   postLimit?: number | null;
   categoryFilter?: (number | null) | BlogCategory;
   posts?: (number | BlogPage)[] | null;
