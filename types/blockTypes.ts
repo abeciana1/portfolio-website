@@ -13,7 +13,8 @@ import {
   type ProblemFramingSectionBlock,
   type UserResearchSectionBlock,
   type InsightsSectionBlock,
-  type OutcomesSectionBlock
+  type OutcomesSectionBlock,
+  type BlogPostSectionBlock
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -321,3 +322,10 @@ export type BlogHeaderProps = {
 export type BlogBodyBlockProps = {
   embedBlocks: BlogBlockComponentsMap[];
 }
+
+export type BlogPostSectionBlockProps = Pick<BlogPostSectionBlock,
+  'postSelection' |
+  'postLimit' |
+  'categoryFilter' |
+  'posts'
+>
