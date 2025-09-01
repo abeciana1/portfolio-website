@@ -18,7 +18,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
 
   return (
     <section className='mt-12 space-y-6 relative text-center mb-6'>
-      <ul className='relative mx-auto flex justify-center'>
+      <ul data-testid='blog-category' className='relative mx-auto flex justify-center'>
         <ProjectTag label={category?.label} />
       </ul>
       <section className='flex flex-col space-y-6 max-w-5xl justify-center mx-auto'>
