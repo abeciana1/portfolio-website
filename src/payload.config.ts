@@ -49,6 +49,7 @@ import { OutcomesSectionBlock } from '@/src/blocks/OutcomesSection/config'
 import { BlogImage as BlogImageBlock } from '@/src/blocks/BlogImage/config'
 import { BlogHeader as BlogHeaderBlock } from '@/src/blocks/BlogHeader/config'
 import { BlogBody as BlogBodyBlock } from '@/src/blocks/BlogBody/config'
+import { BlogPostSectionBlock } from '@/src/blocks/BlogPostSection/config'
 
 // * nested route mapping
 type HashMap = {
@@ -114,7 +115,8 @@ export default buildConfig({
     OutcomesSectionBlock,
     BlogImageBlock,
     BlogHeaderBlock,
-    BlogBodyBlock
+    BlogBodyBlock,
+    BlogPostSectionBlock
   ],
   cors: [
     'http://localhost:3000',
