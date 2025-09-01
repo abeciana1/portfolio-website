@@ -105,7 +105,6 @@ export interface Config {
     'blog-pages': BlogPage;
     'blog-categories': BlogCategory;
     'blog-tags': BlogTag;
-    test: Test;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -128,7 +127,6 @@ export interface Config {
     'blog-pages': BlogPagesSelect<false> | BlogPagesSelect<true>;
     'blog-categories': BlogCategoriesSelect<false> | BlogCategoriesSelect<true>;
     'blog-tags': BlogTagsSelect<false> | BlogTagsSelect<true>;
-    test: TestSelect<false> | TestSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -1082,16 +1080,6 @@ export interface BlogPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "test".
- */
-export interface Test {
-  id: number;
-  name: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -1160,10 +1148,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blog-tags';
         value: number | BlogTag;
-      } | null)
-    | ({
-        relationTo: 'test';
-        value: number | Test;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -1943,15 +1927,6 @@ export interface BlogCategoriesSelect<T extends boolean = true> {
  */
 export interface BlogTagsSelect<T extends boolean = true> {
   label?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "test_select".
- */
-export interface TestSelect<T extends boolean = true> {
-  name?: T;
   updatedAt?: T;
   createdAt?: T;
 }
