@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { ArrowRight, ArrowDown } from 'lucide-react';
 
 
-const variants = {
+export const variants = {
   'primary': 'bg-foreground dark:bg-background text-background dark:text-foreground',
   'secondary': 'bg-background dark:bg-foreground border-2 border-foreground dark:border-background text-foreground dark:text-background',
   'tertiary': 'bg-background dark:bg-foreground opacity-70 blur-2xl text-foreground dark:text-background',
