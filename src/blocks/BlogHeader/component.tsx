@@ -36,7 +36,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
       <ul
         tabIndex={0}
         data-testid='tags-list'
-        className='flex gap-2 flex-wrap justify-end'
+        className='flex gap-2 flex-wrap max-w-3xl mx-auto justify-center'
       >
         {tags?.map((tag) => {
           return (
