@@ -34,3 +34,9 @@ export type ProjectLink = {
 export interface WrapperI {
   children: React.ReactNode | React.ReactNode[];
 }
+
+export type ShareBtnProps = {
+  text: string;
+  icon: React.ElementType;
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+}
