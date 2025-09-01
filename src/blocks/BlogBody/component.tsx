@@ -16,19 +16,12 @@ const BlogBodyBlock: React.FC<BlogBodyBlockProps> = ({
 
   const hasCopiedText = Boolean(copiedText)
 
-  console.log('pathname', pathname)
-
-  const copyHandler = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault()
-    copyToClipboard('copy')
-  }
-
   return (
     <>
       <div className='sticky top-10 left-0'>
         <div className='space-y-6'>
           <ShareBtn
-            onClick={copyHandler}
+            onClick={() => copyToClipboard(`https://alexbeciana.com${pathname}`)}
             text={hasCopiedText ? 'Copied!' : 'Copy link'}
             icon={Copy}
           />
