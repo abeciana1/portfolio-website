@@ -8,7 +8,7 @@ const TooltipMessage: React.FC<Pick<ShareBtnProps, 'text'>> = ({
   text
 }) => {
   return (
-    <span className={variants['primary']}>
+    <span className={clsx(variants['primary'], 'absolute text-xl rounded-md px-1 py-1 top-1.5 left-15')}>
       { text }
     </span>
   )
@@ -25,14 +25,15 @@ const ShareBtn: React.FC<ShareBtnProps> = ({
   const [ref, hovering] = useHover()
 
   return (
-    <span ref={ref} className='flex items-center'>
+    <span ref={ref} className='flex items-center gap-6'>
       <button
-        className={clsx(variants['primary'], 'rounded-full gap-6')}
+        aria-label={text}
+        className={clsx(variants['primary'], 'rounded-full p-3')}
         onClick={onClick}
       >
         <Icon size={24} />
-        {hovering && <TooltipMessage text={text} />}
       </button>
+      {hovering && <TooltipMessage text={text} />}
     </span>
   )
 }
