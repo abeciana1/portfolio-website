@@ -8,7 +8,7 @@ const TooltipMessage: React.FC<Pick<ShareBtnProps, 'text'>> = ({
   text
 }) => {
   return (
-    <span className={clsx(variants['primary'], 'absolute text-xl rounded-md px-1 py-1 top-1.5 left-15')}>
+    <span data-testid='tooltip' className={clsx(variants['primary'], 'absolute text-xl rounded-md px-1 py-1 top-1.5 left-15')}>
       { text }
     </span>
   )
