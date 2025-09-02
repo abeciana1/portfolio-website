@@ -8,6 +8,7 @@ export const BlogPostSectionBlock: Block = {
       name: 'postSelection',
       type: 'select',
       hasMany: false,
+      required: true,
       options: [
         { label : 'Latest', value: 'latest' },
         { label : 'Custom', value: 'custom' },
