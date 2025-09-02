@@ -899,7 +899,16 @@ export interface BlogPage {
   publishedDate?: string | null;
   category?: (number | null) | BlogCategory;
   tags?: (number | BlogTag)[] | null;
-  layout?: (HeroSectionNoImageBlock | RichTextBlock | BlogImageBlock | BlogHeaderBlock | BlogBodyBlock)[] | null;
+  layout?:
+    | (
+        | HeroSectionNoImageBlock
+        | RichTextBlock
+        | BlogImageBlock
+        | BlogHeaderBlock
+        | BlogBodyBlock
+        | BlogPostSectionBlock
+      )[]
+    | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -1877,6 +1886,7 @@ export interface BlogPagesSelect<T extends boolean = true> {
         'blog-image'?: T | BlogImageBlockSelect<T>;
         'blog-header'?: T | BlogHeaderBlockSelect<T>;
         'blog-body'?: T | BlogBodyBlockSelect<T>;
+        'blog-post-section'?: T | BlogPostSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1922,6 +1932,18 @@ export interface BlogBodyBlockSelect<T extends boolean = true> {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
         'blog-image'?: T | BlogImageBlockSelect<T>;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogPostSectionBlock_select".
+ */
+export interface BlogPostSectionBlockSelect<T extends boolean = true> {
+  postSelection?: T;
+  postLimit?: T;
+  categoryFilter?: T;
+  posts?: T;
   id?: T;
   blockName?: T;
 }
