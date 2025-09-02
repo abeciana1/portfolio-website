@@ -329,3 +329,14 @@ export type BlogPostSectionBlockProps = Pick<BlogPostSectionBlock,
   'categoryFilter' |
   'posts'
 >
+
+export type BlogPostCardProps = {
+  title: string;
+  slug: string;
+  publishedDate: string;
+  category: ProjectTagProps;
+  tags: ProjectTagProps[];
+  meta: {
+    image: CMSMediaT
+  }
+}
