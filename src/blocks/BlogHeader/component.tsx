@@ -30,7 +30,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
         alt={alt}
         width={800}
         height={1600}
-        className='mx-auto h-auto w-full object-cover object-center rounded-2xl'
+        className='mx-auto h-auto w-full object-cover object-center rounded-2xl border-darkGrey border-2 dark:border-0'
         loading='eager'
       />
       <ul
