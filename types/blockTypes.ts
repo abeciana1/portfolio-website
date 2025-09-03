@@ -201,6 +201,7 @@ export type ProjectTagProps = Pick<ProjectTag,
   label: string;
   addBorder?: boolean;
   enableDarkMode?: boolean;
+  inversePill?: boolean;
 }
 
 export type ProjectProps = Pick<Project,
