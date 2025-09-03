@@ -24,7 +24,8 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
 }) => {
 
   const {
-    image
+    image,
+    description
   } = meta
 
   return (
@@ -37,39 +38,51 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
     >
       <MorphingDialogTrigger
         testId='blog-post'
-        className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto max-h-[412px]'
+        className='relative pb-3 rounded-2xl max-w-[600px] bg-[#fbf2e4] border-2 border-darkGrey dark:border-pillGrey'
       >
-        <div className='relative z-50 opacity-100 space-y-6'>
-          <div className='relative w-full p-6 bg-background h-full max-h-[240px] rounded-2xl'>
+        <div className='relative z-50 opacity-100 space-y-3'>
+          <div className='relative'>
+            <ul className='absolute top-3 right-3'>
+              <ProjectTag label={category?.label} addBorder />
+            </ul>
+            <ul className='absolute bottom-3 left-3'>
+              <ProjectTag label='by Alex Beciana' addBorder />
+            </ul>
+            <ul className='absolute bottom-3 right-3'>
+              <ProjectTag label={`${format(new Date(publishedDate), 'MMM dd yyyy')}`} addBorder />
+            </ul>
             <Image
               data-testid='blog-image'
               src={image?.webpUrl}
               alt={image?.alt}
-              height={100}
-              width={100}
-              className="mx-auto h-32 w-auto"
+              height={246}
+              width={600}
+              className="mx-auto w-auto h-auto rounded-t-[0.9rem]"
             />
           </div>
-          <div className='flex flex-col justify-between gap-3'>
-            <div tabIndex={0} data-testid='blog-title' className="font-medium text-lg text-foreground dark:text-background">
+          <div className='flex flex-col px-3 space-y-3'>
+            <div tabIndex={0} data-testid='blog-title' className="text-left font-medium text-xl text-foreground">
               {title}
             </div>
+            <div  data-testid='blog-excerpt' className="text-left font-medium text-lg text-foreground">
+              {description.substring(0, 55) + '...'}
+            </div>
+            <ul
+              tabIndex={0}
+              data-testid='tags-list'
+              className='flex gap-2 flex-wrap'
+            >
+              {tags?.map((tag) => {
+                return (
+                  <ProjectTag key={tag?.id} label={tag?.label} inversePill />
+                )
+              })}
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            data-testid='tags-list'
-            className='flex gap-2 flex-wrap'
-          >
-            {tags?.map((tag) => {
-              return (
-                <ProjectTag key={tag?.id} label={tag?.label} />
-              )
-            })}
-          </ul>
         </div>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative h-auto w-[500px] border-2 border-darkGrey dark:border-pillGrey bg-background rounded-lg">
+        <MorphingDialogContent className="relative h-auto w-[500px] border-2 border-darkGrey dark:border-pillGrey bg-[#F1D5A7] rounded-lg">
           <div className="flex justify-center">
             <MorphingDialogImage
               src={image?.webpUrl}
