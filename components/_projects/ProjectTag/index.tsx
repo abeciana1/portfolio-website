@@ -6,18 +6,22 @@ import clsx from 'clsx'
 const ProjectTag: React.FC<Pick<ProjectTagProps,
   'label' |
   'addBorder' | 
-  'enableDarkMode'
+  'enableDarkMode' |
+  'inversePill'
 >> = ({
   label,
   addBorder = false,
-  enableDarkMode = false
+  enableDarkMode = false,
+  inversePill = false
 }) => {
   return (
     <li
       tabIndex={0}
-      className={clsx("text-foreground bg-pillGrey rounded-lg py-1 px-2 text-center font-medium max-w-fit text-sm", {
+      className={clsx("rounded-lg py-1 px-2 text-center font-medium max-w-fit text-sm", {
         ['border-2 border-foreground']: addBorder,
-        ['dark:border-0 dark:border-transparent']: enableDarkMode
+        ['dark:border-0 dark:border-transparent']: enableDarkMode,
+        ['bg-foreground text-background']: inversePill,
+        ['text-foreground bg-pillGrey']: !inversePill
       })}
     >
       { label }
