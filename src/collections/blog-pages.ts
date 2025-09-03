@@ -2,6 +2,10 @@ import {
   type CollectionConfig
 } from 'payload';
 import { titleToSlug } from '@/utils/helpers'
+import {
+  lexicalEditor,
+  lexicalHTMLField
+} from '@payloadcms/richtext-lexical'
 
 // * blocks
 import { HeroSectionNoImage } from '@/src/blocks/HeroSectionNoImage/config'
@@ -93,6 +97,20 @@ export const BlogPage: CollectionConfig = {
                 condition: (_, siblingData) => siblingData.isBlogPost
               }
             },
+            {
+              name: 'teaserContent',
+              type: 'richText',
+              label: 'Teaser Content',
+              required: true,
+              editor: lexicalEditor(),
+              admin: {
+                condition: (_, siblingData) => siblingData.isBlogPost
+              }
+            },
+            lexicalHTMLField({
+              htmlFieldName: 'content_html',
+              lexicalFieldName: 'content'
+            }),
             {
               name: 'layout',
               type: 'blocks',
