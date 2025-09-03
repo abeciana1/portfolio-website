@@ -1,5 +1,42 @@
+'use server'
 import { payload } from '@/src/payload'
-import { type BlogPostSectionBlockProps } from '@/types/blockTypes'
+import { type BlogPostSectionBlockProps, type ProjectTagProps } from '@/types/blockTypes'
+// import { type BlogCategory } from '@/src/payload-types'
+
+const BASE_SELECT = {
+  id: true,
+  title: true,
+  slug: true,
+  publishedDate: true,
+  category: true,
+  tags: true,
+  meta: { image: true },
+} as const
+
+const buildQueryArgs = (
+  opts: {
+    postSelection: BlogPostSectionBlockProps['postSelection']
+    postLimit?: number | null
+    categoryFilter?: ProjectTagProps | null
+  }
+) => {
+  const limit = opts.postLimit ?? 3
+  const where: any = {
+    slug: { not_equals: 'home' },
+  }
+
+  if (opts.postSelection === 'byCategory' && opts.categoryFilter?.id != null) {
+    where.category = { equals: String(opts.categoryFilter.id) }
+  }
+
+  return {
+    collection: 'blog-pages' as const,
+    limit,
+    sort: '-publishedDate' as const,
+    where,
+    select: BASE_SELECT,
+  }
+}
 
 const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
   postSelection,
@@ -7,93 +44,20 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
   categoryFilter,
   posts
 }) => {
-  switch (postSelection) {
-    case "latest":
-      const latestBlogPosts = await payload.find({
-        collection: 'blog-pages',
-        limit: postLimit ?? 3,
-        sort: '-publishedDate',
-        where: {
-          slug: {
-            not_equals: 'home'
-          }
-        },
-        select: {
-          title: true,
-          slug: true,
-          publishedDate: true,
-          category: true,
-          tags: true,
-          meta: {
-            image: true
-          }
-        }
-      })
-      console.log('latest blogPosts', latestBlogPosts)
-      return (
-        <section></section>
-      )
-    case "byCategory":
-      const categoryBlogPosts = await payload.find({
-        collection: 'blog-pages',
-        limit: postLimit ?? 3,
-        where: {
-          category: {
-            equals: categoryFilter,
-          },
-          slug: {
-            not_equals: 'home'
-          }
-        },
-        sort: '-publishedDate',
-        select: {
-          title: true,
-          slug: true,
-          publishedDate: true,
-          category: true,
-          tags: true,
-          meta: {
-            image: true
-          }
-        }
-      })
-      console.log('category blogPosts', categoryBlogPosts)
-      return (
-        <section></section>
-      )
-    case "all":
-      const allBlogPosts = await payload.find({
-        collection: 'blog-pages',
-        limit: postLimit ?? 3,
-        sort: '-publishedDate',
-        where: {
-          slug: {
-            not_equals: 'home'
-          }
-        },
-        select: {
-          title: true,
-          slug: true,
-          publishedDate: true,
-          category: true,
-          tags: true,
-          meta: {
-            image: true
-          }
-        }
-      })
-      console.log('all blogPosts', allBlogPosts)
-      return (
-        <section></section>
-      )
-    case "custom":
-      return (
-        <section></section>
+  const usingCategory = Boolean(categoryFilter)
+
+  if (usingCategory || postSelection !== 'custom') {
+    const args = buildQueryArgs({ postSelection, postLimit, categoryFilter: categoryFilter ?? null })
+    const posts = await payload.find(args)
+    console.log('using category', posts)
+    return (
+      <section></section>
     )
-    default:
-      return (
-        <section></section>
-      )
+  } else {
+    console.log('not using category', posts)
+    return (
+      <section></section>
+    )
   }
 }
 
