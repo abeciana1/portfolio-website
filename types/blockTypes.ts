@@ -341,5 +341,6 @@ export type BlogPostCardProps = {
   tags: ProjectTagProps[];
   meta: {
     image: CMSMediaT;
+    description: string;
   }
 }
