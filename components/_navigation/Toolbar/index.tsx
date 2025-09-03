@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import useMeasure from 'react-use-measure';
 import { AnimatePresence, motion, MotionConfig, type Transition } from 'motion/react';
-import cx from 'classnames'
+import clsx from 'clsx'
 
 // * item content
 import DarkModeToggle from '@/components/_navigation/DarkModeToggle';
@@ -62,7 +62,7 @@ const Toolbar = () => {
                             animate={{ opacity: isSelected ? 1 : 0 }}
                             exit={{ opacity: 0 }}
                           >
-                            <div className={cx('px-2 pt-2 text-sm', { block: isSelected, hidden: !isSelected })}>
+                            <div className={clsx('px-2 pt-2 text-sm', { block: isSelected, hidden: !isSelected })}>
                               {item.content}
                             </div>
                           </motion.div>
@@ -80,7 +80,7 @@ const Toolbar = () => {
                     <button
                       key={item.id}
                       aria-label={item.label}
-                      className={cx(
+                      className={clsx(
                         'relative flex h-9 w-9 shrink-0 select-none appearance-none items-center justify-center rounded-lg text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 focus-visible:ring-2 active:scale-[0.98]',
                         { 'bg-zinc-100 text-zinc-800': active === item.id }
                       )}
