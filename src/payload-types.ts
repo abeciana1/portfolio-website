@@ -899,6 +899,22 @@ export interface BlogPage {
   publishedDate?: string | null;
   category?: (number | null) | BlogCategory;
   tags?: (number | BlogTag)[] | null;
+  teaserContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  content_html?: string | null;
   layout?:
     | (
         | HeroSectionNoImageBlock
@@ -1892,6 +1908,8 @@ export interface BlogPagesSelect<T extends boolean = true> {
   publishedDate?: T;
   category?: T;
   tags?: T;
+  teaserContent?: T;
+  content_html?: T;
   layout?:
     | T
     | {
