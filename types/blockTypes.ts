@@ -326,9 +326,10 @@ export type BlogBodyBlockProps = {
 export type BlogPostSectionBlockProps = Pick<BlogPostSectionBlock,
   'postSelection' |
   'postLimit' |
-  'categoryFilter' |
   'posts'
->
+> & {
+  categoryFilter?: ProjectTagProps
+}
 
 export type BlogPostCardProps = {
   title: string;
