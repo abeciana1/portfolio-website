@@ -72,11 +72,12 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
               data-testid='tags-list'
               className='flex gap-2 flex-wrap'
             >
-              {tags?.map((tag) => {
+              {tags?.slice(0,4)?.map((tag) => {
                 return (
                   <ProjectTag key={tag?.id} label={tag?.label} inversePill />
                 )
               })}
+              {tags?.length > 4 && <ProjectTag label='...' inversePill />}
             </ul>
           </div>
         </div>
