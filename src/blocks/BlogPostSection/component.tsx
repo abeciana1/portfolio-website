@@ -36,11 +36,12 @@ const BASE_SELECT = {
   publishedDate: true,
   category: true,
   tags: true,
-  meta: { image: true },
+  meta: { image: true, description: true },
 } as const
 
 type Media = {
   image: CMSMediaT;
+  description: string;
 }
 
 const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
