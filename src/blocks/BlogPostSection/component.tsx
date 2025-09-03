@@ -1,17 +1,6 @@
 'use server'
 import { payload } from '@/src/payload'
 import { type BlogPostSectionBlockProps, type ProjectTagProps } from '@/types/blockTypes'
-// import { type BlogCategory } from '@/src/payload-types'
-
-const BASE_SELECT = {
-  id: true,
-  title: true,
-  slug: true,
-  publishedDate: true,
-  category: true,
-  tags: true,
-  meta: { image: true },
-} as const
 
 const buildQueryArgs = (
   opts: {
@@ -38,12 +27,23 @@ const buildQueryArgs = (
   }
 }
 
+const BASE_SELECT = {
+  id: true,
+  title: true,
+  slug: true,
+  publishedDate: true,
+  category: true,
+  tags: true,
+  meta: { image: true },
+} as const
+
 const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
   postSelection,
   postLimit,
   categoryFilter,
   posts
 }) => {
+
   const usingCategory = Boolean(categoryFilter)
 
   if (usingCategory || postSelection !== 'custom') {
