@@ -46,7 +46,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
               <ProjectTag label={category?.label} addBorder />
             </ul>
             <ul className='absolute bottom-3 left-3'>
-              <ProjectTag label='by Alex Beciana' addBorder />
+              <ProjectTag label='By Alex Beciana' addBorder />
             </ul>
             <ul className='absolute bottom-3 right-3'>
               <ProjectTag label={`${format(new Date(publishedDate), 'MMM dd yyyy')}`} addBorder />
@@ -70,7 +70,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
             <ul
               tabIndex={0}
               data-testid='tags-list'
-              className='flex gap-2 flex-wrap'
+              className='flex gap-2'
             >
               {tags?.slice(0,4)?.map((tag) => {
                 return (
@@ -83,30 +83,45 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
         </div>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative h-auto w-[500px] border-2 border-darkGrey dark:border-pillGrey bg-[#F1D5A7] rounded-lg">
-          <div className="flex justify-center">
+        <MorphingDialogContent className="relative border-2 border-darkGrey dark:border-pillGrey bg-background dark:bg-foreground rounded-lg">
+          <div className="relative bg-[#FFFBF5]">
+            <ul className='absolute top-3 left-3'>
+              <ProjectTag label={category?.label} addBorder />
+            </ul>
+            <ul className='absolute bottom-3 left-3'>
+              <ProjectTag label='By Alex Beciana' addBorder />
+            </ul>
+            <ul className='absolute bottom-3 right-3'>
+              <ProjectTag label={`${format(new Date(publishedDate), 'MMM dd yyyy')}`} addBorder />
+            </ul>
             <MorphingDialogImage
               src={image?.webpUrl}
-              width={200}
-              height={200}
+              width={600}
+              height={246}
               alt={`Blog post title - ${title}`} // TODO - add alt text
-              className="max-h-16 object-cover object-top"
+              className="object-cover object-top rounded-t-md"
             />
           </div>
-          <div>
-            <div className="flex justify-between text-foreground dark:text-background font-medium text-md">
+          <section className='p-3'>
+            <div className="flex flex-col text-foreground dark:text-background space-y-6">
+              <ul
+                tabIndex={0}
+                data-testid='tags-list'
+                className='flex gap-2 flex-wrap'
+              >
+                {tags?.map((tag) => {
+                  return (
+                    <ProjectTag key={tag?.id} label={tag?.label} inversePill />
+                  )
+                })}
+              </ul>
               <MorphingDialogTitle>
-                <div className="flex flex-col sm:flex-row sm:gap-2 text-left">
-                  {/* <span data-testid="job-role">{jobRole}</span> */}
-                  {/* <span className="font-bold hidden sm:block">·</span> */}
-                  {/* <span data-testid="position">{positionType}</span> */}
+                <div className="flex flex-col text-left text-6xl font-semibold">
+                  {title}
                 </div>
               </MorphingDialogTitle>
-              <div className="flex justify-start">
-                <span>{`${format(new Date(publishedDate), 'MMM yyyy')}`}</span>
-              </div>
             </div>
-          </div>
+          </section>
           <MorphingDialogClose className="text-foreground" />
         </MorphingDialogContent>
       </MorphingDialogContainer>
