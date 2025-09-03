@@ -200,6 +200,7 @@ export type ProjectTagProps = Pick<ProjectTag,
 > & {
   label: string;
   addBorder?: boolean;
+  enableDarkMode?: boolean;
 }
 
 export type ProjectProps = Pick<Project,
@@ -338,6 +339,6 @@ export type BlogPostCardProps = {
   category: ProjectTagProps;
   tags: ProjectTagProps[];
   meta: {
-    image: CMSMediaT
+    image: CMSMediaT;
   }
 }
