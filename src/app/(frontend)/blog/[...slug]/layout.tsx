@@ -25,7 +25,6 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" className={theme} data-theme={theme}>
       <body className={`relative antialiased ${inter.className} bg-background text-foreground dark:bg-foreground dark:text-background max-w-[1440px] mx-auto`}>
-        <WebVitals />
         <CombinedProviders>
           <section className='lg:px-10 md:px-10 px-5'>
             {children}
