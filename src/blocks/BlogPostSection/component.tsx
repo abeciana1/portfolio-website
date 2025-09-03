@@ -13,7 +13,7 @@ const buildQueryArgs = (
 ) => {
   const limit = opts.postLimit ?? 3
   const where: any = {
-    slug: { not_equals: 'home' },
+    slug: { not_equals: 'home' }
   }
 
   if (opts.postSelection === 'byCategory' && opts.categoryFilter?.id != null) {
