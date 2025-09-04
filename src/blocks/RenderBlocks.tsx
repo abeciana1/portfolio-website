@@ -17,6 +17,7 @@ import InViewEmbed from '@/src/blocks/InViewEmbed/component'
 import Card from '@/src/blocks/Card/component'
 import JobSection from '@/src/blocks/JobSection/component'
 import TestimonialSection from '@/src/blocks/TestimonialSection/component'
+import BlogPostSection from '@/src/blocks/BlogPostSection/component'
 
 // * component types
 import {
@@ -29,7 +30,8 @@ import {
   type InViewEmbedProps,
   type CardBlockProps,
   type JobSectionProps,
-  type TestimonialSectionProps
+  type TestimonialSectionProps,
+  type BlogPostSectionBlockProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -44,6 +46,7 @@ export type BlockComponentsMap = {
   'card': React.FC<CardBlockProps>;
   'job-section-block': React.FC<JobSectionProps>;
   'testimonial-section-block': React.FC<TestimonialSectionProps>;
+  'blog-post-section': React.FC<BlogPostSectionBlockProps>;
 };
 
 const blockComponents: BlockComponentsMap = {
@@ -57,7 +60,8 @@ const blockComponents: BlockComponentsMap = {
   'in-view-embed': InViewEmbed,
   'card': Card,
   'job-section-block': JobSection,
-  'testimonial-section-block': TestimonialSection
+  'testimonial-section-block': TestimonialSection,
+  'blog-post-section': BlogPostSection
 }
 
 const RenderBlocks: React.FC<{
