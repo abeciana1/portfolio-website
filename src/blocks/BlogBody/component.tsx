@@ -18,7 +18,7 @@ const BlogBodyBlock: React.FC<BlogBodyBlockProps> = ({
 
   return (
     <>
-      <div className='sticky top-10 left-0'>
+      <aside className='sticky top-10 left-0'>
         <div className='space-y-6'>
           <ShareBtn
             onClick={() => copyToClipboard(`https://alexbeciana.com${pathname}`)}
@@ -26,12 +26,12 @@ const BlogBodyBlock: React.FC<BlogBodyBlockProps> = ({
             icon={Copy}
           />
         </div>
-      </div>
-      <section
+      </aside>
+      <article
         className='relative max-w-3xl mx-auto text-justify'
       >
         <RenderBlogBlocks blocks={[...embedBlocks] as any} />
-      </section>
+      </article>
     </>
   )
 }
