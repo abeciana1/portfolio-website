@@ -61,6 +61,7 @@ export type ImageBlockProps = Pick<ImageBlock,
   gradientYFlip?: boolean;
   gradientSelect?: GradientOptions;
   priority?: boolean;
+  useURL?: boolean;
 }
 
 export type InViewBasicProps = {
