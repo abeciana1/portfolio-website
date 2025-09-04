@@ -61,7 +61,6 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
     return (
       <section>
         {posts?.docs?.map((post, _) => {
-        console.log('using category', post)
           return (
             <BlogPostCard
               key={post.title}
@@ -78,11 +77,9 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
       </section>
     )
   } else {
-    console.log('not using category', posts)
     return (
       <section>
         {posts?.map((post, _) => {
-        console.log('using category', post)
           return (
             <BlogPostCard
               key={post.title}
