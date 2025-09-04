@@ -4,7 +4,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({
   children
 }) => {
   return (
-    <div className='flex flex-wrap gap-6'>
+    <div className='flex flex-wrap gap-6 justify-center'>
       {children}
     </div>
   )
