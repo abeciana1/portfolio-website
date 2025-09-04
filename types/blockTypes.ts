@@ -14,7 +14,8 @@ import {
   type UserResearchSectionBlock,
   type InsightsSectionBlock,
   type OutcomesSectionBlock,
-  type BlogPostSectionBlock
+  type BlogPostSectionBlock,
+  type BlogPage
 } from '@/src/payload-types'
 import {
   type CMSMediaT,
@@ -327,10 +328,10 @@ export type BlogBodyBlockProps = {
 
 export type BlogPostSectionBlockProps = Pick<BlogPostSectionBlock,
   'postSelection' |
-  'postLimit' |
-  'posts'
+  'postLimit'
 > & {
   categoryFilter?: ProjectTagProps;
+  posts: BlogPage[];
 }
 
 export type BlogPostCardProps = {
