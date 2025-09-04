@@ -265,6 +265,7 @@ export interface Page {
         | CardBlock
         | JobSectionBlock
         | TestimonialSectionBlock
+        | BlogPostSectionBlock
       )[]
     | null;
   meta?: {
@@ -613,6 +614,164 @@ export interface Testimonial {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogPostSectionBlock".
+ */
+export interface BlogPostSectionBlock {
+  postSelection: 'latest' | 'custom' | 'all' | 'byCategory';
+  postLimit?: number | null;
+  categoryFilter?: (number | null) | BlogCategory;
+  posts?: (number | BlogPage)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-post-section';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-categories".
+ */
+export interface BlogCategory {
+  id: number;
+  label: string;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-pages".
+ */
+export interface BlogPage {
+  id: number;
+  nestedRoute: NestedRouteField;
+  /**
+   * Title for the page
+   */
+  title: string;
+  slug?: string | null;
+  isBlogPost?: boolean | null;
+  publishedDate?: string | null;
+  category?: (number | null) | BlogCategory;
+  tags?: (number | BlogTag)[] | null;
+  teaserContent?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  content_html?: string | null;
+  layout?:
+    | (
+        | HeroSectionNoImageBlock
+        | RichTextBlock
+        | BlogImageBlock
+        | BlogHeaderBlock
+        | BlogBodyBlock
+        | BlogPostSectionBlock
+      )[]
+    | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-tags".
+ */
+export interface BlogTag {
+  id: number;
+  label: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroSectionNoImageBlock".
+ */
+export interface HeroSectionNoImageBlock {
+  sectionId: string;
+  title: string;
+  subtitle?: string | null;
+  description?: string | null;
+  secondaryBlurb?: string | null;
+  callToAction?:
+    | {
+        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | {
+                relationTo: 'pages';
+                value: number | Page;
+              }[]
+            | null;
+          url?: string | null;
+          label: string;
+        };
+        arrow?: boolean | null;
+        arrowDirection?: ('right' | 'down') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'call-to-action';
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hero-section-no-image';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogImageBlock".
+ */
+export interface BlogImageBlock {
+  image: number | Media;
+  caption: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-image';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogHeaderBlock".
+ */
+export interface BlogHeaderBlock {
+  title: string;
+  excerpt: string;
+  featuredImage: number | Media;
+  category: number | BlogCategory;
+  tags?: (number | BlogTag)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-header';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogBodyBlock".
+ */
+export interface BlogBodyBlock {
+  embedBlocks?: (RichTextBlock | BlogImageBlock)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'blog-body';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "ProjectSectionBlock".
  */
 export interface ProjectSectionBlock {
@@ -813,164 +972,6 @@ export interface OutcomesSectionBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'outcomes-section';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogImageBlock".
- */
-export interface BlogImageBlock {
-  image: number | Media;
-  caption: string;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'blog-image';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogHeaderBlock".
- */
-export interface BlogHeaderBlock {
-  title: string;
-  excerpt: string;
-  featuredImage: number | Media;
-  category: number | BlogCategory;
-  tags?: (number | BlogTag)[] | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'blog-header';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-categories".
- */
-export interface BlogCategory {
-  id: number;
-  label: string;
-  slug: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-tags".
- */
-export interface BlogTag {
-  id: number;
-  label: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogBodyBlock".
- */
-export interface BlogBodyBlock {
-  embedBlocks?: (RichTextBlock | BlogImageBlock)[] | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'blog-body';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogPostSectionBlock".
- */
-export interface BlogPostSectionBlock {
-  postSelection: 'latest' | 'custom' | 'all' | 'byCategory';
-  postLimit?: number | null;
-  categoryFilter?: (number | null) | BlogCategory;
-  posts?: (number | BlogPage)[] | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'blog-post-section';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-pages".
- */
-export interface BlogPage {
-  id: number;
-  nestedRoute: NestedRouteField;
-  /**
-   * Title for the page
-   */
-  title: string;
-  slug?: string | null;
-  isBlogPost?: boolean | null;
-  publishedDate?: string | null;
-  category?: (number | null) | BlogCategory;
-  tags?: (number | BlogTag)[] | null;
-  teaserContent?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  content_html?: string | null;
-  layout?:
-    | (
-        | HeroSectionNoImageBlock
-        | RichTextBlock
-        | BlogImageBlock
-        | BlogHeaderBlock
-        | BlogBodyBlock
-        | BlogPostSectionBlock
-      )[]
-    | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "HeroSectionNoImageBlock".
- */
-export interface HeroSectionNoImageBlock {
-  sectionId: string;
-  title: string;
-  subtitle?: string | null;
-  description?: string | null;
-  secondaryBlurb?: string | null;
-  callToAction?:
-    | {
-        style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | {
-                relationTo: 'pages';
-                value: number | Page;
-              }[]
-            | null;
-          url?: string | null;
-          label: string;
-        };
-        arrow?: boolean | null;
-        arrowDirection?: ('right' | 'down') | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'call-to-action';
-      }[]
-    | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'hero-section-no-image';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1371,6 +1372,7 @@ export interface PagesSelect<T extends boolean = true> {
         card?: T | CardBlockSelect<T>;
         'job-section-block'?: T | JobSectionBlockSelect<T>;
         'testimonial-section-block'?: T | TestimonialSectionBlockSelect<T>;
+        'blog-post-section'?: T | BlogPostSectionBlockSelect<T>;
       };
   meta?:
     | T
@@ -1573,6 +1575,18 @@ export interface TestimonialSectionBlockSelect<T extends boolean = true> {
   enableInfinite?: T;
   carouselTimer?: T;
   secondsTimer?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BlogPostSectionBlock_select".
+ */
+export interface BlogPostSectionBlockSelect<T extends boolean = true> {
+  postSelection?: T;
+  postLimit?: T;
+  categoryFilter?: T;
+  posts?: T;
   id?: T;
   blockName?: T;
 }
@@ -1964,18 +1978,6 @@ export interface BlogBodyBlockSelect<T extends boolean = true> {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
         'blog-image'?: T | BlogImageBlockSelect<T>;
       };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BlogPostSectionBlock_select".
- */
-export interface BlogPostSectionBlockSelect<T extends boolean = true> {
-  postSelection?: T;
-  postLimit?: T;
-  categoryFilter?: T;
-  posts?: T;
   id?: T;
   blockName?: T;
 }
