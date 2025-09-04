@@ -52,7 +52,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
             </ul>
             <Image
               data-testid="blog-image"
-              src={image?.webpUrl}
+              src={image?.url}
               alt={image?.alt}
               height={246}
               width={600}
@@ -95,7 +95,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
               <ProjectTag label={`${format(new Date(publishedDate), 'MMM dd yyyy')}`} addBorder />
             </ul>
             <MorphingDialogImage
-              src={image?.webpUrl}
+              src={image?.url}
               width={600}
               height={246}
               alt={`Blog post title - ${title}`} // TODO - add alt text
