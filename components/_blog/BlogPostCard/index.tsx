@@ -9,11 +9,12 @@ import {
   MorphingDialogContent,
   MorphingDialogTitle,
   MorphingDialogImage,
-  MorphingDialogSubtitle,
   MorphingDialogClose,
   MorphingDialogContainer,
 } from '@/components/motion-primitives/morphing-dialog'
 import RichTextEditor from '@/src/blocks/RichTextEditor/component'
+import { ScrollArea } from '@/components/_core/ScrollArea'
+import CallToAction from '@/src/blocks/CallToAction/component'
 
 const BlogPostCard: React.FC<BlogPostCardProps> = ({
   title,
@@ -22,13 +23,9 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
   category,
   tags,
   meta,
-  teaserContent
+  teaserContent,
 }) => {
-
-  const {
-    image,
-    description
-  } = meta
+  const { image, description } = meta
 
   return (
     <MorphingDialog
@@ -39,61 +36,62 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
       }}
     >
       <MorphingDialogTrigger
-        testId='blog-post'
-        className='relative pb-3 rounded-2xl max-w-[600px] bg-[#fbf2e4] border-2 border-darkGrey dark:border-pillGrey'
+        testId="blog-post"
+        className="relative pb-3 rounded-2xl max-w-[600px] bg-[#fbf2e4] border-2 border-darkGrey dark:border-pillGrey"
       >
-        <div className='relative z-50 opacity-100 space-y-3'>
-          <div className='relative'>
-            <ul className='absolute top-3 right-3'>
+        <div className="relative z-50 opacity-100 space-y-3">
+          <div className="relative bg-[#FFFBF5] rounded-t-[0.9rem]">
+            <ul className="absolute top-3 right-3">
               <ProjectTag label={category?.label} addBorder />
             </ul>
-            <ul className='absolute bottom-3 left-3'>
-              <ProjectTag label='By Alex Beciana' addBorder />
+            <ul className="absolute bottom-3 left-3">
+              <ProjectTag label="By Alex Beciana" addBorder />
             </ul>
-            <ul className='absolute bottom-3 right-3'>
+            <ul className="absolute bottom-3 right-3">
               <ProjectTag label={`${format(new Date(publishedDate), 'MMM dd yyyy')}`} addBorder />
             </ul>
             <Image
-              data-testid='blog-image'
+              data-testid="blog-image"
               src={image?.webpUrl}
               alt={image?.alt}
               height={246}
               width={600}
-              className="mx-auto w-auto h-auto rounded-t-[0.9rem]"
+              className="w-full mx-auto h-auto rounded-t-[0.9rem] p-3 sm:p-0"
             />
           </div>
-          <div className='flex flex-col px-3 space-y-3'>
-            <div tabIndex={0} data-testid='blog-title' className="text-left font-medium text-xl text-foreground">
+          <div className="flex flex-col px-3 space-y-3">
+            <div
+              tabIndex={0}
+              data-testid="blog-title"
+              className="text-left font-medium text-xl text-foreground"
+            >
               {title}
             </div>
-            <div  data-testid='blog-excerpt' className="text-left font-medium text-lg text-foreground">
+            <div
+              data-testid="blog-excerpt"
+              className="text-left font-medium text-lg text-foreground"
+            >
               {description.substring(0, 55) + '...'}
             </div>
-            <ul
-              tabIndex={0}
-              data-testid='tags-list'
-              className='flex gap-2'
-            >
-              {tags?.slice(0,4)?.map((tag) => {
-                return (
-                  <ProjectTag key={tag?.id} label={tag?.label} inversePill />
-                )
+            <ul tabIndex={0} data-testid="tags-list" className="flex gap-2">
+              {tags?.slice(0, 4)?.map((tag) => {
+                return <ProjectTag key={tag?.id} label={tag?.label} inversePill />
               })}
-              {tags?.length > 4 && <ProjectTag label='...' inversePill />}
+              {tags?.length > 4 && <ProjectTag label="..." inversePill />}
             </ul>
           </div>
         </div>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
-        <MorphingDialogContent className="relative border-2 border-darkGrey dark:border-pillGrey bg-background dark:bg-foreground rounded-lg">
+        <MorphingDialogContent className="relative border-2 border-darkGrey dark:border-pillGrey bg-background dark:bg-foreground rounded-lg max-w-[600px]">
           <div className="relative bg-[#FFFBF5]">
-            <ul className='absolute top-3 left-3'>
+            <ul className="absolute top-3 left-3">
               <ProjectTag label={category?.label} addBorder />
             </ul>
-            <ul className='absolute bottom-3 left-3'>
-              <ProjectTag label='By Alex Beciana' addBorder />
+            <ul className="absolute bottom-3 left-3">
+              <ProjectTag label="By Alex Beciana" addBorder />
             </ul>
-            <ul className='absolute bottom-3 right-3'>
+            <ul className="absolute bottom-3 right-3">
               <ProjectTag label={`${format(new Date(publishedDate), 'MMM dd yyyy')}`} addBorder />
             </ul>
             <MorphingDialogImage
@@ -101,28 +99,36 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
               width={600}
               height={246}
               alt={`Blog post title - ${title}`} // TODO - add alt text
-              className="object-cover object-top rounded-t-md"
+              className="w-full p-3 sm:p-0 object-cover object-top rounded-t-md border-b-2 border-darkGrey"
             />
           </div>
-          <section className='p-3'>
-            <div className="flex flex-col text-foreground dark:text-background space-y-6">
-              <ul
-                tabIndex={0}
-                data-testid='tags-list'
-                className='flex gap-2 flex-wrap'
-              >
+          <section className="p-3">
+            <div className="flex flex-col text-foreground dark:text-background space-y-3">
+              <ul tabIndex={0} data-testid="tags-list" className="flex gap-2 flex-wrap">
                 {tags?.map((tag) => {
-                  return (
-                    <ProjectTag key={tag?.id} label={tag?.label} inversePill />
-                  )
+                  return <ProjectTag key={tag?.id} label={tag?.label} inversePill />
                 })}
               </ul>
-              <MorphingDialogTitle>
-                <div className="flex flex-col text-left text-6xl font-semibold">
-                  {title}
-                </div>
-              </MorphingDialogTitle>
-              <RichTextEditor content_html={teaserContent} />
+              <ScrollArea className="h-[40vh]" type="scroll">
+                <MorphingDialogTitle>
+                  <div className="text-3xl md:text-6xl font-semibold leading-16">{title}</div>
+                </MorphingDialogTitle>
+                <RichTextEditor content_html={teaserContent} />
+              </ScrollArea>
+              <div className='mx-auto'>
+                <CallToAction
+                  style='primary'
+                  arrow
+                  arrowDirection='right'
+                  link={{
+                    type: 'custom',
+                    newTab: false,
+                    url: `blog/${slug}`,
+                    reference: [{ value: { slug } }],
+                    label: 'Read this article'
+                  }}
+                />
+              </div>
             </div>
           </section>
           <MorphingDialogClose className="text-foreground" />
