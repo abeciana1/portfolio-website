@@ -70,6 +70,7 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
               category={post.category as ProjectTagProps}
               tags={post.tags as ProjectTagProps[]}
               meta={post.meta as Media}
+              teaserContent={post.teaserContent?.content_html as string}
             />
           )
         })}
