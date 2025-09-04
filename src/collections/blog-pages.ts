@@ -109,7 +109,7 @@ export const BlogPage: CollectionConfig = {
             },
             lexicalHTMLField({
               htmlFieldName: 'content_html',
-              lexicalFieldName: 'content'
+              lexicalFieldName: 'teaserContent'
             }),
             {
               name: 'layout',
