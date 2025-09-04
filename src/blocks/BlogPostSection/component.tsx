@@ -3,6 +3,8 @@ import { payload } from '@/src/payload'
 import { type BlogPostSectionBlockProps, type ProjectTagProps } from '@/types/blockTypes'
 import { type CMSMediaT } from '@/types/general'
 import BlogPostCard from '@/components/_blog/BlogPostCard'
+import clsx from 'clsx'
+import { sectionContainer } from '@/utils/helpers'
 
 const buildQueryArgs = (
   opts: {
@@ -59,7 +61,9 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
     const args = buildQueryArgs({ postSelection, postLimit, categoryFilter: categoryFilter ?? null })
     const posts = await payload.find(args)
     return (
-      <section>
+      <section
+        className={clsx(sectionContainer, 'grid grid-cols-1 md:grid-cols-2')}
+      >
         {posts?.docs?.map((post, _) => {
           return (
             <BlogPostCard
@@ -78,7 +82,9 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
     )
   } else {
     return (
-      <section>
+      <section
+        className={clsx(sectionContainer, 'grid grid-cols-1 md:grid-cols-2')}
+      >
         {posts?.map((post, _) => {
           return (
             <BlogPostCard
