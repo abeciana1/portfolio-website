@@ -48,6 +48,8 @@ type Media = {
   description: string;
 }
 
+const gridSectionClassname = clsx(sectionContainer, 'grid grid-cols-1 md:grid-cols-2 gap-6 max-w-fit mx-auto')
+
 const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
   postSelection,
   postLimit,
@@ -62,7 +64,7 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
     const posts = await payload.find(args)
     return (
       <section
-        className={clsx(sectionContainer, 'grid grid-cols-1 md:grid-cols-2')}
+        className={gridSectionClassname}
       >
         {posts?.docs?.map((post, _) => {
           return (
@@ -83,7 +85,7 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
   } else {
     return (
       <section
-        className={clsx(sectionContainer, 'grid grid-cols-1 md:grid-cols-2')}
+        className={gridSectionClassname}
       >
         {posts?.map((post, _) => {
           return (
