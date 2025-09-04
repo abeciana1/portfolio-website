@@ -81,7 +81,7 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
     console.log('not using category', posts)
     return (
       <section>
-        {/* {posts?.docs?.map((post, _) => {
+        {posts?.map((post, _) => {
         console.log('using category', post)
           return (
             <BlogPostCard
@@ -92,9 +92,10 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
               category={post.category as ProjectTagProps}
               tags={post.tags as ProjectTagProps[]}
               meta={post.meta as Media}
+              teaserContent={post?.content_html as string}
             />
           )
-        })} */}
+        })}
       </section>
     )
   }
