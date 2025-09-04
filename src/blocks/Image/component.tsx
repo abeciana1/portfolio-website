@@ -15,6 +15,7 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
 
   const {
     webpUrl,
+    url,
     alt,
     width,
     height,
@@ -25,7 +26,7 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
         <Image
           priority={priority}
           loading={priority ? 'eager' : 'lazy'}
-          src={webpUrl}
+          src={url || webpUrl}
           alt={alt}
           height={(forcedHeight || height) as number}
           width={(forcedWidth || width) as number}
