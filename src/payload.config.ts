@@ -152,7 +152,7 @@ export default buildConfig({
   secret: process.env.NEXT_PUBLIC_PAYLOAD_SECRET as string || process.env.PAYLOAD_SECRET as string,
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI as string,
+      connectionString: process.env.DATABASE_URI! as string,
     },
     push: process.env.NODE_ENV === 'development'
   }),
