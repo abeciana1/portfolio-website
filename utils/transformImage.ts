@@ -38,10 +38,12 @@ export const transformImage = (img: number | Media): CMSMediaT => {
       webpUrl: '', // Provide a default or placeholder URL if needed
       width: 0,
       height: 0,
+      url: '',
     }
   }
   return {
     ...img,
     webpUrl: img.url || '', // Use img.url as webpUrl if not already provided
+    url: img.url || '',
   }
 }
