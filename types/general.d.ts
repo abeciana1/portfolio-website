@@ -4,7 +4,8 @@ import {
 import React from 'react'
 
 export type CMSMediaT = Media & {
-  webpUrl: string
+  webpUrl: string;
+  url: string;
 }
 
 export type ImageT = CMSMediaT & {
