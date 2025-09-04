@@ -65,6 +65,8 @@ const nestedRouteHash: HashMap = {
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const shouldPush = process.env.PAYLOAD_DB_PUSH === 'true';
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -154,7 +156,7 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI! as string,
     },
-    push: process.env.NODE_ENV === 'development',
+    push: shouldPush,
     migrationDir: 'src/migrations'
   }),
   sharp,
