@@ -13,6 +13,7 @@ import {
   MorphingDialogClose,
   MorphingDialogContainer,
 } from '@/components/motion-primitives/morphing-dialog'
+import RichTextEditor from '@/src/blocks/RichTextEditor/component'
 
 const BlogPostCard: React.FC<BlogPostCardProps> = ({
   title,
@@ -20,7 +21,8 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
   publishedDate,
   category,
   tags,
-  meta
+  meta,
+  teaserContent
 }) => {
 
   const {
@@ -120,6 +122,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
                   {title}
                 </div>
               </MorphingDialogTitle>
+              <RichTextEditor content_html={teaserContent} />
             </div>
           </section>
           <MorphingDialogClose className="text-foreground" />
