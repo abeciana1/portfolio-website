@@ -10,6 +10,7 @@ import { InViewEmbedBlock } from '@/src/blocks/InViewEmbed/config'
 import { CardBlock } from '@/src/blocks/Card/config'
 import { JobSection } from '@/src/blocks/JobSection/config'
 import { TestimonialSectionBlock } from '@/src/blocks/TestimonialSection/config'
+import { BlogPostSectionBlock } from '@/src/blocks/BlogPostSection/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
@@ -23,6 +24,7 @@ const allowableBlocks = [
   CardBlock,
   JobSection,
   TestimonialSectionBlock,
+  BlogPostSectionBlock
 ]
 
 const Page: CollectionConfig = {
