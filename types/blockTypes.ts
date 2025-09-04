@@ -343,4 +343,5 @@ export type BlogPostCardProps = {
     image: CMSMediaT;
     description: string;
   }
+  teaserContent: string;
 }
