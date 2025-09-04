@@ -12,8 +12,8 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
 }) => {
 
   const {
-    webpUrl,
-    alt
+    alt,
+    url
   } = featuredImage
 
   return (
@@ -26,7 +26,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
         <div data-testid='blog-excerpt' className='italic text-lg font-medium'>{excerpt}</div>
       </section>
       <Image
-        src={webpUrl}
+        src={url}
         alt={alt}
         width={800}
         height={1600}
