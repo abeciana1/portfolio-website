@@ -41,13 +41,13 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
       >
         <div className="relative z-50 opacity-100 space-y-3">
           <div className="relative bg-[#FFFBF5] rounded-t-[0.9rem]">
-            <ul className="absolute top-3 right-3">
+            <ul data-testid="blog-category" className="absolute top-3 right-3">
               <ProjectTag label={category?.label} addBorder />
             </ul>
-            <ul className="absolute bottom-3 left-3">
+            <ul data-testid="blog-author" className="absolute bottom-3 left-3">
               <ProjectTag label="By Alex Beciana" addBorder />
             </ul>
-            <ul className="absolute bottom-3 right-3">
+            <ul data-testid="blog-date" className="absolute bottom-3 right-3">
               <ProjectTag label={`${format(new Date(publishedDate), 'MMM dd yyyy')}`} addBorder />
             </ul>
             <Image
@@ -110,8 +110,8 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
                 })}
               </ul>
               <ScrollArea className="h-[40vh]" type="scroll">
-                <MorphingDialogTitle>
-                  <div className="text-3xl md:text-6xl font-semibold leading-16">{title}</div>
+                <MorphingDialogTitle className="text-3xl md:text-6xl font-semibold leading-16">
+                  {title}
                 </MorphingDialogTitle>
                 <RichTextEditor content_html={teaserContent} />
               </ScrollArea>
