@@ -37,7 +37,8 @@ const BASE_SELECT = {
   category: true,
   tags: true,
   meta: { image: true, description: true },
-  content_html: true
+  content_html: true,
+  teaserContent: true
 } as const
 
 type Media = {
