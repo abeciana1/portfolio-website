@@ -15,6 +15,7 @@ const BlogImage: React.FC<BlogImageProps> = ({
     <figure>
       <ImageComponent
         image={image}
+        useURL={false}
         forcedWidth={width as number}
         forcedHeight={height as number}
         gradient={false}
