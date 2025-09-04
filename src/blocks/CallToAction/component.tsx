@@ -32,7 +32,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
       prefetch
       target={newTab ? "_blank" : "_parent"}
       href={`/${pageUrl}`}
-      className={clsx('flex items-center rounded-md text-lg font-medium py-2 px-6 no-underline', {
+      className={clsx('flex items-center rounded-md text-lg font-medium py-2 px-6 no-underline max-w-fit', {
         ['gap-3 justify-between pl-7']: arrow && arrowDirection,
         [variants[style]]: style
       })}
