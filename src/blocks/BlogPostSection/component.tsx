@@ -37,7 +37,7 @@ const BASE_SELECT = {
   category: true,
   tags: true,
   meta: { image: true, description: true },
-  teaserContent: true
+  content_html: true
 } as const
 
 type Media = {
@@ -70,7 +70,7 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
               category={post.category as ProjectTagProps}
               tags={post.tags as ProjectTagProps[]}
               meta={post.meta as Media}
-              teaserContent={post.teaserContent?.content_html as string}
+              teaserContent={post?.content_html as string}
             />
           )
         })}
