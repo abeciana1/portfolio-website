@@ -330,7 +330,7 @@ export type BlogPostSectionBlockProps = Pick<BlogPostSectionBlock,
   'postLimit' |
   'posts'
 > & {
-  categoryFilter?: ProjectTagProps
+  categoryFilter?: ProjectTagProps;
 }
 
 export type BlogPostCardProps = {
