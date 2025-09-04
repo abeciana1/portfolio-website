@@ -66,7 +66,8 @@ export const BlogPage: CollectionConfig = {
             {
               name: 'isBlogPost',
               label: 'Is Blog Post?',
-              type: 'checkbox'
+              type: 'checkbox',
+              defaultValue: false
             },
             {
               name: 'publishedDate',
