@@ -10,7 +10,8 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   gradientSelect,
   forcedHeight,
   forcedWidth,
-  priority = false
+  priority = false,
+  useURL = false
 }) => {
 
   const {
@@ -26,7 +27,7 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
         <Image
           priority={priority}
           loading={priority ? 'eager' : 'lazy'}
-          src={url || webpUrl}
+          src={useURL ? url : webpUrl}
           alt={alt}
           height={(forcedHeight || height) as number}
           width={(forcedWidth || width) as number}
