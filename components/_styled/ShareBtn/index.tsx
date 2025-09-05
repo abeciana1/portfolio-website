@@ -25,8 +25,9 @@ const ShareBtn: React.FC<ShareBtnProps> = ({
   const [ref, hovering] = useHover()
 
   return (
-    <span ref={ref} className='flex items-center gap-6'>
+    <span className='flex items-center gap-6'>
       <button
+        ref={ref}
         aria-label={text}
         className={clsx(variants['primary'], 'rounded-full p-3')}
         onClick={onClick}
