@@ -333,6 +333,14 @@ export type BlogPostSectionBlockProps = Pick<BlogPostSectionBlock,
 > & {
   categoryFilter?: ProjectTagProps;
   posts: BlogPage[];
+  enableSectionContent: boolean;
+  sectionGroup?: {
+    sectionId: string;
+    pill: string;
+    heading: string;
+    description: string;
+    callToAction: CallToActionProps[];
+  }
 }
 
 export type BlogPostCardProps = {
