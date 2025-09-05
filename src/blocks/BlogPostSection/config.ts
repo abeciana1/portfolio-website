@@ -1,9 +1,57 @@
 import { type Block } from 'payload'
+import { CallToAction } from '@/src/blocks/CallToAction/config'
 
 export const BlogPostSectionBlock: Block = {
   slug: 'blog-post-section',
   interfaceName: 'BlogPostSectionBlock',
   fields: [
+    {
+      name: 'enableSectionContent',
+      label: 'Enable section content',
+      type: 'checkbox'
+    },
+    {
+      name: 'sectionGroup',
+      label: 'Section group',
+      type: 'group',
+      admin: {
+        condition: (_, siblingData) => siblingData.enableSectionContent
+      },
+      fields: [
+        {
+          name: 'sectionId',
+          type: 'text',
+          label: 'Section ID',
+          required: true,
+        },
+        {
+          name: 'pill',
+          type: 'text',
+          label: 'Pill',
+        },
+        {
+          name: 'heading',
+          type: 'text',
+          label: 'Heading',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'text',
+          label: 'Description'
+        },
+        {
+          name: 'callToAction',
+          label: 'Call-to-Action',
+          type: 'blocks',
+          maxRows: 2,
+          blocks: [
+            CallToAction
+          ],
+          required: false,
+        }
+      ]
+    },
     {
       name: 'postSelection',
       type: 'select',
