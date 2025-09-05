@@ -3,7 +3,6 @@ import { type CallToActionProps } from '@/types/blockTypes'
 import clsx from 'clsx'
 import { ArrowRight, ArrowDown } from 'lucide-react';
 
-
 export const variants = {
   'primary': 'bg-foreground dark:bg-background text-background dark:text-foreground',
   'secondary': 'bg-background dark:bg-foreground border-2 border-foreground dark:border-background text-foreground dark:text-background',
