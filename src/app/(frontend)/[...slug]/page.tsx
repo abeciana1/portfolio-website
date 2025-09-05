@@ -10,9 +10,9 @@ import { QueryClient } from '@tanstack/react-query'
 import { payload } from '@/src/payload'
 
 type Args = {
-  params: {
+  params: Promise<{
     slug?: string[];
-  }
+  }>
 }
 
 const Page = async ({ params }: Args) => {
