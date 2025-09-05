@@ -24,7 +24,8 @@ export type SkillProps = {
 }
 
 export type ButtonGroupProps = {
-  children: React.ReactNode[]
+  children: React.ReactNode[];
+  alignment?: 'center' | 'left';
 }
 
 export type ProjectLink = {
