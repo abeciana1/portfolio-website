@@ -48,7 +48,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className='leading-10 text-3xl font-semibold min-h-[5.5rem]'>{description}</div>
         {secondaryBlurb && <div className='text-xl text-darkGrey font-semibold'>{secondaryBlurb}</div>}
         {(callToAction && callToAction?.length > 0) &&
-          <ButtonGroup>
+          <ButtonGroup alignment='left'>
             {callToAction?.map((callToAction, index) => {
               return (
                 <CallToAction
