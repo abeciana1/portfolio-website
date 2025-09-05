@@ -10,22 +10,17 @@ import { QueryClient } from '@tanstack/react-query'
 import { payload } from '@/src/payload'
 
 type Args = {
-  params: Promise<{
-    slug?: string
-  }>
+  params: {
+    slug?: string[];
+  }
 }
 
-let cachedParams: any;
-
-const Page = async ({ params: paramsPromise }: Args) => {
-  if (!cachedParams) {
-    cachedParams = await paramsPromise;
-  }
-  const { slug = 'home' } = cachedParams;
+const Page = async ({ params }: Args) => {
+  const { slug = 'home' } = await params
   const queryClient = new QueryClient()
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
-    slug,
+    slug: slug[0] as string
   }, queryClient)
 
   if (!page) {
@@ -51,7 +46,7 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
         pagination: false,
         where: {
           slug: {
-            equals: Array.isArray(slug) ? slug[0] : slug,
+            equals: slug,
           }
         },
       }),
@@ -60,11 +55,11 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
   return result?.docs?.[0] || null
 })
 
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = 'home' } = await paramsPromise
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+  const { slug = 'home' } = await params
   const queryClient = new QueryClient()
   const page = await queryPageBySlug({
-    slug,
+    slug: slug[0] as string
   }, queryClient)
 
   return generateMeta({ doc: page })
