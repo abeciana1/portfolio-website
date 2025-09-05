@@ -1,21 +1,28 @@
 'use server'
 import { payload } from '@/src/payload'
-import { type BlogPostSectionBlockProps, type ProjectTagProps } from '@/types/blockTypes'
-import { type CMSMediaT } from '@/types/general'
+import {
+  type BlogPostSectionBlockProps,
+  type ProjectTagProps,
+  type ArrowDirection,
+  type CTAStyle,
+  type CTALink,
+} from '@/types/blockTypes'
+import { type CMSMediaT, type WrapperI } from '@/types/general'
 import BlogPostCard from '@/components/_blog/BlogPostCard'
-import clsx from 'clsx'
 import { sectionContainer } from '@/utils/helpers'
+import Pill from '@/components/_styled/Pill'
+import CallToAction from '@/src/blocks/CallToAction/component'
+import ButtonGroup from '@/components/_styled/ButtonGroup'
+import { Heading1 } from '@/components/_styled/Heading'
 
-const buildQueryArgs = (
-  opts: {
-    postSelection: BlogPostSectionBlockProps['postSelection']
-    postLimit?: number | null
-    categoryFilter?: ProjectTagProps | null
-  }
-) => {
+const buildQueryArgs = (opts: {
+  postSelection: BlogPostSectionBlockProps['postSelection']
+  postLimit?: number | null
+  categoryFilter?: ProjectTagProps | null
+}) => {
   const limit = opts.postLimit ?? 3
   const where: any = {
-    slug: { not_equals: 'home' }
+    slug: { not_equals: 'home' },
   }
 
   if (opts.postSelection === 'byCategory' && opts.categoryFilter?.id != null) {
@@ -40,70 +47,123 @@ const BASE_SELECT = {
   tags: true,
   meta: { image: true, description: true },
   content_html: true,
-  teaserContent: true
+  teaserContent: true,
 } as const
 
 type Media = {
-  image: CMSMediaT;
-  description: string;
+  image: CMSMediaT
+  description: string
 }
 
-const gridSectionClassname = clsx(sectionContainer, 'grid grid-cols-1 md:grid-cols-2 gap-6 max-w-fit mx-auto')
+const gridSectionClassname = 'grid grid-cols-1 md:grid-cols-2 gap-6 max-w-fit mx-auto mt-6'
 
 const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
   postSelection,
   postLimit,
   categoryFilter,
-  posts
+  posts,
+  enableSectionContent,
+  sectionGroup,
 }) => {
-
   const usingCategory = Boolean(categoryFilter)
 
   if (usingCategory || postSelection !== 'custom') {
-    const args = buildQueryArgs({ postSelection, postLimit, categoryFilter: categoryFilter ?? null })
+    const args = buildQueryArgs({
+      postSelection,
+      postLimit,
+      categoryFilter: categoryFilter ?? null,
+    })
     const posts = await payload.find(args)
     return (
-      <section
-        className={gridSectionClassname}
+      <SectionWrapper
+        enableSectionContent={enableSectionContent}
+        sectionGroup={sectionGroup}
       >
-        {posts?.docs?.map((post, _) => {
-          return (
-            <BlogPostCard
-              key={post.title}
-              title={post.title}
-              slug={post.slug as string}
-              publishedDate={post.publishedDate as string}
-              category={post.category as ProjectTagProps}
-              tags={post.tags as ProjectTagProps[]}
-              meta={post.meta as Media}
-              teaserContent={post?.content_html as string}
-            />
-          )
-        })}
-      </section>
+        <section className={gridSectionClassname}>
+          {posts?.docs?.map((post, _) => {
+            return (
+              <BlogPostCard
+                key={post.title}
+                title={post.title}
+                slug={post.slug as string}
+                publishedDate={post.publishedDate as string}
+                category={post.category as ProjectTagProps}
+                tags={post.tags as ProjectTagProps[]}
+                meta={post.meta as Media}
+                teaserContent={post?.content_html as string}
+              />
+            )
+          })}
+        </section>
+      </SectionWrapper>
     )
   } else {
     return (
-      <section
-        className={gridSectionClassname}
+      <SectionWrapper
+        enableSectionContent={enableSectionContent}
+        sectionGroup={sectionGroup}
       >
-        {posts?.map((post, _) => {
-          return (
-            <BlogPostCard
-              key={post.title}
-              title={post.title}
-              slug={post.slug as string}
-              publishedDate={post.publishedDate as string}
-              category={post.category as ProjectTagProps}
-              tags={post.tags as ProjectTagProps[]}
-              meta={post.meta as Media}
-              teaserContent={post?.content_html as string}
-            />
-          )
-        })}
-      </section>
+        <section className={gridSectionClassname}>
+          {posts?.map((post, _) => {
+            return (
+              <BlogPostCard
+                key={post.title}
+                title={post.title}
+                slug={post.slug as string}
+                publishedDate={post.publishedDate as string}
+                category={post.category as ProjectTagProps}
+                tags={post.tags as ProjectTagProps[]}
+                meta={post.meta as Media}
+                teaserContent={post?.content_html as string}
+              />
+            )
+          })}
+        </section>
+      </SectionWrapper>
     )
   }
 }
 
 export default BlogPostSection
+
+const SectionWrapper: React.FC<
+  WrapperI & Pick<BlogPostSectionBlockProps, 'enableSectionContent' | 'sectionGroup'>
+> = ({ enableSectionContent, sectionGroup, children }) => {
+  const { sectionId, pill, heading, description, callToAction } = sectionGroup || {}
+
+  return (
+    <>
+      {enableSectionContent ?
+        <section id={sectionId} className={`relative w-full ${sectionContainer}`}>
+          <div className="relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto">
+            <div className="flex justify-center">
+              <Pill text={pill as string} />
+            </div>
+            <Heading1 text={heading as string} />
+            <div className="text-darkGrey dark:text-pillGrey text-xl font-semibold">
+              {description}
+            </div>
+            {callToAction && callToAction?.length > 0 && (
+              <ButtonGroup>
+                {callToAction?.map((callToAction, index) => {
+                  return (
+                    <CallToAction
+                      key={index}
+                      style={callToAction.style as CTAStyle}
+                      arrow={callToAction.arrow as boolean}
+                      arrowDirection={callToAction.arrowDirection as ArrowDirection}
+                      link={callToAction.link as CTALink}
+                    />
+                  )
+                })}
+              </ButtonGroup>
+            )}
+          </div>
+          {children}
+        </section>
+        :
+        <section className={`relative w-full ${sectionContainer}`}>{children}</section>
+      }
+    </>
+  )
+}
