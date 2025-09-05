@@ -1,7 +1,10 @@
+'use client'
+import { useCallback } from 'react'
 import Link from 'next/link'
 import { type CallToActionProps } from '@/types/blockTypes'
 import clsx from 'clsx'
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowRight, ArrowDown } from 'lucide-react'
+import { usePostHog } from 'posthog-js/react'
 
 export const variants = {
   'primary': 'bg-foreground dark:bg-background text-background dark:text-foreground',
@@ -14,7 +17,8 @@ const CallToAction: React.FC<CallToActionProps> = ({
   style,
   arrow,
   arrowDirection,
-  link
+  link,
+  eventLocation
 }) => {
   const {
     type,
@@ -23,6 +27,19 @@ const CallToAction: React.FC<CallToActionProps> = ({
     reference,
     label
   } = link
+
+  const posthog = usePostHog()
+  const userId = posthog.get_distinct_id()
+
+  const clickTrackHandler = useCallback(() => {
+    posthog.capture('link_clicked', {
+      destinationSlug: url,
+      eventLocation: eventLocation,
+      ctaStyle: style,
+      userId: userId,
+      label: label
+    })
+  }, [eventLocation, label, url, style, userId, posthog])
 
   const pageUrl = type === 'reference' ? (reference[0]?.value?.slug === 'home' ? '' : reference[0]?.value?.slug) : url
 
@@ -35,6 +52,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
         ['gap-3 justify-between pl-7']: arrow && arrowDirection,
         [variants[style]]: style
       })}
+      onClick={clickTrackHandler}
     >
       { label }
       {(arrow && arrowDirection) &&
