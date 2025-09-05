@@ -60,6 +60,7 @@
     "payload": "^3.40.0",
     "postcss": "^8.5.1",
     "posthog-js": "^1.249.4",
+    "posthog-node": "^5.8.2",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-hot-toast": "^2.6.0",
