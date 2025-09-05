@@ -149,6 +149,7 @@ export type CallToActionProps = {
   arrow: boolean;
   arrowDirection: ArrowDirection
   link: CTALink;
+  eventLocation: string;
 }
 
 export type JobSectionProps = Pick<JobSectionBlock, 'title' | 'sectionId' > & {
