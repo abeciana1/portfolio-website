@@ -13,6 +13,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       person_profiles: 'always',
       capture_pageview: process.env.NODE_ENV === 'production'
     })
+    posthog.get_distinct_id()
   }, [])
 
   return (
@@ -27,7 +28,8 @@ function PostHogPageView() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const posthog = usePostHog()
-
+  const distinctId = posthog.get_distinct_id()
+  console.log('distinctId', distinctId)
   // Track pageviews
   useEffect(() => {
     if (pathname && posthog) {
