@@ -37,8 +37,6 @@ const Page = async ({ params: paramsPromise }: Args) => {
     slug,
   }, queryClient)
 
-  console.log('blog post render', page)
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
