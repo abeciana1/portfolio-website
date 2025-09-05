@@ -617,6 +617,35 @@ export interface Testimonial {
  * via the `definition` "BlogPostSectionBlock".
  */
 export interface BlogPostSectionBlock {
+  enableSectionContent?: boolean | null;
+  sectionGroup?: {
+    sectionId: string;
+    pill?: string | null;
+    heading: string;
+    description?: string | null;
+    callToAction?:
+      | {
+          style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | {
+                  relationTo: 'pages';
+                  value: number | Page;
+                }[]
+              | null;
+            url?: string | null;
+            label: string;
+          };
+          arrow?: boolean | null;
+          arrowDirection?: ('right' | 'down') | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'call-to-action';
+        }[]
+      | null;
+  };
   postSelection: 'latest' | 'custom' | 'all' | 'byCategory';
   postLimit?: number | null;
   categoryFilter?: (number | null) | BlogCategory;
@@ -1583,6 +1612,37 @@ export interface TestimonialSectionBlockSelect<T extends boolean = true> {
  * via the `definition` "BlogPostSectionBlock_select".
  */
 export interface BlogPostSectionBlockSelect<T extends boolean = true> {
+  enableSectionContent?: T;
+  sectionGroup?:
+    | T
+    | {
+        sectionId?: T;
+        pill?: T;
+        heading?: T;
+        description?: T;
+        callToAction?:
+          | T
+          | {
+              'call-to-action'?:
+                | T
+                | {
+                    style?: T;
+                    link?:
+                      | T
+                      | {
+                          type?: T;
+                          newTab?: T;
+                          reference?: T;
+                          url?: T;
+                          label?: T;
+                        };
+                    arrow?: T;
+                    arrowDirection?: T;
+                    id?: T;
+                    blockName?: T;
+                  };
+            };
+      };
   postSelection?: T;
   postLimit?: T;
   categoryFilter?: T;
