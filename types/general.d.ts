@@ -42,3 +42,7 @@ export type ShareBtnProps = {
   icon: React.ElementType;
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 }
+
+export type TooltipMessageProps = {
+  text: string;
+}
