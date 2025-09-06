@@ -28,8 +28,6 @@ function PostHogPageView() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const posthog = usePostHog()
-  const distinctId = posthog.get_distinct_id()
-  console.log('distinctId', distinctId)
   // Track pageviews
   useEffect(() => {
     if (pathname && posthog) {
