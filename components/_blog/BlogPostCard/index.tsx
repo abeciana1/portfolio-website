@@ -117,6 +117,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
               </ScrollArea>
               <div className='mx-auto'>
                 <CallToAction
+                  eventLocation={`Blog post modal - ${title}`}
                   style='primary'
                   arrow
                   arrowDirection='right'

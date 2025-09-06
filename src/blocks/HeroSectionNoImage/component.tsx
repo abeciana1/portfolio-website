@@ -33,6 +33,7 @@ const HeroSectionNoImage: React.FC<HeroSectionNoImageBlockProps> = ({
             {callToAction?.map((callToAction, index) => {
               return (
                 <CallToAction
+                  eventLocation={`Hero Section w/out Image - ${sectionId}`}
                   key={index}
                   style={callToAction.style as CTAStyle}
                   arrow={callToAction.arrow as boolean}

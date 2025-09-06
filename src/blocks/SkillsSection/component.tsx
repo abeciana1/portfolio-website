@@ -62,6 +62,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
               {callToAction?.map((callToAction, index) => {
                 return (
                   <CallToAction
+                    eventLocation='Skills section header'
                     key={index}
                     style={callToAction.style as CTAStyle}
                     arrow={callToAction.arrow as boolean}

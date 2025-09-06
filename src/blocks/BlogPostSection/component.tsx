@@ -148,6 +148,7 @@ const SectionWrapper: React.FC<
                 {callToAction?.map((callToAction, index) => {
                   return (
                     <CallToAction
+                      eventLocation='Blog post section header'
                       key={index}
                       style={callToAction.style as CTAStyle}
                       arrow={callToAction.arrow as boolean}
