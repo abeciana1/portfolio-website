@@ -29,6 +29,12 @@ const Toolbar = () => {
       component: <DarkModeToggle />,
       content: null,
     },
+    {
+      id: 2,
+      label: 'Scroll to top',
+      component: <ScrollToTop />,
+      content: null,
+    }
   ]
 
   useEffect(() => {
