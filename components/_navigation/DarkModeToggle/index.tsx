@@ -26,7 +26,7 @@ const DarkModeToggle = () => {
     <button
       data-testid='dark-mode-toggle'
       aria-label='Toggle Dark Mode'
-      onClick={() => darkModeHandler()}
+      onClick={darkModeHandler}
       className='transition delay-50 duration-100 ease-in-out hover:bg-zinc-200 rounded-md h-10 w-10 flex justify-center items-center text-foreground'
     >
       {(theme === 'light') &&
