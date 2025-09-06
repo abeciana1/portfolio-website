@@ -95,7 +95,7 @@ const Page = async ({ params: paramsPromise }: Args) => {
   )
 }
 
-const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryClient: QueryClient) => {
+export const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryClient: QueryClient) => {
   const result = await queryClient?.ensureQueryData({
     queryKey: ['page'],
     queryFn: () => 
