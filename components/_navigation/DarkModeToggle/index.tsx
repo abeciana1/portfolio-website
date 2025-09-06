@@ -23,19 +23,21 @@ const DarkModeToggle = () => {
   };
 
   return (
-    <button
-      data-testid='dark-mode-toggle'
-      aria-label='Toggle Dark Mode'
-      onClick={darkModeHandler}
-      className='transition delay-50 duration-100 ease-in-out hover:bg-zinc-200 rounded-md h-10 w-10 flex justify-center items-center text-foreground'
-    >
-      {(theme === 'light') &&
-        <Moon size={24} />
-      }
-      {(theme === 'dark') &&
-        <Sun size={24} />
-      }
-    </button>
+    <span className='relative'>
+      <button
+        data-testid='dark-mode-toggle'
+        aria-label='Toggle Dark Mode'
+        onClick={darkModeHandler}
+        className='relative transition delay-50 duration-100 ease-in-out hover:bg-zinc-200 rounded-md h-10 w-10 flex justify-center items-center text-foreground'
+      >
+        {(theme === 'light') &&
+          <Moon size={24} />
+        }
+        {(theme === 'dark') &&
+          <Sun size={24} />
+        }
+      </button>
+    </span>
   )
 }
 
