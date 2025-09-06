@@ -5,6 +5,7 @@ import { type CallToActionProps } from '@/types/blockTypes'
 import clsx from 'clsx'
 import { ArrowRight, ArrowDown } from 'lucide-react'
 import { usePostHog } from 'posthog-js/react'
+import { usePathname } from 'next/navigation'
 
 export const variants = {
   'primary': 'bg-foreground dark:bg-background text-background dark:text-foreground',
@@ -28,6 +29,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
     label
   } = link
 
+  const pathname = usePathname
   const posthog = usePostHog()
   const userId = posthog.get_distinct_id()
 
@@ -37,9 +39,10 @@ const CallToAction: React.FC<CallToActionProps> = ({
       eventLocation: eventLocation,
       ctaStyle: style,
       userId: userId,
-      label: label
+      label: label,
+      pageLocation: pathname
     })
-  }, [eventLocation, label, url, style, userId, posthog])
+  }, [eventLocation, pathname, label, url, style, userId, posthog])
 
   const pageUrl = type === 'reference' ? (reference[0]?.value?.slug === 'home' ? '' : reference[0]?.value?.slug) : url
 
