@@ -19,8 +19,10 @@ const Page = async ({ params }: Args) => {
   const { slug = 'home' } = await params
   const queryClient = new QueryClient()
 
+  console.log('about slug', slug)
+
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
-    slug: slug[0] as string
+    slug: slug as string
   }, queryClient)
 
   if (!page) {
@@ -59,7 +61,7 @@ export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { slug = 'home' } = await params
   const queryClient = new QueryClient()
   const page = await queryPageBySlug({
-    slug: slug[0] as string
+    slug: slug as string
   }, queryClient)
 
   return generateMeta({ doc: page })
