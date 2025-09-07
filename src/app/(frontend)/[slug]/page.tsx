@@ -19,8 +19,6 @@ const Page = async ({ params }: Args) => {
   const { slug = 'home' } = await params
   const queryClient = new QueryClient()
 
-  console.log('about slug', slug)
-
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
     slug: slug as string
   }, queryClient)
