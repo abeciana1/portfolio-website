@@ -9,6 +9,8 @@ const ScrollToTop = () => {
   return (
     <>
       <button
+        data-cursor="Scroll to the top of the page"
+        data-cursor-variant='tool'
         data-testid="scroll-to-top"
         aria-label="Scroll to the top of the page"
         className="relative transition delay-50 duration-100 ease-in-out hover:bg-zinc-200 rounded-md h-10 w-10 flex justify-center items-center text-foreground"
