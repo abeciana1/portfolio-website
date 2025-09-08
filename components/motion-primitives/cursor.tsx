@@ -172,7 +172,7 @@ export default function Cursor({
             variants={variants}
             transition={transition}
           >
-            <div className={clsx(cursorStyles[displayStyle] ?? cursorStyles.initial)}>
+            <div className={clsx('bg-darkGrey dark:bg-pillGrey', cursorStyles[displayStyle] ?? cursorStyles.initial)}>
               {displayLabel}
             </div>
           </motion.div>
@@ -183,6 +183,6 @@ export default function Cursor({
 }
 
 const cursorStyles: Record<string, string> = {
-  initial: 'w-2 h-2 bg-black rounded-full',
+  initial: 'w-10 h-10 rounded-full',
   navLink: 'px-2 py-1 rounded bg-black text-white text-xs',
 }
