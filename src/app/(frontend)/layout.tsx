@@ -7,6 +7,7 @@ import Toolbar from '@/components/_navigation/Toolbar'
 import { cookies } from 'next/headers';
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import { WebVitals } from '@/components/providers/web-vitals'
+import Cursor from '@/components/motion-primitives/cursor'
 
 const inter = Inter({
   // weight: ['100', '300', '400', '500', '600', '700'],
@@ -30,6 +31,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <WebVitals />
         <CombinedProviders>
           <NavBar/>
+          <Cursor/>
           {children}
           <Toolbar/>
         </CombinedProviders>
