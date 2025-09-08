@@ -91,6 +91,8 @@ export type MorphingDialogTriggerProps = {
   style?: React.CSSProperties;
   triggerRef?: React.RefObject<HTMLButtonElement>;
   testId?: string;
+  cursorLabel?: string;
+  cursorVariant?: string;
 };
 
 function MorphingDialogTrigger({
@@ -98,7 +100,9 @@ function MorphingDialogTrigger({
   className,
   style,
   triggerRef,
-  testId
+  testId,
+  cursorLabel,
+  cursorVariant
 }: MorphingDialogTriggerProps) {
   const { setIsOpen, isOpen, uniqueId } = useMorphingDialog();
 
@@ -129,6 +133,8 @@ function MorphingDialogTrigger({
       aria-expanded={isOpen}
       aria-controls={`motion-ui-morphing-dialog-content-${uniqueId}`}
       aria-label={`Open dialog ${uniqueId}`}
+      data-cursor={cursorLabel}
+      data-cursor-variant={cursorVariant}
     >
       {children}
     </motion.button>
