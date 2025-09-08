@@ -5,6 +5,11 @@ export const CallToAction: Block = {
   slug: 'call-to-action',
   fields: [
     {
+      name: 'cursorLabel',
+      label: 'Cursor label',
+      type: 'text'
+    },
+    {
       name: 'style',
       label: 'Primary or secondary CTA',
       type: 'select',
