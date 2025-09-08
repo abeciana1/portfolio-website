@@ -31,7 +31,20 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <WebVitals />
         <CombinedProviders>
           <NavBar/>
-          <Cursor/>
+          <Cursor
+            variants={{
+              initial: { scale: 0.3, opacity: 0 },
+              animate: { scale: 1, opacity: 1 },
+              exit: { scale: 0.3, opacity: 0 },
+            }}
+            springConfig={{
+              bounce: 0.001,
+            }}
+            transition={{
+              ease: 'easeInOut',
+              duration: 0.35,
+            }}
+          />
           {children}
           <Toolbar/>
         </CombinedProviders>
