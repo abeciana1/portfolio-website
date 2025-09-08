@@ -35,8 +35,8 @@ export default function Cursor({
   const cursorX = useMotionValue(0)
   const cursorY = useMotionValue(0)
 
-  const [displayLabel, setDisplayLabel] = useState<string>('')         // text bubble
-  const [displayStyle, setDisplayStyle] = useState<string>('initial')  // variant key
+  const [displayLabel, setDisplayLabel] = useState<string>('') // text bubble
+  const [displayStyle, setDisplayStyle] = useState<string>('initial') // variant key
   const [isVisible] = useState(true)
 
   // Tracks the current [data-cursor] element for messaging
@@ -172,17 +172,19 @@ export default function Cursor({
             variants={variants}
             transition={transition}
           >
-            <div className={clsx('bg-darkGrey dark:bg-pillGrey', cursorStyles[displayStyle] ?? cursorStyles.initial)}>
-              {displayLabel}
-            </div>
+            <div
+              dangerouslySetInnerHTML={{ __html: displayLabel }}
+              className={clsx(
+                'bg-darkGrey text-background dark:text-foreground dark:bg-pillGrey text-lg font-medium px-2 py-1',
+                {
+                  ['rounded-md']: displayStyle !== 'initial',
+                  ['w-10 h-10 rounded-full']: displayStyle === 'initial',
+                },
+              )}
+            ></div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.div>
   )
-}
-
-const cursorStyles: Record<string, string> = {
-  initial: 'w-10 h-10 rounded-full',
-  navLink: 'px-2 py-1 rounded bg-black text-white text-xs',
 }
