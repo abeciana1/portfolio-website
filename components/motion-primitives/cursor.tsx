@@ -1,114 +1,161 @@
 'use client'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   motion,
-  SpringOptions,
   useMotionValue,
   useSpring,
   AnimatePresence,
-  Transition,
-  Variant,
+  type SpringOptions,
+  type Transition,
+  type Variant,
 } from 'motion/react'
-import { cn } from '@/utils/classnameMerge'
+import clsx from 'clsx'
 
-export type CursorProps = {
-  children: React.ReactNode
+type CursorProps = {
   className?: string
   springConfig?: SpringOptions
-  attachToParent?: boolean
+  variants?: { initial: Variant; animate: Variant; exit: Variant }
   transition?: Transition
-  variants?: {
-    initial: Variant
-    animate: Variant
-    exit: Variant
-  }
   onPositionChange?: (x: number, y: number) => void
+  hoverSelector?: string
+  onHoverChange?: (el: HTMLElement | null) => void
 }
 
-export function Cursor({
-  children,
+type StylableEl = HTMLElement | SVGElement
+
+export default function Cursor({
   className,
   springConfig,
-  attachToParent,
   variants,
   transition,
   onPositionChange,
+  hoverSelector = '[data-cursor],[href],button,[role="button"]',
+  onHoverChange,
 }: CursorProps) {
   const cursorX = useMotionValue(0)
   const cursorY = useMotionValue(0)
-  const cursorRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(!attachToParent)
+
+  const [displayLabel, setDisplayLabel] = useState<string>('')         // text bubble
+  const [displayStyle, setDisplayStyle] = useState<string>('initial')  // variant key
+  const [isVisible] = useState(true)
+
+  // Tracks the current [data-cursor] element for messaging
+  const lastTargetRef = useRef<HTMLElement | null>(null)
+
+  // Tracks the element we set cursor:none on (inline), so we can restore it
+  const forcedElRef = useRef<StylableEl | null>(null)
+  const forcedPrevInlineCursorRef = useRef<string | null>(null)
+
+  // Helper: only treat elements with a .style property as stylable (HTMLElement/SVGElement)
+  const asStylable = (el: Element | null): StylableEl | null => {
+    return el && 'style' in (el as any) ? (el as StylableEl) : null
+  }
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      cursorX.set(window.innerWidth / 2)
-      cursorY.set(window.innerHeight / 2)
-    }
-  }, [])
+    cursorX.set(window.innerWidth / 2)
+    cursorY.set(window.innerHeight / 2)
+  }, [cursorX, cursorY])
 
   useEffect(() => {
-    if (!attachToParent) {
-      document.body.style.cursor = 'none'
-    } else {
-      document.body.style.cursor = 'auto'
+    const update = (e: MouseEvent) => {
+      const { clientX, clientY } = e
+      cursorX.set(clientX)
+      cursorY.set(clientY)
+      onPositionChange?.(clientX, clientY)
+
+      // Element directly under the pointer
+      const raw = document.elementFromPoint(clientX, clientY) as Element | null
+
+      // ---- (A) Force-hide native cursor on the hovered element (inline, with !important)
+      const nextStylable = asStylable(raw)
+
+      if (forcedElRef.current !== nextStylable) {
+        // restore previous inline cursor on the old element
+        if (forcedElRef.current) {
+          const prev = forcedPrevInlineCursorRef.current
+          if (prev === null) {
+            forcedElRef.current.style.removeProperty('cursor')
+          } else {
+            forcedElRef.current.style.setProperty('cursor', prev)
+          }
+        }
+        // set new element
+        forcedElRef.current = nextStylable
+        forcedPrevInlineCursorRef.current = null
+
+        if (nextStylable) {
+          // remember existing inline cursor (NOT computed)
+          const prevInline = nextStylable.style.getPropertyValue('cursor')
+          forcedPrevInlineCursorRef.current = prevInline || null
+          // apply inline important rule to beat any CSS
+          nextStylable.style.setProperty('cursor', 'none', 'important')
+        }
+      }
+
+      // ---- (B) Compute custom-cursor target for messaging once
+      const target = (raw?.closest(hoverSelector) ?? null) as HTMLElement | null
+
+      if (target !== lastTargetRef.current) {
+        // leaving previous target
+        if (lastTargetRef.current) {
+          setDisplayLabel('')
+          setDisplayStyle('initial')
+          onHoverChange?.(target)
+        }
+        // entering new target
+        if (target) {
+          setDisplayLabel(target.dataset.cursor ?? '')
+          setDisplayStyle(target.dataset.cursorVariant ?? 'initial')
+        }
+        lastTargetRef.current = target
+      }
     }
 
-    const updatePosition = (e: MouseEvent) => {
-      cursorX.set(e.clientX)
-      cursorY.set(e.clientY)
-      onPositionChange?.(e.clientX, e.clientY)
+    const reset = () => {
+      // Reset message/variant
+      setDisplayLabel('')
+      setDisplayStyle('initial')
+      lastTargetRef.current = null
+
+      // Restore any forced inline cursor
+      if (forcedElRef.current) {
+        const prev = forcedPrevInlineCursorRef.current
+        if (prev === null) {
+          forcedElRef.current.style.removeProperty('cursor')
+        } else {
+          forcedElRef.current.style.setProperty('cursor', prev)
+        }
+        forcedElRef.current = null
+        forcedPrevInlineCursorRef.current = null
+      }
     }
 
-    document.addEventListener('mousemove', updatePosition)
+    document.addEventListener('mousemove', update)
+    document.addEventListener('mouseleave', reset)
+    window.addEventListener('blur', reset)
 
     return () => {
-      document.removeEventListener('mousemove', updatePosition)
+      document.removeEventListener('mousemove', update)
+      document.removeEventListener('mouseleave', reset)
+      window.removeEventListener('blur', reset)
+      // best-effort cleanup if unmounting while we forced an element
+      if (forcedElRef.current) {
+        const prev = forcedPrevInlineCursorRef.current
+        if (prev === null) {
+          forcedElRef.current.style.removeProperty('cursor')
+        } else {
+          forcedElRef.current.style.setProperty('cursor', prev)
+        }
+      }
     }
-  }, [cursorX, cursorY, onPositionChange])
+  }, [hoverSelector, onPositionChange, cursorX, cursorY, onHoverChange])
 
   const cursorXSpring = useSpring(cursorX, springConfig || { duration: 0 })
   const cursorYSpring = useSpring(cursorY, springConfig || { duration: 0 })
 
-  useEffect(() => {
-    const handleVisibilityChange = (visible: boolean) => {
-      setIsVisible(visible)
-    }
-
-    if (attachToParent && cursorRef.current) {
-      const parent = cursorRef.current.parentElement
-      if (parent) {
-        parent.addEventListener('mouseenter', () => {
-          parent.style.cursor = 'none'
-          handleVisibilityChange(true)
-        })
-        parent.addEventListener('mouseleave', () => {
-          parent.style.cursor = 'auto'
-          handleVisibilityChange(false)
-        })
-      }
-    }
-
-    return () => {
-      if (attachToParent && cursorRef.current) {
-        const parent = cursorRef.current.parentElement
-        if (parent) {
-          parent.removeEventListener('mouseenter', () => {
-            parent.style.cursor = 'none'
-            handleVisibilityChange(true)
-          })
-          parent.removeEventListener('mouseleave', () => {
-            parent.style.cursor = 'auto'
-            handleVisibilityChange(false)
-          })
-        }
-      }
-    }
-  }, [attachToParent])
-
   return (
     <motion.div
-      ref={cursorRef}
-      className={cn('pointer-events-none fixed left-0 top-0 z-50', className)}
+      className={clsx('pointer-events-none fixed left-0 top-0 z-[99999]', className)}
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
@@ -125,10 +172,17 @@ export function Cursor({
             variants={variants}
             transition={transition}
           >
-            {children}
+            <div className={clsx(cursorStyles[displayStyle] ?? cursorStyles.initial)}>
+              {displayLabel}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.div>
   )
+}
+
+const cursorStyles: Record<string, string> = {
+  initial: 'w-2 h-2 bg-black rounded-full',
+  navLink: 'px-2 py-1 rounded bg-black text-white text-xs',
 }
