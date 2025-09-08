@@ -37,6 +37,8 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
     >
       <MorphingDialogTrigger
         testId="blog-post"
+        cursorVariant="blogCard"
+        cursorLabel={`Read <i>${title}</i>`}
         className="relative pb-3 rounded-2xl max-w-[600px] bg-[#fbf2e4] border-2 border-darkGrey dark:border-pillGrey"
       >
         <div className="relative z-50 opacity-100 space-y-3">
