@@ -180,6 +180,7 @@ export interface HeroSection {
   enableInnerContainer?: boolean | null;
   callToAction?:
     | {
+        cursorLabel?: string | null;
         style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
         link: {
           type?: ('reference' | 'custom') | null;
@@ -232,6 +233,7 @@ export interface Page {
             enableInnerContainer?: boolean | null;
             callToAction?:
               | {
+                  cursorLabel?: string | null;
                   style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
                   link: {
                     type?: ('reference' | 'custom') | null;
@@ -359,6 +361,7 @@ export interface SkillsSection {
   description?: string | null;
   callToAction?:
     | {
+        cursorLabel?: string | null;
         style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
         link: {
           type?: ('reference' | 'custom') | null;
@@ -625,6 +628,7 @@ export interface BlogPostSectionBlock {
     description?: string | null;
     callToAction?:
       | {
+          cursorLabel?: string | null;
           style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
           link: {
             type?: ('reference' | 'custom') | null;
@@ -740,6 +744,7 @@ export interface HeroSectionNoImageBlock {
   secondaryBlurb?: string | null;
   callToAction?:
     | {
+        cursorLabel?: string | null;
         style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
         link: {
           type?: ('reference' | 'custom') | null;
@@ -810,6 +815,7 @@ export interface ProjectSectionBlock {
   description?: string | null;
   callToAction?:
     | {
+        cursorLabel?: string | null;
         style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
         link: {
           type?: ('reference' | 'custom') | null;
@@ -1095,6 +1101,7 @@ export interface ProjectPage {
             enableInnerContainer?: boolean | null;
             callToAction?:
               | {
+                  cursorLabel?: string | null;
                   style?: ('primary' | 'secondary' | 'tertiary' | 'noBackground') | null;
                   link: {
                     type?: ('reference' | 'custom') | null;
@@ -1369,6 +1376,7 @@ export interface PagesSelect<T extends boolean = true> {
                     'call-to-action'?:
                       | T
                       | {
+                          cursorLabel?: T;
                           style?: T;
                           link?:
                             | T
@@ -1457,6 +1465,7 @@ export interface SkillsSectionSelect<T extends boolean = true> {
         'call-to-action'?:
           | T
           | {
+              cursorLabel?: T;
               style?: T;
               link?:
                 | T
@@ -1626,6 +1635,7 @@ export interface BlogPostSectionBlockSelect<T extends boolean = true> {
               'call-to-action'?:
                 | T
                 | {
+                    cursorLabel?: T;
                     style?: T;
                     link?:
                       | T
@@ -1678,6 +1688,7 @@ export interface ProjectPagesSelect<T extends boolean = true> {
                     'call-to-action'?:
                       | T
                       | {
+                          cursorLabel?: T;
                           style?: T;
                           link?:
                             | T
@@ -1735,6 +1746,7 @@ export interface HeroSectionNoImageBlockSelect<T extends boolean = true> {
         'call-to-action'?:
           | T
           | {
+              cursorLabel?: T;
               style?: T;
               link?:
                 | T
