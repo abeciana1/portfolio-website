@@ -25,7 +25,7 @@ const DarkModeToggle = () => {
   return (
     <span className="relative">
       <button
-        data-cursor={`Toggle ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
+        data-cursor='Toggle mode'
         data-cursor-variant='tool'
         data-testid="dark-mode-toggle"
         aria-label={`Toggle ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
