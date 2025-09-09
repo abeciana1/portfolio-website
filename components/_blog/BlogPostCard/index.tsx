@@ -1,5 +1,4 @@
 import { type BlogPostCardProps } from '@/types/blockTypes'
-import Link from 'next/link'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import ProjectTag from '@/components/_projects/ProjectTag'

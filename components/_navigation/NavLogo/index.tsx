@@ -12,6 +12,9 @@ const NavLogo: React.FC<NavLogoT> = ({
     <div className='absolute md:relative border-solid border-1 border-zinc-200 dark:border-zinc-500 rounded-full max-w-14 left-4 top-4 md:left-0 md:top-0'>
       <Link
         prefetch
+        data-cursor-pointer='pointer'
+        data-cursor='Go to homepage'
+        datat-cursor-variant='navLink'
         data-cy='nav-logo'
         href='/'
         aria-label='Go to homepage'

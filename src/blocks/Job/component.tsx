@@ -126,6 +126,9 @@ const Job: React.FC<JobProps> = ({
                     target="_blank"
                     className="text-xl text-blue-500"
                     aria-label="company website"
+                    data-cursor-pointer='pointer'
+                    data-cursor={`Go to ${companyName}'s website`}
+                    data-cursor-variant='navLink'
                   >
                     Website
                   </Link>

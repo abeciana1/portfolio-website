@@ -20,6 +20,9 @@ const SocialLink: React.FC<SocialLinkI> = ({
     <Link
       href={link}
       aria-label={label}
+      data-cursor-pointer='pointer'
+      data-cursor={`Go to my ${label} profile`}
+      data-cursor-variant='navLink'
       target='_blank'
       className='text-foreground dark:text-background'
     >
