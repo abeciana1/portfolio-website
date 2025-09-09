@@ -75,10 +75,7 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
     })
     const posts = await payload.find(args)
     return (
-      <SectionWrapper
-        enableSectionContent={enableSectionContent}
-        sectionGroup={sectionGroup}
-      >
+      <SectionWrapper enableSectionContent={enableSectionContent} sectionGroup={sectionGroup}>
         <section className={gridSectionClassname}>
           {posts?.docs?.map((post, _) => {
             return (
@@ -99,10 +96,7 @@ const BlogPostSection: React.FC<BlogPostSectionBlockProps> = async ({
     )
   } else {
     return (
-      <SectionWrapper
-        enableSectionContent={enableSectionContent}
-        sectionGroup={sectionGroup}
-      >
+      <SectionWrapper enableSectionContent={enableSectionContent} sectionGroup={sectionGroup}>
         <section className={gridSectionClassname}>
           {posts?.map((post, _) => {
             return (
@@ -133,8 +127,13 @@ const SectionWrapper: React.FC<
 
   return (
     <>
-      {enableSectionContent ?
-        <section id={sectionId} className={`relative w-full ${sectionContainer}`}>
+      {enableSectionContent ? (
+        <section
+          data-cursor="I love sharing knowledge"
+          data-cursor-variant="section"
+          id={sectionId}
+          className={`relative w-full ${sectionContainer}`}
+        >
           <div className="relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto">
             <div className="flex justify-center">
               <Pill text={pill as string} />
@@ -148,12 +147,13 @@ const SectionWrapper: React.FC<
                 {callToAction?.map((callToAction, index) => {
                   return (
                     <CallToAction
-                      eventLocation='Blog post section header'
+                      eventLocation="Blog post section header"
                       key={index}
                       style={callToAction.style as CTAStyle}
                       arrow={callToAction.arrow as boolean}
                       arrowDirection={callToAction.arrowDirection as ArrowDirection}
                       link={callToAction.link as CTALink}
+                      cursorLabel={callToAction.cursorLabel as string}
                     />
                   )
                 })}
@@ -162,9 +162,9 @@ const SectionWrapper: React.FC<
           </div>
           {children}
         </section>
-        :
+      ) : (
         <section className={`relative w-full ${sectionContainer}`}>{children}</section>
-      }
+      )}
     </>
   )
 }
