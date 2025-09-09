@@ -150,6 +150,7 @@ export type CallToActionProps = {
   arrowDirection: ArrowDirection
   link: CTALink;
   eventLocation: string;
+  cursorLabel?: string;
 }
 
 export type JobSectionProps = Pick<JobSectionBlock, 'title' | 'sectionId' > & {
