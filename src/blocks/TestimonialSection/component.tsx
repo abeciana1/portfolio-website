@@ -29,7 +29,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
 }) => {
   return (
     <section
-      data-cursor="Don't take my for it!"
+      data-cursor="Don't take my word for it!"
       data-cursor-variant="section"
       data-testid={sectionId as string}
       id={sectionId as string}

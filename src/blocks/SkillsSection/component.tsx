@@ -48,6 +48,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
       <section
         id={sectionId}
         className={`relative w-full ${sectionContainer}`}
+        data-cursor='Always learning, always growing'
+        data-cursor-variant='section'
       >
         <div className='relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto'>
           <div className='flex justify-center'>

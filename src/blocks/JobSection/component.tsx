@@ -14,7 +14,7 @@ const JobSection: React.FC<JobSectionProps> = ({
   return (
     <section
       data-cursor='Learn more about my experience'
-      data-cursor-variant='jobSection'
+      data-cursor-variant='section'
       id={sectionId}
       className="relative z-20 flex flex-col space-y-6 justify-center items-center lg:py-24 px-5 py-10"
     >
