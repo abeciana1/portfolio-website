@@ -105,7 +105,7 @@ export default function Cursor({
         // entering new target
         if (target) {
           setDisplayLabel(target.dataset.cursor ?? '')
-          setDisplayStyle(target.dataset.cursorVariant ?? 'initial')
+          setDisplayStyle(target.dataset.cursorVariant as string)
         }
         lastTargetRef.current = target
       }
@@ -175,10 +175,16 @@ export default function Cursor({
             <div
               dangerouslySetInnerHTML={{ __html: displayLabel }}
               className={clsx(
-                'bg-darkGrey text-background dark:text-foreground dark:bg-pillGrey text-lg font-medium px-2 py-1',
+                'text-lg font-medium px-2 py-1',
                 {
-                  ['rounded-md']: displayStyle !== 'initial',
-                  ['w-10 h-10 rounded-full']: displayStyle === 'initial',
+                  ['w-10 h-10 rounded-full bg-darkGrey dark:bg-pillGrey']: displayStyle === 'initial',
+                  ['bg-success text-background rounded-full']: displayStyle === 'joke',
+                  ['bg-foreground text-background dark:bg-background dark:text-foreground rounded-md']: displayStyle === 'blogCard',
+                  ['bg-blue text-background px-3 py-2 rounded-full']: displayStyle === 'section',
+                  ['bg-danger text-background rounded-full']: displayStyle === 'jobCard' || displayStyle === 'projectCard',
+                  ['max-w-48 bg-danger text-background rounded-md']: displayStyle === 'testimonialCard',
+                  ['bg-jasmine text-foreground rounded-full']: displayStyle === 'tool',
+                  ['bg-foreground text-background dark:bg-background dark:text-foreground rounded-full']: displayStyle === 'navLink' || displayStyle === 'image',
                 },
               )}
             ></div>
