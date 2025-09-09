@@ -17,7 +17,7 @@ const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
       tabIndex={0}
       className="relative"
       data-cursor='Laugh'
-      dat-cursor-variant='joke'
+      data-cursor-variant='joke'
     >
         <div className={clsx("mx-auto dark:border-2 bg-foreground text-background dark:border-background",{
             ["mockup-code-section"]: enableSection,
