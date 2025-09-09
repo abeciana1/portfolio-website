@@ -52,6 +52,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
       data-cursor={cursorLabel}
       data-cursor-variant={cursorLabel ? 'callToAction' : 'initial'}
       prefetch
+      data-cursor-pointer='pointer'
       target={newTab ? "_blank" : "_parent"}
       href={`/${pageUrl}`}
       className={clsx('flex items-center rounded-md text-lg font-medium py-2 px-6 no-underline max-w-fit', {

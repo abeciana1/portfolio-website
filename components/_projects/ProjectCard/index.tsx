@@ -22,6 +22,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
       data-cursor={`Learn more about ${title}`}
       data-cursor-variant='projectCard'
       prefetch
+      data-cursor-pointer='pointer'
       href={`projects/${slug}`}
       className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto max-h-[412px]'
     >
