@@ -286,6 +286,7 @@ export interface Page {
  * via the `definition` "ImageBlock".
  */
 export interface ImageBlock {
+  cursorLabel?: string | null;
   image: number | Media;
   /**
    * Set a specific width for the image, overriding the aspect ratio
@@ -774,6 +775,7 @@ export interface HeroSectionNoImageBlock {
  * via the `definition` "BlogImageBlock".
  */
 export interface BlogImageBlock {
+  cursorLabel: string;
   image: number | Media;
   caption: string;
   id?: string | null;
@@ -785,6 +787,7 @@ export interface BlogImageBlock {
  * via the `definition` "BlogHeaderBlock".
  */
 export interface BlogHeaderBlock {
+  cursorLabel?: string | null;
   title: string;
   excerpt: string;
   featuredImage: number | Media;
@@ -1426,6 +1429,7 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "ImageBlock_select".
  */
 export interface ImageBlockSelect<T extends boolean = true> {
+  cursorLabel?: T;
   image?: T;
   forcedWidth?: T;
   forcedHeight?: T;
@@ -2021,6 +2025,7 @@ export interface BlogPagesSelect<T extends boolean = true> {
  * via the `definition` "BlogImageBlock_select".
  */
 export interface BlogImageBlockSelect<T extends boolean = true> {
+  cursorLabel?: T;
   image?: T;
   caption?: T;
   id?: T;
@@ -2031,6 +2036,7 @@ export interface BlogImageBlockSelect<T extends boolean = true> {
  * via the `definition` "BlogHeaderBlock_select".
  */
 export interface BlogHeaderBlockSelect<T extends boolean = true> {
+  cursorLabel?: T;
   title?: T;
   excerpt?: T;
   featuredImage?: T;
