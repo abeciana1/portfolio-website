@@ -130,6 +130,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
                     reference: [{ value: { slug } }],
                     label: 'Read this article'
                   }}
+                  cursorLabel='Want to learn more?'
                 />
               </div>
             </div>
