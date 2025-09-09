@@ -28,6 +28,8 @@ const Testimonial: React.FC<TestimonialProps> = ({
       }}
     >
       <MorphingDialogTrigger
+        cursorVariant='testimonialCard'
+        cursorLabel={`Expand to read more of ${name}'s testimony`}
         testId='testimonial'
         className='relative h-56 w-96 lg:w-125 mx-auto border-2 border-darkGrey dark:border-pillGrey rounded-lg bg-background dark:bg-foreground'
       >

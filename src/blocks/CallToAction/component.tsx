@@ -50,6 +50,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
   return (
     <Link
       data-cursor={cursorLabel}
+      data-cursor-variant={cursorLabel ? 'callToAction' : 'initial'}
       prefetch
       target={newTab ? "_blank" : "_parent"}
       href={`/${pageUrl}`}

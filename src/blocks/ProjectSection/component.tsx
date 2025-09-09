@@ -25,6 +25,8 @@ const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
       data-testid={sectionId as string}
       id={sectionId as string}
       className='relative z-50 lg:py-24 px-5 py-10'
+      data-cursor='Check out my projects'
+      data-cursor-variant='section'
     >
       <div className='relative flex flex-col gap-6 z-40 text-center md:max-w-2xl mx-auto'>
         {pill &&
@@ -47,6 +49,7 @@ const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
                   arrow={callToAction.arrow as boolean}
                   arrowDirection={callToAction.arrowDirection as ArrowDirection}
                   link={callToAction.link as CTALink}
+                  cursorLabel={callToAction.cursorLabel as string}
                 />
               )
             })}

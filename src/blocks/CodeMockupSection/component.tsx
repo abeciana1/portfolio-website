@@ -9,13 +9,15 @@ import RenderBlocks from '@/src/blocks/RenderBlocks'
 const CodeMockupSection: React.FC<CodeMockupSectionProps> = ({
   code,
   enableSection,
-  useRandomData
+  useRandomData,
 }) => {
   const joke = jokes[Math.floor(Math.random()*jokes.length)]
   return (
     <section
       tabIndex={0}
       className="relative"
+      data-cursor='Laugh'
+      dat-cursor-variant='joke'
     >
         <div className={clsx("mx-auto dark:border-2 bg-foreground text-background dark:border-background",{
             ["mockup-code-section"]: enableSection,
