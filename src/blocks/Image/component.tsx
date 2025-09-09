@@ -11,7 +11,8 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   forcedHeight,
   forcedWidth,
   priority = false,
-  useURL = false
+  useURL = false,
+  cursorLabel = ''
 }) => {
 
   const {
@@ -25,6 +26,8 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   return (
     <div className='relative'>
         <Image
+          data-cursor={cursorLabel}
+          data-cursor-variant='image'
           priority={priority}
           loading={priority ? 'eager' : 'lazy'}
           src={useURL ? url : webpUrl}
