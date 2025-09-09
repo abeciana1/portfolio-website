@@ -5,6 +5,11 @@ export const BlogHeader: Block = {
   interfaceName: 'BlogHeaderBlock',
   fields: [
     {
+      name: 'cursorLabel',
+      label: 'Cursor label',
+      type: 'text'
+    },
+    {
       name: 'title',
       label: 'Title',
       type: 'text',

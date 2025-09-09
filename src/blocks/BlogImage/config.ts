@@ -5,6 +5,12 @@ export const BlogImage: Block = {
   interfaceName: 'BlogImageBlock',
   fields: [
     {
+      name: 'cursorLabel',
+      label: 'Cursor label',
+      type: 'text',
+      required: true
+    },
+    {
       name: 'image',
       label: 'Image',
       type: 'upload',
