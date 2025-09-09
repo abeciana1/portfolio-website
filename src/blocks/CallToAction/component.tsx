@@ -19,7 +19,8 @@ const CallToAction: React.FC<CallToActionProps> = ({
   arrow,
   arrowDirection,
   link,
-  eventLocation
+  eventLocation,
+  cursorLabel = ''
 }) => {
   const {
     type,
@@ -48,6 +49,7 @@ const CallToAction: React.FC<CallToActionProps> = ({
 
   return (
     <Link
+      data-cursor={cursorLabel}
       prefetch
       target={newTab ? "_blank" : "_parent"}
       href={`/${pageUrl}`}
