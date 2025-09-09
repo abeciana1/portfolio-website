@@ -3,7 +3,8 @@ import { type BlogImageProps } from '@/types/blockTypes'
 
 const BlogImage: React.FC<BlogImageProps> = ({
   image,
-  caption
+  caption,
+  cursorLabel
 }) => {
 
   const {
@@ -21,6 +22,7 @@ const BlogImage: React.FC<BlogImageProps> = ({
         gradient={false}
         gradientXFlip={false}
         gradientYFlip={false}
+        cursorLabel={cursorLabel}
       />
       <figcaption>{caption}</figcaption>
     </figure>
