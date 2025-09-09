@@ -8,40 +8,38 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
   excerpt,
   featuredImage,
   category,
-  tags
+  tags,
 }) => {
-
-  const {
-    alt,
-    url
-  } = featuredImage
+  const { alt, url } = featuredImage
 
   return (
-    <section className='mt-12 space-y-6 relative text-center mb-6'>
-      <ul data-testid='blog-category' className='relative mx-auto flex justify-center'>
+    <section
+      className="mt-12 space-y-6 relative text-center mb-6"
+    >
+      <ul data-testid="blog-category" className="relative mx-auto flex justify-center">
         <ProjectTag label={category?.label} />
       </ul>
-      <section className='flex flex-col space-y-6 max-w-5xl justify-center mx-auto'>
+      <section className="flex flex-col space-y-6 max-w-5xl justify-center mx-auto">
         <Heading1 text={title} />
-        <div data-testid='blog-excerpt' className='italic text-lg font-medium'>{excerpt}</div>
+        <div data-testid="blog-excerpt" className="italic text-lg font-medium">
+          {excerpt}
+        </div>
       </section>
       <Image
         src={url}
         alt={alt}
         width={800}
         height={1600}
-        className='mx-auto h-auto w-full object-cover object-center rounded-2xl border-darkGrey border-2 dark:border-0'
-        loading='eager'
+        className="mx-auto h-auto w-full object-cover object-center rounded-2xl border-darkGrey border-2 dark:border-0"
+        loading="eager"
       />
       <ul
         tabIndex={0}
-        data-testid='tags-list'
-        className='flex gap-2 flex-wrap max-w-3xl mx-auto justify-center'
+        data-testid="tags-list"
+        className="flex gap-2 flex-wrap max-w-3xl mx-auto justify-center"
       >
         {tags?.map((tag) => {
-          return (
-            <ProjectTag key={tag?.id} label={tag?.label} />
-          )
+          return <ProjectTag key={tag?.id} label={tag?.label} />
         })}
       </ul>
     </section>
