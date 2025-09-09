@@ -256,7 +256,7 @@ const CursorPointer: React.FC<CursorPointerProps> = ({ icon, cursorVariant }) =>
       strokeWidth={3}
       absoluteStrokeWidth
       className={clsx({
-        ['text-darkGrey fill-darkGrey dark:fill-pillGrey dark:text-pillGrey']: cursorVariant === 'initial',
+        ['text-darkGrey dark:text-pillGrey']: cursorVariant === 'initial',
         ['text-success']: cursorVariant === 'joke' || cursorVariant === 'callToAction',
         ['text-blue']: cursorVariant === 'section' || cursorVariant === 'blogCard' || cursorVariant === 'navLink' || cursorVariant === 'image',
         ['text-danger']:
