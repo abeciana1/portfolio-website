@@ -10,6 +10,7 @@ import {
   type Variant,
 } from 'motion/react'
 import clsx from 'clsx'
+import { TextCursor, Pointer, MousePointer2 } from 'lucide-react'
 
 type CursorProps = {
   className?: string
@@ -22,6 +23,7 @@ type CursorProps = {
 }
 
 type StylableEl = HTMLElement | SVGElement
+type PointerTypes = 'pointer' | 'text' | 'default'
 
 export default function Cursor({
   className,
@@ -35,8 +37,9 @@ export default function Cursor({
   const cursorX = useMotionValue(0)
   const cursorY = useMotionValue(0)
 
-  const [displayLabel, setDisplayLabel] = useState<string>('') // text bubble
+  const [displayLabel, setDisplayLabel] = useState<string>('') // text bubble (HTML allowed)
   const [displayStyle, setDisplayStyle] = useState<string>('initial') // variant key
+  const [displayPointer, setDisplayPointer] = useState<PointerTypes>('default')
   const [isVisible] = useState(true)
 
   // Tracks the current [data-cursor] element for messaging
@@ -46,9 +49,22 @@ export default function Cursor({
   const forcedElRef = useRef<StylableEl | null>(null)
   const forcedPrevInlineCursorRef = useRef<string | null>(null)
 
-  // Helper: only treat elements with a .style property as stylable (HTMLElement/SVGElement)
-  const asStylable = (el: Element | null): StylableEl | null => {
-    return el && 'style' in (el as any) ? (el as StylableEl) : null
+  // Only treat elements with a .style property as stylable (HTMLElement/SVGElement)
+  const asStylable = (el: Element | null): StylableEl | null =>
+    el && 'style' in (el as any) ? (el as StylableEl) : null
+
+  // Detect pointer type when data attribute isn't provided
+  const detectPointerType = (el: Element | null): PointerTypes => {
+    if (!el) return 'default'
+    const textHost = (el as Element).closest('input,textarea,[contenteditable="true"],select')
+    if (textHost) return 'text'
+    const clickable = (el as Element).closest('a,button,[role="button"],[onclick]')
+    if (clickable) return 'pointer'
+    // fallback to computed style
+    const cs = window.getComputedStyle(el as Element)
+    if (cs.cursor.includes('text')) return 'text'
+    if (cs.cursor.includes('pointer')) return 'pointer'
+    return 'default'
   }
 
   useEffect(() => {
@@ -73,11 +89,8 @@ export default function Cursor({
         // restore previous inline cursor on the old element
         if (forcedElRef.current) {
           const prev = forcedPrevInlineCursorRef.current
-          if (prev === null) {
-            forcedElRef.current.style.removeProperty('cursor')
-          } else {
-            forcedElRef.current.style.setProperty('cursor', prev)
-          }
+          if (prev === null) forcedElRef.current.style.removeProperty('cursor')
+          else forcedElRef.current.style.setProperty('cursor', prev)
         }
         // set new element
         forcedElRef.current = nextStylable
@@ -92,7 +105,7 @@ export default function Cursor({
         }
       }
 
-      // ---- (B) Compute custom-cursor target for messaging once
+      // ---- (B) Compute custom-cursor target for messaging and pointer icon
       const target = (raw?.closest(hoverSelector) ?? null) as HTMLElement | null
 
       if (target !== lastTargetRef.current) {
@@ -100,31 +113,35 @@ export default function Cursor({
         if (lastTargetRef.current) {
           setDisplayLabel('')
           setDisplayStyle('initial')
+          setDisplayPointer('default')
           onHoverChange?.(target)
         }
         // entering new target
         if (target) {
-          setDisplayLabel(target.dataset.cursor ?? '')
-          setDisplayStyle(target.dataset.cursorVariant as string)
+          const nextLabel = target.dataset.cursor ?? ''
+          const nextVariant = target.dataset.cursorVariant ?? 'initial'
+          const attrPointer = target.dataset.cursorPointer as PointerTypes | undefined
+          const autoPointer = detectPointerType(target ?? raw)
+          setDisplayLabel(nextLabel)
+          setDisplayStyle(nextVariant)
+          setDisplayPointer(attrPointer ?? autoPointer)
         }
         lastTargetRef.current = target
       }
     }
 
     const reset = () => {
-      // Reset message/variant
+      // Reset message/variant/icon
       setDisplayLabel('')
       setDisplayStyle('initial')
+      setDisplayPointer('default')
       lastTargetRef.current = null
 
       // Restore any forced inline cursor
       if (forcedElRef.current) {
         const prev = forcedPrevInlineCursorRef.current
-        if (prev === null) {
-          forcedElRef.current.style.removeProperty('cursor')
-        } else {
-          forcedElRef.current.style.setProperty('cursor', prev)
-        }
+        if (prev === null) forcedElRef.current.style.removeProperty('cursor')
+        else forcedElRef.current.style.setProperty('cursor', prev)
         forcedElRef.current = null
         forcedPrevInlineCursorRef.current = null
       }
@@ -138,14 +155,11 @@ export default function Cursor({
       document.removeEventListener('mousemove', update)
       document.removeEventListener('mouseleave', reset)
       window.removeEventListener('blur', reset)
-      // best-effort cleanup if unmounting while we forced an element
+      // cleanup if unmounting while we forced an element
       if (forcedElRef.current) {
         const prev = forcedPrevInlineCursorRef.current
-        if (prev === null) {
-          forcedElRef.current.style.removeProperty('cursor')
-        } else {
-          forcedElRef.current.style.setProperty('cursor', prev)
-        }
+        if (prev === null) forcedElRef.current.style.removeProperty('cursor')
+        else forcedElRef.current.style.setProperty('cursor', prev)
       }
     }
   }, [hoverSelector, onPositionChange, cursorX, cursorY, onHoverChange])
@@ -172,25 +186,85 @@ export default function Cursor({
             variants={variants}
             transition={transition}
           >
-            <div
-              dangerouslySetInnerHTML={{ __html: displayLabel }}
-              className={clsx(
-                'text-lg font-medium px-2 py-1',
-                {
-                  ['w-10 h-10 rounded-full bg-darkGrey dark:bg-pillGrey']: displayStyle === 'initial',
-                  ['bg-success text-background rounded-full']: displayStyle === 'joke' || displayStyle === 'callToAction',
-                  ['bg-foreground text-background dark:bg-background dark:text-foreground rounded-md']: displayStyle === 'blogCard',
-                  ['bg-blue text-background px-3 py-2 rounded-full']: displayStyle === 'section',
-                  ['bg-danger text-background rounded-full']: displayStyle === 'jobCard' || displayStyle === 'projectCard',
-                  ['max-w-48 bg-danger text-background rounded-md']: displayStyle === 'testimonialCard',
-                  ['bg-jasmine text-foreground rounded-full']: displayStyle === 'tool',
-                  ['bg-foreground text-background dark:bg-background dark:text-foreground rounded-full']: displayStyle === 'navLink' || displayStyle === 'image',
-                },
+            <div className="relative">
+              {/* pointer icon */}
+              {displayPointer === 'default' && (
+                <CursorPointer cursorVariant={displayStyle} icon={MousePointer2} />
               )}
-            ></div>
+              {displayPointer === 'pointer' && (
+                <CursorPointer cursorVariant={displayStyle} icon={Pointer} />
+              )}
+              {displayPointer === 'text' && (
+                <CursorPointer cursorVariant={displayStyle} icon={TextCursor} />
+              )}
+
+              {/* DOT vs BUBBLE */}
+              {displayStyle === 'initial' && !displayLabel ? (
+                /* --- tiny dot --- */
+                <div
+                  className={clsx(
+                    'absolute left-5 top-3 w-7 h-7 rounded-full bg-darkGrey dark:bg-pillGrey',
+                    {
+                      ['ml-2']: displayPointer !== 'default',
+                    },
+                  )}
+                />
+              ) : (
+                /* --- label bubble --- */
+                <div
+                  className={clsx(
+                    'absolute ml-2 left-5 top-3 inline-flex items-center gap-1',
+                    'px-2 py-1 rounded-full text-lg font-medium leading-none',
+                    'whitespace-nowrap pointer-events-none',
+                    {
+                      ['bg-success text-background']:
+                        displayStyle === 'joke' || displayStyle === 'callToAction',
+                      ['bg-blue text-background px-3 py-2']: displayStyle === 'blogCard' || displayStyle === 'section' || displayStyle === 'navLink' || displayStyle === 'image',
+                      ['bg-danger text-background']:
+                        displayStyle === 'jobCard' || displayStyle === 'projectCard' || displayStyle === 'testimonialCard',
+                      ['max-w-fit break-words rounded-md']: displayStyle === 'testimonialCard',
+                      ['bg-jasmine text-foreground']: displayStyle === 'tool',
+                    },
+                  )}
+                >
+                  {/* render your HTML inside a span so the container keeps control over size */}
+                  <span
+                    // keep inline-block so padding applies around content nicely
+                    className="inline-block"
+                    dangerouslySetInnerHTML={{ __html: displayLabel }}
+                  />
+                </div>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.div>
+  )
+}
+
+type CursorPointerProps = {
+  cursorVariant: string
+  icon: React.ElementType
+}
+
+const CursorPointer: React.FC<CursorPointerProps> = ({ icon, cursorVariant }) => {
+  const Icon = icon as React.ElementType
+  return (
+    <Icon
+      size={24}
+      strokeWidth={3}
+      absoluteStrokeWidth
+      className={clsx({
+        ['text-darkGrey fill-darkGrey dark:fill-pillGrey dark:text-pillGrey']: cursorVariant === 'initial',
+        ['text-success']: cursorVariant === 'joke' || cursorVariant === 'callToAction',
+        ['text-blue']: cursorVariant === 'section' || cursorVariant === 'blogCard' || cursorVariant === 'navLink' || cursorVariant === 'image',
+        ['text-danger']:
+          cursorVariant === 'jobCard' ||
+          cursorVariant === 'projectCard' ||
+          cursorVariant === 'testimonialCard',
+        ['text-jasmine']: cursorVariant === 'tool',
+      })}
+    />
   )
 }
