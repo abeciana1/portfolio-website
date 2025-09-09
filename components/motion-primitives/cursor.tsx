@@ -178,7 +178,7 @@ export default function Cursor({
                 'text-lg font-medium px-2 py-1',
                 {
                   ['w-10 h-10 rounded-full bg-darkGrey dark:bg-pillGrey']: displayStyle === 'initial',
-                  ['bg-success text-background rounded-full']: displayStyle === 'joke',
+                  ['bg-success text-background rounded-full']: displayStyle === 'joke' || displayStyle === 'callToAction',
                   ['bg-foreground text-background dark:bg-background dark:text-foreground rounded-md']: displayStyle === 'blogCard',
                   ['bg-blue text-background px-3 py-2 rounded-full']: displayStyle === 'section',
                   ['bg-danger text-background rounded-full']: displayStyle === 'jobCard' || displayStyle === 'projectCard',
