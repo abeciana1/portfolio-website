@@ -62,6 +62,7 @@ export type ImageBlockProps = Pick<ImageBlock,
   gradientSelect?: GradientOptions;
   priority?: boolean;
   useURL?: boolean;
+  cursorLabel?: string;
 }
 
 export type InViewBasicProps = {
@@ -315,6 +316,7 @@ export type OutcomesSectionBlockProps = Pick<OutcomesSectionBlock,
 export type BlogImageProps = {
   image: CMSMediaT;
   caption: string;
+  cursorLabel: string;
 }
 
 export type BlogHeaderProps = {
@@ -323,6 +325,7 @@ export type BlogHeaderProps = {
   featuredImage: CMSMediaT;
   category: ProjectTagProps;
   tags: ProjectTagProps[];
+  cursorLabel: string;
 }
 
 export type BlogBodyBlockProps = {
