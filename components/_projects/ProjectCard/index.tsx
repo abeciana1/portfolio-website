@@ -19,7 +19,7 @@ const ProjectCard: React.FC<Pick<ProjectProps,
 
   return (
     <Link
-      data-cursor='Learn more about my project'
+      data-cursor={`Learn more about ${title}`}
       data-cursor-variant='projectCard'
       prefetch
       href={`projects/${slug}`}
