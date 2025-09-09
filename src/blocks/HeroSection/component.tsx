@@ -58,6 +58,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   arrowDirection={callToAction.arrowDirection as ArrowDirection}
                   link={callToAction.link as CTALink}
                   eventLocation={`Hero Section w/ Image - ${sectionId}`}
+                  cursorLabel={callToAction.cursorLabel as string}
                 />
               )
             })}

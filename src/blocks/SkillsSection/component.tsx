@@ -68,6 +68,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
                     arrow={callToAction.arrow as boolean}
                     arrowDirection={callToAction.arrowDirection as ArrowDirection}
                     link={callToAction.link as CTALink}
+                    cursorLabel={callToAction.cursorLabel as string}
                   />
                 )
               })}
