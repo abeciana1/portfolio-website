@@ -159,6 +159,9 @@ function CarouselNavigation({
       )}
     >
       <button
+        data-cursor-pointer='pointer'
+        data-cursor-label='Previous'
+        data-cursor-variant='callToAction'
         type='button'
         aria-label='Previous slide'
         className={cn(
@@ -200,6 +203,9 @@ function CarouselNavigation({
         aria-label='Next slide'
         disabled={!enableInfinite && (index + 1 === itemsCount)}
         onClick={nextHandler}
+        data-cursor-pointer='pointer'
+        data-cursor-label='Next'
+        data-cursor-variant='callToAction'
       >
         <ChevronRight
           className='stroke-zinc-600 dark:stroke-zinc-50'
