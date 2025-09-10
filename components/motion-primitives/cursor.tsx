@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import {
@@ -203,7 +204,7 @@ export default function Cursor({
                 /* --- tiny dot --- */
                 <div
                   className={clsx(
-                    'absolute left-5 top-3 w-7 h-7 rounded-full bg-darkGrey dark:bg-pillGrey',
+                    'absolute left-5 top-3 w-7 h-7 rounded-full bg-foreground dark:bg-pillGrey text-background dark:text-foreground',
                     {
                       ['ml-2']: displayPointer !== 'default',
                     },
@@ -256,7 +257,7 @@ const CursorPointer: React.FC<CursorPointerProps> = ({ icon, cursorVariant }) =>
       strokeWidth={3}
       absoluteStrokeWidth
       className={clsx({
-        ['text-darkGrey dark:text-pillGrey']: cursorVariant === 'initial',
+        ['text-foreground dark:text-background']: cursorVariant === 'initial',
         ['text-success']: cursorVariant === 'joke' || cursorVariant === 'callToAction',
         ['text-blue']: cursorVariant === 'section' || cursorVariant === 'blogCard' || cursorVariant === 'navLink' || cursorVariant === 'image',
         ['text-danger']:
