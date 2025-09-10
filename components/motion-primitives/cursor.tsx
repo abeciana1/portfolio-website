@@ -32,7 +32,7 @@ export default function Cursor({
   variants,
   transition,
   onPositionChange,
-  hoverSelector = '[data-cursor],[href],button,[role="button"]',
+  hoverSelector = '[data-cursor],[href],button,[role="button"],[data-cursor-pointer="pointer"],[data-cursor-pointer="text"],[data-cursor-pointer="default"]',
   onHoverChange,
 }: CursorProps) {
   const cursorX = useMotionValue(0)
@@ -42,6 +42,8 @@ export default function Cursor({
   const [displayStyle, setDisplayStyle] = useState<string>('initial') // variant key
   const [displayPointer, setDisplayPointer] = useState<PointerTypes>('default')
   const [isVisible] = useState(true)
+
+  console.log('displayPointer', displayPointer)
 
   // Tracks the current [data-cursor] element for messaging
   const lastTargetRef = useRef<HTMLElement | null>(null)
@@ -57,12 +59,13 @@ export default function Cursor({
   // Detect pointer type when data attribute isn't provided
   const detectPointerType = (el: Element | null): PointerTypes => {
     if (!el) return 'default'
-    const textHost = (el as Element).closest('input,textarea,[contenteditable="true"],select')
+    const textHost = (el as Element).closest('input,textarea,[contenteditable="true"],select,[data-cursor-pointer="text"]')
     if (textHost) return 'text'
     const clickable = (el as Element).closest('a,button,[role="button"],[onclick]')
     if (clickable) return 'pointer'
     // fallback to computed style
     const cs = window.getComputedStyle(el as Element)
+    console.log('cs.cursor', cs.cursor)
     if (cs.cursor.includes('text')) return 'text'
     if (cs.cursor.includes('pointer')) return 'pointer'
     return 'default'
@@ -119,9 +122,10 @@ export default function Cursor({
         }
         // entering new target
         if (target) {
+          console.log('target', target.dataset)
           const nextLabel = target.dataset.cursor ?? ''
           const nextVariant = target.dataset.cursorVariant ?? 'initial'
-          const attrPointer = target.dataset.cursorPointer as PointerTypes | undefined
+          const attrPointer = target.dataset.cursorPointer as PointerTypes
           const autoPointer = detectPointerType(target ?? raw)
           setDisplayLabel(nextLabel)
           setDisplayStyle(nextVariant)
@@ -225,6 +229,7 @@ export default function Cursor({
                         displayStyle === 'jobCard' || displayStyle === 'projectCard' || displayStyle === 'testimonialCard',
                       ['max-w-fit break-words rounded-md']: displayStyle === 'testimonialCard',
                       ['bg-jasmine text-foreground']: displayStyle === 'tool',
+                      ['bg-success w-0 h-0']: displayPointer === 'text'
                     },
                   )}
                 >

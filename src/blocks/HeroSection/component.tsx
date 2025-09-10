@@ -48,9 +48,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="lg:max-w-[550px] md:max-w-[400px] space-y-6">
         <Heading1 text={title as string} />
         {subtitle && <Heading2 text={subtitle as string} />}
-        <div className="leading-10 text-3xl font-semibold min-h-[5.5rem]">{description}</div>
+        <div data-cursor-variant="callToAction" data-cursor-pointer="text" className="leading-10 text-3xl font-semibold min-h-[5.5rem]">{description}</div>
         {secondaryBlurb && (
-          <div data-cursor-pointer="text" className="text-xl text-darkGrey font-semibold">
+          <div data-cursor-variant="callToAction" data-cursor-pointer="text" className="text-xl text-darkGrey font-semibold">
             {secondaryBlurb}
           </div>
         )}

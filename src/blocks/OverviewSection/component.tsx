@@ -40,7 +40,7 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
             />
           </div>
         </section>
-        <section className='w-full lg:max-w-64 space-y-3 relative mx-auto lg:mt-20 lg:pt-4'>
+        <section data-cursor-variant="callToAction" data-cursor-pointer="text" className='w-full lg:max-w-64 space-y-3 relative mx-auto lg:mt-20 lg:pt-4'>
           <div className='space-y-1'>
             <div className='text-lg font-semibold'>Role</div>
             <ul data-testid='roles' className='flex flex-wrap gap-2'>

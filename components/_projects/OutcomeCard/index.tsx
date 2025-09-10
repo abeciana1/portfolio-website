@@ -8,7 +8,7 @@ const outcomeHash = {
 
 export const OutcomeStat: React.FC<OutcomeStatProps> = ({ number, label, numLabel }) => {
   return (
-    <div data-cursor-pointer="text" className="h-40">
+    <div data-cursor-variant="callToAction" data-cursor-pointer="text" className="h-40">
       <div
         data-testid="number-stat"
         className="font-semibold text-3xl"
@@ -23,6 +23,7 @@ export const OutcomeStat: React.FC<OutcomeStatProps> = ({ number, label, numLabe
 const OutcomeCard: React.FC<OutcomeProps> = ({ resultType, emojis, stats }) => {
   return (
     <div
+      data-cursor-variant="callToAction"
       data-cursor-pointer="text"
       className="relative p-6 rounded-2xl bg-background dark:bg-darkGrey h-auto min-h-80 max-h-80 min-w-64 max-w-64 mx-auto shadow-xl"
     >

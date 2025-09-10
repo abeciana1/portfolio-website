@@ -18,7 +18,7 @@ const emojiHash = {
 const ProblemFrameCard: React.FC<ProblemFrameProps> = ({ frame, description }) => {
   return (
     <div
-      data-cursor-pointer="text"
+      data-cursor-variant="callToAction" data-cursor-pointer="text"
       className="relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto min-h-[250px] max-h-[412px]"
     >
       <div className="relative z-50 opacity-100 space-y-6">

@@ -139,7 +139,11 @@ const SectionWrapper: React.FC<
               <Pill text={pill as string} />
             </div>
             <Heading1 text={heading as string} />
-            <div data-cursor-pointer='text' className="text-darkGrey dark:text-pillGrey text-xl font-semibold">
+            <div
+              data-cursor-variant="callToAction"
+              data-cursor-pointer="text"
+              className="text-darkGrey dark:text-pillGrey text-xl font-semibold"
+            >
               {description}
             </div>
             {callToAction && callToAction?.length > 0 && (

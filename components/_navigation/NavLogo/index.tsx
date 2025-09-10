@@ -14,7 +14,7 @@ const NavLogo: React.FC<NavLogoT> = ({
         prefetch
         data-cursor-pointer='pointer'
         data-cursor='Go to homepage'
-        datat-cursor-variant='navLink'
+        data-cursor-variant='navLink'
         data-cy='nav-logo'
         href='/'
         aria-label='Go to homepage'

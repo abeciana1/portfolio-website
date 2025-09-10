@@ -21,6 +21,7 @@ const UserResearchCard: React.FC<UserResearchCardProps> = ({
 }) => {
   return (
     <div
+      data-cursor-variant="callToAction" data-cursor-pointer="text"
       className='relative p-6 rounded-2xl bg-background/50 dark:bg-foreground/50 h-auto min-h-64 max-h-64 min-w-64 max-w-64 mx-auto'
     >
       <div className='relative z-50 opacity-100 flex flex-col justify-between h-full grow'>

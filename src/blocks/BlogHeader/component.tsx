@@ -13,15 +13,18 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
   const { alt, url } = featuredImage
 
   return (
-    <section
-      className="mt-12 space-y-6 relative text-center mb-6"
-    >
+    <section className="mt-12 space-y-6 relative text-center mb-6">
       <ul data-testid="blog-category" className="relative mx-auto flex justify-center">
         <ProjectTag label={category?.label} />
       </ul>
       <section className="flex flex-col space-y-6 max-w-5xl justify-center mx-auto">
         <Heading1 text={title} />
-        <div data-cursor-pointer='text' data-testid="blog-excerpt" className="italic text-lg font-medium">
+        <div
+          data-cursor-variant="callToAction"
+          data-cursor-pointer="text"
+          data-testid="blog-excerpt"
+          className="italic text-lg font-medium"
+        >
           {excerpt}
         </div>
       </section>
@@ -34,6 +37,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
         loading="eager"
       />
       <ul
+        data-cursor-variant="callToAction" data-cursor-pointer="text"
         tabIndex={0}
         data-testid="tags-list"
         className="flex gap-2 flex-wrap max-w-3xl mx-auto justify-center"

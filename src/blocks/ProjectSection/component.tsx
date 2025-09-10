@@ -36,6 +36,7 @@ const ProjectSection: React.FC<ProjectSectionBlockProps> = ({
         )}
         <Heading1 text={heading} />
         <div
+          data-cursor-variant="callToAction"
           data-cursor-pointer="text"
           data-testid="testimonials-desc"
           className="text-darkGrey dark:text-pillGrey text-xl font-semibold"
