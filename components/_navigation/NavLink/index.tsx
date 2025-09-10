@@ -39,7 +39,7 @@ const NavLink: React.FC<NavLinkType> = ({ label, link, onClick }) => {
         href={link as string}
         className={clsx('text-lg', {
           ['text-foreground dark:text-background underline underline-offset-8']: isActive,
-          ['text-foreground dark:text-background opacity-70']: !isActive,
+          ['text-foreground dark:text-background']: !isActive,
         })}
       >
         {label}
