@@ -77,18 +77,20 @@ main {
   will-change: transform;
 }
 
-.no-native-cursor, .no-native-cursor * {
-  cursor: none !important;
-}
+@media (width >= 1024px) {
+  .no-native-cursor, .no-native-cursor * {
+    cursor: none !important;
+  }
 
-/* Optional: allow I-beam in text fields even while hidden */
-.no-native-cursor input,
-.no-native-cursor textarea,
-.no-native-cursor [contenteditable="true"] {
-  cursor: text !important;
-}
+  /* Optional: allow I-beam in text fields even while hidden */
+  .no-native-cursor input,
+  .no-native-cursor textarea,
+  .no-native-cursor [contenteditable="true"] {
+    cursor: text !important;
+  }
 
-/* Parent-scoped version (used when attachToParent = true) */
-.no-native-cursor-zone, .no-native-cursor-zone * {
-  cursor: none !important;
+  /* Parent-scoped version (used when attachToParent = true) */
+  .no-native-cursor-zone, .no-native-cursor-zone * {
+    cursor: none !important;
+  }
 }
