@@ -175,7 +175,7 @@ export default function Cursor({
     <>
       {mounted && (isLaptop || isXl || isDesktop) &&
         <motion.div
-          className={clsx('pointer-events-none fixed left-0 top-0 z-[99999]', className)}
+          className={clsx('hidden lg:block pointer-events-none fixed left-0 top-0 z-[99999]', className)}
           style={{
             x: cursorXSpring,
             y: cursorYSpring,
