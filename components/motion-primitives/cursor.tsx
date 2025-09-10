@@ -44,7 +44,7 @@ export default function Cursor({
   const [displayPointer, setDisplayPointer] = useState<PointerTypes>('default')
   const [isVisible] = useState(true)
 
-  const { isLaptop, isXl, isDesktop } = useBreakpoint()
+  const { mounted, isLaptop, isXl, isDesktop } = useBreakpoint()
 
   // Tracks the current [data-cursor] element for messaging
   const lastTargetRef = useRef<HTMLElement | null>(null)
@@ -66,7 +66,6 @@ export default function Cursor({
     if (clickable) return 'pointer'
     // fallback to computed style
     const cs = window.getComputedStyle(el as Element)
-    console.log('cs.cursor', cs.cursor)
     if (cs.cursor.includes('text')) return 'text'
     if (cs.cursor.includes('pointer')) return 'pointer'
     return 'default'
@@ -174,7 +173,7 @@ export default function Cursor({
 
   return (
     <>
-      {isLaptop || isXl || isDesktop &&
+      {mounted && (isLaptop || isXl || isDesktop) &&
         <motion.div
           className={clsx('pointer-events-none fixed left-0 top-0 z-[99999]', className)}
           style={{
