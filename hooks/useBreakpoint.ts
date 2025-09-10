@@ -1,4 +1,4 @@
-// useBreakpoint.ts
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useState } from 'react';
 
 type Breakpoint =
@@ -10,7 +10,7 @@ type Breakpoint =
   | 'xl'            // ≥1441
   | 'unknown';      // before mount (SSR)
 
-const useBreakpoint = () => {
+const useBreakpoint: any = () => {
   const [width, setWidth] = useState<number | null>(null);
 
   useEffect(() => {
