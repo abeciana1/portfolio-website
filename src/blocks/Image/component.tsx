@@ -26,7 +26,7 @@ const ImageComponent: React.FC<ImageBlockProps> = ({
   return (
     <div className='relative'>
         <Image
-          data-cursor={cursorLabel}
+          data-cursor={cursorLabel || alt}
           data-cursor-variant='image'
           priority={priority}
           loading={priority ? 'eager' : 'lazy'}
