@@ -29,7 +29,7 @@ const UserResearchSection: React.FC<UserResearchSectionBlockProps> = ({
           </div>
         }
         <Heading1 text={heading} />
-        <div data-testid='research-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
+        <div data-cursor-pointer='text' data-testid='research-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
           {description}
         </div>
       </section>

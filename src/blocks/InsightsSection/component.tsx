@@ -27,7 +27,7 @@ const InsightsSection: React.FC<InsightsSectionBlockProps> = ({
           className='min-w-80 max-w-80 h-80 relative p-6 rounded-2xl bg-pillGrey/50 dark:bg-darkGrey/50 flex justify-center items-center text-5xl'
         >🤔</div>
         {insights &&
-          <ul aria-label='insight-list' className='space-y-6'>
+          <ul data-cursor-pointer='text' aria-label='insight-list' className='space-y-6'>
             {insights?.map((insight, index) => {
               return (
                 <Insight

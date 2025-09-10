@@ -21,7 +21,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({
       </ul>
       <section className="flex flex-col space-y-6 max-w-5xl justify-center mx-auto">
         <Heading1 text={title} />
-        <div data-testid="blog-excerpt" className="italic text-lg font-medium">
+        <div data-cursor-pointer='text' data-testid="blog-excerpt" className="italic text-lg font-medium">
           {excerpt}
         </div>
       </section>

@@ -286,6 +286,7 @@ function MorphingDialogTitle({
       className={className}
       style={style}
       layout
+      data-cursor-pointer='text'
     >
       {children}
     </motion.div>
@@ -310,6 +311,7 @@ function MorphingDialogSubtitle({
       layoutId={`dialog-subtitle-container-${uniqueId}`}
       className={className}
       style={style}
+      data-cursor-pointer='text'
     >
       {children}
     </motion.div>
@@ -337,6 +339,7 @@ function MorphingDialogDescription({
 
   return (
     <motion.div
+      data-cursor-pointer='text'
       key={`dialog-description-${uniqueId}`}
       layoutId={
         disableLayoutAnimation
@@ -420,6 +423,9 @@ function MorphingDialogClose({
       animate='animate'
       exit='exit'
       variants={variants}
+      data-cursor-pointer='pointer'
+      data-cursor-variant='callToAction'
+      data-cursor-label='Close'
     >
       {children || <XIcon size={24} />}
     </motion.button>

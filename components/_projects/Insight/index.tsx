@@ -7,6 +7,7 @@ const Insight: React.FC<InsightProps> = ({
   return (
     <li className='space-y-1'>
       <div
+        data-cursor-pointer='text'
         data-testid='insight-title'
         className='text-darkGrey dark:text-pillGrey text-2xl font-semibold'
       >

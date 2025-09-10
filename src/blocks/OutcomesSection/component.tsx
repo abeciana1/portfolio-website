@@ -29,7 +29,7 @@ const OutcomesSection: React.FC<OutcomesSectionBlockProps> = ({
           </div>
         }
         <Heading1 text={heading} />
-        <div data-testid='outcome-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
+        <div data-cursor-pointer='text' data-testid='outcome-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
           {description}
         </div>
       </section>

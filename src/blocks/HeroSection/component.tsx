@@ -6,7 +6,7 @@ import {
   type HeroSectionProps,
   type ArrowDirection,
   type CTAStyle,
-  type CTALink
+  type CTALink,
 } from '@/types/blockTypes'
 import CallToAction from '@/src/blocks/CallToAction/component'
 import ButtonGroup from '@/components/_styled/ButtonGroup'
@@ -20,7 +20,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   secondaryBlurb,
   callToAction,
   media = [],
-  greyBackground = false
+  greyBackground = false,
 }) => {
   const {
     gradient,
@@ -29,26 +29,33 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     gradientSelect,
     image,
     forcedHeight,
-    forcedWidth
+    forcedWidth,
   } = media && media[0]
 
   return (
     <section
-      aria-label='section'
+      aria-label="section"
       id={sectionId}
-      className={clsx('relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto', {
-        [innerContainer]: enableInnerContainer,
-        [limitContainer]: !enableInnerContainer,
-        ['bg-pillGrey dark:bg-darkGrey']: greyBackground
-      })}
+      className={clsx(
+        'relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 items-center mx-auto',
+        {
+          [innerContainer]: enableInnerContainer,
+          [limitContainer]: !enableInnerContainer,
+          ['bg-pillGrey dark:bg-darkGrey']: greyBackground,
+        },
+      )}
     >
-      <div className='lg:max-w-[550px] md:max-w-[400px] space-y-6'>
+      <div className="lg:max-w-[550px] md:max-w-[400px] space-y-6">
         <Heading1 text={title as string} />
         {subtitle && <Heading2 text={subtitle as string} />}
-        <div className='leading-10 text-3xl font-semibold min-h-[5.5rem]'>{description}</div>
-        {secondaryBlurb && <div className='text-xl text-darkGrey font-semibold'>{secondaryBlurb}</div>}
-        {(callToAction && callToAction?.length > 0) &&
-          <ButtonGroup alignment='left'>
+        <div className="leading-10 text-3xl font-semibold min-h-[5.5rem]">{description}</div>
+        {secondaryBlurb && (
+          <div data-cursor-pointer="text" className="text-xl text-darkGrey font-semibold">
+            {secondaryBlurb}
+          </div>
+        )}
+        {callToAction && callToAction?.length > 0 && (
+          <ButtonGroup alignment="left">
             {callToAction?.map((callToAction, index) => {
               return (
                 <CallToAction
@@ -63,7 +70,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               )
             })}
           </ButtonGroup>
-        }
+        )}
       </div>
       <ImageComponent
         image={image}

@@ -55,11 +55,11 @@ const OverviewSection: React.FC<OverviewSectionBlockProps> = ({
               })}
             </ul>
           </div>
-          <div className='space-y-1'>
+          <div data-cursor-pointer='text' className='space-y-1'>
             <div className='text-lg font-semibold'>Duration</div>
             <div data-testid='duration' className='text-md'>{`${duration.timeLength} ${duration.frequency}`}</div>
           </div>
-          <div className='space-y-1'>
+          <div data-cursor-pointer='text' className='space-y-1'>
             <div className='text-lg font-semibold'>Tags</div>
             <ul data-testid='tags' className='flex flex-wrap gap-2'>
               {tags?.map((tag) => {

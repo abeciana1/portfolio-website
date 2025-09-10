@@ -33,7 +33,7 @@ const ProblemFramingSection: React.FC<ProblemFramingSectionBlockProps> = ({
           </div>
         }
         <Heading1 text={heading} />
-        <div data-testid='problem-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
+        <div data-cursor-pointer='text' data-testid='problem-desc' className='text-darkGrey dark:text-pillGrey text-xl font-semibold'>
           {description}
         </div>
       </section>
