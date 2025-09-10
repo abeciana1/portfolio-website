@@ -12,6 +12,7 @@ import {
 } from 'motion/react'
 import clsx from 'clsx'
 import { TextCursor, Pointer, MousePointer2 } from 'lucide-react'
+import useBreakpoint from '@/hooks/useBreakpoint'
 
 type CursorProps = {
   className?: string
@@ -43,7 +44,7 @@ export default function Cursor({
   const [displayPointer, setDisplayPointer] = useState<PointerTypes>('default')
   const [isVisible] = useState(true)
 
-  console.log('displayPointer', displayPointer)
+  const { isLaptop, isXl, isDesktop } = useBreakpoint()
 
   // Tracks the current [data-cursor] element for messaging
   const lastTargetRef = useRef<HTMLElement | null>(null)
@@ -122,7 +123,6 @@ export default function Cursor({
         }
         // entering new target
         if (target) {
-          console.log('target', target.dataset)
           const nextLabel = target.dataset.cursor ?? ''
           const nextVariant = target.dataset.cursorVariant ?? 'initial'
           const attrPointer = target.dataset.cursorPointer as PointerTypes
@@ -173,79 +173,83 @@ export default function Cursor({
   const cursorYSpring = useSpring(cursorY, springConfig || { duration: 0 })
 
   return (
-    <motion.div
-      className={clsx('pointer-events-none fixed left-0 top-0 z-[99999]', className)}
-      style={{
-        x: cursorXSpring,
-        y: cursorYSpring,
-        translateX: '-50%',
-        translateY: '-50%',
-      }}
-    >
-      <AnimatePresence>
-        {isVisible && (
-          <motion.div
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={variants}
-            transition={transition}
-          >
-            <div className="relative">
-              {/* pointer icon */}
-              {displayPointer === 'default' && (
-                <CursorPointer cursorVariant={displayStyle} icon={MousePointer2} />
-              )}
-              {displayPointer === 'pointer' && (
-                <CursorPointer cursorVariant={displayStyle} icon={Pointer} />
-              )}
-              {displayPointer === 'text' && (
-                <CursorPointer cursorVariant={displayStyle} icon={TextCursor} />
-              )}
+    <>
+      {isLaptop || isXl || isDesktop &&
+        <motion.div
+          className={clsx('pointer-events-none fixed left-0 top-0 z-[99999]', className)}
+          style={{
+            x: cursorXSpring,
+            y: cursorYSpring,
+            translateX: '-50%',
+            translateY: '-50%',
+          }}
+        >
+          <AnimatePresence>
+            {isVisible && (
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={variants}
+                transition={transition}
+              >
+                <div className="relative">
+                  {/* pointer icon */}
+                  {displayPointer === 'default' && (
+                    <CursorPointer cursorVariant={displayStyle} icon={MousePointer2} />
+                  )}
+                  {displayPointer === 'pointer' && (
+                    <CursorPointer cursorVariant={displayStyle} icon={Pointer} />
+                  )}
+                  {displayPointer === 'text' && (
+                    <CursorPointer cursorVariant={displayStyle} icon={TextCursor} />
+                  )}
 
-              {/* DOT vs BUBBLE */}
-              {displayStyle === 'initial' && !displayLabel ? (
-                /* --- tiny dot --- */
-                <div
-                  className={clsx(
-                    'absolute left-5 top-3 w-7 h-7 rounded-full bg-foreground dark:bg-pillGrey text-background dark:text-foreground',
-                    {
-                      ['ml-2']: displayPointer !== 'default',
-                    },
+                  {/* DOT vs BUBBLE */}
+                  {displayStyle === 'initial' && !displayLabel ? (
+                    /* --- tiny dot --- */
+                    <div
+                      className={clsx(
+                        'absolute left-5 top-3 w-7 h-7 rounded-full bg-foreground dark:bg-pillGrey text-background dark:text-foreground',
+                        {
+                          ['ml-2']: displayPointer !== 'default',
+                        },
+                      )}
+                    />
+                  ) : (
+                    /* --- label bubble --- */
+                    <div
+                      className={clsx(
+                        'absolute ml-2 left-5 top-3 inline-flex items-center gap-1',
+                        'px-2 py-1 rounded-full text-lg font-medium leading-none',
+                        'whitespace-nowrap pointer-events-none',
+                        {
+                          ['bg-success text-background']:
+                            displayStyle === 'joke' || displayStyle === 'callToAction',
+                          ['bg-blue text-background px-3 py-2']: displayStyle === 'blogCard' || displayStyle === 'section' || displayStyle === 'navLink' || displayStyle === 'image',
+                          ['bg-danger text-background']:
+                            displayStyle === 'jobCard' || displayStyle === 'projectCard' || displayStyle === 'testimonialCard',
+                          ['max-w-fit break-words rounded-md']: displayStyle === 'testimonialCard',
+                          ['bg-jasmine text-foreground']: displayStyle === 'tool',
+                          ['bg-success w-0 h-0']: displayPointer === 'text'
+                        },
+                      )}
+                    >
+                      {/* render your HTML inside a span so the container keeps control over size */}
+                      <span
+                        // keep inline-block so padding applies around content nicely
+                        className="inline-block"
+                        dangerouslySetInnerHTML={{ __html: displayLabel }}
+                      />
+                    </div>
                   )}
-                />
-              ) : (
-                /* --- label bubble --- */
-                <div
-                  className={clsx(
-                    'absolute ml-2 left-5 top-3 inline-flex items-center gap-1',
-                    'px-2 py-1 rounded-full text-lg font-medium leading-none',
-                    'whitespace-nowrap pointer-events-none',
-                    {
-                      ['bg-success text-background']:
-                        displayStyle === 'joke' || displayStyle === 'callToAction',
-                      ['bg-blue text-background px-3 py-2']: displayStyle === 'blogCard' || displayStyle === 'section' || displayStyle === 'navLink' || displayStyle === 'image',
-                      ['bg-danger text-background']:
-                        displayStyle === 'jobCard' || displayStyle === 'projectCard' || displayStyle === 'testimonialCard',
-                      ['max-w-fit break-words rounded-md']: displayStyle === 'testimonialCard',
-                      ['bg-jasmine text-foreground']: displayStyle === 'tool',
-                      ['bg-success w-0 h-0']: displayPointer === 'text'
-                    },
-                  )}
-                >
-                  {/* render your HTML inside a span so the container keeps control over size */}
-                  <span
-                    // keep inline-block so padding applies around content nicely
-                    className="inline-block"
-                    dangerouslySetInnerHTML={{ __html: displayLabel }}
-                  />
                 </div>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      }
+    </>
   )
 }
 
