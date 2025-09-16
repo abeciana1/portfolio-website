@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import {
   type RequiredDataFromCollectionSlug
 } from 'payload'
@@ -8,11 +9,14 @@ import { generateMeta } from '@/utils/generateMeta'
 import { QueryClient } from '@tanstack/react-query'
 import { payload } from '@/src/payload'
 
-type RouteParams = { slug: string }
-type PageProps = { params: RouteParams }
+type Args = {
+  params: Promise<{
+    slug?: string;
+  }>
+}
 
-const Page = async ({ params }: PageProps) => {
-  const { slug = 'home' } = params
+const Page = async ({ params }: Args) => {
+  const { slug = 'home' } = await params
   const queryClient = new QueryClient()
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
@@ -51,8 +55,8 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
   return result?.docs?.[0] || null
 })
 
-export async function generateMetadata({ params }: PageProps) {
-  const { slug = 'home' } = params
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+  const { slug = 'home' } = await params
   const queryClient = new QueryClient()
   const page = await queryPageBySlug({
     slug: slug as string
