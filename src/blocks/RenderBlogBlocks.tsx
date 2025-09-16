@@ -10,6 +10,7 @@ import BlogImage from '@/src/blocks/BlogImage/component'
 import BlogHeader from '@/src/blocks/BlogHeader/component'
 import BlogBodyBlock from '@/src/blocks/BlogBody/component'
 import BlogPostSection from '@/src/blocks/BlogPostSection/component'
+import Code from '@/src/blocks/Code/component'
 
 // * component types
 import {
@@ -18,7 +19,8 @@ import {
   type BlogImageProps,
   type BlogHeaderProps,
   type BlogBodyBlockProps,
-  type BlogPostSectionBlockProps
+  type BlogPostSectionBlockProps,
+  type CodeBlockProps
 } from '@/types/blockTypes'
 
 export type BlockComponentsMap = {
@@ -28,6 +30,7 @@ export type BlockComponentsMap = {
   'blog-header': React.FC<BlogHeaderProps>;
   'blog-body': React.FC<BlogBodyBlockProps>;
   'blog-post-section': React.FC<BlogPostSectionBlockProps>;
+  'code': React.FC<CodeBlockProps>;
 }
 
 const blockComponents: BlockComponentsMap = {
@@ -36,7 +39,8 @@ const blockComponents: BlockComponentsMap = {
   'blog-image': BlogImage,
   'blog-header': BlogHeader,
   'blog-body': BlogBodyBlock,
-  'blog-post-section': BlogPostSection
+  'blog-post-section': BlogPostSection,
+  'code': Code
 }
 
 const RenderBlogBlocks: React.FC<{
