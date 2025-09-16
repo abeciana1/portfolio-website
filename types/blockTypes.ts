@@ -360,3 +360,8 @@ export type BlogPostCardProps = {
   }
   teaserContent: string;
 }
+
+export type CodeBlockProps = {
+  code: string;
+  language?: 'bash' | 'css' | 'html' | 'javascript' | 'json' | 'markdown' | 'python' | 'sql' | 'yaml' | 'typescript'
+}
