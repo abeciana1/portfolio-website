@@ -4,6 +4,7 @@ import * as migration_20250904_165745_blogs_clean from './20250904_165745_blogs_
 import * as migration_20250905_161520 from './20250905_161520';
 import * as migration_20250908_232904_add_cursor_label from './20250908_232904_add_cursor_label';
 import * as migration_20250909_160051 from './20250909_160051';
+import * as migration_20250916_153441 from './20250916_153441';
 
 export const migrations = [
   {
@@ -34,6 +35,11 @@ export const migrations = [
   {
     up: migration_20250909_160051.up,
     down: migration_20250909_160051.down,
-    name: '20250909_160051'
+    name: '20250909_160051',
+  },
+  {
+    up: migration_20250916_153441.up,
+    down: migration_20250916_153441.down,
+    name: '20250916_153441'
   },
 ];
