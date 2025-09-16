@@ -11,7 +11,7 @@ import { payload } from '@/src/payload'
 
 type Args = {
   params: {
-    slug?: string[];
+    slug?: string;
   }
 }
 
