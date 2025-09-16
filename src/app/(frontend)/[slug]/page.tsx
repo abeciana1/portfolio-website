@@ -10,13 +10,13 @@ import { QueryClient } from '@tanstack/react-query'
 import { payload } from '@/src/payload'
 
 type Args = {
-  params: Promise<{
+  params: {
     slug?: string[];
-  }>
+  }
 }
 
 const Page = async ({ params }: Args) => {
-  const { slug = 'home' } = await params
+  const { slug = 'home' } = params
   const queryClient = new QueryClient()
 
   const page: RequiredDataFromCollectionSlug<'pages'> | null = await queryPageBySlug({
@@ -56,7 +56,7 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
 })
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
-  const { slug = 'home' } = await params
+  const { slug = 'home' } = params
   const queryClient = new QueryClient()
   const page = await queryPageBySlug({
     slug: slug as string

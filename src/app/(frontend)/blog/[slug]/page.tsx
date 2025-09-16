@@ -19,18 +19,13 @@ type TagProp = {
 }
 
 type Args = {
-  params: Promise<{
+  params: {
     slug?: string
-  }>
+  }
 }
 
-let cachedParams: any;
-
-const Page = async ({ params: paramsPromise }: Args) => {
-  if (!cachedParams) {
-    cachedParams = await paramsPromise;
-  }
-  const { slug = 'home' } = cachedParams
+const Page = async ({ params }: Args) => {
+  const { slug = 'home' } = params
   const queryClient = new QueryClient()
 
   const page: RequiredDataFromCollectionSlug<'blog-pages'> | null = await queryPageBySlug({
@@ -114,8 +109,8 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
   return result?.docs?.[0] || null
 })
 
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = 'home' } = await paramsPromise
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+  const { slug = 'home' } = params
   const queryClient = new QueryClient()
   const page = await queryPageBySlug({
     slug,
