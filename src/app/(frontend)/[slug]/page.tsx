@@ -1,4 +1,3 @@
-import type { Metadata } from 'next'
 import {
   type RequiredDataFromCollectionSlug
 } from 'payload'
@@ -52,7 +51,7 @@ const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryC
   return result?.docs?.[0] || null
 })
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps) {
   const { slug = 'home' } = params
   const queryClient = new QueryClient()
   const page = await queryPageBySlug({
