@@ -14,6 +14,7 @@ import { BlogImage as BlogImageBlock } from '@/src/blocks/BlogImage/config'
 import { BlogHeader as BlogHeaderBlock } from '@/src/blocks/BlogHeader/config'
 import { BlogBody as BlogBodyBlock } from '@/src/blocks/BlogBody/config'
 import { BlogPostSectionBlock } from '@/src/blocks/BlogPostSection/config'
+import { CodeBlock } from '@/src/blocks/Code/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
@@ -24,7 +25,8 @@ const allowableBlocks = [
   BlogImageBlock,
   BlogHeaderBlock,
   BlogBodyBlock,
-  BlogPostSectionBlock
+  BlogPostSectionBlock,
+  CodeBlock
 ]
 
 export const BlogPage: CollectionConfig = {
