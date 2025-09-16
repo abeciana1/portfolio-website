@@ -72,7 +72,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
               data-testid="blog-excerpt"
               className="text-left font-medium text-lg text-foreground"
             >
-              {description.substring(0, 55) + '...'}
+              {description?.substring(0, 55) + '...' || ''}
             </div>
             <ul tabIndex={0} data-testid="tags-list" className="flex gap-2">
               {tags?.slice(0, 4)?.map((tag) => {
