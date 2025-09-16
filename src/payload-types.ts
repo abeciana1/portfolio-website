@@ -710,6 +710,7 @@ export interface BlogPage {
         | BlogHeaderBlock
         | BlogBodyBlock
         | BlogPostSectionBlock
+        | CodeBlock
       )[]
     | null;
   meta?: {
@@ -802,10 +803,23 @@ export interface BlogHeaderBlock {
  * via the `definition` "BlogBodyBlock".
  */
 export interface BlogBodyBlock {
-  embedBlocks?: (RichTextBlock | BlogImageBlock)[] | null;
+  embedBlocks?: (RichTextBlock | BlogImageBlock | CodeBlock)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'blog-body';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeBlock".
+ */
+export interface CodeBlock {
+  code: string;
+  language?:
+    | ('bash' | 'css' | 'html' | 'javascript' | 'json' | 'markdown' | 'python' | 'sql' | 'yaml' | 'typescript')
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'code';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2009,6 +2023,7 @@ export interface BlogPagesSelect<T extends boolean = true> {
         'blog-header'?: T | BlogHeaderBlockSelect<T>;
         'blog-body'?: T | BlogBodyBlockSelect<T>;
         'blog-post-section'?: T | BlogPostSectionBlockSelect<T>;
+        code?: T | CodeBlockSelect<T>;
       };
   meta?:
     | T
@@ -2055,7 +2070,18 @@ export interface BlogBodyBlockSelect<T extends boolean = true> {
     | {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
         'blog-image'?: T | BlogImageBlockSelect<T>;
+        code?: T | CodeBlockSelect<T>;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CodeBlock_select".
+ */
+export interface CodeBlockSelect<T extends boolean = true> {
+  code?: T;
+  language?: T;
   id?: T;
   blockName?: T;
 }
