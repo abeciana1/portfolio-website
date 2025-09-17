@@ -25,7 +25,7 @@ const BlogBodyBlock: React.FC<BlogBodyBlockProps> = ({ embedBlocks }) => {
           />
         </div>
       </aside>
-      <article data-cursor-pointer="text" className="relative max-w-3xl mx-auto text-justify">
+      <article data-cursor-pointer="text" className="relative max-w-3xl mx-auto text-justify pb-40">
         <RenderBlogBlocks blocks={[...embedBlocks] as any} />
       </article>
     </>
