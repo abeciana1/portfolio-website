@@ -32,4 +32,15 @@
   ul {
     @apply list-outside list-disc;
   }
+
+  code {
+    color: #eb5757;
+    padding: 0.2em 0.4em;
+    background: rgba(135, 131, 120, 0.15);
+    border-radius: 3px;
+    font-size: 85%;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+    monospace;
+    white-space: wrap;
+  }
 }
