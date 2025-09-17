@@ -26,7 +26,7 @@ const HeroSectionNoImage: React.FC<HeroSectionNoImageBlockProps> = ({
       <div className='space-y-6 text-center'>
         <Heading1 text={title as string} />
         {subtitle && <Heading2 text={subtitle as string} />}
-        <div data-testid='description' className='leading-10 text-3xl font-semibold'>{description}</div>
+        <div data-cursor-pointer='text' data-cursor-variant="callToAction" data-testid='description' className='leading-10 text-3xl font-semibold'>{description}</div>
         {secondaryBlurb && <div data-cursor-pointer='text' data-testid='secondary-blurb' className='text-xl text-darkGrey dark:text-pillGrey font-semibold'>{secondaryBlurb}</div>}
         {(callToAction && callToAction?.length > 0) &&
           <ButtonGroup>
