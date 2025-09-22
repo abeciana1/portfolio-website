@@ -106,6 +106,7 @@ export interface Config {
     'blog-pages': BlogPage;
     'blog-categories': BlogCategory;
     'blog-tags': BlogTag;
+    video: Video;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -128,6 +129,7 @@ export interface Config {
     'blog-pages': BlogPagesSelect<false> | BlogPagesSelect<true>;
     'blog-categories': BlogCategoriesSelect<false> | BlogCategoriesSelect<true>;
     'blog-tags': BlogTagsSelect<false> | BlogTagsSelect<true>;
+    video: VideoSelect<false> | VideoSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -1180,6 +1182,25 @@ export interface ProjectGridBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "video".
+ */
+export interface Video {
+  id: number;
+  title?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -1248,6 +1269,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'blog-tags';
         value: number | BlogTag;
+      } | null)
+    | ({
+        relationTo: 'video';
+        value: number | Video;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -2103,6 +2128,24 @@ export interface BlogTagsSelect<T extends boolean = true> {
   label?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "video_select".
+ */
+export interface VideoSelect<T extends boolean = true> {
+  title?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
