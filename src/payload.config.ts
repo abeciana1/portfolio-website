@@ -28,6 +28,7 @@ import { ProjectPage } from './collections/project-pages'
 import { BlogPage } from './collections/blog-pages'
 import { BlogCategory } from './collections/blog-categories'
 import { BlogTag } from './collections/blog-tags'
+import { Video } from './collections/video'
 
 // * blocks
 import { HeroSection as HeroSectionBlock } from '@/src/blocks/HeroSection/config'
@@ -95,7 +96,8 @@ export default buildConfig({
         'project-pages',
         'blog-pages',
         'blog-categories',
-        'blog-tags'
+        'blog-tags',
+        'video'
       ],
     }
   },
@@ -146,7 +148,8 @@ export default buildConfig({
     ProjectTag,
     BlogPage,
     BlogCategory,
-    BlogTag
+    BlogTag,
+    Video
   ],
   editor: lexicalEditor(),
   typescript: {
@@ -185,6 +188,30 @@ export default buildConfig({
         },
         region: process?.env?.S3_REGION as string,
         endpoint: process?.env?.S3_ENDPOINT as string,
+        forcePathStyle: true,
+      }
+    }),
+    s3Storage({
+      collections: {
+        video: {
+          disableLocalStorage: true,
+          generateFileURL: (args) => {
+            const { filename } = args
+            if (filename) {
+              return `https://${process?.env?.CLOUDFLARE_ACCT_ID}.r2.cloudflarestorage.com/${process.env.BUCKET_NAME}/${filename}`
+            }
+            return ''
+          },
+        }
+      },
+      bucket: process?.env?.CLOUDFLARE_VIDEO_BUCKET_NAME as string,
+      config: {
+        credentials: {
+          accessKeyId: process?.env?.CLOUDFLARE_VIDEO_ACCESS_KEY_ID as string,
+          secretAccessKey: process?.env?.CLOUDFLARE_VIDEO_SECRET_ACCESS_KEY as string
+        },
+        region: 'auto',
+        endpoint: `https://${process.env.CLOUDFLARE_ACCT_ID}.r2.cloudflarestorage.com`,
         forcePathStyle: true,
       }
     }),
