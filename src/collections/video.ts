@@ -7,12 +7,6 @@ import {
   DeleteObjectCommand
 } from "@aws-sdk/client-s3";
 
-// const r2 = new R2({
-//   accountId: process.env.NEXT_PUBLIC_CLOUDFLARE_ACCT_ID as string,
-//   accessKeyId: process.env.NEXT_PUBLIC_CLOUDFLARE_VIDEO_ACCESS_KEY_ID as string,
-//   secretAccessKey: process.env.NEXT_PUBLIC_CLOUDFLARE_VIDEO_SECRET_ACCESS_KEY as string,
-// });
-
 const r2 = new S3Client({
   endpoint: `https://${process.env.CLOUDFLARE_ACCT_ID}.r2.cloudflarestorage.com`,
   region: 'auto',
