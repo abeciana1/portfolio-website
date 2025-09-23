@@ -1187,6 +1187,9 @@ export interface ProjectGridBlock {
 export interface Video {
   id: number;
   title?: string | null;
+  storageKey?: string | null;
+  streamUrl?: string | null;
+  videoUrl?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -2135,6 +2138,9 @@ export interface BlogTagsSelect<T extends boolean = true> {
  */
 export interface VideoSelect<T extends boolean = true> {
   title?: T;
+  storageKey?: T;
+  streamUrl?: T;
+  videoUrl?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
