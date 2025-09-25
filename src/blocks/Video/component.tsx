@@ -462,11 +462,13 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
           className={`pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-foreground transition-opacity duration-200 ${showUi ? 'opacity-100' : 'opacity-0'}`}
         />
 
-        <div
-          className={`pointer-events-none absolute inset-0 grid place-items-center opacity-100`}
-        >
+        <div className={`pointer-events-none absolute inset-0 grid place-items-center opacity-100`}>
           {!playing && hasReady && (
             <button
+              data-cursor="Play"
+              data-cursor-pointer="pointer"
+              data-cursor-variant="image"
+              data-cursor-allow-native={isFullscreen ? 'true' : undefined}
               onClick={togglePlay}
               className="pointer-events-auto inline-flex items-center gap-2 rounded-full px-5 py-3 backdrop-blur bg-background/60"
               aria-label="Play"
@@ -535,6 +537,10 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1 sm:gap-2">
               <button
+                        data-cursor="Rewind 5 seconds"
+        data-cursor-pointer="pointer"
+        data-cursor-variant="image"
+        data-cursor-allow-native={isFullscreen ? 'true' : undefined}
                 onClick={() => skip(-5)}
                 className="p-2 text-white/80 hover:text-white"
                 aria-label="Rewind 5s"
@@ -542,6 +548,10 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
                 <Rewind className="h-5 w-5" />
               </button>
               <button
+                        data-cursor="Play/Pause"
+        data-cursor-pointer="pointer"
+        data-cursor-variant="image"
+        data-cursor-allow-native={isFullscreen ? 'true' : undefined}
                 onClick={togglePlay}
                 className="p-2 text-white hover:text-white"
                 aria-label={playing ? 'Pause' : 'Play'}
@@ -549,6 +559,10 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
                 {playing ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
               </button>
               <button
+                        data-cursor="Fast forward 10 seconds"
+        data-cursor-pointer="pointer"
+        data-cursor-variant="image"
+        data-cursor-allow-native={isFullscreen ? 'true' : undefined}
                 onClick={() => skip(10)}
                 className="p-2 text-white/80 hover:text-white"
                 aria-label="Forward 10s"
@@ -558,6 +572,10 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
 
               {/* Volume */}
               <button
+                        data-cursor="Mute/unmute"
+        data-cursor-pointer="pointer"
+        data-cursor-variant="image"
+        data-cursor-allow-native={isFullscreen ? 'true' : undefined}
                 onClick={() => (videoRef.current!.muted = !videoRef.current!.muted)}
                 className="ml-1 p-2 text-white/80 hover:text-white"
                 aria-label={muted ? 'Unmute' : 'Mute'}
@@ -591,6 +609,10 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
 
             <div className="flex items-center gap-1 sm:gap-2">
               <button
+                        data-cursor="Slow down"
+        data-cursor-pointer="pointer"
+        data-cursor-variant="image"
+        data-cursor-allow-native={isFullscreen ? 'true' : undefined}
                 onClick={() => changeRate(playbackRate - 0.25)}
                 className="hidden sm:inline-flex p-2 text-white/80 hover:text-white"
                 aria-label="Slower"
@@ -599,6 +621,10 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
                 −0.25x
               </button>
               <button
+                      data-cursor="Speed up"
+        data-cursor-pointer="pointer"
+        data-cursor-variant="image"
+        data-cursor-allow-native={isFullscreen ? 'true' : undefined}
                 onClick={() => changeRate(playbackRate + 0.25)}
                 className="hidden sm:inline-flex p-2 text-white/80 hover:text-white"
                 aria-label="Faster"
@@ -609,6 +635,10 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
 
               {pipSupported && (
                 <button
+                          data-cursor="Picture in Picture"
+        data-cursor-pointer="pointer"
+        data-cursor-variant="image"
+        data-cursor-allow-native={isFullscreen ? 'true' : undefined}
                   onClick={togglePiP}
                   className="hidden sm:inline-flex p-2 text-white/80 hover:text-white"
                   aria-label="Picture in Picture"
@@ -619,7 +649,6 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
               )}
 
               <button
-                data-cursor="Watch"
                 data-cursor-pointer="pointer"
                 data-cursor-variant="image"
                 onClick={toggleFullscreen}
