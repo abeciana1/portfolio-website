@@ -842,7 +842,6 @@ export interface VideoBlock {
    * Add a gradient aura to the image
    */
   gradient?: boolean | null;
-  gradientYFlip?: boolean | null;
   gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
   id?: string | null;
   blockName?: string | null;
@@ -2149,7 +2148,6 @@ export interface VideoBlockSelect<T extends boolean = true> {
   forcedWidth?: T;
   forcedHeight?: T;
   gradient?: T;
-  gradientYFlip?: T;
   gradientSelect?: T;
   id?: T;
   blockName?: T;
