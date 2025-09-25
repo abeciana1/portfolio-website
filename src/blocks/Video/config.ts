@@ -41,21 +41,6 @@ export const Video: Block = {
       defaultValue: false,
     },
     {
-      name: 'gradientYFlip',
-      label: 'Flip gradient along X-axis',
-      type: 'checkbox',
-      defaultValue: false,
-      admin: {
-        condition: (data, siblingData) => {
-          if (siblingData?.gradient) {
-            return true
-          } else {
-            return false
-          }
-        }
-      }
-    },
-    {
       name: 'gradientSelect',
       label: 'Gradient variant select',
       type: 'select',
