@@ -114,7 +114,19 @@ export default function Cursor({
       onPositionChange?.(clientX, clientY)
 
       const raw = document.elementFromPoint(clientX, clientY) as Element | null
+      const allowNative = raw?.closest('[data-cursor-allow-native="true"]');
+      if (allowNative) {
+        // stop forcing inline cursor:none
+        restoreForced();
 
+        // optionally idle the custom cursor while over this region
+        setDisplayLabel('');
+        setDisplayStyle('initial');
+        setDisplayPointer('default');
+        lastTargetRef.current = null;
+
+        return; // ⬅️ critical: do NOT proceed to hide the native cursor
+      }
       // (A) Force-hide native cursor inline on the element under the pointer
       const nextStylable = asStylable(raw)
       if (forcedElRef.current !== nextStylable) {
