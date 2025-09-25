@@ -366,7 +366,7 @@ export type CodeBlockProps = {
   language?: 'bash' | 'css' | 'html' | 'javascript' | 'json' | 'markdown' | 'python' | 'sql' | 'yaml' | 'typescript'
 }
 
-export type VideoBlockProps = {
+type VideoProps = {
   title: string;
   storageKey: string;
   streamUrl: string;
@@ -375,4 +375,12 @@ export type VideoBlockProps = {
   thumbnailURL?: string;
   width?: number;
   height?: number;
+}
+
+export type VideoBlockProps = {
+  video: VideoProps;
+  forcedWidth: number;
+  forcedHeight: number;
+  gradient: boolean;
+  gradientSelect?: GradientOptions;
 }
