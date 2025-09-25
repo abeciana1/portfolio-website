@@ -17,7 +17,7 @@ export async function GET(
 ) {
   const bucket = process.env.CLOUDFLARE_VIDEO_BUCKET_NAME!
 
-  const rawKey = decodeURIComponent(params.key.join('/'))
+  const rawKey = decodeURIComponent(params?.key?.join('/'))
 
   const range = req.headers.get('range') || undefined
   const cmd = new GetObjectCommand({ Bucket: bucket, Key: rawKey, Range: range })
