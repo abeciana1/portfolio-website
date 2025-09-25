@@ -6,6 +6,7 @@ import * as migration_20250908_232904_add_cursor_label from './20250908_232904_a
 import * as migration_20250909_160051 from './20250909_160051';
 import * as migration_20250916_153441 from './20250916_153441';
 import * as migration_20250923_011632 from './20250923_011632';
+import * as migration_20250925_022339 from './20250925_022339';
 
 export const migrations = [
   {
@@ -46,6 +47,11 @@ export const migrations = [
   {
     up: migration_20250923_011632.up,
     down: migration_20250923_011632.down,
-    name: '20250923_011632'
+    name: '20250923_011632',
+  },
+  {
+    up: migration_20250925_022339.up,
+    down: migration_20250925_022339.down,
+    name: '20250925_022339'
   },
 ];
