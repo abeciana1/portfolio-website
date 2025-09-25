@@ -1,6 +1,8 @@
 // src/app/api/r2/stream/[...key]/route.ts
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3'
 
+export const runtime = 'nodejs' // AWS SDK streams need Node runtime
+
 const r2 = new S3Client({
   endpoint: `https://${process.env.CLOUDFLARE_ACCT_ID}.r2.cloudflarestorage.com`,
   region: 'auto',
@@ -11,23 +13,20 @@ const r2 = new S3Client({
   forcePathStyle: true,
 })
 
-export const runtime = 'nodejs'
-
-type RouteContext = {
-  params: Record<string, string | string[]>
-}
-
-export async function GET(request: Request, context: RouteContext): Promise<Response> {
-  const bucket = process.env.CLOUDFLARE_VIDEO_BUCKET_NAME!
-  const segments = Array.isArray(context.params.key)
-    ? (context.params.key as string[])
-    : [context.params.key as string]
-
+export async function GET(
+  req: Request,
+  ctx: RouteContext<'/api/r2/stream/[...key]'>
+) {
+  const { key } = await ctx.params // <-- params is a Promise in Next 15
+  const segments = Array.isArray(key) ? key : [key]
   const rawKey = decodeURIComponent(segments.join('/'))
 
-  const range = request.headers.get('range') ?? undefined
-  const cmd = new GetObjectCommand({ Bucket: bucket, Key: rawKey, Range: range })
-  const obj = await r2.send(cmd)
+  const bucket = process.env.CLOUDFLARE_VIDEO_BUCKET_NAME!
+  const range = req.headers.get('range') ?? undefined
+
+  const obj = await r2.send(
+    new GetObjectCommand({ Bucket: bucket, Key: rawKey, Range: range })
+  )
 
   const headers = new Headers()
   if (obj.ContentType) headers.set('content-type', obj.ContentType)
