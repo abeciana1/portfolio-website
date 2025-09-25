@@ -463,12 +463,12 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
         />
 
         <div
-          className={`pointer-events-none absolute inset-0 grid place-items-center transition-opacity duration-150 ${showUi ? 'opacity-100' : 'opacity-0'}`}
+          className={`pointer-events-none absolute inset-0 grid place-items-center opacity-100`}
         >
           {!playing && hasReady && (
             <button
               onClick={togglePlay}
-              className="pointer-events-auto inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 backdrop-blur hover:bg-white/20"
+              className="pointer-events-auto inline-flex items-center gap-2 rounded-full px-5 py-3 backdrop-blur bg-background/60"
               aria-label="Play"
             >
               <Play className="h-7 w-7" />
