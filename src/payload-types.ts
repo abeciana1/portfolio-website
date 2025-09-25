@@ -88,7 +88,6 @@ export interface Config {
     'blog-header': BlogHeaderBlock;
     'blog-body': BlogBodyBlock;
     'blog-post-section': BlogPostSectionBlock;
-    'video-block': VideoBlock;
   };
   collections: {
     users: User;
@@ -807,7 +806,7 @@ export interface BlogHeaderBlock {
  * via the `definition` "BlogBodyBlock".
  */
 export interface BlogBodyBlock {
-  embedBlocks?: (RichTextBlock | BlogImageBlock | CodeBlock)[] | null;
+  embedBlocks?: (RichTextBlock | BlogImageBlock | CodeBlock | VideoBlock)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'blog-body';
@@ -2126,6 +2125,7 @@ export interface BlogBodyBlockSelect<T extends boolean = true> {
         'rich-text-block'?: T | RichTextBlockSelect<T>;
         'blog-image'?: T | BlogImageBlockSelect<T>;
         code?: T | CodeBlockSelect<T>;
+        'video-block'?: T | VideoBlockSelect<T>;
       };
   id?: T;
   blockName?: T;
