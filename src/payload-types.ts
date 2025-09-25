@@ -88,6 +88,7 @@ export interface Config {
     'blog-header': BlogHeaderBlock;
     'blog-body': BlogBodyBlock;
     'blog-post-section': BlogPostSectionBlock;
+    'video-block': VideoBlock;
   };
   collections: {
     users: User;
@@ -713,6 +714,7 @@ export interface BlogPage {
         | BlogBodyBlock
         | BlogPostSectionBlock
         | CodeBlock
+        | VideoBlock
       )[]
     | null;
   meta?: {
@@ -822,6 +824,52 @@ export interface CodeBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'code';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "VideoBlock".
+ */
+export interface VideoBlock {
+  video: number | Video;
+  /**
+   * Set a specific width for the image, overriding the aspect ratio
+   */
+  forcedWidth: number;
+  /**
+   * Set a specific height for the image, overriding the aspect ratio
+   */
+  forcedHeight: number;
+  /**
+   * Add a gradient aura to the image
+   */
+  gradient?: boolean | null;
+  gradientYFlip?: boolean | null;
+  gradientSelect?: ('Variant1' | 'Variant2' | 'Variant3' | 'Variant4') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'video-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "video".
+ */
+export interface Video {
+  id: number;
+  title?: string | null;
+  storageKey?: string | null;
+  streamUrl?: string | null;
+  videoUrl?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1179,28 +1227,6 @@ export interface ProjectGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'project-grid-block';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "video".
- */
-export interface Video {
-  id: number;
-  title?: string | null;
-  storageKey?: string | null;
-  streamUrl?: string | null;
-  videoUrl?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -2052,6 +2078,7 @@ export interface BlogPagesSelect<T extends boolean = true> {
         'blog-body'?: T | BlogBodyBlockSelect<T>;
         'blog-post-section'?: T | BlogPostSectionBlockSelect<T>;
         code?: T | CodeBlockSelect<T>;
+        'video-block'?: T | VideoBlockSelect<T>;
       };
   meta?:
     | T
@@ -2110,6 +2137,20 @@ export interface BlogBodyBlockSelect<T extends boolean = true> {
 export interface CodeBlockSelect<T extends boolean = true> {
   code?: T;
   language?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "VideoBlock_select".
+ */
+export interface VideoBlockSelect<T extends boolean = true> {
+  video?: T;
+  forcedWidth?: T;
+  forcedHeight?: T;
+  gradient?: T;
+  gradientYFlip?: T;
+  gradientSelect?: T;
   id?: T;
   blockName?: T;
 }
