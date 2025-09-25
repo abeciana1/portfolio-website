@@ -52,6 +52,7 @@ import { BlogHeader as BlogHeaderBlock } from '@/src/blocks/BlogHeader/config'
 import { BlogBody as BlogBodyBlock } from '@/src/blocks/BlogBody/config'
 import { BlogPostSectionBlock } from '@/src/blocks/BlogPostSection/config'
 import { CodeBlock } from '@/src/blocks/Code/config'
+import { Video as VideoBlock } from '@/src/blocks/Video/config'
 
 // * nested route mapping
 type HashMap = {
@@ -122,7 +123,8 @@ export default buildConfig({
     BlogHeaderBlock,
     BlogBodyBlock,
     BlogPostSectionBlock,
-    CodeBlock
+    CodeBlock,
+    VideoBlock
   ],
   cors: [
     'http://localhost:3000',
