@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server'
+// src/app/api/r2/stream/[...key]/route.ts
 import { S3Client, GetObjectCommand } from '@aws-sdk/client-s3'
 
 const r2 = new S3Client({
@@ -11,15 +11,21 @@ const r2 = new S3Client({
   forcePathStyle: true,
 })
 
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { key: string[] } }
-) {
+export const runtime = 'nodejs'
+
+type RouteContext = {
+  params: Record<string, string | string[]>
+}
+
+export async function GET(request: Request, context: RouteContext): Promise<Response> {
   const bucket = process.env.CLOUDFLARE_VIDEO_BUCKET_NAME!
+  const segments = Array.isArray(context.params.key)
+    ? (context.params.key as string[])
+    : [context.params.key as string]
 
-  const rawKey = decodeURIComponent(params?.key?.join('/'))
+  const rawKey = decodeURIComponent(segments.join('/'))
 
-  const range = req.headers.get('range') || undefined
+  const range = request.headers.get('range') ?? undefined
   const cmd = new GetObjectCommand({ Bucket: bucket, Key: rawKey, Range: range })
   const obj = await r2.send(cmd)
 
@@ -29,6 +35,6 @@ export async function GET(
   if (obj.AcceptRanges) headers.set('accept-ranges', obj.AcceptRanges)
   if (obj.ETag) headers.set('etag', obj.ETag)
   if (obj.ContentRange) headers.set('content-range', obj.ContentRange)
-  if (range) return new Response(obj.Body as any, { status: 206, headers })
-  return new Response(obj.Body as any, { headers })
+
+  return new Response(obj.Body as any, { status: range ? 206 : 200, headers })
 }
