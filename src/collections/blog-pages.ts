@@ -15,6 +15,7 @@ import { BlogHeader as BlogHeaderBlock } from '@/src/blocks/BlogHeader/config'
 import { BlogBody as BlogBodyBlock } from '@/src/blocks/BlogBody/config'
 import { BlogPostSectionBlock } from '@/src/blocks/BlogPostSection/config'
 import { CodeBlock } from '@/src/blocks/Code/config'
+import { Video as VideoBlock } from '@/src/blocks/Video/config'
 
 // * fields
 import { NestedRoute } from '@/src/fields/nested-route'
@@ -26,7 +27,8 @@ const allowableBlocks = [
   BlogHeaderBlock,
   BlogBodyBlock,
   BlogPostSectionBlock,
-  CodeBlock
+  CodeBlock,
+  VideoBlock
 ]
 
 export const BlogPage: CollectionConfig = {
