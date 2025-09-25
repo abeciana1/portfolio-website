@@ -12,10 +12,7 @@ import {
   Minimize,
   PictureInPicture2,
 } from 'lucide-react'
-import type {
-  GradientOptions,
-  VideoBlockProps
-} from '@/types/blockTypes'
+import type { VideoBlockProps } from '@/types/blockTypes'
 import Gradient from '@/components/_styled/Gradient'
 
 const formatTime = (time: number): string => {
@@ -414,15 +411,14 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
 
   return (
     <div className="relative">
-      <div className="absolute -top-10 left-20 w-full h-[90%]" style={{
-        maxWidth: forcedWidth ? `${forcedWidth}px` : undefined,
-        maxHeight: forcedHeight ? `${forcedHeight}px` : undefined,
-      }}>
-        <Gradient
-          variant={gradientSelect}
-          gradientXFlip
-          gradientYFlip
-        />
+      <div
+        className="absolute -top-10 left-20 w-full h-[90%]"
+        style={{
+          maxWidth: forcedWidth ? `${forcedWidth}px` : undefined,
+          maxHeight: forcedHeight ? `${forcedHeight}px` : undefined,
+        }}
+      >
+        <Gradient variant={gradientSelect} gradientXFlip gradientYFlip />
       </div>
       <div
         data-cursor="Watch"
