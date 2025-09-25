@@ -365,3 +365,14 @@ export type CodeBlockProps = {
   code: string;
   language?: 'bash' | 'css' | 'html' | 'javascript' | 'json' | 'markdown' | 'python' | 'sql' | 'yaml' | 'typescript'
 }
+
+export type VideoBlockProps = {
+  title: string;
+  storageKey: string;
+  streamUrl: string;
+  videoUrl: string;
+  url?: string;
+  thumbnailURL?: string;
+  width?: number;
+  height?: number;
+}
