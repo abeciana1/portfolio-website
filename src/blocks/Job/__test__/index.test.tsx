@@ -101,6 +101,6 @@ describe('Job', () => {
     await userEvent.click(jobEl)
     const duties = await screen.findByTestId('duties')
     expect(duties).toBeInTheDocument()
-    expect(duties.innerHTML).toBe('<div><h1>hello</h1></div>')
+    expect(duties.innerHTML).toBe('<div data-cursor-variant=\"callToAction\" data-cursor-pointer=\"text\"><h1>hello</h1></div>')
   })
 })

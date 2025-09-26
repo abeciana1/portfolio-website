@@ -28,7 +28,7 @@ describe('ProjectSection', () => {
     const heading = screen.getByRole('heading', {
       level: 1
     })
-    expect(heading.outerHTML).toBe("<h1 class=\"z-50 text-6xl font-semibold leading-16\">Project Section</h1>")
+    expect(heading.outerHTML).toBe("<h1 data-cursor-variant=\"callToAction\" data-cursor-pointer=\"text\" class=\"z-50 text-6xl font-semibold leading-16\">Project Section</h1>")
     expect(heading.textContent).toBe('Project Section')
     expect(heading).toBeInTheDocument()
   })
