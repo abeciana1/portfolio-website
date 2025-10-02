@@ -194,6 +194,7 @@ export default buildConfig({
       }
     }),
     s3Storage({
+      clientUploads: true,
       collections: {
         video: {
           disableLocalStorage: true,
