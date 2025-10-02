@@ -17,13 +17,32 @@ function extractKeyFromPath(req: NextRequest) {
   const pathname = new URL(req.url).pathname
   const prefix = '/api/r2/stream/'
   if (!pathname.startsWith(prefix)) return null
-  const rest = pathname.slice(prefix.length)
-  return decodeURIComponent(rest)
+  return decodeURIComponent(pathname.slice(prefix.length))
+}
+
+const isProd = !!process.env.VERCEL
+
+function redirectResponse(target: string) {
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: target,
+      'Cache-Control': 'public, max-age=300',
+    },
+  })
 }
 
 export async function GET(req: NextRequest) {
   const rawKey = extractKeyFromPath(req)
   if (!rawKey) return new Response('Bad path', { status: 400 })
+
+  const publicBase = process.env.R2_PUBLIC_BASE_URL
+
+  if (isProd) {
+    if (!publicBase) return new Response('Missing R2_PUBLIC_BASE_URL', { status: 500 })
+    const target = `${publicBase}/${rawKey.split('/').map(encodeURIComponent).join('/')}`
+    return redirectResponse(target)
+  }
 
   const bucket = process.env.CLOUDFLARE_VIDEO_BUCKET_NAME!
   const range = req.headers.get('range') ?? undefined
@@ -45,13 +64,10 @@ export async function GET(req: NextRequest) {
         headers.set('cache-control', 'public, max-age=86400')
         return new Response(null, { status: 304, headers })
       }
-    } catch {
-      // fall through to GET
-    }
+    } catch {}
   }
 
   const obj = await r2.send(new GetObjectCommand({ Bucket: bucket, Key: rawKey, Range: range }))
-
   const headers = new Headers()
   headers.set('cache-control', 'public, max-age=86400')
   if (obj.ContentType) headers.set('content-type', obj.ContentType)
@@ -67,6 +83,13 @@ export async function GET(req: NextRequest) {
 export async function HEAD(req: NextRequest) {
   const rawKey = extractKeyFromPath(req)
   if (!rawKey) return new Response('Bad path', { status: 400 })
+
+  const publicBase = process.env.R2_PUBLIC_BASE_URL
+  if (isProd) {
+    if (!publicBase) return new Response('Missing R2_PUBLIC_BASE_URL', { status: 500 })
+    const target = `${publicBase}/${rawKey.split('/').map(encodeURIComponent).join('/')}`
+    return redirectResponse(target)
+  }
 
   const bucket = process.env.CLOUDFLARE_VIDEO_BUCKET_NAME!
   const head = await r2.send(new HeadObjectCommand({ Bucket: bucket, Key: rawKey }))
