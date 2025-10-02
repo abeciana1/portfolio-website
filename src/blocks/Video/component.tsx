@@ -412,7 +412,7 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
   return (
     <div className="relative">
       <div
-        className="absolute -top-10 left-20 w-full h-[90%]"
+        className="absolute -top-5 left-0 w-full h-[90%]"
         style={{
           maxWidth: forcedWidth ? `${forcedWidth}px` : undefined,
           maxHeight: forcedHeight ? `${forcedHeight}px` : undefined,
