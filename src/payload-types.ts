@@ -820,6 +820,10 @@ export interface CodeBlock {
   language?:
     | ('bash' | 'css' | 'html' | 'javascript' | 'json' | 'markdown' | 'python' | 'sql' | 'yaml' | 'typescript')
     | null;
+  /**
+   * Wrap code in a code block
+   */
+  wrap?: boolean | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'code';
@@ -2136,6 +2140,7 @@ export interface BlogBodyBlockSelect<T extends boolean = true> {
 export interface CodeBlockSelect<T extends boolean = true> {
   code?: T;
   language?: T;
+  wrap?: T;
   id?: T;
   blockName?: T;
 }
