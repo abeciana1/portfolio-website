@@ -453,7 +453,7 @@ const VideoBlockPlayer: React.FC<VideoBlockProps> = ({
           src={src}
           poster={poster}
           playsInline
-          preload="auto"
+          preload="metadata"
           onClick={togglePlay}
           onDoubleClick={toggleFullscreen}
         />
