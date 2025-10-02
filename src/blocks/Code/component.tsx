@@ -8,7 +8,7 @@ import clsx from 'clsx'
 const MAX_HEIGHT = 300
 const LINE_THRESHOLD = 20
 
-const Code: React.FC<CodeBlockProps> = ({ code = '', language = '' }) => {
+const Code: React.FC<CodeBlockProps> = ({ code = '', language = '', wrap = false }) => {
   const [expanded, setExpanded] = useState(false)
 
   const lineCount = useMemo(() => (code ? code.split('\n').length : 0), [code])
@@ -19,13 +19,16 @@ const Code: React.FC<CodeBlockProps> = ({ code = '', language = '' }) => {
   return (
     <section className="my-6">
       <div
-        className={clsx(
-          'relative rounded-md border',
-          !expanded && isLong && 'overflow-hidden'
-        )}
+        className={clsx('relative rounded-md border', !expanded && isLong && 'overflow-hidden')}
         style={!expanded && isLong ? { maxHeight: MAX_HEIGHT } : undefined}
       >
-        <SyntaxHighlighter language={language} className="!m-0 notion-code">
+        <SyntaxHighlighter
+          language={language}
+          className="!m-0 notion-code"
+          codeTagProps={{
+            style: wrap ? { whiteSpace: 'normal' } : { whiteSpace: 'pre' },
+          }}
+        >
           {code}
         </SyntaxHighlighter>
 
@@ -36,8 +39,8 @@ const Code: React.FC<CodeBlockProps> = ({ code = '', language = '' }) => {
 
       {isLong && (
         <button
-          data-cursor-pointer='pointer'
-          data-cursor-variant='callToAction'
+          data-cursor-pointer="pointer"
+          data-cursor-variant="callToAction"
           data-cursor={expanded ? 'Show less' : 'Show more'}
           type="button"
           aria-expanded={expanded}
