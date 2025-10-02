@@ -363,7 +363,8 @@ export type BlogPostCardProps = {
 
 export type CodeBlockProps = {
   code: string;
-  language?: 'bash' | 'css' | 'html' | 'javascript' | 'json' | 'markdown' | 'python' | 'sql' | 'yaml' | 'typescript'
+  language?: 'bash' | 'css' | 'html' | 'javascript' | 'json' | 'markdown' | 'python' | 'sql' | 'yaml' | 'typescript';
+  wrap?: boolean;
 }
 
 type VideoProps = {
