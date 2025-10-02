@@ -15,20 +15,11 @@ const r2 = new S3Client({
   forcePathStyle: true,
 })
 
-const encodePath = (key: string) =>
-  key.split('/').map(encodeURIComponent).join('/')
-
-const toStreamURL = (key: string) => `/api/r2/stream/${encodePath(key)}`
-
 export const Video: CollectionConfig = {
   slug: 'video',
   upload: {
     displayPreview: true,
     mimeTypes: ['video/*'],
-    adminThumbnail: ({ doc }) => {
-      const key = doc?.storageKey || doc?.filename
-      return key ? toStreamURL(String(key)) : ''
-    },
   },
   hooks: {
     afterRead: [
@@ -49,7 +40,8 @@ export const Video: CollectionConfig = {
               Key: key,
             })
           )
-          doc.streamUrl = toStreamURL(key)
+          doc.streamUrl =
+            '/api/r2/stream/' + key.split('/').map(encodeURIComponent).join('/')
           doc.videoUrl = doc.streamUrl
         } catch {
           doc.streamUrl = null
