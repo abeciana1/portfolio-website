@@ -29,6 +29,14 @@ export const CodeBlock: Block = {
         { label: 'YAML', value: 'yaml' },
         { label: 'TypeScript', value: 'typescript' }
       ]
+    },
+    {
+      name: 'wrap',
+      label: 'Wrap',
+      type: 'checkbox',
+      admin: {
+        description: 'Wrap code in a code block'
+      }
     }
   ],
 };
