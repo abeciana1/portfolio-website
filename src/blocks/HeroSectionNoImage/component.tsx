@@ -23,7 +23,7 @@ const HeroSectionNoImage: React.FC<HeroSectionNoImageBlockProps> = ({
       data-testid={sectionId}
       className='relative flex flex-col md:flex-row gap-5 lg:gap-10 xl:gap-40 lg:py-24 px-5 md:px-10 py-10 items-center mx-auto'
     >
-      <div className='space-y-6 text-center'>
+      <div className='space-y-6 text-center mx-auto'>
         <Heading1 text={title as string} />
         {subtitle && <Heading2 text={subtitle as string} />}
         <div data-cursor-pointer='text' data-cursor-variant="callToAction" data-testid='description' className='leading-10 text-3xl font-semibold'>{description}</div>
