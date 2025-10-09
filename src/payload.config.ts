@@ -201,7 +201,7 @@ export default buildConfig({
           generateFileURL: (args) => {
             const { filename } = args
             if (filename) {
-              return `https://${process?.env?.CLOUDFLARE_ACCT_ID}.r2.cloudflarestorage.com/${process.env.CLOUDFLARE_VIDEO_BUCKET_NAME}/${encodeURI(filename)}`
+              return `https://videos.alexbeciana.com/${encodeURI(filename)}`
             }
             return ''
           },

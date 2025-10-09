@@ -41,7 +41,7 @@ export const Video: CollectionConfig = {
             })
           )
           doc.streamUrl =
-            '/api/r2/stream/' + key.split('/').map(encodeURIComponent).join('/')
+            'https://videos.alexbeciana.com/' + key.split('/').map(encodeURIComponent).join('/')
           doc.videoUrl = doc.streamUrl
         } catch {
           doc.streamUrl = null
