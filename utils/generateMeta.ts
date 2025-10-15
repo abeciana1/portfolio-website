@@ -36,6 +36,9 @@ export const generateMeta = async (args: {
         ? [
             {
               url: ogImage,
+              width: (doc?.meta?.image as Media)?.width as number,
+              height: (doc?.meta?.image as Media)?.height as number,
+              alt: doc?.meta?.title as string
             },
           ]
         : undefined,
