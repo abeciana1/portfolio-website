@@ -59,7 +59,7 @@ type HashMap = {
   [key in CollectionSlug | string]: string
 }
 
-const nestedRouteHash: HashMap = {
+export const nestedRouteHash: HashMap = {
   'blog': 'blog',
   'projects' : 'projects',
   'base': ''
@@ -231,7 +231,7 @@ export default buildConfig({
         const routing = doc.nestedRoute === 'base' ? '/' : `/${nestedRouteHash[doc?.nestedRoute]}/`
         return `https://alexbeciana.com${routing}${doc.title === 'Home' ? '' : titleToSlug(doc?.title)}`
       },
-      generateImage: ({ doc }) => doc?.featuredImage,
+      generateImage: ({ doc }) => doc.featuredImage,
       tabbedUI: true
     }),
     // formBuilderPlugin({
