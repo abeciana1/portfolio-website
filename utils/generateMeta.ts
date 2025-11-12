@@ -26,7 +26,7 @@ export const generateMeta = async (args: {
 
   const title = doc?.meta?.title
     ? doc?.meta?.title
-    : 'Payload Website Template'
+    : 'Alex Beciana'
 
   const routing = doc.nestedRoute === 'base' ? '/' : `/${nestedRouteHash[doc?.nestedRoute as string]}/`
   return {
