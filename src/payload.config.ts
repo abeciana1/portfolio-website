@@ -172,6 +172,8 @@ export default buildConfig({
       url: process.env.TOKEN_URI! as string,
       authToken: process.env.TURSO_TOKEN,
     },
+    migrationDir: './src/migrations-sqlite',
+    push: shouldPush
   }),
   sharp,
   plugins: [
