@@ -1,28 +1,57 @@
 import { payload } from '@/src/payload'
-import { QueryClient } from '@tanstack/react-query'
+import { cache } from 'react'
 import { NavLink as NavLinkI } from '@/src/payload-types'
 import { NavLogo, NavLink, SocialLink, MobileMenu } from '@/components/_navigation'
-import { NavBarContentI } from '@/types/navigation'
+import { CMSMediaT } from '@/types/general'
 
-const fetchNavigationContent = async (queryClient: QueryClient) => {
-  return await queryClient.ensureQueryData({
-    queryKey: ['navigation'],
-    queryFn: () =>
-      payload.find({
-        collection: 'navigation-menu',
-        overrideAccess: true,
-      }),
-    staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 * 10 * 3 : 60 * 1000,
+const fetchNavigationContent = cache(async () => {
+  const result = await payload.find({
+    collection: 'navigation-menu',
+    depth: 1,
+    limit: 1,
+    pagination: false,
+    overrideAccess: true,
+    select: {
+      logo: true,
+      links: true,
+      socialLinks: true,
+    },
   })
-}
+
+  return result?.docs?.[0] ?? null
+})
 
 export type NavLinkType = Pick<NavLinkI, 'id' | 'link' | 'label'>
 
 const NavBar = async () => {
-  const queryClient = new QueryClient()
-  const navContentData = await fetchNavigationContent(queryClient)
-  const { logo, links, socialLinks } = navContentData?.docs[0] as NavBarContentI
-  const { webpUrl, alt, width, height } = logo
+  const navContentData = await fetchNavigationContent()
+
+  if (!navContentData) {
+    return null
+  }
+
+  const { logo } = navContentData
+
+  if (!logo || typeof logo === 'number') {
+    return null
+  }
+
+  const links: NavLinkType[] = navContentData.links
+    .filter((link): link is Exclude<(typeof navContentData.links)[number], number> => typeof link !== 'number')
+    .map(({ id, label, link }) => ({ id, label, link }))
+  const socialLinks: NavLinkType[] = (navContentData.socialLinks ?? [])
+    .filter(
+      (link): link is Exclude<NonNullable<typeof navContentData.socialLinks>[number], number> =>
+        typeof link !== 'number'
+    )
+    .map(({ id, label, link }) => ({ id, label, link }))
+
+  const { webpUrl, alt, width, height } = logo as CMSMediaT
+
+  if (!width || !height) {
+    return null
+  }
+
   return (
     <nav className="relative h-12 px-5 sm:px-10 my-4 flex items-center justify-center md:justify-between px-auto bg-background text-foreground dark:bg-foreground dark:text-background">
       <NavLogo src={webpUrl} alt={alt} width={width} height={height} />

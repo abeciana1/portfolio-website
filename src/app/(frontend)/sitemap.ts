@@ -14,9 +14,11 @@ const pageCollection = [
   'pages',
   'project-pages',
   'blog-pages'
-]
+] as const
 
-const collectionMapper: any = {
+type PageCollection = (typeof pageCollection)[number]
+
+const collectionMapper: Record<PageCollection, string> = {
   'pages': '',
   'project-pages': 'projects',
   'blog-pages': 'blog'
@@ -25,30 +27,37 @@ const collectionMapper: any = {
 const payloadFetcher = async (collectionSlug: CollectionSlug) => {
   const pages = await payload.find({
     collection: collectionSlug,
+    depth: 1,
     limit: 0,
-    depth: 2
+    pagination: false,
+    select: {
+      slug: true,
+      updatedAt: true,
+      meta: {
+        image: true,
+      },
+    },
   })
+
   return pages
 }
 
 const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
-
   const url: string = getServerSideURL()
+  const pageResults = await Promise.all(
+    pageCollection.map(async (collection) => ({
+      collection,
+      pages: await payloadFetcher(collection),
+    }))
+  )
 
-  const results: ResultSitemap[] = []
-
-  for (const collection of pageCollection) {
-    const pages = await payloadFetcher(collection as CollectionSlug)
-    for (const page of pages?.docs as any) {
-      results.push({
-        url: `${url}/${collection === 'pages' ? '' : collectionMapper[collection] + '/'}${page.slug === 'home' ? '' : page.slug}`,
-        lastModified: new Date(page.updatedAt),
-        images: [page?.meta?.image?.url || 'https://ab-ph-us-west.s3.us-west-1.amazonaws.com/images/profile-image.png']
-      })
-    }
-  }
-  
-  return results
+  return pageResults.flatMap(({ collection, pages }) =>
+    (pages?.docs as any[]).map((page) => ({
+      url: `${url}/${collection === 'pages' ? '' : collectionMapper[collection] + '/'}${page.slug === 'home' ? '' : page.slug}`,
+      lastModified: new Date(page.updatedAt),
+      images: [page?.meta?.image?.url || 'https://ab-ph-us-west.s3.us-west-1.amazonaws.com/images/profile-image.png']
+    }) satisfies ResultSitemap)
+  )
 }
 
 export default Sitemap

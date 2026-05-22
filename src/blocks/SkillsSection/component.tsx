@@ -8,28 +8,47 @@ import {
 import { Heading1 } from '@/components/_styled/Heading'
 import { sectionContainer } from '@/utils/helpers'
 import { payload } from '@/src/payload'
-import { QueryClient } from '@tanstack/react-query'
+import { cache } from 'react'
 import Skill from '@/components/_styled/Skill'
-import { type Skill as SkillType } from '@/src/payload-types'
 import { CMSMediaT } from '@/types/general'
 import Gradient from '@/components/_styled/Gradient'
 import Pill from '@/components/_styled/Pill'
 import CallToAction from '@/src/blocks/CallToAction/component'
 import ButtonGroup from '@/components/_styled/ButtonGroup'
 
-const fetchSkillsList = async (queryClient: QueryClient, collectionId: number) => {
-  return await queryClient.ensureQueryData({
-    queryKey: ['skills'],
-    queryFn: () =>
-      payload.findByID({
-        collection: 'skills-collection',
-        id: collectionId,
-        depth: 2,
-        overrideAccess: true,
-      }),
-    staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 * 10 * 3 : 60 * 1000,
+const fetchSkillsList = cache(async (skillIds: string) => {
+  const ids = skillIds
+    .split(',')
+    .map((id) => Number(id))
+    .filter((id) => Number.isFinite(id))
+
+  if (ids.length === 0) {
+    return []
+  }
+
+  const result = await payload.find({
+    collection: 'skills',
+    depth: 1,
+    limit: ids.length,
+    pagination: false,
+    overrideAccess: true,
+    select: {
+      title: true,
+      skillIcon: true,
+    },
+    where: {
+      id: {
+        in: ids,
+      },
+    },
   })
-}
+
+  const skillsById = new Map(result.docs.map((skill) => [skill.id, skill]))
+
+  return ids
+    .map((id) => skillsById.get(id))
+    .filter((skill): skill is (typeof result.docs)[number] => Boolean(skill))
+})
 
 const SkillsSection: React.FC<SkillsSectionProps> = async ({
   pill,
@@ -41,8 +60,11 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
   gradientSelect,
   callToAction
 }) => {
-  const queryClient = new QueryClient()
-  const skillsContent = await fetchSkillsList(queryClient, skillsCollection?.id)
+  const skillIds = (skillsCollection?.skills ?? [])
+    .map((skill) => (typeof skill === 'number' ? skill : skill?.id))
+    .filter((id): id is number => typeof id === 'number')
+  const skillsContent = await fetchSkillsList(skillIds.join(','))
+
   return (
     <>
       <section
@@ -85,9 +107,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = async ({
           </div>
         }
         <div className="z-50 relative grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6 max-w-fit mx-auto mt-6">
-          {skillsContent?.skills && skillsContent?.skills
-          .filter((skill): skill is SkillType => typeof skill !== 'number')
-          .map((skill: SkillType) => (
+          {skillsContent.map((skill) => (
             <Skill
               key={skill?.id}
               title={skill?.title}

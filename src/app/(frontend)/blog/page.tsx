@@ -6,7 +6,6 @@ import { cache } from 'react'
 import RenderBlogBlocks from '@/src/blocks/RenderBlogBlocks'
 import { notFound } from 'next/navigation';
 import { generateMeta } from '@/utils/generateMeta'
-import { QueryClient } from '@tanstack/react-query'
 import { payload } from '@/src/payload'
 
 type Args = {
@@ -17,11 +16,7 @@ type Args = {
 
 const Page = async ({ params }: Args) => {
   const { slug = 'home' } = await params
-  const queryClient = new QueryClient()
-
-  const page: RequiredDataFromCollectionSlug<'blog-pages'> | null = await queryPageBySlug({
-    slug,
-  }, queryClient)
+  const page: RequiredDataFromCollectionSlug<'blog-pages'> | null = await queryPageBySlug(slug)
 
   if (!page) {
     return notFound()
@@ -36,31 +31,24 @@ const Page = async ({ params }: Args) => {
   )
 }
 
-const queryPageBySlug = cache(async ({ slug = 'home' }: { slug: string }, queryClient: QueryClient) => {
-  const result = await queryClient?.ensureQueryData({
-    queryKey: ['page'],
-    queryFn: () => 
-      payload.find({
-        collection: 'blog-pages',
-        limit: 1,
-        pagination: false,
-        where: {
-          slug: {
-            equals: Array.isArray(slug) ? slug[0] : slug,
-          },
-        },
-      }),
-      staleTime: process.env.NODE_ENV === 'production' ? 60 * 1000 : 10 * 1000
+const queryPageBySlug = cache(async (slug = 'home') => {
+  const result = await payload.find({
+    collection: 'blog-pages',
+    limit: 1,
+    pagination: false,
+    where: {
+      slug: {
+        equals: slug,
+      },
+    },
   })
+
   return result?.docs?.[0] || null
 })
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { slug = 'home' } = await paramsPromise
-  const queryClient = new QueryClient()
-  const page = await queryPageBySlug({
-    slug,
-  }, queryClient)
+  const page = await queryPageBySlug(slug)
 
   return generateMeta({ doc: page })
 }

@@ -25,7 +25,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
   teaserContent,
 }) => {
   const { image, description } = meta
-
+  console.log({ image })
   return (
     <MorphingDialog
       transition={{
