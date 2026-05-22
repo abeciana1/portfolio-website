@@ -1,0 +1,682 @@
+[
+  {
+    "id": 4,
+    "companyLogo": [
+      {
+        "id": "683f99ff4b07b62af44164c5",
+        "cursorLabel": null,
+        "image": 88,
+        "forcedWidth": 167,
+        "forcedHeight": 37,
+        "gradient": false,
+        "gradientXFlip": false,
+        "gradientYFlip": false,
+        "gradientSelect": null,
+        "blockName": null,
+        "blockType": "image-block"
+      }
+    ],
+    "companyName": "Faraday",
+    "jobRole": "Full Stack Developer",
+    "startDate": "2021-05-01T12:00:00.000Z",
+    "currentPosition": null,
+    "endDate": "2022-03-01T12:00:00.000Z",
+    "location": "Burlington, VT",
+    "positionType": "Contract",
+    "companyDescription": "Faraday is an ethical AI prediction platform that aids brands and agencies in their efforts to incorporate AI and machine learning in their marketing strategies.",
+    "companyWebsite": "https://faraday.ai/",
+    "duties": [
+      {
+        "id": "68216153d7ceaf3df95ce625",
+        "content": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "tag": "ul",
+                "type": "list",
+                "start": 1,
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "listitem",
+                    "value": 1,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Boosted development efficiency by 20% through the creation of reusable pages and components using Next.js, TypeScript, React Testing Library, Jest, and Tailwind CSS.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 2,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Drove A/B testing strategies to increase conversion rates by 35% and enhance user engagement by 28% leveraging Google Tag Manager, Google Analytics, and Microsoft Clarity.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 3,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Engineered a lead generation tool with Twilio and Zapier, resulting in a 25% surge in leads during events.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 4,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Designed internal tools and streamlined data integration using Ruby to eliminate CSV-based processes for the TryFaraday free-trial product.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 5,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Crafted event landing pages utilizing Instapage, HTML, CSS, and JavaScript.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 6,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Practiced Test-Driven Development (TDD) with Jest, React Testing Library, and Cypress while implementing mocked HTTP requests.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 7,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Developed and managed backend services in Ruby on Rails, enhancing APIs, database performance, and business logic for scalability.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  }
+                ],
+                "listType": "bullet",
+                "direction": "ltr"
+              }
+            ],
+            "direction": "ltr"
+          }
+        },
+        "content_html": "<div class=\"payload-richtext\"><ul class=\"list-bullet\"><li\n          class=\"\"\n          style=\"\"\n          value=\"1\"\n        >Boosted development efficiency by 20% through the creation of reusable pages and components using Next.js, TypeScript, React Testing Library, Jest, and Tailwind CSS.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"2\"\n        >Drove A/B testing strategies to increase conversion rates by 35% and enhance user engagement by 28% leveraging Google Tag Manager, Google Analytics, and Microsoft Clarity.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"3\"\n        >Engineered a lead generation tool with Twilio and Zapier, resulting in a 25% surge in leads during events.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"4\"\n        >Designed internal tools and streamlined data integration using Ruby to eliminate CSV-based processes for the TryFaraday free-trial product.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"5\"\n        >Crafted event landing pages utilizing Instapage, HTML, CSS, and JavaScript.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"6\"\n        >Practiced Test-Driven Development (TDD) with Jest, React Testing Library, and Cypress while implementing mocked HTTP requests.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"7\"\n        >Developed and managed backend services in Ruby on Rails, enhancing APIs, database performance, and business logic for scalability.</li></ul></div>",
+        "blockName": null,
+        "blockType": "rich-text-block"
+      }
+    ],
+    "skills": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      58,
+      57,
+      56,
+      14,
+      12,
+      10,
+      11,
+      15,
+      20,
+      19,
+      27,
+      21,
+      22,
+      25,
+      26,
+      36,
+      35,
+      18
+    ],
+    "updatedAt": "2025-06-06T00:51:07.242Z",
+    "createdAt": "2025-05-12T02:50:58.032Z"
+  },
+  {
+    "id": 3,
+    "companyLogo": [
+      {
+        "id": "683f9a3c4b07b62af44164c6",
+        "cursorLabel": null,
+        "image": 90,
+        "forcedWidth": 100,
+        "forcedHeight": 64,
+        "gradient": false,
+        "gradientXFlip": false,
+        "gradientYFlip": false,
+        "gradientSelect": null,
+        "blockName": null,
+        "blockType": "image-block"
+      }
+    ],
+    "companyName": "Freelance (dba AB Creative)",
+    "jobRole": "Software Engineer",
+    "startDate": "2020-11-01T13:00:00.000Z",
+    "currentPosition": null,
+    "endDate": "2024-06-01T12:00:00.000Z",
+    "location": "Remote",
+    "positionType": "Contract",
+    "companyDescription": "Working with a variety of clients from mom-and-pop shops to nationally distributed vineyards to NFT startups and hedge funds, providing software and web development solutions to meet their needs.",
+    "companyWebsite": "https://alexbeciana.com/",
+    "duties": [
+      {
+        "id": "68215fe3d7ceaf3df95ce623",
+        "content": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "tag": "ul",
+                "type": "list",
+                "start": 1,
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "listitem",
+                    "value": 1,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Designing and implementing the front-end using HTML5, CSS3, GraphQL, ReactJS, NextJS, and TailwindCSS",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 2,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Preparing designs and wireframes for clients' approval before proceeding with development",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 3,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Meeting with prospective clients and relevant stakeholders to review the work and assess specifications",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 4,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Collaborating with UI/UX designers, building functional frontends according to their specifications",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  }
+                ],
+                "listType": "bullet",
+                "direction": "ltr"
+              }
+            ],
+            "direction": "ltr"
+          }
+        },
+        "content_html": "<div class=\"payload-richtext\"><ul class=\"list-bullet\"><li\n          class=\"\"\n          style=\"\"\n          value=\"1\"\n        >Designing and implementing the front-end using HTML5, CSS3, GraphQL, ReactJS, NextJS, and TailwindCSS</li><li\n          class=\"\"\n          style=\"\"\n          value=\"2\"\n        >Preparing designs and wireframes for clients' approval before proceeding with development</li><li\n          class=\"\"\n          style=\"\"\n          value=\"3\"\n        >Meeting with prospective clients and relevant stakeholders to review the work and assess specifications</li><li\n          class=\"\"\n          style=\"\"\n          value=\"4\"\n        >Collaborating with UI/UX designers, building functional frontends according to their specifications</li></ul></div>",
+        "blockName": null,
+        "blockType": "rich-text-block"
+      }
+    ],
+    "skills": [
+      1,
+      2,
+      3,
+      59,
+      10,
+      12,
+      49,
+      9,
+      7,
+      8,
+      22,
+      5,
+      6,
+      11,
+      15,
+      14,
+      19,
+      20,
+      21,
+      25,
+      26,
+      30,
+      29,
+      56,
+      43,
+      18,
+      37,
+      36,
+      35
+    ],
+    "updatedAt": "2025-06-06T00:54:07.117Z",
+    "createdAt": "2025-05-12T02:46:22.266Z"
+  },
+  {
+    "id": 2,
+    "companyLogo": [
+      {
+        "id": "683f9a504b07b62af44164c7",
+        "cursorLabel": null,
+        "image": 81,
+        "forcedWidth": 0,
+        "forcedHeight": 0,
+        "gradient": false,
+        "gradientXFlip": false,
+        "gradientYFlip": false,
+        "gradientSelect": null,
+        "blockName": null,
+        "blockType": "image-block"
+      }
+    ],
+    "companyName": "Swanson Health Products",
+    "jobRole": "Frontend Developer",
+    "startDate": "2022-03-01T12:00:00.000Z",
+    "currentPosition": true,
+    "endDate": null,
+    "location": "Remote",
+    "positionType": "Full-Time",
+    "companyDescription": "Swanson Health Products is a natural health catalog and Internet marketing company headquartered in Fargo, North Dakota.",
+    "companyWebsite": "https://www.swansonvitamins.com/",
+    "duties": [
+      {
+        "id": "68215f37d7ceaf3df95ce621",
+        "content": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "tag": "ul",
+                "type": "list",
+                "start": 1,
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "listitem",
+                    "value": 1,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Improved website accessibility by conducting ADA compliance audits and implementing enhancements in heading hierarchy, color contrast, and screen reader functionality.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 2,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Led development of major frontend projects like product detail page, shopping cart, customer checkout, and user authentication to enhance user engagement by 20% in collaboration with UX/UI teams.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 3,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Optimized React and Java-based applications, integrating GraphQL, React Testing Library, Jest, and Redux to boost application performance by 15%.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 4,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Displayed proficiency in various frontend technologies including HTML, CSS, JavaScript, SCSS, LESS, Bootstrap, JavaServer Pages (JSP), jQuery, Crownpeak CMS, and ASP.NET views.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  }
+                ],
+                "listType": "bullet",
+                "direction": "ltr"
+              }
+            ],
+            "direction": "ltr"
+          }
+        },
+        "content_html": "<div class=\"payload-richtext\"><ul class=\"list-bullet\"><li\n          class=\"\"\n          style=\"\"\n          value=\"1\"\n        >Improved website accessibility by conducting ADA compliance audits and implementing enhancements in heading hierarchy, color contrast, and screen reader functionality.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"2\"\n        >Led development of major frontend projects like product detail page, shopping cart, customer checkout, and user authentication to enhance user engagement by 20% in collaboration with UX/UI teams.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"3\"\n        >Optimized React and Java-based applications, integrating GraphQL, React Testing Library, Jest, and Redux to boost application performance by 15%.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"4\"\n        >Displayed proficiency in various frontend technologies including HTML, CSS, JavaScript, SCSS, LESS, Bootstrap, JavaServer Pages (JSP), jQuery, Crownpeak CMS, and ASP.NET views.</li></ul></div>",
+        "blockName": null,
+        "blockType": "rich-text-block"
+      }
+    ],
+    "skills": [],
+    "updatedAt": "2025-06-04T00:59:08.584Z",
+    "createdAt": "2025-05-12T02:40:20.171Z"
+  },
+  {
+    "id": 1,
+    "companyLogo": [
+      {
+        "id": "683f9a664b07b62af44164c8",
+        "cursorLabel": null,
+        "image": 89,
+        "forcedWidth": 211,
+        "forcedHeight": 36,
+        "gradient": false,
+        "gradientXFlip": false,
+        "gradientYFlip": false,
+        "gradientSelect": null,
+        "blockName": null,
+        "blockType": "image-block"
+      }
+    ],
+    "companyName": "bandNada",
+    "jobRole": "Full Stack Developer",
+    "startDate": "2023-11-01T12:00:00.000Z",
+    "currentPosition": true,
+    "endDate": null,
+    "location": "Remote",
+    "positionType": "Contract",
+    "companyDescription": "The bandNada listening app lets you listen to and discover underground music in New York City as well as tell you when and where the underground shows are happening",
+    "companyWebsite": "https://bandnada.com/",
+    "duties": [
+      {
+        "id": "68215b8cd7ceaf3df95ce61f",
+        "content": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "tag": "ul",
+                "type": "list",
+                "start": 1,
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "listitem",
+                    "value": 1,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Developed full stack applications with Ruby on Rails, React, and React Native.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 2,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Created analytics systems to analyze fan listening behaviors for artist insights.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 3,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Utilized TDD with RSpec, React Testing Library, and React Native Testing Library for code reliability.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  },
+                  {
+                    "type": "listitem",
+                    "value": 4,
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Led accessibility efforts by aligning designs with user stories and mentoring junior developers.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr"
+                  }
+                ],
+                "listType": "bullet",
+                "direction": "ltr"
+              }
+            ],
+            "direction": "ltr"
+          }
+        },
+        "content_html": "<div class=\"payload-richtext\"><ul class=\"list-bullet\"><li\n          class=\"\"\n          style=\"\"\n          value=\"1\"\n        >Developed full stack applications with Ruby on Rails, React, and React Native.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"2\"\n        >Created analytics systems to analyze fan listening behaviors for artist insights.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"3\"\n        >Utilized TDD with RSpec, React Testing Library, and React Native Testing Library for code reliability.</li><li\n          class=\"\"\n          style=\"\"\n          value=\"4\"\n        >Led accessibility efforts by aligning designs with user stories and mentoring junior developers.</li></ul></div>",
+        "blockName": null,
+        "blockType": "rich-text-block"
+      }
+    ],
+    "skills": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      10,
+      11,
+      14,
+      15,
+      19,
+      20,
+      35,
+      46,
+      37,
+      36,
+      47,
+      49
+    ],
+    "updatedAt": "2025-06-06T00:49:01.007Z",
+    "createdAt": "2025-05-12T02:24:36.857Z"
+  }
+]

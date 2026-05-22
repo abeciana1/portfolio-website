@@ -1,0 +1,765 @@
+[
+  {
+    "id": 3,
+    "nestedRoute": "projects",
+    "title": "rcli-app",
+    "slug": "rcli-app",
+    "layout": [
+      {
+        "id": "686daeebd5082375b80411cd",
+        "sectionId": "hero",
+        "title": "rcli_app",
+        "subtitle": "",
+        "description": "A turnkey Ruby gem that scaffolds a complete CLI starter project in one command.\nInstall, run rcli_app new, and get a preconfigured app with ActiveRecord, SQLite, Faker, and RSpec—no boilerplate, just code.",
+        "secondaryBlurb": null,
+        "enableInnerContainer": false,
+        "greyBackground": null,
+        "blockName": null,
+        "blockType": "hero-section",
+        "media": [
+          {
+            "id": "686daf0bd5082375b80411ce",
+            "cursorLabel": null,
+            "image": 95,
+            "forcedWidth": 400,
+            "forcedHeight": 400,
+            "gradient": false,
+            "gradientXFlip": false,
+            "gradientYFlip": false,
+            "gradientSelect": null,
+            "blockName": null,
+            "blockType": "image-block"
+          }
+        ],
+        "callToAction": []
+      },
+      {
+        "id": "686daf30d5082375b80411cf",
+        "title": "Overview",
+        "content": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "During my time at Flatiron School in the Covid-19 cohort, I noticed that many new Rubyists—including myself—spent more time wrestling with boilerplate and configuration than actually learning core language and OOP concepts. rcli_app solves this by scaffolding a fully functional command-line application in one step: install the gem, run ",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  },
+                  {
+                    "mode": "normal",
+                    "text": "rcli_app new",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 16,
+                    "version": 1
+                  },
+                  {
+                    "mode": "normal",
+                    "text": ", and you immediately get a project prewired with ActiveRecord (for ORM), SQLite (for a lightweight database), Faker (for seed data), and RSpec (for testing). The generated directory structure follows best practices, complete with example commands, a simple CLI parser, and a basic test suite—so beginners can dive straight into writing Ruby code instead of buying another round of coffee while staring at a blank terminal. Since release, rcli_app has garnered praise for its developer experience and has been downloaded over 1,800 times, helping countless bootcamp students bypass setup headaches and focus on learning.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              }
+            ],
+            "direction": "ltr"
+          }
+        },
+        "content_html": "<div class=\"payload-richtext\"><p>During my time at Flatiron School in the Covid-19 cohort, I noticed that many new Rubyists—including myself—spent more time wrestling with boilerplate and configuration than actually learning core language and OOP concepts. rcli_app solves this by scaffolding a fully functional command-line application in one step: install the gem, run <code>rcli_app new</code>, and you immediately get a project prewired with ActiveRecord (for ORM), SQLite (for a lightweight database), Faker (for seed data), and RSpec (for testing). The generated directory structure follows best practices, complete with example commands, a simple CLI parser, and a basic test suite—so beginners can dive straight into writing Ruby code instead of buying another round of coffee while staring at a blank terminal. Since release, rcli_app has garnered praise for its developer experience and has been downloaded over 1,800 times, helping countless bootcamp students bypass setup headaches and focus on learning.</p></div>",
+        "greyBackground": null,
+        "blockName": null,
+        "role": [
+          "designer",
+          "backendDEv"
+        ],
+        "blockType": "overview-section",
+        "duration": {
+          "timeLength": 1,
+          "frequency": "weeks"
+        },
+        "tags": [
+          2,
+          4,
+          3
+        ]
+      },
+      {
+        "id": "686daf74d5082375b80411d0",
+        "sectionId": "problem-section",
+        "pill": "Problems",
+        "heading": "Problem Framing",
+        "description": "Framing the problem first helps us focus on the real user need instead of jumping to solutions. Here’s the distilled who/when/where/why.",
+        "greyBackground": null,
+        "gradient": true,
+        "gradientSelect": "Variant2",
+        "blockName": null,
+        "problems": [
+          {
+            "id": "686dafbbd5082375b80411d1",
+            "frame": "who",
+            "description": "Beginner Ruby students at bootcamps or self-learners."
+          },
+          {
+            "id": "686dafcad5082375b80411d2",
+            "frame": "when",
+            "description": "When they tackle their first command-line app assignments and struggle with setup."
+          },
+          {
+            "id": "686dafd9d5082375b80411d3",
+            "frame": "where",
+            "description": "In local development environments running Ruby scripts and CLI projects."
+          },
+          {
+            "id": "686daffbd5082375b80411d5",
+            "frame": "why",
+            "description": "Existing tutorials force learners to write repetitive config and gem setup, causing frustration and blocking OOP understanding."
+          }
+        ],
+        "blockType": "problem-framing"
+      },
+      {
+        "id": "686db01cd5082375b80411d6",
+        "sectionId": "goal",
+        "title": "The Goal",
+        "subtitle": null,
+        "description": "rcli_app installs with a single command and generates a turnkey CLI scaffold prewired with ActiveRecord, SQLite, Faker, and RSpec so beginners can dive straight into Ruby and OOP concepts.",
+        "secondaryBlurb": null,
+        "blockName": null,
+        "blockType": "hero-section-no-image",
+        "callToAction": []
+      },
+      {
+        "id": "686db27cd5082375b80411df",
+        "sectionId": "insights",
+        "pill": null,
+        "heading": "Insights",
+        "description": "Three focus areas to improve rcli_app’s developer experience.",
+        "blockName": null,
+        "insights": [
+          {
+            "id": "686db2cad5082375b80411e0",
+            "title": "Command Discovery",
+            "body": "New users often couldn’t find or remember the generated subcommands (e.g. rcli_app new vs. bundle exec rcli_app new), leading them to search docs instead of diving into code."
+          },
+          {
+            "id": "686db3c5d5082375b80411e1",
+            "title": "Configuration Awareness",
+            "body": "The default SQLite setup overshadowed instructions for swapping databases or adding gems, so many users weren’t aware they could customize their stack."
+          },
+          {
+            "id": "686db3d2d5082375b80411e2",
+            "title": "Output Accessibility",
+            "body": "Colorized terminal messages used low-contrast ANSI codes, making prompts and errors hard to read for color-blind users and those on dark backgrounds."
+          }
+        ],
+        "blockType": "insights-section"
+      },
+      {
+        "id": "686db0a8d5082375b80411d7",
+        "sectionId": "outcomes",
+        "pill": "Outcomes",
+        "heading": "Outcomes",
+        "description": "The rcli_app gem launches a full starter app with one command. It’s been downloaded over 2000 times on RubyGems and garnered praise from Flatiron instructors and peers for smoothing the learning curve.",
+        "gradient": true,
+        "gradientSelect": "Variant2",
+        "blockName": null,
+        "outcomes": [
+          {
+            "id": "686db1a4d5082375b80411da",
+            "resultType": "retention",
+            "emojis": "🔁",
+            "stats": [
+              {
+                "id": "686db1c8d5082375b80411db",
+                "number": 100,
+                "numLabel": "%",
+                "label": "Cohort-mates rated install as \"very easy\" and used it in their projects"
+              }
+            ]
+          },
+          {
+            "id": "686db0edd5082375b80411d8",
+            "resultType": "adoption",
+            "emojis": "🚀",
+            "stats": [
+              {
+                "id": "686db177d5082375b80411d9",
+                "number": 2000,
+                "numLabel": "+",
+                "label": "download via RubyGems"
+              }
+            ]
+          },
+          {
+            "id": "686db219d5082375b80411dc",
+            "resultType": "efficiency",
+            "emojis": "⚡",
+            "stats": [
+              {
+                "id": "686db231d5082375b80411de",
+                "number": 80,
+                "numLabel": "%",
+                "label": "reduction in initial setup time for new users"
+              }
+            ]
+          }
+        ],
+        "blockType": "outcomes-section"
+      }
+    ],
+    "meta": {
+      "title": "rcli_app | Turnkey Ruby CLI Starter Gem",
+      "description": "rcli_app is a Ruby gem that scaffolds a command-line app with common tools (ActiveRecord, SQLite, Faker) so beginners can hit the ground running.",
+      "image": 95
+    },
+    "updatedAt": "2025-07-10T22:07:29.700Z",
+    "createdAt": "2025-07-08T23:48:33.998Z"
+  },
+  {
+    "id": 2,
+    "nestedRoute": "projects",
+    "title": "Drop The Needle",
+    "slug": "drop-the-needle",
+    "layout": [
+      {
+        "id": "683682b33bfbdcc855e6ffa4",
+        "sectionId": "dtn-hero-1",
+        "title": "Drop The Needle: Host & Share Your Power Hours",
+        "subtitle": "",
+        "description": "Keep the music flowing—curate, collaborate, and celebrate with seamless real‑time playlists for you and your community. 💿",
+        "secondaryBlurb": null,
+        "enableInnerContainer": false,
+        "greyBackground": null,
+        "blockName": null,
+        "blockType": "hero-section",
+        "media": [
+          {
+            "id": "683683493bfbdcc855e6ffa5",
+            "cursorLabel": null,
+            "image": 94,
+            "forcedWidth": 400,
+            "forcedHeight": 400,
+            "gradient": true,
+            "gradientXFlip": false,
+            "gradientYFlip": false,
+            "gradientSelect": "Variant1",
+            "blockName": null,
+            "blockType": "image-block"
+          }
+        ],
+        "callToAction": []
+      },
+      {
+        "id": "68366f593bfbdcc855e6ffa3",
+        "title": "Overview",
+        "content": {
+          "root": {
+            "type": "root",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "During the early days of the Covid-19 pandemic, I connected with professors and researchers at the Scripps Institution of Oceanography—brought together by our shared love of music and art—and we started hosting “power hours” to keep our spirits up and our playlists fresh.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [],
+                "direction": null,
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "We quickly ran into hurdles with the tool we were using, MyTube60: frequent 500 errors, broken account creation flows, and database glitches that prevented new users from joining or contributing reliably. It became clear that if we wanted a seamless, joyful experience, we needed to build something better.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [],
+                "direction": null,
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "That realization led me to create ",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  },
+                  {
+                    "mode": "normal",
+                    "text": "Drop The Needle",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 1,
+                    "version": 1
+                  },
+                  {
+                    "mode": "normal",
+                    "text": " as a 2023 gift for my friends. I envisioned an application where anyone could sign up, log in, and either host a power hour—managing their own playlist—or participate by adding their favorite tracks.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "For the initial version, I focused on core user stories: enabling secure signup and login, full CRUD (create, read, update, delete) for hosts managing power hour playlists, CRUD for participants contributing songs, and controls for publish and privacy settings so hosts could determine when and with whom a power hour went live.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "Beyond that, I sketched out a plan for a second release that would bring embedded YouTube search directly into the app and a multiplatform music player, letting users pull in tracks from Bandcamp, Soundcloud, and other services.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "By launch, Drop The Needle offered YouTube search powered by web scraping (avoiding API quotas), plus an invitation system where hosts could generate unique promo links. Guests using a link would automatically receive an invitation they could RSVP to (“Yes,” “Maybe,” or “No”), and all invitations would clean up themselves once the event date passed.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "Under the hood, I built the app with Next.js and TypeScript, managed state with Redux, styled with TailwindCSS and CSS, and structured data with GraphQL via Prisma on a PostgreSQL database. I deployed to Vercel and crafted the UI assets in Figma, Photoshop, and Illustrator.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "mode": "normal",
+                    "text": "Working on Drop The Needle sharpened my full‑stack development skills and allowed me to deliver a personalized, robust experience to a community I value—while laying the groundwork for richer features and integrations in future versions.",
+                    "type": "text",
+                    "style": "",
+                    "detail": 0,
+                    "format": 0,
+                    "version": 1
+                  }
+                ],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              },
+              {
+                "type": "paragraph",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [],
+                "direction": "ltr",
+                "textStyle": "",
+                "textFormat": 0
+              }
+            ],
+            "direction": "ltr"
+          }
+        },
+        "content_html": "<div class=\"payload-richtext\"><p>During the early days of the Covid-19 pandemic, I connected with professors and researchers at the Scripps Institution of Oceanography—brought together by our shared love of music and art—and we started hosting “power hours” to keep our spirits up and our playlists fresh.</p><p><br /></p><p>We quickly ran into hurdles with the tool we were using, MyTube60: frequent 500 errors, broken account creation flows, and database glitches that prevented new users from joining or contributing reliably. It became clear that if we wanted a seamless, joyful experience, we needed to build something better.</p><p><br /></p><p>That realization led me to create <strong>Drop The Needle</strong> as a 2023 gift for my friends. I envisioned an application where anyone could sign up, log in, and either host a power hour—managing their own playlist—or participate by adding their favorite tracks.</p><p><br /></p><p>For the initial version, I focused on core user stories: enabling secure signup and login, full CRUD (create, read, update, delete) for hosts managing power hour playlists, CRUD for participants contributing songs, and controls for publish and privacy settings so hosts could determine when and with whom a power hour went live.</p><p><br /></p><p>Beyond that, I sketched out a plan for a second release that would bring embedded YouTube search directly into the app and a multiplatform music player, letting users pull in tracks from Bandcamp, Soundcloud, and other services.</p><p><br /></p><p>By launch, Drop The Needle offered YouTube search powered by web scraping (avoiding API quotas), plus an invitation system where hosts could generate unique promo links. Guests using a link would automatically receive an invitation they could RSVP to (“Yes,” “Maybe,” or “No”), and all invitations would clean up themselves once the event date passed.</p><p><br /></p><p>Under the hood, I built the app with Next.js and TypeScript, managed state with Redux, styled with TailwindCSS and CSS, and structured data with GraphQL via Prisma on a PostgreSQL database. I deployed to Vercel and crafted the UI assets in Figma, Photoshop, and Illustrator.</p><p><br /></p><p>Working on Drop The Needle sharpened my full‑stack development skills and allowed me to deliver a personalized, robust experience to a community I value—while laying the groundwork for richer features and integrations in future versions.</p><p><br /></p></div>",
+        "greyBackground": false,
+        "blockName": null,
+        "role": [
+          "designer",
+          "frontendDev",
+          "backendDEv",
+          "integrationSpec"
+        ],
+        "blockType": "overview-section",
+        "duration": {
+          "timeLength": 3,
+          "frequency": "months"
+        },
+        "tags": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "683bca990a0ccc96b03b00e0",
+        "sectionId": "problem-section",
+        "pill": "Problems",
+        "heading": "Problem Framing",
+        "description": "Framing the problem first helps us focus on the real user need instead of jumping to solutions. Here’s the distilled who/when/where/why.",
+        "greyBackground": null,
+        "gradient": true,
+        "gradientSelect": "Variant1",
+        "blockName": null,
+        "problems": [
+          {
+            "id": "683bcaec0a0ccc96b03b00e1",
+            "frame": "who",
+            "description": "Community hosts organizing live “Power Hour” music sessions."
+          },
+          {
+            "id": "683bcb040a0ccc96b03b00e2",
+            "frame": "when",
+            "description": "While attempting to run a collaborative playlist in real time."
+          },
+          {
+            "id": "683bcb100a0ccc96b03b00e3",
+            "frame": "where",
+            "description": "On existing streaming platforms (e.g., popular music services)."
+          },
+          {
+            "id": "683bcb180a0ccc96b03b00e4",
+            "frame": "why",
+            "description": "Because those platforms don’t support instant guest contributions and often suffer reliability issues, making hosts feel frustrated and isolated."
+          }
+        ],
+        "blockType": "problem-framing"
+      },
+      {
+        "id": "683bdca7679c95342d9f8945",
+        "sectionId": "goal",
+        "title": "The Goal",
+        "subtitle": null,
+        "description": "The goal was to enable hosts to run real‑time “Power Hour” sessions without interruptions—measured by guest‑added songs showing up within two seconds 95% of the time and error rates under 2%, with a 70% adoption rate hosts.",
+        "secondaryBlurb": "I aimed for an easy-to-use interface, at least ten guest song submissions per session, and 60% increase in the host rotation.",
+        "blockName": null,
+        "blockType": "hero-section-no-image",
+        "callToAction": []
+      },
+      {
+        "id": "683c5f2bed3f784e26e9a9e1",
+        "sectionId": "research-section",
+        "pill": "User Research",
+        "heading": "User Research",
+        "description": "Before diving into the numbers, here’s why user research matters: it grounds our design decisions in real feedback and ensures we’re building features that truly address host and guest needs.",
+        "gradient": true,
+        "gradientSelect": "Variant1",
+        "blockName": null,
+        "research": [
+          {
+            "id": "683c5f43ed3f784e26e9a9e2",
+            "researchType": "survey",
+            "numberMetric": 30
+          },
+          {
+            "id": "683c5f54ed3f784e26e9a9e3",
+            "researchType": "interviews",
+            "numberMetric": 12
+          },
+          {
+            "id": "683c5f5ded3f784e26e9a9e4",
+            "researchType": "usability",
+            "numberMetric": 5
+          },
+          {
+            "id": "683c5f6bed3f784e26e9a9e5",
+            "researchType": "accessibility",
+            "numberMetric": 4
+          }
+        ],
+        "blockType": "user-research"
+      },
+      {
+        "id": "683cbf12dbbdbf79752e2f52",
+        "sectionId": "insights",
+        "pill": null,
+        "heading": "Insights",
+        "description": "Our combined surveys, interviews, usability tests, and WCAG 2.1 audits revealed three focus areas to improve both usability and accessibility.",
+        "blockName": null,
+        "insights": [
+          {
+            "id": "683cbf2fdbbdbf79752e2f53",
+            "title": "Mobile Navigation Friction",
+            "body": "Users often can’t find filters or sorting options on smaller screens, forcing extra taps and slowing them down"
+          },
+          {
+            "id": "683cbf59dbbdbf79752e2f54",
+            "title": "Need for Immediate Feedback",
+            "body": "Without a quick success message or animation, participants aren’t sure their actions (like form submissions) went through."
+          },
+          {
+            "id": "683cbf64dbbdbf79752e2f55",
+            "title": "Contrast Gaps",
+            "body": "WCAG 2.1 audits showed several text elements fall below the 4.5:1 contrast threshold in both light and dark modes, making content hard to read for low‑vision users."
+          }
+        ],
+        "blockType": "insights-section"
+      },
+      {
+        "id": "683cf85612a6f104f1ee72a6",
+        "sectionId": "outcomes",
+        "pill": "Outcomes",
+        "heading": "Outcomes",
+        "description": "After rolling out these updates, we measured impact over six weeks using retention, feature adoption, and task efficiency metrics.",
+        "gradient": true,
+        "gradientSelect": "Variant1",
+        "blockName": null,
+        "outcomes": [
+          {
+            "id": "683cf86612a6f104f1ee72a7",
+            "resultType": "retention",
+            "emojis": "⬆️",
+            "stats": [
+              {
+                "id": "683cf88f12a6f104f1ee72a8",
+                "number": 73,
+                "numLabel": "%",
+                "label": "Week‑over‑week return rate rose from 62 % to 73 %."
+              }
+            ]
+          },
+          {
+            "id": "683cf8d912a6f104f1ee72a9",
+            "resultType": "adoption",
+            "emojis": "👨‍💻👩‍💻",
+            "stats": [
+              {
+                "id": "683cf8e312a6f104f1ee72aa",
+                "number": 87,
+                "numLabel": "%",
+                "label": "Engagement with the updated “add to list” flow climbed from 45 % to 77 %."
+              }
+            ]
+          },
+          {
+            "id": "683cf94d12a6f104f1ee72ab",
+            "resultType": "efficiency",
+            "emojis": "🎵🤘",
+            "stats": [
+              {
+                "id": "683cf95012a6f104f1ee72ac",
+                "number": -67,
+                "numLabel": "%",
+                "label": "Average time to complete curation fell from 10 hours to 3.3 hours."
+              }
+            ]
+          }
+        ],
+        "blockType": "outcomes-section"
+      }
+    ],
+    "meta": {
+      "title": "Drop The Needle | Real‑Time Music Power Hour Sharing App",
+      "description": "Drop The Needle: Host & share live “Power Hour” playlists with real‑time collaboration on Next.js & GraphQL.",
+      "image": 94
+    },
+    "updatedAt": "2025-06-04T01:08:04.733Z",
+    "createdAt": "2025-05-28T01:58:31.130Z"
+  },
+  {
+    "id": 1,
+    "nestedRoute": "projects",
+    "title": "Home",
+    "slug": "home",
+    "layout": [
+      {
+        "id": "682aa2be2f811d7fe25494a6",
+        "sectionId": "projects-home-hero",
+        "title": "Projects and Case Studies",
+        "subtitle": null,
+        "description": "Dive into my projects! Designed and developed to be accessible and built across technologies and tools in my tech stack skills. 💻",
+        "secondaryBlurb": null,
+        "blockName": null,
+        "blockType": "hero-section-no-image",
+        "callToAction": []
+      },
+      {
+        "id": "682d301465a59b67807a9c2d",
+        "gradient": true,
+        "gradientSelect": "Variant4",
+        "blockName": null,
+        "blockType": "project-grid-block",
+        "projects": [
+          1,
+          2
+        ]
+      }
+    ],
+    "meta": {
+      "title": "Alex Beciana | Projects & Case Studies",
+      "description": "Showcasing Alex Beciana’s projects: websites, product design, and apps and case studies built with Next.js, React, and Ruby on Rails.",
+      "image": null
+    },
+    "updatedAt": "2025-07-09T02:29:08.400Z",
+    "createdAt": "2025-05-18T03:42:40.683Z"
+  }
+]

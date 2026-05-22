@@ -1,0 +1,44 @@
+[
+  {
+    "id": 8,
+    "label": "Artificial Intelligence",
+    "updatedAt": "2025-08-31T04:28:33.916Z",
+    "createdAt": "2025-08-31T04:28:33.914Z"
+  },
+  {
+    "id": 6,
+    "label": "eCommerce",
+    "updatedAt": "2025-05-15T03:01:09.718Z",
+    "createdAt": "2025-05-15T03:01:09.718Z"
+  },
+  {
+    "id": 5,
+    "label": "Design",
+    "updatedAt": "2025-05-15T02:59:51.104Z",
+    "createdAt": "2025-05-15T02:59:51.104Z"
+  },
+  {
+    "id": 4,
+    "label": "Education",
+    "updatedAt": "2025-05-15T02:43:03.317Z",
+    "createdAt": "2025-05-15T02:43:03.317Z"
+  },
+  {
+    "id": 3,
+    "label": "Open Source",
+    "updatedAt": "2025-05-15T02:42:55.516Z",
+    "createdAt": "2025-05-15T02:42:55.516Z"
+  },
+  {
+    "id": 2,
+    "label": "Community",
+    "updatedAt": "2025-05-15T02:24:12.764Z",
+    "createdAt": "2025-05-15T02:24:12.764Z"
+  },
+  {
+    "id": 1,
+    "label": "Music",
+    "updatedAt": "2025-05-15T02:23:52.946Z",
+    "createdAt": "2025-05-15T02:23:52.943Z"
+  }
+]

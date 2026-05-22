@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "updatedAt": "2025-10-02T16:56:06.720Z",
+    "createdAt": "2025-02-09T05:15:24.213Z",
+    "enableAPIKey": null,
+    "apiKey": null,
+    "email": "alexander.beciana@gmail.com",
+    "sessions": [
+      {
+        "id": "43fab130-bfc9-47dc-904f-81ecd68489ee",
+        "createdAt": "2025-10-02T16:56:06.720Z",
+        "expiresAt": "2025-10-02T18:56:06.720Z"
+      }
+    ]
+  }
+]

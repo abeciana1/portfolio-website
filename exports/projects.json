@@ -1,0 +1,93 @@
+[
+  {
+    "id": 3,
+    "image": 96,
+    "title": "The Comedy of Beers (Part 1)",
+    "slug": "the-comedy-of-beers-part-1",
+    "excerpt": "The first part of a larger e-commerce project. The Comedy of Beers is a Shakespeare-influenced craft brewery.",
+    "status": "completed",
+    "links": [
+      {
+        "id": "682557c29150cb4c69cbfbf8",
+        "label": "Behance",
+        "link": "https://www.behance.net/gallery/188361555/A-Comedy-Of-Beers"
+      }
+    ],
+    "tech": [],
+    "tags": [],
+    "updatedAt": "2025-05-28T01:56:08.940Z",
+    "createdAt": "2025-05-15T03:01:29.192Z"
+  },
+  {
+    "id": 2,
+    "image": 95,
+    "title": "rcli_app",
+    "slug": "rcli-app",
+    "excerpt": "A gem to help beginner Rubyists get started quickly with their own Ruby command-line application.",
+    "status": "completed",
+    "links": [
+      {
+        "id": "682555059150cb4c69cbfbf2",
+        "label": "Ruby Gems",
+        "link": "https://rubygems.org/gems/rcli_app"
+      },
+      {
+        "id": "682555159150cb4c69cbfbf3",
+        "label": "GitHub",
+        "link": "https://github.com/abeciana1/rcli_app"
+      }
+    ],
+    "tech": [
+      2
+    ],
+    "tags": [
+      3,
+      4,
+      2
+    ],
+    "updatedAt": "2025-07-09T02:30:13.128Z",
+    "createdAt": "2025-05-15T02:45:41.277Z"
+  },
+  {
+    "id": 1,
+    "image": 94,
+    "title": "Drop The Needle",
+    "slug": "drop-the-needle",
+    "excerpt": "A collaborative playlist creator for a music club that I'm involved with alongside a few scientists and professors at the Scripps Institute in San Diego, CA.",
+    "status": "completed",
+    "links": [
+      {
+        "id": "68254f8c9150cb4c69cbfbf1",
+        "label": "GitHub",
+        "link": "https://github.com/abeciana1/drop-the-needle"
+      }
+    ],
+    "tech": [
+      2,
+      5,
+      6,
+      3,
+      19,
+      29,
+      11,
+      12,
+      9,
+      14,
+      15,
+      16,
+      44,
+      35,
+      37,
+      36,
+      21,
+      22,
+      20
+    ],
+    "tags": [
+      2,
+      1
+    ],
+    "updatedAt": "2025-06-04T01:06:26.957Z",
+    "createdAt": "2025-05-15T02:20:24.503Z"
+  }
+]

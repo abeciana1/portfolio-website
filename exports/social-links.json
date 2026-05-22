@@ -1,0 +1,23 @@
+[
+  {
+    "id": 3,
+    "label": "Behance",
+    "link": "https://www.behance.net/alexbeciana",
+    "updatedAt": "2025-02-17T06:15:34.710Z",
+    "createdAt": "2025-02-17T06:15:34.710Z"
+  },
+  {
+    "id": 2,
+    "label": "LinkedIn",
+    "link": "http://linkedin.com/in/alexbeciana/",
+    "updatedAt": "2025-03-25T04:21:12.132Z",
+    "createdAt": "2025-02-17T06:14:51.153Z"
+  },
+  {
+    "id": 1,
+    "label": "GitHub",
+    "link": "http://github.com/abeciana1",
+    "updatedAt": "2025-02-17T06:14:31.722Z",
+    "createdAt": "2025-02-17T06:14:31.722Z"
+  }
+]

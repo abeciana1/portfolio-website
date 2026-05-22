@@ -1,0 +1,785 @@
+[
+  {
+    "id": 4,
+    "nestedRoute": "blog",
+    "title": "Testing blog post 2",
+    "slug": "testing-blog-post-2",
+    "isBlogPost": true,
+    "publishedDate": "2025-09-16T12:00:00.000Z",
+    "category": 1,
+    "tags": [
+      1
+    ],
+    "teaserContent": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Testing blog post 2",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Testing blog post 2",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Testing blog post 2",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Testing blog post 2",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Testing blog post 2",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Testing blog post 2",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          }
+        ],
+        "direction": "ltr"
+      }
+    },
+    "content_html": "<div class=\"payload-richtext\"><p>Testing blog post 2</p><p>Testing blog post 2</p><p>Testing blog post 2</p><p>Testing blog post 2</p><p>Testing blog post 2</p><p>Testing blog post 2</p></div>",
+    "layout": [
+      {
+        "id": "68c99c9f97ebb52d3f7cc00e",
+        "blockName": null,
+        "blockType": "blog-body",
+        "embedBlocks": [
+          {
+            "id": "68c99ca397ebb52d3f7cc00f",
+            "content": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Testing blog post 2",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Testing blog post 2",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Testing blog post 2",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Testing blog post 2",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Testing blog post 2",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Testing blog post 2",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  }
+                ],
+                "direction": "ltr"
+              }
+            },
+            "content_html": "<div class=\"payload-richtext\"><p>Testing blog post 2</p><p>Testing blog post 2</p><p>Testing blog post 2</p><p>Testing blog post 2</p><p>Testing blog post 2</p><p>Testing blog post 2</p></div>",
+            "blockName": null,
+            "blockType": "rich-text-block"
+          }
+        ]
+      }
+    ],
+    "meta": {
+      "title": null,
+      "description": null,
+      "image": null
+    },
+    "updatedAt": "2025-09-16T17:21:42.680Z",
+    "createdAt": "2025-09-16T17:20:50.938Z"
+  },
+  {
+    "id": 2,
+    "nestedRoute": "blog",
+    "title": "How do LLMs work?",
+    "slug": "how-do-llms-work",
+    "isBlogPost": true,
+    "publishedDate": "2025-08-28T12:00:00.000Z",
+    "category": 1,
+    "tags": [
+      1,
+      2
+    ],
+    "teaserContent": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Imagine you have an infinite number of monkeys randomly hitting keys on typewriters. The classic ",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              },
+              {
+                "mode": "normal",
+                "text": "Infinite Monkey Theorem",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 1,
+                "version": 1
+              },
+              {
+                "mode": "normal",
+                "text": " tells us that if these monkeys type forever, one of them by chance could write the complete works of William Shakespeare. This is based on random typing. No learning, no memory, and no context. ",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [],
+            "direction": null,
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Now, imagine if these monkeys learned from their mistakes and they learned, remembered, and adapted as time went on until they could type without errors or very few. Receiving feedback on which letters, and eventually words, were correct or wrong trains them to be autonomous and self-correcting.",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          }
+        ],
+        "direction": "ltr"
+      }
+    },
+    "content_html": "<div class=\"payload-richtext\"><p>Imagine you have an infinite number of monkeys randomly hitting keys on typewriters. The classic <strong>Infinite Monkey Theorem</strong> tells us that if these monkeys type forever, one of them by chance could write the complete works of William Shakespeare. This is based on random typing. No learning, no memory, and no context. </p><p><br /></p><p>Now, imagine if these monkeys learned from their mistakes and they learned, remembered, and adapted as time went on until they could type without errors or very few. Receiving feedback on which letters, and eventually words, were correct or wrong trains them to be autonomous and self-correcting.</p></div>",
+    "layout": [
+      {
+        "id": "68afcde774548abae714464d",
+        "cursorLabel": null,
+        "title": "How do LLMs work?",
+        "excerpt": "The Infinite Monkey Theorem shows what randomness can achieve, but AI like ChatGPT goes further, it learns, adapts, and improves instead of relying on chance.",
+        "featuredImage": 111,
+        "category": 1,
+        "blockName": null,
+        "blockType": "blog-header",
+        "tags": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": "68b4aaddd318bc6205d61948",
+        "blockName": null,
+        "blockType": "blog-body",
+        "embedBlocks": [
+          {
+            "id": "68d4aa7896d89e8fd91d4746",
+            "video": 7,
+            "forcedWidth": 600,
+            "forcedHeight": 300,
+            "gradient": true,
+            "gradientSelect": "Variant1",
+            "blockName": null,
+            "blockType": "video-block"
+          },
+          {
+            "id": "68b4ab7ed318bc6205d6194a",
+            "content": {
+              "root": {
+                "type": "root",
+                "format": "",
+                "indent": 0,
+                "version": 1,
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Imagine you have an infinite number of monkeys randomly hitting keys on typewriters. The classic ",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "Infinite Monkey Theorem",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 1,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": " tells us that if these monkeys type forever, one of them by chance could write the complete works of William Shakespeare. This is based on random typing. No learning, no memory, and no context.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Now, imagine if these monkeys learned from their mistakes and they learned, remembered, and adapted as time went on until they could type without errors or very few. Receiving feedback on which letters, and eventually words, were correct or wrong trains them to be autonomous and self-correcting.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "For instance, let’s say we were training these monkeys first to spell human words in the English language. When starting with the word “the”, they might go through random assortments of the 26 English language letters in each position of the word.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "Breaking this down mathematically. We have 26 letters in the English language. (Look Mom, I know my ABCs!) The word “the” has a length of 3 letters. So 26^3 is 17,576. That means the probability of getting “the” ",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": "by chance",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 1,
+                        "version": 1
+                      },
+                      {
+                        "mode": "normal",
+                        "text": " is less than 1%. Pretty bad chances.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "center",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "P(\"the\")= 1/17,576 ≈ 0.0057%",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "However, the chances improve as they learn just like the AI learns what the appropriate next word should be and the most probable choice should be. So if the monkeys typed “tqx” they would learn there was a mistake. After feedback and learning loops, they would start to understand the correct sequences and rules of creating English words.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "This is very similar to how large language models (LLMs) like ChatGPT learn. LLMs are trained on incredible amounts of data videos, images, and text from the internet. However, when put into practice, they start with random guesses, make predictions, and receive feedback on errors, self-correct, and fine-tune their billions of weights over and over to get closer to the correct predictions. In LLMs, the ‘letters’ are tokens, the ‘positions’ are context slots, and the ‘probability dials’ are billions of weights.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  },
+                  {
+                    "type": "paragraph",
+                    "format": "",
+                    "indent": 0,
+                    "version": 1,
+                    "children": [
+                      {
+                        "mode": "normal",
+                        "text": "In the end, the “infinite monkeys” idea is a fun way of imagining what is happening under the hood of an AI like ChatGPT. The big difference is that LLMs don’t waste time on pure chance. They learn, adapt, and get better at making predictions each time. Hence, why sometimes AI gives you a spot-on answer and other times is completely wrong, needs fine-tuning, or just out of context.",
+                        "type": "text",
+                        "style": "",
+                        "detail": 0,
+                        "format": 0,
+                        "version": 1
+                      }
+                    ],
+                    "direction": "ltr",
+                    "textStyle": "",
+                    "textFormat": 0
+                  }
+                ],
+                "direction": "ltr"
+              }
+            },
+            "content_html": "<div class=\"payload-richtext\"><p>Imagine you have an infinite number of monkeys randomly hitting keys on typewriters. The classic <strong>Infinite Monkey Theorem</strong> tells us that if these monkeys type forever, one of them by chance could write the complete works of William Shakespeare. This is based on random typing. No learning, no memory, and no context.</p><p><br /></p><p>Now, imagine if these monkeys learned from their mistakes and they learned, remembered, and adapted as time went on until they could type without errors or very few. Receiving feedback on which letters, and eventually words, were correct or wrong trains them to be autonomous and self-correcting.</p><p><br /></p><p>For instance, let’s say we were training these monkeys first to spell human words in the English language. When starting with the word “the”, they might go through random assortments of the 26 English language letters in each position of the word.</p><p><br /></p><p>Breaking this down mathematically. We have 26 letters in the English language. (Look Mom, I know my ABCs!) The word “the” has a length of 3 letters. So 26^3 is 17,576. That means the probability of getting “the” <strong>by chance</strong> is less than 1%. Pretty bad chances.</p><p><br /></p><p style=\"text-align: center;\">P(\"the\")= 1/17,576 ≈ 0.0057%</p><p><br /></p><p>However, the chances improve as they learn just like the AI learns what the appropriate next word should be and the most probable choice should be. So if the monkeys typed “tqx” they would learn there was a mistake. After feedback and learning loops, they would start to understand the correct sequences and rules of creating English words.</p><p><br /></p><p>This is very similar to how large language models (LLMs) like ChatGPT learn. LLMs are trained on incredible amounts of data videos, images, and text from the internet. However, when put into practice, they start with random guesses, make predictions, and receive feedback on errors, self-correct, and fine-tune their billions of weights over and over to get closer to the correct predictions. In LLMs, the ‘letters’ are tokens, the ‘positions’ are context slots, and the ‘probability dials’ are billions of weights.</p><p><br /></p><p>In the end, the “infinite monkeys” idea is a fun way of imagining what is happening under the hood of an AI like ChatGPT. The big difference is that LLMs don’t waste time on pure chance. They learn, adapt, and get better at making predictions each time. Hence, why sometimes AI gives you a spot-on answer and other times is completely wrong, needs fine-tuning, or just out of context.</p></div>",
+            "blockName": null,
+            "blockType": "rich-text-block"
+          },
+          {
+            "id": "68c8d50847115393127d1616",
+            "code": "import { type Block } from \"payload\"\n\n// * blocks\nimport { RichTextBlock } from '@/src/blocks/RichTextEditor/config'\nimport { BlogImage as BlogImageBlock } from '@/src/blocks/BlogImage/config'\nimport { CodeBlock } from '@/src/blocks/Code/config'\n\nconst allowableBlocks = [\n  RichTextBlock,\n  BlogImageBlock,\n  CodeBlock\n]\n\nexport const BlogBody: Block = {\n  slug: 'blog-body',\n  interfaceName: 'BlogBodyBlock',\n  fields: [\n    {\n      name: 'embedBlocks',\n      label: 'Body',\n      type: 'blocks',\n      blocks: allowableBlocks\n    }\n  ]\n}",
+            "language": "javascript",
+            "wrap": null,
+            "blockName": null,
+            "blockType": "code"
+          },
+          {
+            "id": "68c99a05d0fc4d0aa49bf771",
+            "cursorLabel": "image",
+            "image": 111,
+            "caption": "testing images",
+            "blockName": null,
+            "blockType": "blog-image"
+          },
+          {
+            "id": "68deaec2743e9017fed12d9e",
+            "code": "Air2Go — A subscription service that delivers bottled fresh air from exotic locations (Swiss Alps, Hawaiian beaches, Amazon rainforest) straight to your doorstep. Customers can crack open a bottle and “experience” the air of faraway places. Pricing tiers range from $49/month for “Basic Breeze” to $299/month for “Luxury Lungs.”",
+            "language": "markdown",
+            "wrap": null,
+            "blockName": null,
+            "blockType": "code"
+          }
+        ]
+      },
+      {
+        "id": "68c99a62d0fc4d0aa49bf772",
+        "cursorLabel": "image",
+        "image": 112,
+        "caption": "testing again",
+        "blockName": null,
+        "blockType": "blog-image"
+      }
+    ],
+    "meta": {
+      "title": "Alex Beciana | How do LLMs work?",
+      "description": "The Infinite Monkey Theorem shows what randomness can achieve, but AI like ChatGPT goes further, it learns, adapts, and improves instead of relying on chance.",
+      "image": 111
+    },
+    "updatedAt": "2025-10-02T16:58:25.066Z",
+    "createdAt": "2025-08-28T02:42:48.148Z"
+  },
+  {
+    "id": 1,
+    "nestedRoute": "blog",
+    "title": "Home",
+    "slug": "home",
+    "isBlogPost": null,
+    "publishedDate": null,
+    "category": null,
+    "tags": [],
+    "teaserContent": null,
+    "content_html": "",
+    "layout": [
+      {
+        "id": "68b73751396a14984c8be567",
+        "enableSectionContent": null,
+        "postSelection": "all",
+        "postLimit": null,
+        "categoryFilter": null,
+        "blockName": null,
+        "blockType": "blog-post-section",
+        "sectionGroup": {
+          "sectionId": null,
+          "pill": null,
+          "heading": null,
+          "description": null,
+          "callToAction": []
+        },
+        "posts": []
+      }
+    ],
+    "meta": {
+      "title": null,
+      "description": null,
+      "image": null
+    },
+    "updatedAt": "2025-09-02T18:28:38.080Z",
+    "createdAt": "2025-08-28T02:41:23.381Z"
+  }
+]

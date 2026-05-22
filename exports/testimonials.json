@@ -1,0 +1,188 @@
+[
+  {
+    "id": 3,
+    "name": "Tashawn Williams",
+    "position": "Sr. Manager, Software Engineering Instruction",
+    "company": "Flatiron School",
+    "headshot": 93,
+    "callout": "...valuable addition to any team.",
+    "content": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "I’ve been a Lead Instructor at Flatiron School for close to 3 years and have graduated over 1500 students. I don’t often write recommendations but I do when I notice something special. There are 3 things I look for in a student to gauge their likelihood to be highly successful engineers: resiliency, ability to receive feedback, and impact on others. Alex exhibits all three.",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [],
+            "direction": null,
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "There was a moment where I’ve had to give constructive feedback to Alex about his code and performance on a code challenge. Most students in this situation respond with resentment or denial. Alex, on the other hand, gracefully accepted the feedback. He spoke with me about how he could improve and what suggestions I had. Not only did Alex execute on this feedback, improving in every area, he became one of the strongest students I’ve ever had. In fact, he’s the first student of mine to build his own Ruby gem to help initialize new CLI projects, eliminating a prominent pain point for his classmates. Additionally, Alex would offer his time to help his fellow classmates who were struggling with understanding and implementing concepts. The ability to acknowledge areas of opportunities and the resiliency to turn them into strengths are integral to success in any career but particularly significant for a Software Engineer.",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [],
+            "direction": null,
+            "textStyle": "",
+            "textFormat": 0
+          },
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "Alex has proven that he is self motivated and committed to learning and growing as a developer. I firmly believe he will be a valuable addition to any team. ",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          }
+        ],
+        "direction": "ltr"
+      }
+    },
+    "content_html": "<div class=\"payload-richtext\"><p>I’ve been a Lead Instructor at Flatiron School for close to 3 years and have graduated over 1500 students. I don’t often write recommendations but I do when I notice something special. There are 3 things I look for in a student to gauge their likelihood to be highly successful engineers: resiliency, ability to receive feedback, and impact on others. Alex exhibits all three.</p><p><br /></p><p>There was a moment where I’ve had to give constructive feedback to Alex about his code and performance on a code challenge. Most students in this situation respond with resentment or denial. Alex, on the other hand, gracefully accepted the feedback. He spoke with me about how he could improve and what suggestions I had. Not only did Alex execute on this feedback, improving in every area, he became one of the strongest students I’ve ever had. In fact, he’s the first student of mine to build his own Ruby gem to help initialize new CLI projects, eliminating a prominent pain point for his classmates. Additionally, Alex would offer his time to help his fellow classmates who were struggling with understanding and implementing concepts. The ability to acknowledge areas of opportunities and the resiliency to turn them into strengths are integral to success in any career but particularly significant for a Software Engineer.</p><p><br /></p><p>Alex has proven that he is self motivated and committed to learning and growing as a developer. I firmly believe he will be a valuable addition to any team. </p></div>",
+    "updatedAt": "2025-04-27T05:35:16.971Z",
+    "createdAt": "2025-04-27T05:35:16.970Z"
+  },
+  {
+    "id": 2,
+    "name": "Andrew Becker",
+    "position": "Co-founder",
+    "company": "Montpelier Vineyards",
+    "headshot": 92,
+    "callout": "Alex's expertise and creative approach brought our vision to life...",
+    "content": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "We had the pleasure of working with Alex for our web development needs at Montpelier Vineyards, and the experience was truly outstanding. Alex's expertise and creative approach brought our vision to life, creating a website that beautifully showcases our vineyard's essence. What truly set Alex apart was the impeccable communication throughout the entire process—prompt responses, clear explanations, and a genuine commitment to understanding our brand. Montpelier Vineyards highly recommends Alex for exceptional web development services and a seamless collaboration experience.",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          }
+        ],
+        "direction": "ltr"
+      }
+    },
+    "content_html": "<div class=\"payload-richtext\"><p>We had the pleasure of working with Alex for our web development needs at Montpelier Vineyards, and the experience was truly outstanding. Alex's expertise and creative approach brought our vision to life, creating a website that beautifully showcases our vineyard's essence. What truly set Alex apart was the impeccable communication throughout the entire process—prompt responses, clear explanations, and a genuine commitment to understanding our brand. Montpelier Vineyards highly recommends Alex for exceptional web development services and a seamless collaboration experience.</p></div>",
+    "updatedAt": "2025-05-10T14:55:37.789Z",
+    "createdAt": "2025-04-27T05:33:16.254Z"
+  },
+  {
+    "id": 1,
+    "name": "Russell Seyfert",
+    "position": "Former Colleague",
+    "company": "Sweet Static",
+    "headshot": 91,
+    "callout": "...uncanny talent for all things tech, marketing, event planning, and culture.",
+    "content": {
+      "root": {
+        "type": "root",
+        "format": "",
+        "indent": 0,
+        "version": 1,
+        "children": [
+          {
+            "type": "paragraph",
+            "format": "",
+            "indent": 0,
+            "version": 1,
+            "children": [
+              {
+                "mode": "normal",
+                "text": "I've had the absolute pleasure of working with Alex in a variety of scenarios for almost a decade now. He hired me as a staff writer for Sweet Static, his beloved online music magazine that he built from the ground up and turned into a revenue-generating operation in his early twenties (!). Even at that tender age Alex was already a sharp businessperson with an uncanny talent for all things tech, marketing, event planning, and culture. Alex is a fantastic collaborator, an absolute pleasure to work with, and he’s brought his excellent taste and eye for design to his work as a developer. You’d be extremely lucky to have Alex on your team in any scenario. He’s a bright, warm, enterprising person who helps others do their best work, while also always holding himself to the highest standard. The man knows how to get things done.",
+                "type": "text",
+                "style": "",
+                "detail": 0,
+                "format": 0,
+                "version": 1
+              }
+            ],
+            "direction": "ltr",
+            "textStyle": "",
+            "textFormat": 0
+          }
+        ],
+        "direction": "ltr"
+      }
+    },
+    "content_html": "<div class=\"payload-richtext\"><p>I've had the absolute pleasure of working with Alex in a variety of scenarios for almost a decade now. He hired me as a staff writer for Sweet Static, his beloved online music magazine that he built from the ground up and turned into a revenue-generating operation in his early twenties (!). Even at that tender age Alex was already a sharp businessperson with an uncanny talent for all things tech, marketing, event planning, and culture. Alex is a fantastic collaborator, an absolute pleasure to work with, and he’s brought his excellent taste and eye for design to his work as a developer. You’d be extremely lucky to have Alex on your team in any scenario. He’s a bright, warm, enterprising person who helps others do their best work, while also always holding himself to the highest standard. The man knows how to get things done.</p></div>",
+    "updatedAt": "2025-05-10T16:47:28.550Z",
+    "createdAt": "2025-04-27T05:26:54.663Z"
+  }
+]
