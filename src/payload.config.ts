@@ -160,13 +160,6 @@ export default buildConfig({
   },
   serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL as string,
   secret: process.env.NEXT_PUBLIC_PAYLOAD_SECRET as string || process.env.PAYLOAD_SECRET as string,
-  // db: postgresAdapter({
-  //   pool: {
-  //     connectionString: process.env.DATABASE_URI! as string,
-  //   },
-  //   push: shouldPush,
-  //   migrationDir: 'src/migrations'
-  // }),
   db: sqliteAdapter({
     client: {
       url: process.env.TOKEN_URI! as string,
