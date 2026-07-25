@@ -9,7 +9,6 @@ import sharp from 'sharp'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import { titleToSlug } from '@/utils/helpers'
-import { postgresAdapter } from '@payloadcms/db-postgres';
 import { sqliteAdapter } from '@payloadcms/db-sqlite';
 
 // * collections
@@ -160,13 +159,6 @@ export default buildConfig({
   },
   serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL as string,
   secret: process.env.NEXT_PUBLIC_PAYLOAD_SECRET as string || process.env.PAYLOAD_SECRET as string,
-  // db: postgresAdapter({
-  //   pool: {
-  //     connectionString: process.env.DATABASE_URI! as string,
-  //   },
-  //   push: shouldPush,
-  //   migrationDir: 'src/migrations'
-  // }),
   db: sqliteAdapter({
     client: {
       url: process.env.TOKEN_URI! as string,
