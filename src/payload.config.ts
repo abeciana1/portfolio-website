@@ -10,6 +10,8 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { seoPlugin } from '@payloadcms/plugin-seo';
 import { titleToSlug } from '@/utils/helpers'
 import { sqliteAdapter } from '@payloadcms/db-sqlite';
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import nodemailer from 'nodemailer'
 
 // * collections
 import { Users } from './collections/Users'
@@ -102,6 +104,17 @@ export default buildConfig({
       ],
     }
   },
+  email: nodemailerAdapter({
+    defaultFromAddress: "alex.beciana@gmail.com",
+    defaultFromName: "Alex Beciana",
+    transport: nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_ADDR,
+        pass: process.env.EMAIL_PASS,
+      }
+    })
+  }),
   blocks: [
     HeroSectionBlock,
     CallToActionBlock,
